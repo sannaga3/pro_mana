@@ -1,24 +1,49 @@
-# README
+#README
+---
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+###開発言語
+---
 
-Things you may want to cover:
+Ruby2.6.5
+Rails5.2.5
+PostgreSQL13.2
 
-* Ruby version
 
-* System dependencies
+###就業Termの技術
 
-* Configuration
+---
+* devise
+* フォロー機能
 
-* Database creation
+###カリキュラム外の技術
+---
+* ransack
 
-* Database initialization
+###実行手順
+---
 
-* How to run the test suite
+```
+$ git clone
+$ cd pro_mana
+$ bundle install
+$ rails db:create && rails db:migrate
+$ rails s
+```
+###カタログ設計
+---
+https://docs.google.com/spreadsheets/d/1b-93eLD9PEazR-0uknWynZlzxDp9Q4nkhaAt-NXBC9M/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
+###テーブル定義所
+---
+https://docs.google.com/spreadsheets/d/1b-93eLD9PEazR-0uknWynZlzxDp9Q4nkhaAt-NXBC9M/edit#gid=1639636113
 
-* Deployment instructions
+###ワイヤーフレーム
+---
+https://docs.google.com/spreadsheets/d/1b-93eLD9PEazR-0uknWynZlzxDp9Q4nkhaAt-NXBC9M/edit#gid=208904404
 
-* ...
+###ER図
+---
+
+
+###画面遷移図
+---
