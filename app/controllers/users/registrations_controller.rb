@@ -9,10 +9,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    # user_path(current_user.id)
-    foods_path
+    edit_user_path(id: current_user.id)
   end
 
+  def after_sign_in_path_for(resource)
+    user_path(id: current_user.id)
+  end
 
   # GET /resource/sign_up
   # def new

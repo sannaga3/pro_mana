@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
+  resources :users, only: [:show]
   resources :foods
 end
