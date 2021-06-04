@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  
+
   def new
     @food = Food.new
   end
@@ -11,5 +11,16 @@ class FoodsController < ApplicationController
       else
         render :new
       end
+  end
+
+  def edit
+  end
+
+  def update
+    if @food.update(food_params)
+      redirect_to foods_path, notice: "食品編集完了"
+    else
+      render :new
+    end
   end
 end
