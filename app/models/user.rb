@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { in: 1..50 }
   validates :profile_comment, length: { maximum: 100 }
   mount_uploader :profile_image, ImageUploader
+  has_many :foods, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|
