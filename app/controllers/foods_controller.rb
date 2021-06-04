@@ -29,6 +29,11 @@ class FoodsController < ApplicationController
     end
   end
 
+  def destroy
+    @food.destroy
+    redirect_to foods_path, notice: "食品削除完了"
+  end
+
   private
 
   def set_food
