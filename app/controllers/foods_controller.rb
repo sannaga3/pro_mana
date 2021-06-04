@@ -23,4 +23,10 @@ class FoodsController < ApplicationController
       render :new
     end
   end
+
+  private
+
+  def food_params
+    params.require(:food).permit(:name, :protain, :quantity, :unit)
+  end
 end
