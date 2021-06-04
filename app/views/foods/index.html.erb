@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Foods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>食品名</th>
+      <th>タンパク質量</th>
+      <th>量</th>
+      <th>単位</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><%= food.protain %>g</td>
+        <td><%= food.quantity %></td>
+        <td><%= food.unit %></td>
+        <td><%= link_to 'Show', food_path(food.id) %></td>
+        <td><%= link_to 'Edit', edit_food_path(food.id) %></td>
+        <td><%= link_to 'Destroy', food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
