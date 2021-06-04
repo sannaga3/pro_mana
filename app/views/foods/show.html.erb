@@ -1,0 +1,22 @@
+<h1>食品詳細</h1>
+<p>
+  <strong>name:</strong>
+  <%= @food.name %>
+</p>
+
+<p>
+  <strong>protain:</strong>
+  <%= @food.protain %>g
+</p>
+
+<p>
+  <strong>quantity:</strong>
+  <%= @food.quantity %>
+</p>
+
+<p>
+  <strong>unit:</strong>
+  <%= @food.protain %>
+</p>
+<%= link_to 'Edit', edit_food_path(@food) %>
+<%= link_to 'Back', foods_path %>
