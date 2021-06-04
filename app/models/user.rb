@@ -9,6 +9,14 @@ class User < ApplicationRecord
   validates :profile_comment, length: { maximum: 100 }
   mount_uploader :profile_image, ImageUploader
 
+  def self.guest
+    find_or_create_by!(email: 'guest@guest.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+      user.name = 'guest'
+    end
+  end
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
