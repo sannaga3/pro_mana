@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <span>user: <%= current_user.name %></span>
+      <span><%= "admin" if current_user.admin == true %></span>
+      <%= link_to 'profile', user_path(current_user.id) %>
+      <%= link_to "食品追加", new_food_path %>
+      <%= link_to "食品一覧", foods_path %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "新規登録", new_user_registration_path %>
+      <%= link_to "ログイン", new_user_session_path %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
