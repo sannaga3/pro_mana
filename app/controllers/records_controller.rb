@@ -10,6 +10,8 @@ class RecordsController < ApplicationController
   def new
     @record = Record.new
     @foods = Food.where(user_id: current_user.id)
+    @q = @foods.ransack(params[:q])
+    @foods = @q.result(distinct: true)
   end
 
   def create

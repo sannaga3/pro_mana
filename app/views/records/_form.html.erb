@@ -32,3 +32,13 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<% if action_name == "new" %>
+  <%= search_form_for @q, url: new_record_path do |f| %>
+    <p><%= f.label :name_cont %><%= f.search_field :name_cont %></p>
+    <p><%= f.label :protain_eq %><%= f.number_field :protain_eq %></p>
+    <p><%= f.label :protain_lteq %><%= f.number_field :protain_lteq %></p>
+    <p><%= f.label :protain_gteq %><%= f.number_field :protain_gteq %></p>
+    <%= f.submit %>
+  <% end %>
+<% end %>
