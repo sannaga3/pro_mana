@@ -10,4 +10,9 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :foods
+  resources :records do
+    collection do
+      get :my_daily
+    end
+  end
 end
