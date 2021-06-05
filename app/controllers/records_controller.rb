@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: %i[ show edit update destroy ]
+  before_action :set_food, only: %i[ show edit ]
 
   def index
     @records = Record.all
@@ -22,11 +23,9 @@ class RecordsController < ApplicationController
 
   def show
     @record = Record.find(params[:id])
-    @food = Food.find(@record.food_id)
   end
 
   def edit
-    @food = Food.find(@record.food_id)
   end
 
   def update
@@ -41,6 +40,10 @@ class RecordsController < ApplicationController
   end
 
   private
+
+  def set_food
+    @food = Food.find(@record.food_id)
+  end
 
   def set_record
     @record = Record.find(params[:id])
