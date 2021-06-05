@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :profile_comment, length: { maximum: 100 }
   mount_uploader :profile_image, ImageUploader
   has_many :foods, dependent: :destroy
+  has_many :active_friendships, foreign_key: 'follower_id', class_name: 'Friendship', dependent: :destroy
+  has_many :passive_friendships, foreign_key: 'followed_id', class_name: 'Friendship', dependent: :destroy
+  has_many :following, through: :active_friendships, source: :followed
+  has_many :followers, through: :passive_friendships, source: :follower
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|
@@ -29,5 +33,17 @@ class User < ApplicationRecord
     result = update_attributes(params, *options)
     clean_up_passwords
     result
+  end
+
+  def follow!(other_user)
+    active_friendships.create!(followed_id: other_user.id)
+  end
+  #フォローしているかどうかを確認する
+  def following?(other_user)
+    active_friendships.find_by(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    active_friendships.find_by(followed_id: other_user.id).destroy
   end
 end

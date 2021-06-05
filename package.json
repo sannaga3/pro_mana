@@ -1,5 +1,7 @@
 {
   "name": "pro_mana",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
 }

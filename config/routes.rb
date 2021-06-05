@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'friendships/create'
+  get 'friendships/destroy'
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
@@ -15,4 +17,5 @@ Rails.application.routes.draw do
       get :my_daily
     end
   end
+  resources :friendships, only: [:create, :destroy]
 end

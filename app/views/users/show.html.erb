@@ -7,5 +7,6 @@
 <p>height: <%= @user.height if @user.height %></p>
 <p>weight: <%= @user.weight if @user.weight %></p>
 <p>protain_target: <%= @user.protain_target if @user.protain_target %></p>
-
 <%= link_to 'edit', edit_user_registration_path(@user.id) %>
+<br>
+<%= render 'follow_form', user: @user if @user != current_user %>
