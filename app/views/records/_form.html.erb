@@ -23,7 +23,7 @@
           <% end %>
         </td>
         <td><%= form.label :ate %><%= form.number_field :ate %></td>
-        <td><%= form.label :date %><%= form.date_field :record_on %></td>
+        <td><%= form.label :record_on %><%= form.date_field :record_on %></td>
       </tr>
       <%= form.hidden_field :user_id, value:current_user.id %>
     </tbody>
