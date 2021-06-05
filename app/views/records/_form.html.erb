@@ -1,0 +1,32 @@
+<%= form_with(model: record, local: true) do |form| %>
+  <% if record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(record.errors.count, "error") %> prohibited this record from being saved:</h2>
+
+      <ul>
+      <% record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+  <% end %>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <% if action_name == "new" %>
+            <%= form.select :food_id, @foods.all.map {|food| ["#{food.name}   " "#{food.protain}g", food.id]}, include_blank: "選択して下さい" %>
+          <% elsif action_name == "edit"  %>
+            <%= @food.name %>
+            <%= @food.protain %>
+          <% end %>
+        </td>
+        <td><%= form.label :ate %><%= form.number_field :ate %></td>
+        <td><%= form.label :date %><%= form.date_field :date %></td>
+      </tr>
+      <%= form.hidden_field :user_id, value:current_user.id %>
+    </tbody>
+  </table>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
