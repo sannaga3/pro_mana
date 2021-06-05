@@ -27,4 +27,10 @@ class RecordsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def record_params
+    params.require(:record).permit(:ate, :date, :food_id ,:user_id)
+  end
 end
