@@ -1,4 +1,6 @@
 class RecordsController < ApplicationController
+  before_action :set_record, only: %i[ show edit update destroy ]
+
   def index
     @records = Record.all
     @records = @records.order(record_on: :desc)
@@ -31,6 +33,10 @@ class RecordsController < ApplicationController
   end
 
   private
+
+  def set_record
+    @record = Record.find(params[:id])
+  end
 
   def record_params
     params.require(:record).permit(:ate, :record_on, :food_id ,:user_id)
