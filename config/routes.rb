@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'friendships/create'
+  get 'friendships/destroy'
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
