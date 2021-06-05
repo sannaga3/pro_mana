@@ -36,14 +36,14 @@ class User < ApplicationRecord
   end
 
   def follow!(other_user)
-    active_friendships.create!(follow_id: other_user.id)
+    active_friendships.create!(followed_id: other_user.id)
   end
   #フォローしているかどうかを確認する
   def following?(other_user)
-    active_friendships.find_by(follow_id: other_user.id)
+    active_friendships.find_by(followed_id: other_user.id)
   end
 
   def unfollow!(other_user)
-    active_friendships.find_by(follow_id: other_user.id).destroy
+    active_friendships.find_by(followed_id: other_user.id).destroy
   end
 end
