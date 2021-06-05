@@ -15,4 +15,5 @@ Rails.application.routes.draw do
       get :my_daily
     end
   end
+  resources :friendships, only: [:create, :destroy]
 end
