@@ -1,5 +1,7 @@
 class RecordsController < ApplicationController
   def index
+    @records = Record.all
+    @records = @records.order(record_on: :desc)
   end
 
   def new
@@ -31,6 +33,6 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:ate, :date, :food_id ,:user_id)
+    params.require(:record).permit(:ate, :record_on, :food_id ,:user_id)
   end
 end
