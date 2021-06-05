@@ -14,10 +14,12 @@
       <tr>
         <td>
           <% if action_name == "new" %>
-            <%= form.select :food_id, @foods.all.map {|food| ["#{food.name}   " "#{food.protain}g", food.id]}, include_blank: "選択して下さい" %>
+            <%= form.select :food_id, @foods.all.map {|food| ["#{food.name}  " "#{food.protain}g  " "#{food.quantity}""#{food.unit}", food.id]}, include_blank: "選択して下さい" %>
           <% elsif action_name == "edit"  %>
             <%= @food.name %>
             <%= @food.protain %>
+            <%= @food.quantity %>
+            <%= @food.unit %>
           <% end %>
         </td>
         <td><%= form.label :ate %><%= form.number_field :ate %></td>
