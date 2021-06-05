@@ -16,6 +16,8 @@
       <%= link_to 'profile', user_path(current_user.id) %>
       <%= link_to "食品追加", new_food_path %>
       <%= link_to "食品一覧", foods_path %>
+      <%= link_to "記録作成", new_record_path %>
+      <%= link_to "みんなの記録", records_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'ゲストログイン（閲覧専用）', users_guest_sign_in_path, method: :post, class: "login" %>
