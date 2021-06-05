@@ -26,9 +26,15 @@ class RecordsController < ApplicationController
   end
 
   def edit
+    @food = Food.find(@record.food_id)
   end
 
   def update
+    if @record.update(record_params)
+      redirect_to records_path, notice: "食品編集完了"
+    else
+      render :new
+    end
   end
 
   def destroy
