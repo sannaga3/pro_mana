@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :records do
     collection do
-      get :my_daily_records
+      get :my_daily
     end
   end
 end

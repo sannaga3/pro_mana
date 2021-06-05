@@ -41,6 +41,11 @@ class RecordsController < ApplicationController
     redirect_to records_path, notice: "記録削除完了"
   end
 
+  def my_daily
+    @records = Record.where(user_id: current_user.id)
+    @records = @records.order(record_on: :desc)
+  end
+
   private
 
   def set_food
