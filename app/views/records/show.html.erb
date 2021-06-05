@@ -1,2 +1,33 @@
-<h1>Records#show</h1>
-<p>Find me in app/views/records/show.html.erb</p>
+<h1>食品記録詳細</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @food.name %>
+</p>
+
+<p>
+  <strong>protain:</strong>
+  <%= @food.protain %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @food.quantity %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @food.unit %>
+</p>
+
+<p>
+  <strong>Ate:</strong>
+  <%= @record.ate %>
+</p>
+
+<p>
+  <strong>date:</strong>
+  <%= @record.record_on %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
