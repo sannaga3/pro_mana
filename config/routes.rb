@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   resources :foods
+  resources :records
 end
