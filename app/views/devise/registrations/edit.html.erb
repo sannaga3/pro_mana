@@ -4,8 +4,40 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_image %><br />
+    <%= f.file_field :profile_image, autofocus: true %>
+    <%= image_tag(@user.profile_image.url) if @user.profile_image && @user.profile_image.url %>
+    <%= f.hidden_field :profile_image_cache %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_comment %><br />
+    <%= f.text_area :profile_comment, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :height %><br />
+    <%= f.number_field :height, autofocus: true %>cm
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %><br />
+    <%= f.number_field :weight, step: '0.1', autofocus: true %>kg
+  </div>
+
+  <div class="field">
+    <%= f.label :protein_target %><br />
+    <%= f.number_field :protain_target, autofocus: true %>g
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -24,11 +56,6 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
   <div class="actions">

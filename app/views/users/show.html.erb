@@ -1,12 +1,12 @@
-<h1>プロフィール詳細</h1>
+<h1><%= t('view.profile') %></h1>
 
-<p>name: <%= @user.name if @user.name%></p>
-<p>email: <%= @user.email %></p>
-<p>profile_image:<%= image_tag @user.profile_image.url if @user.profile_image? %></p>
-<p>profile_comment: <%= @user.profile_comment if @user.profile_comment %></p>
-<p>height: <%= @user.height if @user.height %></p>
-<p>weight: <%= @user.weight if @user.weight %></p>
-<p>protain_target: <%= @user.protain_target if @user.protain_target %></p>
+<p><%= t('activerecord.attributes.user.name') %>: <%= @user.name if @user.name%></p>
+<p><%= t('activerecord.attributes.user.email') %>: <%= @user.email %></p>
+<p><%= t('activerecord.attributes.user.profile_image') %>:<%= image_tag @user.profile_image.url if @user.profile_image? %></p>
+<p><%= t('activerecord.attributes.user.profile_comment') %>: <%= @user.profile_comment if @user.profile_comment %></p>
+<p><%= t('activerecord.attributes.user.height') %>: <%= @user.height if @user.height %></p>
+<p><%= t('activerecord.attributes.user.weight') %>: <%= @user.weight if @user.weight %></p>
+<p><%= t('activerecord.attributes.user.protein_target') %>: <%= @user.protain_target if @user.protain_target %></p>
 <%= link_to 'edit', edit_user_registration_path(@user.id) %>
 <br>
 <%= render 'follow_form', user: @user if @user != current_user %>
