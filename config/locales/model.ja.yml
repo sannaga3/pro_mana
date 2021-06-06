@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      food: 食品
+      record: 記録
+      friendship: フォロー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirm: パスワード確認用
+        profile_image: プロフィール画像
+        profile_comment: 自己紹介文
+        height: 身長
+        weight: 体重
+        protein_target: 目標プロテイン摂取量
+        admin: 管理者
+      food:
+        name: 名前
+        protein: タンパク質量
+        quantity: 量
+        unit: 単位
+      record:
+        ate: 食事量
+        record_on: 日付
+      friendship:
+        follower_id: フォローするユーザーのID
+        followed_id: フォローされるユーザーのID

@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :name, t('activerecord.attributes.food.name') %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :protain %>
+    <%= form.label :protain, t('activerecord.attributes.food.protein') %>
     <%= form.number_field :protain %>g
   </div>
 
   <div class="field">
-    <%= form.label :quantity %>
+    <%= form.label :quantity, t('activerecord.attributes.food.quantity') %>
     <%= form.number_field :quantity %>
   </div>
 
   <div class="field">
-    <%= form.label :unit %>
+    <%= form.label :unit, t('activerecord.attributes.food.unit') %>
     <%= form.text_field :unit %>
   </div>
 
