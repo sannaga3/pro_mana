@@ -236,3 +236,6 @@ ja:
     add_food: 食品登録完了
     edit_food: 食品編集完了
     destroy_food: 食品削除完了
+    add_record: 食品記録完了
+    edit_record: 食品記録完了
+    destroy_record: 食品記録完了

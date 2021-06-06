@@ -17,7 +17,7 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
     if @record.save
-      redirect_to records_path, notice: "食品登録完了"
+      redirect_to records_path, notice: t('notice.add_record')
     else
       render :new
     end
@@ -32,7 +32,7 @@ class RecordsController < ApplicationController
 
   def update
     if @record.update(record_params)
-      redirect_to records_path, notice: "食品編集完了"
+      redirect_to records_path, notice: t('notice.edit_record')
     else
       render :new
     end
@@ -40,7 +40,7 @@ class RecordsController < ApplicationController
 
   def destroy
     @record.destroy
-    redirect_to records_path, notice: "記録削除完了"
+    redirect_to records_path, notice: t('notice.destroy_record')
   end
 
   def my_daily
