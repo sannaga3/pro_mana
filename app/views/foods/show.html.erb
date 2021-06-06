@@ -1,22 +1,22 @@
-<h1>食品詳細</h1>
+<h1><%= t('view.food_show') %></h1>
 <p>
-  <strong>name:</strong>
+  <strong><%= t('activerecord.attributes.food.name') %>:</strong>
   <%= @food.name %>
 </p>
 
 <p>
-  <strong>protain:</strong>
+  <strong><%= t('activerecord.attributes.food.protein') %>:</strong>
   <%= @food.protain %>g
 </p>
 
 <p>
-  <strong>quantity:</strong>
+  <strong><%= t('activerecord.attributes.food.quantity') %>:</strong>
   <%= @food.quantity %>
 </p>
 
 <p>
-  <strong>unit:</strong>
-  <%= @food.protain %>
+  <strong><%= t('activerecord.attributes.food.unit') %>:</strong>
+  <%= @food.unit %>
 </p>
-<%= link_to 'Edit', edit_food_path(@food.id) %>
-<%= link_to 'Back', foods_path %>
+<%= link_to t('view.edit'), edit_food_path(@food.id) %>
+<%= link_to t('view.back'), foods_path %>

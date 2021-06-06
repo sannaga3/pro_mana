@@ -1,5 +1,5 @@
-<h1>Editing Record</h1>
+<h1><%= t('view.record_edit') %></h1>
 
 <%= render 'form', record: @record %>
 
-<%= link_to 'Back', record_path(@record.id) %>
+<%= link_to t('view.back'), record_path(@record.id) %>

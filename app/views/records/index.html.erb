@@ -1,15 +1,14 @@
-<h1>Records</h1>
-
+<h1><%= t('view.records_index') %></h1>
 <table>
   <thead>
     <tr>
-      <th>Food_Name</th>
-      <th>Protain</th>
-      <th>Quantity</th>
-      <th>Unit</th>
-      <th>Ate</th>
-      <th>Date</th>
-      <th>User_Name</th>
+      <th><%= t('activerecord.attributes.food.name') %></th>
+      <th><%= t('activerecord.attributes.food.protein') %></th>
+      <th><%= t('activerecord.attributes.food.quantity') %></th>
+      <th><%= t('activerecord.attributes.food.unit') %></th>
+      <th><%= t('activerecord.attributes.record.ate') %></th>
+      <th><%= t('activerecord.attributes.record.record_on') %></th>
+      <th><%= t('activerecord.attributes.user.name') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,9 +26,9 @@
           <td><%= record.record_on %></td>
           <td><%= link_to "#{record.user.name}", user_path(record.user.id) %></td>
           <% if current_user == record.user %>
-            <td><%= link_to 'Show', record_path(record.id) %></td>
-            <td><%= link_to 'Edit', edit_record_path(record.id) %></td>
-            <td><%= link_to 'Destroy', record_path(record.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to t('view.show'), record_path(record.id) %></td>
+            <td><%= link_to t('view.edit'), edit_record_path(record.id) %></td>
+            <td><%= link_to t('view.destroy'), record_path(record.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>

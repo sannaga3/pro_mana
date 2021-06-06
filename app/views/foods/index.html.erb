@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Foods</h1>
+<h1><%= t('view.foods_index') %></h1>
 
 <table>
   <thead>
     <tr>
-      <th>食品名</th>
-      <th>タンパク質量</th>
-      <th>量</th>
-      <th>単位</th>
+      <th><%= t('view.food_name') %></th>
+      <th><%= t('view.protein') %></th>
+      <th><%= t('view.quantity') %></th>
+      <th><%= t('view.unit') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,9 +20,9 @@
         <td><%= food.protain %>g</td>
         <td><%= food.quantity %></td>
         <td><%= food.unit %></td>
-        <td><%= link_to 'Show', food_path(food.id) %></td>
-        <td><%= link_to 'Edit', edit_food_path(food.id) %></td>
-        <td><%= link_to 'Destroy', food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('view.show'), food_path(food.id) %></td>
+        <td><%= link_to t('view.edit'), edit_food_path(food.id) %></td>
+        <td><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
