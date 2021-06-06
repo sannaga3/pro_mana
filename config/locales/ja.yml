@@ -226,6 +226,12 @@ ja:
     food_show: 食品詳細
     food_edit: 食品編集
     selectbox_choose: 選択して下さい
+    record_index: みんなの一覧
+    record_show: 食品記録詳細
+    record_new: 食品記録作成
+    record_edit: 食品記録編集
+    my_daily_record: 毎日の記録
+    my_daily_amount_protein: のタンパク質摂取量合計
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
