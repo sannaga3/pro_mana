@@ -226,4 +226,7 @@ ja:
     food_show: 食品詳細
     food_edit: 食品編集
     selectbox_choose: 選択して下さい
-    
+  notice:
+    add_food: 食品登録完了
+    edit_food: 食品編集完了
+    destroy_food: 食品削除完了

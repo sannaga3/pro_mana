@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
       if @food.save
-        redirect_to foods_path, notice: "食品登録完了"
+        redirect_to foods_path, notice: t('notice.add_food')
       else
         render :new
       end
@@ -27,7 +27,7 @@ class FoodsController < ApplicationController
 
   def update
     if @food.update(food_params)
-      redirect_to foods_path, notice: "食品編集完了"
+      redirect_to foods_path, notice: t('notice.edit_food')
     else
       render :new
     end
@@ -35,7 +35,7 @@ class FoodsController < ApplicationController
 
   def destroy
     @food.destroy
-    redirect_to foods_path, notice: "食品削除完了"
+    redirect_to foods_path, notice: t('notice.destroy_food')
   end
 
   private
