@@ -11,19 +11,19 @@
 
   <body>
     <% if user_signed_in? %>
-      <span>user: <%= current_user.name %></span>
+      <span><%= t('view.user_name') %>: <%= current_user.name %></span>
       <span><%= "admin" if current_user.admin == true %></span>
-      <%= link_to 'profile', user_path(current_user.id) %>
-      <%= link_to "食品追加", new_food_path %>
-      <%= link_to "食品一覧", foods_path %>
-      <%= link_to "記録作成", new_record_path %>
-      <%= link_to "毎日の記録", my_daily_records_path %>
-      <%= link_to "みんなの記録", records_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <%= link_to t('view.profile'), user_path(current_user.id) %>
+      <%= link_to t('view.food_new'), new_food_path %>
+      <%= link_to t('view.foods_index'), foods_path %>
+      <%= link_to t('view.record_new'), new_record_path %>
+      <%= link_to t('view.my_daily_record'), my_daily_records_path %>
+      <%= link_to t('view.records_index'), records_path %>
+      <%= link_to t('view.logout'), destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to 'ゲストログイン（閲覧専用）', users_guest_sign_in_path, method: :post, class: "login" %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
+      <%= link_to t('view.guest.login'), users_guest_sign_in_path, method: :post, class: "login" %>
+      <%= link_to t('view.sign_up'), new_user_registration_path %>
+      <%= link_to t('view.login'), new_user_session_path %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
