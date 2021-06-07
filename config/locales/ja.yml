@@ -219,6 +219,8 @@ ja:
     logout: ログアウト
     profile: プロフィール
     user_name: ユーザー名
+    follow: フォロー
+    follow_list: フォロー一覧
     food_name: 食品名
     protein: タンパク質
     quantity: 量
@@ -235,6 +237,7 @@ ja:
     my_daily_record: 毎日の記録
     my_daily_amount_protein: のタンパク質摂取量合計
     error_sentence: 件のエラーがあります
+    follow_or_unfollow: フォロー/解除
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了

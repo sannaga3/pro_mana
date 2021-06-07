@@ -1,0 +1,20 @@
+<h1><%= t('view.follow_list') %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t('view.user_name') %></th>
+      <th><%= t('view.follow_or_unfollow') %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @followed_users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= render 'follow_form', user: user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
