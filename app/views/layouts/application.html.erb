@@ -19,6 +19,7 @@
       <%= link_to t('view.record_new'), new_record_path %>
       <%= link_to t('view.my_daily_record'), my_daily_records_path %>
       <%= link_to t('view.records_index'), records_path %>
+      <%= link_to t('view.follow'), users_path %>
       <%= link_to t('view.logout'), destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to t('view.guest.login'), users_guest_sign_in_path, method: :post, class: "login" %>
