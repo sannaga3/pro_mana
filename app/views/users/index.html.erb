@@ -12,8 +12,21 @@
   <tbody>
     <% @followed_users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= render 'follow_form', user: user %></td>
+        <td><%= link_to user.name, user_path(user.id) %></td>
+        <td>
+          <div id="follow_form_<%= user.id %>">
+            <% unless current_user.following?(user) %>
+              <%= form_with(model: current_user.active_friendships.build(followed_id: user.id)) do |f| %>
+                <%= f.hidden_field :followed_id %>
+                <%= f.submit "フォロー" %>
+              <% end %>
+            <% else %>
+              <%= form_with(model: current_user.active_friendships.find_by(followed_id: user.id), method: :delete ) do |f| %>
+                <%= f.submit "フォロー解除" %>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
