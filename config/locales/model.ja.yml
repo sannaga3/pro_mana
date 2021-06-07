@@ -23,6 +23,7 @@ ja:
         quantity: 量
         unit: 単位
       record:
+        food: 食品
         ate: 食事量
         record_on: 日付
       friendship:
