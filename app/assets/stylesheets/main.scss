@@ -1,0 +1,50 @@
+@charset "utf-8";
+$white: #fff;
+
+html {
+  font-size: 80.5;
+  height: 100%;
+}
+body {
+  width: 100%;
+  font-size: 2rem;
+}
+.body_wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+.main_title {
+  padding: 20px 0;
+  h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(212, 114, 57);
+    text-shadow: 3px 3px rgb(219, 170, 141);
+  }
+}
+.nav_color {
+  background: linear-gradient(60deg, rgba(214, 213, 122, 0.4), rgba(104, 206, 126, 0.7));
+}
+.logo {
+  font-size: 1.5rem;
+}
+.nav-link {
+  color: rgba(139, 139, 133, 0.9);
+  text-shadow: 2px 2px rgb(180, 204, 93);
+  font-size: 1rem;
+}
+.card-footer {
+  background: linear-gradient(60deg,  rgba(104, 206, 126, 0.7), rgba(214, 213, 122, 0.4));
+  text-shadow: 2px 2px rgb(180, 204, 93);
+  position: absolute;
+  padding: 0;
+  bottom: −100;
+  text-align: center;
+  width: 100%;
+  height: 56px;
+  line-height: 25px;
+  color: $white;
+}
+// .footer_margin {
+//   padding-bottom: 100px;
+// }
