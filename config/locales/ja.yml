@@ -234,6 +234,7 @@ ja:
     record_edit: 記録編集
     my_daily_record: 毎日の記録
     my_daily_amount_protein: のタンパク質摂取量合計
+    error_sentence: 件のエラーがあります
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
