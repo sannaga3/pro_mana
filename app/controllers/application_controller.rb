@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
                     :profile_comment,
                     :height,
                     :weight,
-                    :protain_target,
+                    :protein_target,
                     :admin,
                     :profile_image_cache,
                   ]
