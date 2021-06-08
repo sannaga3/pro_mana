@@ -3,15 +3,16 @@ $white: #fff;
 
 html {
   font-size: 80.5;
-  height: 100vh;
 }
 body {
   width: 100%;
   font-size: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 .body_wrapper {
-  position: relative;
-  min-height: 100vh;
+  flex: 1;
 }
 td {
   padding-top: 10px;
@@ -39,12 +40,10 @@ td {
 .card-footer {
   background: linear-gradient(60deg,  rgba(104, 206, 126, 0.7), rgba(214, 213, 122, 0.4));
   text-shadow: 2px 2px rgb(180, 204, 93);
-  position: absolute;
-  padding: 0;
-  // bottom: 0;
   text-align: center;
   width: 100%;
   height: 56px;
+  padding: 0;
   line-height: 25px;
   color: $white;
 }
@@ -67,4 +66,7 @@ td {
 .button_text_color {
   color: rgba(102, 102, 98, 0.9);
   text-shadow: 2px 2px rgb(180, 204, 93);
+}
+.notice {
+  
 }
