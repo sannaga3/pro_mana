@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_125552) do
     t.string "profile_comment"
     t.integer "height"
     t.float "weight"
-    t.integer "protain_target"
+    t.integer "protein_target"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
