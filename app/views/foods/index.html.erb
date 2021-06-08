@@ -15,7 +15,7 @@
     <% @foods.each do |food| %>
       <tr>
         <td><%= food.name %></td>
-        <td><%= food.protain %>g</td>
+        <td><%= food.protein %>g</td>
         <td><%= food.quantity %></td>
         <td><%= food.unit %></td>
         <td><%= link_to t('view.show'), food_path(food.id) %></td>

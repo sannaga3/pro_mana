@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :profile_comment
       t.integer :height
       t.float :weight
-      t.integer :protain_target
+      t.integer :protein_target
       t.boolean :admin, default: false
       t.timestamps null: false
     end

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_125552) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "protain", null: false
+    t.integer "protein", null: false
     t.integer "quantity", null: false
     t.string "unit", null: false
     t.datetime "created_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_125552) do
 
   create_table "records", force: :cascade do |t|
     t.integer "ate", null: false
-    t.date "record_on", default: "2021-06-05", null: false
+    t.date "record_on", default: "2021-06-09", null: false
     t.bigint "food_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_125552) do
     t.string "profile_comment"
     t.integer "height"
     t.float "weight"
-    t.integer "protain_target"
+    t.integer "protein_target"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

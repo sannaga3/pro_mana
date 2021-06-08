@@ -15,15 +15,15 @@
   <tbody>
     <% if @records != nil %>
       <% date = "" %>
-      <% protain_amount = 0 %>
+      <% protein_amount = 0 %>
       <% @records.each do |record| %>
         <% food = Food.find(record.food_id) %>
-        <% protain_amount += (food.protain * record.ate) %>
+        <% protein_amount += (food.protein * record.ate) %>
         <% before_day = date if record != @records.first %>
         <% date = record.record_on %>
         <tr>
           <td><%= food.name %></td>
-          <td><%= food.protain %></td>
+          <td><%= food.protein %></td>
           <td><%= food.quantity %></td>
           <td><%= food.unit %></td>
           <td><%= record.ate %></td>
@@ -34,8 +34,8 @@
         </tr>
         <% if date != before_day %>
           <tr>
-            <%= "#{date}"%><%= t('view.my_daily_amount_protein') %><%= protain_amount %><%= "g" %>
-            <% protain_amount = 0 %>
+            <%= "#{date}"%><%= t('view.my_daily_amount_protein') %><%= protein_amount %><%= "g" %>
+            <% protein_amount = 0 %>
           </tr>
         <% end %>
       <% end %>

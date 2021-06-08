@@ -5,10 +5,10 @@
       <tr>
         <td>
           <% if action_name == "new" %>
-            <%= form.select :food_id, @foods.all.map {|food| ["#{food.name}  " "#{food.protain}g  " "#{food.quantity}""#{food.unit}", food.id]}, include_blank: "選択して下さい" %>
+            <%= form.select :food_id, @foods.all.map {|food| ["#{food.name}  " "#{food.protein}g  " "#{food.quantity}""#{food.unit}", food.id]}, include_blank: "選択して下さい" %>
           <% elsif action_name == "edit"  %>
             <%= @food.name %>
-            <%= @food.protain %>
+            <%= @food.protein %>
             <%= @food.quantity %>
             <%= @food.unit %>
           <% end %>
@@ -27,9 +27,9 @@
 <% if action_name == "new" %>
   <%= search_form_for @q, url: new_record_path do |f| %>
     <p><%= f.label :name_cont %><%= f.search_field :name_cont %></p>
-    <p><%= f.label :protain_eq %><%= f.number_field :protain_eq %></p>
-    <p><%= f.label :protain_lteq %><%= f.number_field :protain_lteq %></p>
-    <p><%= f.label :protain_gteq %><%= f.number_field :protain_gteq %></p>
+    <p><%= f.label :protein_eq %><%= f.number_field :protein_eq %></p>
+    <p><%= f.label :protein_lteq %><%= f.number_field :protein_lteq %></p>
+    <p><%= f.label :protein_gteq %><%= f.number_field :protein_gteq %></p>
     <%= f.submit %>
   <% end %>
 <% end %>
