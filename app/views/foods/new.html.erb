@@ -1,3 +1,8 @@
-<h1><%= t('view.food_new') %></h1>
-
-<%= render 'form', food: @food %>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <div>
+    <h1><%= t('view.food_new') %></h1>
+  </div>
+  <div>
+    <%= render 'form', food: @food %>
+  </div>
+</div>

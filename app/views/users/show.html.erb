@@ -1,12 +1,27 @@
-<h1><%= t('view.profile') %></h1>
-
-<p><%= t('activerecord.attributes.user.name') %>: <%= @user.name if @user.name%></p>
-<p><%= t('activerecord.attributes.user.email') %>: <%= @user.email %></p>
-<p><%= t('activerecord.attributes.user.profile_image') %>:<%= image_tag @user.profile_image.url if @user.profile_image? %></p>
-<p><%= t('activerecord.attributes.user.profile_comment') %>: <%= @user.profile_comment if @user.profile_comment %></p>
-<p><%= t('activerecord.attributes.user.height') %>: <%= @user.height if @user.height %></p>
-<p><%= t('activerecord.attributes.user.weight') %>: <%= @user.weight if @user.weight %></p>
-<p><%= t('activerecord.attributes.user.protein_target') %>: <%= @user.protain_target if @user.protain_target %></p>
-<%= link_to 'edit', edit_user_registration_path(@user.id) %>
-<br>
-<%= render 'follow_form', user: @user if @user != current_user %>
+<div class="d-flex flex-column justify-content-center align-items-center ">
+  <div>
+    <h1 class="pb-5"><%= t('view.profile') %></h1>
+  </div>
+  <div class="d-flex flex-row justify-content-center">
+    <div class="mx-5">
+      <p><%= t('activerecord.attributes.user.name') %>: <%= @user.name if @user.name%></p>
+      <p><%= t('activerecord.attributes.user.email') %>: <%= @user.email %></p>
+      <p><%= t('activerecord.attributes.user.profile_comment') %>: <%= @user.profile_comment if @user.profile_comment %></p>
+      <p><%= t('activerecord.attributes.user.height') %>: <%= @user.height if @user.height %>cm</p>
+      <p><%= t('activerecord.attributes.user.weight') %>: <%= @user.weight if @user.weight %>kg</p>
+      <p><%= t('activerecord.attributes.user.protein_target') %>: <%= @user.protain_target if @user.protain_target %>g</p>
+    </div>
+    <div class="mx-5">
+      <div><%= t('activerecord.attributes.user.profile_image') %>:</div>
+      <%= image_tag @user.profile_image.url if @user.profile_image? %>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-center mt-5">
+    <div class="button_design m-4">
+      <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "button_text_color" %>
+    </div>
+    <div class="m-4">
+      <%= render 'follow_form', user: @user if @user != current_user %>
+    </div>
+  </div>
+</div>

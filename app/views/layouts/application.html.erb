@@ -50,8 +50,12 @@
       </nav>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <%= yield %>
+        <div class="d-flex flex-row justify-content-center" >
+          <div class="contents_wrapper">
+            <%= yield %>
+          </div>
+      </div>
     </div>
-    <div class="card-footer footer_margin text-black-50">&copy; tetsuya</div>
+    <div class="card-footer text-black-50">&copy; tetsuya</div>
   </body>
 </html>
