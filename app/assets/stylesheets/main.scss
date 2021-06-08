@@ -3,7 +3,7 @@ $white: #fff;
 
 html {
   font-size: 80.5;
-  height: 100%;
+  height: 100vh;
 }
 body {
   width: 100%;
@@ -12,6 +12,9 @@ body {
 .body_wrapper {
   position: relative;
   min-height: 100vh;
+}
+td {
+  padding-top: 10px;
 }
 .main_title {
   padding: 20px 0;
@@ -38,7 +41,7 @@ body {
   text-shadow: 2px 2px rgb(180, 204, 93);
   position: absolute;
   padding: 0;
-  bottom: 0;
+  // bottom: 0;
   text-align: center;
   width: 100%;
   height: 56px;
