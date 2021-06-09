@@ -238,6 +238,7 @@ ja:
     my_daily_amount_protein: のタンパク質摂取量合計
     error_sentence: 件のエラーがあります
     follow_or_unfollow: フォロー/解除
+    admin_dashboard: 管理画面
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了

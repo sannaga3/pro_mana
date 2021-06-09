@@ -23,5 +23,10 @@
     <div class="m-4">
       <%= render 'follow_form', user: @user if @user != current_user %>
     </div>
+    <% if @user == current_user && @user.admin == true %>
+      <div class="m-4 button_design admin_dashboard_button">
+        <%= link_to t('view.admin_dashboard'), rails_admin_path, class: "button_text_color" %>
+      </div>
+    <% end %>
   </div>
 </div>
