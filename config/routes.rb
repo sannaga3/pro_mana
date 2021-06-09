@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'friendships/create'
   get 'friendships/destroy'
   devise_for :users, :controllers => {

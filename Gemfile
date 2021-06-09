@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'rails_admin', '~> 2.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
