@@ -46,6 +46,8 @@ class RecordsController < ApplicationController
   def my_daily
     @records = Record.where(user_id: current_user.id)
     @records = @records.order(record_on: :desc)
+    @days = @records.pluck(:record_on)
+    @days = @days.uniq
   end
 
   private
