@@ -4,7 +4,10 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.all
-    @records = @records.order(record_on: :desc)
+    @days = @records.pluck(:record_on)
+    @records = @records.order("record_on desc, user_id desc")
+    @days = @days.uniq
+    @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
   end
 
   def new
