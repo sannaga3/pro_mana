@@ -1,5 +1,8 @@
 <h1><%= t('view.foods_index') %></h1>
 
+<div class="paginate_box rounded mt-3">
+  <%= paginate @foods, window: 3 %>
+</div>
 <table>
   <thead>
     <tr>
@@ -25,3 +28,6 @@
     <% end %>
   </tbody>
 </table>
+<div class="paginate_box rounded mt-3">
+  <%= paginate @foods, window: 3 %>
+</div>

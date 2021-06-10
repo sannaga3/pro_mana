@@ -7,13 +7,13 @@
 #   )
 # end
 
-# 40.times do |n|
+# 20.times do |n|
 #   Food.create!(
-#     name: "卵豆腐#{n}",
+#     name: "豆腐#{n}",
 #     protein: rand(1..10) ,
 #     quantity: 1,
 #     unit: "個",
-#     user_id: User.first.id + n
+#     user_id: User.first.id
 #   )
 # end
 
@@ -26,9 +26,9 @@
 #   )
 # end
 
-40.times do |l|
-  Friendship.create!(
-    follower_id: User.first.id,
-    followed_id: User.second.id + 2 + l,
-  )
-end
+# 40.times do |l|
+#   Friendship.create!(
+#     follower_id: User.first.id,
+#     followed_id: User.second.id + 2 + l,
+#   )
+# end

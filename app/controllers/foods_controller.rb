@@ -4,6 +4,7 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.all
     @foods = @foods.where(user_id: current_user.id)
+    @foods = Kaminari.paginate_array(@foods).page(params[:page]).per(10)
   end
 
   def new
