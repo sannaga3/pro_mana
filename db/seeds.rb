@@ -28,7 +28,7 @@ end
   Record.create!(
     ate: 1,
     record_on: "2021-06-09",
-    food_id: Record.first.id + m,
+    food_id: Food.first.id + m,
     user_id: User.first.id + m
   )
 end
