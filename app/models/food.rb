@@ -4,4 +4,5 @@ class Food < ApplicationRecord
   validates :quantity, presence: true
   validates :unit, presence: true
   belongs_to :user
+  has_many :records
 end
