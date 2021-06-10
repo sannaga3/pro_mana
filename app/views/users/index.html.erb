@@ -11,6 +11,9 @@
       </tr>
     </thead>
     <tbody>
+      <div class="paginate_box rounded">
+        <%= paginate @tasks %>
+      </div>
       <% @followed_users.each do |user| %>
         <tr>
           <td><%= link_to user.name, user_path(user.id) %></td>
