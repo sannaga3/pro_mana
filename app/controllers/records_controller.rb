@@ -48,6 +48,7 @@ class RecordsController < ApplicationController
     @records = @records.order(record_on: :desc)
     @days = @records.pluck(:record_on)
     @days = @days.uniq
+    @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
   end
 
   private

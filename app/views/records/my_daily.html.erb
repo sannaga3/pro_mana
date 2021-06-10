@@ -7,6 +7,9 @@
       <%= t('activerecord.attributes.user.protein_target') %>: <%= current_user.protein_target %>g
     </div>
     <div class="ml-5">
+      <div class="paginate_box rounded mt-3">
+        <%= paginate @days, window: 3 %>
+      </div>
       <% @days.each do |day| %>
         <% records = @records.where(record_on: day) %>
         <div class="my-5">
@@ -52,6 +55,9 @@
           <% end %>
         </div>
       <% end %>
+      <div class="paginate_box rounded mt-3">
+        <%= paginate @days, window: 3 %>
+      </div>
     </div>
   </div>
 </div>
