@@ -2,7 +2,10 @@
   <div>
     <h1><%= t('view.follow_list') %></h1>
   </div>
-  <table class="mt-5">
+  <div class="paginate_box rounded mt-3">
+    <%= paginate @followed_users, window: 3 %>
+  </div>
+  <table class="mt-2">
     <thead>
       <tr>
         <th class="follow_th_width"><%= t('view.user_name') %></th>
@@ -21,4 +24,7 @@
       <% end %>
     </tbody>
   </table>
+  <div class="paginate_box rounded mt-3">
+    <%= paginate @followed_users, window: 3 %>
+  </div>
 </div>
