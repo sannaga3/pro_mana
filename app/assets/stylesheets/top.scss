@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+// @import (
+//   "https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+// );
+
+.full {
+  width: 100%;
+  height: 100vh;
+  background-image: image_url('top_image.png');
+  background-size: cover;
+}
+.nav_color_top {
+  background: linear-gradient(60deg, rgba(214, 213, 122, 0.2), rgba(104, 206, 126, 0.2));
+}
+.text_area {
+  width: 80%;
+}
+.main_sentense {
+  font-size: 4rem;
+  color: rgb(244, 238, 238);
+  text-align: center;
+  text-shadow: 3px 3px rgb(156, 151, 148);
+}
+.sub_sentense {
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(244, 238, 238);
+  text-shadow: 3px 3px rgb(156, 151, 148);
+  text-align: left;
+}
