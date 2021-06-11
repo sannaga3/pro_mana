@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+  root to: "top#index"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
   devise_scope :user do
-    root "users/sessions#new"
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
