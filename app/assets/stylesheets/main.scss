@@ -17,11 +17,11 @@ h1 {
   font-size: 3rem;
   font-weight: bold;
 }
-th {
-  font-size: 1.5rem;
+th, .bold_font_size {
+  font-size: 1.2rem;
 }
 td {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-top: 10px;
 }
 label {
@@ -103,4 +103,8 @@ label {
 .submit_button {
   width: 70px;
   border: none;
+}
+.food_text {
+  color: rgb(85, 215, 59);
+  text-shadow: 2px 2px rgb(182, 184, 79);
 }

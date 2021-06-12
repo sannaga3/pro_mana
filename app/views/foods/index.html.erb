@@ -17,13 +17,13 @@
     <tbody>
       <% @foods.each do |food| %>
         <tr>
-          <td class="food_td"><%= food.name %></td>
-          <td class="food_td"><%= food.protein %>g</td>
-          <td class="food_td"><%= food.quantity %></td>
-          <td class="food_td"><%= food.unit %></td>
-          <td class="food_td"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
-          <td class="food_td"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
-          <td class="food_td"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %></td>
+          <td class="text-center"><%= food.name %></td>
+          <td class="text-center"><%= food.protein %>g</td>
+          <td class="text-center"><%= food.quantity %></td>
+          <td class="text-center"><%= food.unit %></td>
+          <td class="text-center"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
+          <td class="text-center"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
+          <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %></td>
         </tr>
       <% end %>
     </tbody>

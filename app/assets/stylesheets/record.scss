@@ -1,0 +1,88 @@
+#record_food_id {
+  width: 149px;
+  height: 24px;
+}
+.ate_width {
+  width: 70px;
+}
+.show_text_width {
+  width: 70px;
+  text-align: center;
+}
+.show_text_protein {
+  width: 100px;
+}
+
+.picture_nostalgy {
+  width: 300px;
+  height: 450px;
+  background-image: image_url('picture_left.jpg');
+  background-size: cover;
+}
+.nostalsy_padding {
+  margin-right: 100px;
+}
+
+.day_record_style {
+  border: solid 3px green;
+  border-radius: 10px;
+}
+.border_bottom {
+  border-bottom: solid 3px green;
+}
+.border_top {
+  border-top: solid 3px green;
+}
+.my_target {
+  width: 270px;
+  height: 40px;
+  font-size: 1.5rem;
+  line-height: 38px;
+  text-decoration: underline dashed 3px rgb(152, 152, 21);
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  left: 50px;
+  top: 290px;
+}
+.table_width {
+  min-width: 400px;
+}
+.record_th {
+  min-width: 45px;
+}
+.picture_left {
+  width: 210px;
+  height: 380px;
+  background-image: image_url('picture_left.jpg');
+  background-size: cover;
+}
+.sunflower {
+  width: 300px;
+  height: 500px;
+  background-image: image_url('sunflower.jpg');
+  background-size: cover;
+}
+.camera {
+  width: 300px;
+  height: 500px;
+  background-image: image_url('camera.jpg');
+  background-size: cover;
+}
+.index_picture_margin {
+  margin: 0 30px;
+}
+.picture_position_right {
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  right: 30px;
+  top: 150px;
+}
+.picture_position_left {
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  left: 30px;
+  top: 150px;
+}
