@@ -6,7 +6,6 @@ html {
 }
 body {
   width: 100%;
-  font-size: 2rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,17 +13,20 @@ body {
 .body_wrapper {
   flex: 1;
 }
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+th {
+  font-size: 1.5rem;
+}
 td {
+  font-size: 1.2rem;
   padding-top: 10px;
 }
-.main_title {
-  padding: 20px 0;
-  h3 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: rgb(212, 114, 57);
-    text-shadow: 3px 3px rgb(219, 170, 141);
-  }
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .nav_color {
   background: linear-gradient(60deg, rgba(214, 213, 122, 0.4), rgba(104, 206, 126, 0.7));
@@ -47,7 +49,7 @@ td {
   line-height: 25px;
 }
 .contents_wrapper {
-  width: 90%;
+  width: 100%;
 }
 .button_design {
   width: 60px;
@@ -68,7 +70,6 @@ td {
 }
 .notice, .alert {
   width: 100%;
-  height: 40px;
   font-size: 2rem;
   text-align: center;
 }
@@ -85,4 +86,21 @@ td {
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;
+}
+
+.grass_header {
+  width: 100%;
+  height: 100px;
+  background-image: image_url('grass_header.jpg');
+  background-size: cover;
+}
+.grass_footer {
+  width: 100%;
+  height: 100px;
+  background-image: image_url('grass_footer.jpg');
+  background-size: cover;
+}
+.submit_button {
+  width: 70px;
+  border: none;
 }

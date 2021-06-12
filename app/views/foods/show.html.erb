@@ -1,22 +1,50 @@
-<h1><%= t('view.food_show') %></h1>
-<p>
-  <strong><%= t('activerecord.attributes.food.name') %>:</strong>
-  <%= @food.name %>
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.food.protein') %>:</strong>
-  <%= @food.protein %>g
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.food.quantity') %>:</strong>
-  <%= @food.quantity %>
-</p>
-
-<p>
-  <strong><%= t('activerecord.attributes.food.unit') %>:</strong>
-  <%= @food.unit %>
-</p>
-<%= link_to t('view.edit'), edit_food_path(@food.id) %>
-<%= link_to t('view.back'), foods_path %>
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <h1 class="food_text"><%= t('view.food_show') %></h1>
+    <div class="d-flex flex-row justify-content-center align-items-center mt-5">
+      <div class="mx-3 mt-3">
+        <div class="food_th_width">
+          <%= label :name, t('activerecord.attributes.food.name'), class: "text-success" %>
+        </div>
+        <div class="food_th_width">
+          <%= @food.name %>
+        </div>
+      </div>
+      <div class="mx-3 mt-3">
+        <div class="food_th_width">
+          <%= label :protein, t('activerecord.attributes.food.protein'), class: "text-success" %>
+        </div>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+          <div >
+            <%= @food.protein %>
+          </div>
+          <div>
+            g
+          </div>
+        </div>
+      </div>
+      <div class="mx-3 mt-3">
+        <div class="food_th_width">
+          <%= label :quantity, t('activerecord.attributes.food.quantity'), class: "text-success" %>
+        </div>
+        <div class="food_th_width">
+          <%= @food.quantity %>
+        </div>
+      </div>
+      <div class="mx-3 mt-3">
+        <div class="food_th_width">
+          <%= label :unit, t('activerecord.attributes.food.unit'), class: "text-success" %>
+        </div>
+        <div class="food_th_width">
+          <%= @food.unit %>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+      <div class="button_design submit_button mt-5 mx-3">
+        <%= link_to t('view.edit'), edit_food_path(@food.id), class: "button_text_color" %>
+      </div>
+      <div class="button_design submit_button mt-5 mx-3">
+        <%= link_to t('view.back'), foods_path, class: "button_text_color" %>
+      </div>
+    </div>
+  </div>

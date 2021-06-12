@@ -1,33 +1,34 @@
-<h1><%= t('view.foods_index') %></h1>
-
-<div class="paginate_box rounded mt-3">
-  <%= paginate @foods, window: 3 %>
-</div>
-<table>
-  <thead>
-    <tr>
-      <th><%= t('view.food_name') %></th>
-      <th><%= t('view.protein') %></th>
-      <th><%= t('view.quantity') %></th>
-      <th><%= t('view.unit') %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @foods.each do |food| %>
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h1 class="food_text"><%= t('view.foods_index') %></h1>
+  <div class="paginate_box rounded my-3">
+    <%= paginate @foods, window: 3 %>
+  </div>
+  <table>
+    <thead>
       <tr>
-        <td><%= food.name %></td>
-        <td><%= food.protein %>g</td>
-        <td><%= food.quantity %></td>
-        <td><%= food.unit %></td>
-        <td><%= link_to t('view.show'), food_path(food.id) %></td>
-        <td><%= link_to t('view.edit'), edit_food_path(food.id) %></td>
-        <td><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="food_th_width text-success"><%= t('view.food_name') %></th>
+        <th class="food_th_width text-success"><%= t('view.protein') %></th>
+        <th class="food_th_width text-success"><%= t('view.quantity') %></th>
+        <th class="food_th_width text-success"><%= t('view.unit') %></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<div class="paginate_box rounded mt-3">
-  <%= paginate @foods, window: 3 %>
+    </thead>
+
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td class="food_td"><%= food.name %></td>
+          <td class="food_td"><%= food.protein %>g</td>
+          <td class="food_td"><%= food.quantity %></td>
+          <td class="food_td"><%= food.unit %></td>
+          <td class="food_td"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
+          <td class="food_td"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
+          <td class="food_td"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="paginate_box rounded mt-3">
+    <%= paginate @foods, window: 3 %>
+  </div>
 </div>
