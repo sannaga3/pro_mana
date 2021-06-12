@@ -239,6 +239,9 @@ ja:
     error_sentence: 件のエラーがあります
     follow_or_unfollow: フォロー/解除
     admin_dashboard: 管理画面
+    search: 検索
+    date: 日付
+    button: ボタン
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
