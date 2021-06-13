@@ -1,6 +1,5 @@
 require 'rails_helper'
 describe 'ユーザー機能', type: :system do
-  # let(:user) { FactoryBot.create(:user)}
   describe 'ユーザーの新規登録テスト' do
     before do
       visit new_user_registration_path
@@ -88,6 +87,54 @@ describe 'ユーザー機能', type: :system do
         fill_in 'user[password_confirmation]', with: 'sayonarae'
         click_button 'アカウント登録'
         expect(page).to have_content 'パスワード（確認用）とパスワードの入力が一致しません'
+      end
+    end
+  end
+  describe 'ユーザーのログインテスト' do
+    let!(:user) { FactoryBot.create(:user)}
+    before do
+      visit new_user_session_path
+    end
+    context 'メールアドレス、パスワードが正しい場合,' do
+      it 'ログインしてプロフィールページへ飛ぶ' do
+        fill_in 'user[email]', with: 'machigaisagasi@example.com'
+        fill_in 'user[password]', with: 'sayonaraerezi'
+        click_button 'ログイン'
+        expect(current_path).to eq user_path(user.id)
+        expect(page).to have_content 'ログインしました。'
+        expect(page).to have_content 'すだまさき'
+      end
+    end
+    context 'メールアドレスが未記入の場合,' do
+      it 'ログインできずに「メールアドレスまたはパスワードが違います。」と表示される' do
+        fill_in 'user[email]', with: ''
+        fill_in 'user[password]', with: 'sayonaraerezi'
+        click_button 'ログイン'
+        expect(page).to have_content 'ログイン'
+        expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
+      end
+    end
+    context 'パスワードが未記入の場合,' do
+      it 'ログインできずに「メールアドレスまたはパスワードが違います。」と表示される' do
+        fill_in 'user[email]', with: 'machigaisagasi@example.com'
+        fill_in 'user[password]', with: ''
+        click_button 'ログイン'
+        expect(page).to have_content 'ログイン'
+        expect(page).to have_content 'メールアドレスまたはパスワードが違います。'
+      end
+    end
+    context 'ユーザーがログインしている場合,' do
+      it 'ログアウトできること' do
+        fill_in 'user[email]', with: 'machigaisagasi@example.com'
+        fill_in 'user[password]', with: 'sayonaraerezi'
+        click_button 'ログイン'
+        expect(current_path).to eq user_path(user.id)
+        expect(page).to have_content 'ログインしました。'
+        expect(page).to have_content 'すだまさき'
+        click_on 'ログアウト'
+        expect(current_path).to eq '/'
+        expect(page).to have_content 'ログアウトしました。'
+        expect(page).to have_content 'ログイン'
       end
     end
   end
