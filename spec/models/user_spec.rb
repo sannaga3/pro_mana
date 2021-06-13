@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
-  let(:second_user) { FactoryBot.create(:second_user) }
   describe 'ユーザー新規作成時のバリデーションテスト' do
     context '名前、メールアドレス、パスワードが正しい場合' do
       it 'ユーザーを作成できる' do
@@ -37,6 +36,24 @@ RSpec.describe User, type: :model do
       it 'バリデーションエラーになる' do
         user.email = "foo"*20
         expect(user).to be_invalid
+      end
+    end
+    context 'メールアドレスが重複した場合,' do
+      it 'バリデーションエラーになる' do
+        User.create!(
+          name: 'すだまさき',
+          email: 'machigaisagasi@example.com',
+          password: 'sayonaraerezi',
+          password_confirmation: 'sayonaraerezi',
+        )
+        user = User.new(
+          name: 'すだまさき',
+          email: 'machigaisagasi@example.com',
+          password: 'sayonaraerezi',
+          password_confirmation: 'sayonaraerezi',
+        )
+        user.invalid?
+        expect(user.errors[:email]).to include("はすでに存在します")
       end
     end
     context 'パスワードが未入力の場合' do
