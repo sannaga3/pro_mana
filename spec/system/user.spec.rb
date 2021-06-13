@@ -203,8 +203,9 @@ describe 'ユーザー機能', type: :system do
         expect(current_path).to eq user_path(user.id)
         expect(page).to have_content 'ログインしました。'
         expect(page).to have_content 'すだまさき'
-        click_on 'みんなの日記'
+        click_on 'みんなの記録'
         expect(current_path).to eq records_path
+        click_on ''
       end
     end
   end
