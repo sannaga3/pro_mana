@@ -15,7 +15,7 @@
             <div class="container">
               <div class="row mb-2 font-weight-bold">
                 <div class="col-6 bold_font_size"><%= t('view.date') + ": " + "#{day}"%></div>
-                <div class="col-6 bold_font_size"><%= t('view.user_name') + ": " + records.first.user.name %></div>
+                <div class="col-6 bold_font_size"><%= link_to records.first.user.name, user_path(records.first.user.id) %></div>
               </div>
             </div>
             <table>

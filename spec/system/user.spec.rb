@@ -192,5 +192,20 @@ describe 'ユーザー機能', type: :system do
         end
       end
     end
+    describe 'ユーザーのフォロー機能テスト' do
+      let!(:user) { FactoryBot.create(:user)}
+      let!(:second_user) { FactoryBot.create(:second_user)}
+      before do
+        visit new_user_session_path
+        fill_in 'user[email]', with: 'machigaisagasi@example.com'
+        fill_in 'user[password]', with: 'sayonaraerezi'
+        click_button 'ログイン'
+        expect(current_path).to eq user_path(user.id)
+        expect(page).to have_content 'ログインしました。'
+        expect(page).to have_content 'すだまさき'
+        click_on 'みんなの日記'
+        expect(current_path).to eq records_path
+      end
+    end
   end
 end
