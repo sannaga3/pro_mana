@@ -17,25 +17,55 @@ FactoryBot.define do
     password { 'natunomaboroshi' }
     profile_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/.jpg'))}
     profile_comment { 'ボーカルの中村です、コナンの曲歌ってました。解散後ソロで活動しています' }
-    height { '156' }
-    weight { '49' }
-    protein_target { '75' }
-    admin { 'false' }
+    height { 156 }
+    weight { 49 }
+    protein_target { 75 }
+    admin { false }
   end
 
   factory :food_one, class: Food do
-    name { "chicken" }
+    name { "鳥もも肉" }
     protein { 12 }
     quantity { 1 }
     unit { "本" }
     user_id { User.find_by(name: "すだまさき").id }
   end
 
-  factory :record, class: Record do
+  factory :food_two, class: Food do
+    name { '卵' }
+    protein { 4 }
+    quantity { 1 }
+    unit { '個' }
+    user_id { User.find_by(name: "すだまさき").id }
+  end
+
+  factory :food_three, class: Food do
+    name { '豆腐' }
+    protein { 6 }
+    quantity { 1 }
+    unit { '個' }
+    user_id { User.find_by(name: "garnetcrow").id }
+  end
+
+  factory :record_one, class: Record do
     ate { 1 }
     record_on { "2021-06-05" }
-    food_id { Food.find_by(name: "chicken").id }
+    food_id { Food.find_by(name: "鳥もも肉").id }
     user_id { User.find_by(name: "すだまさき").id }
+  end
+
+  factory :record_two, class: Record do
+    ate { 1 }
+    record_on { "2021-06-06" }
+    food_id { Food.find_by(name: "卵").id }
+    user_id { User.find_by(name: "すだまさき").id }
+  end
+
+  factory :record_three, class: Record do
+    ate { 1 }
+    record_on { "2021-06-05" }
+    food_id { Food.find_by(name: "豆腐").id }
+    user_id { User.find_by(name: "garnetcrow").id }
   end
 
   # factory :secind_record, class: Record do
