@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :first_user, class: User do
+  factory :user_one, class: User do
     name { 'すだまさき' }
     email { 'machigaisagasi@example.com' }
     password { 'sayonaraerezi' }
@@ -11,7 +11,19 @@ FactoryBot.define do
     admin { 'true' }
   end
 
-  factory :first_food, class: Food do
+  factory :user_two, class: User do
+    name { 'garnetcrow' }
+    email { 'wasurezaki@example.com' }
+    password { 'natunomaboroshi' }
+    profile_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/.jpg'))}
+    profile_comment { 'ボーカルの中村です、コナンの曲歌ってました。解散後ソロで活動しています' }
+    height { '156' }
+    weight { '49' }
+    protein_target { '75' }
+    admin { 'false' }
+  end
+
+  factory :food_one, class: Food do
     name { "chicken" }
     protein { 12 }
     quantity { 1 }

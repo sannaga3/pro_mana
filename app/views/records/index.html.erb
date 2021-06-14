@@ -10,45 +10,52 @@
       </div>
       <% @days.each do |day| %>
         <% records = @records.where(record_on: day) %>
-        <div class="border-success day_record_style my-4">
-          <% if @records != nil %>
-            <div class="container">
-              <div class="row mb-2 font-weight-bold">
-                <div class="col-6 bold_font_size"><%= t('view.date') + ": " + "#{day}"%></div>
-                <div class="col-6 bold_font_size"><%= link_to records.first.user.name, user_path(records.first.user.id) %></div>
-              </div>
-            </div>
-            <table>
-              <% records.each do |record| %>
-                <% if record == records.first %>
-                  <thead>
-                    <tr class="border_bottom">
-                      <th class="record_th text-center"><%= t('activerecord.attributes.food.name') %></th>
-                      <th class="record_th text-center"><%= t('activerecord.attributes.food.protein') %></th>
-                      <th class="record_th text-center"><%= t('activerecord.attributes.food.quantity') %></th>
-                      <th class="record_th text-center"><%= t('activerecord.attributes.food.unit') %></th>
-                      <th class="record_th text-center"><%= t('activerecord.attributes.record.ate') %></th>
-                      <th class="record_th text-center"><%= t('view.button') %></th>
+        <% if @records != nil %>
+          <% user_ids = records.pluck(:user_id)%>
+          <% user_ids.uniq! %>
+          <% user_ids.each do |user_id| %>
+            <% user_records = records.where(user_id: user_id) %>
+            <div class="border-success day_record_style my-4">
+              <table>
+                <% user_records.each do |record| %>
+                  <% if record == user_records.first %>
+                    <div class="container">
+                      <div class="row mb-2 font-weight-bold">
+                        <div class="col-6 bold_font_size"><%= t('view.date') + ": " + "#{day}"%></div>
+                        <div class="col-6 bold_font_size"><%= t('view.user_name') + " : " %><%= link_to user_records.first.user.name, user_path(records.first.user.id) %></div>
+                      </div>
+                    </div>
+                    <thead>
+                      <tr class="border_bottom">
+                        <th class="record_th text-center"><%= t('activerecord.attributes.food.name') %></th>
+                        <th class="record_th text-center"><%= t('activerecord.attributes.food.protein') %></th>
+                        <th class="record_th text-center"><%= t('activerecord.attributes.food.quantity') %></th>
+                        <th class="record_th text-center"><%= t('activerecord.attributes.food.unit') %></th>
+                        <th class="record_th text-center"><%= t('activerecord.attributes.record.ate') %></th>
+                        <th class="record_th text-center"><%= t('view.button') %></th>
+                      </tr>
+                    </thead>
+                  <% end %>
+                  <tbody>
+                    <% food = Food.find(record.food_id) %>
+                    <tr>
+                      <td class="text-center"><%= food.name %></td>
+                      <td class="text-center"><%= food.protein %>g</td>
+                      <td class="text-center"><%= food.quantity %></td>
+                      <td class="text-center"><%= food.unit %></td>
+                      <td class="text-center"><%= record.ate %></td>
+                      <td>
+                        <%= link_to t('view.show'), record_path(record.id), class: "btn btn-outline-warning" %>
+                        <%= link_to t('view.edit'), edit_record_path(record.id), class: "btn btn-outline-success" %>
+                        <%= link_to t('view.destroy'), record_path(record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
+                      </td>
                     </tr>
-                  </thead>
+                  </tbody>
                 <% end %>
-                <tbody>
-                  <% food = Food.find(record.food_id) %>
-                  <tr>
-                    <td class="text-center"><%= food.name %></td>
-                    <td class="text-center"><%= food.protein %>g</td>
-                    <td class="text-center"><%= food.quantity %></td>
-                    <td class="text-center"><%= food.unit %></td>
-                    <td class="text-center"><%= record.ate %></td>
-                    <td><%= link_to t('view.show'), record_path(record.id), class: "btn btn-outline-warning" %></td>
-                    <td><%= link_to t('view.edit'), edit_record_path(record.id), class: "btn btn-outline-success" %></td>
-                    <td><%= link_to t('view.destroy'), record_path(record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %></td>
-                  </tr>
-                </tbody>
-              <% end %>
-            </table>
+              </table>
+            </div>
           <% end %>
-        </div>
+        <% end %>
       <% end %>
       <div class="paginate_box rounded mt-3">
         <%= paginate @days, window: 3 %>
