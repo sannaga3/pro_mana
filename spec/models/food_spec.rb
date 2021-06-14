@@ -6,8 +6,6 @@ RSpec.describe Food, type: :model do
     context '名前、タンパク質量、量、単位、が正しい場合' do
       it '食品を作成できる' do
         expect(food).to be_valid
-        puts food.user_id
-        puts food.user.name
       end
     end
     context '食品名が未入力の場合' do
