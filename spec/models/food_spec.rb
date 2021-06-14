@@ -40,5 +40,11 @@ RSpec.describe Food, type: :model do
         expect(food).to be_invalid
       end
     end
+    context '単位が11文字以上の場合' do
+      it 'バリデーションエラーになる' do
+        food.unit = "個"*11
+        expect(food).to be_invalid
+      end
+    end
   end
 end
