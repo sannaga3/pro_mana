@@ -14,4 +14,12 @@ FactoryBot.define do
     unit { '個' }
     association :user
   end
+
+  factory :third_food, class: Food do
+    name { '豆腐' }
+    protein { '6' }
+    quantity { '100' }
+    unit { 'g' }
+    association :second_user
+  end
 end
