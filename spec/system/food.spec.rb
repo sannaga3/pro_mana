@@ -2,7 +2,6 @@ require 'rails_helper'
 describe '食品機能', type: :system do
   describe '食品新規登録テスト' do
     let!(:user) { FactoryBot.create(:user)}
-    let(:food) { FactoryBot.create(:food)}
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: 'machigaisagasi@example.com'
@@ -26,6 +25,19 @@ describe '食品機能', type: :system do
         expect(page).to have_content '鳥もも肉'
         food_list = all('.text-center')
         expect(food_list[0]).to have_content "鳥もも肉"
+      end
+    end
+    context '食品を編集した場合' do
+      it '食品一覧画面の一番最初に表示される' do
+        FactoryBot.create(:food,user: user)
+        FactoryBot.create(:second_food,user: user)
+        click_on '食品一覧'
+        expect(current_path).to eq foods_path
+        expect(page).to have_content '食品一覧'
+        expect(page).to have_content '卵'
+        expect(page).to have_content '納豆'
+        food_list = all('.text-center')
+        expect(food_list[0]).to have_content "卵"
       end
     end
   end
