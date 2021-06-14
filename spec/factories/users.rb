@@ -15,7 +15,7 @@ FactoryBot.define do
     name { 'garnetcrow' }
     email { 'wasurezaki@example.com' }
     password { 'natunomaboroshi' }
-    profile_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/camera.jpg'))}
+    profile_image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/.jpg'))}
     profile_comment { 'ボーカルの中村です、コナンの曲歌ってました。解散後ソロで活動しています' }
     height { '156' }
     weight { '49' }

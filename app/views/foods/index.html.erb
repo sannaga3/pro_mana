@@ -15,6 +15,7 @@
     </thead>
 
     <tbody>
+      <% delete_button_index = 0 %>
       <% @foods.each do |food| %>
         <tr>
           <td class="text-center"><%= food.name %></td>
@@ -23,8 +24,9 @@
           <td class="text-center"><%= food.unit %></td>
           <td class="text-center"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
           <td class="text-center"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
-          <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %></td>
+          <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{delete_button_index}" %></td>
         </tr>
+        <% delete_button_index += 1 %>
       <% end %>
     </tbody>
   </table>
