@@ -16,7 +16,7 @@
           <% if @records != nil %>
             <div class="container">
               <div class="row font-weight-bold">
-                <div class="col-12 bold_font_size text-center"><%= t('view.date') + ": " + "#{day}"%></div>
+                <div class="col-12 bold_font_size text-center"><span class="table_date"><%= t('view.date') + ": " + "#{day}"%></span></div>
               </div>
             </div>
             <table>
@@ -52,7 +52,7 @@
               <% end %>
             </table>
             <div class="border_top text-center font-weight-bold bold_font_size my-1 pt-1">
-                <%= t('view.my_daily_amount_protein') + " #{@protein_amount}" + " g" %>
+                <span class="total_protein"><%= t('view.my_daily_amount_protein') + " #{@protein_amount}" + " g" %></span>
             </div>
           <% end %>
         </div>

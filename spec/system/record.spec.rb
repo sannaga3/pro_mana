@@ -20,7 +20,7 @@ describe '食品記録機能', type: :system do
       expect(page).to have_content 'すだまさき'
     end
     context '記録を新規作成した場合' do
-      it '食品一覧画面で日付順に表示される' do
+      it '記録一覧画面で日付順に表示される' do
         click_on '記録作成'
         expect(current_path).to eq new_record_path
         expect(page).to have_content '記録作成'
@@ -40,6 +40,22 @@ describe '食品記録機能', type: :system do
         expect(table_days[0]).to have_content "2021-06-09"
         table_user_names = all(".table_user_name")
         expect(table_user_names[0]).to have_content "すだまさき"
+      end
+    end
+    context '毎日の記録ページのリンクをクリックした場合' do
+      it '自分の記録のみ取得できる' do
+        click_on '毎日の記録'
+        expect(current_path).to eq my_daily_records_path
+        expect(page).to have_content '毎日の記録'
+        expect(2).to eq Record.where(user_id: user.id).count
+        tds = all("td")
+        expect(tds[0]).to have_content "卵"
+        expect(page).to have_content "納豆"
+        table_days = all(".table_date")
+        expect(table_days[0]).to have_content "2021-06-06"
+        total_proteins = all(".total_protein")
+        expect(total_proteins[0]).to have_content "タンパク質摂取量合計 4 g"
+        expect(total_proteins[1]).to have_content "タンパク質摂取量合計 4 g"
       end
     end
   end
