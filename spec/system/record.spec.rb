@@ -58,5 +58,23 @@ describe '食品記録機能', type: :system do
         expect(total_proteins[1]).to have_content "タンパク質摂取量合計 4 g"
       end
     end
+    context '毎日の記録ページから詳細ボタンをクリックした場合' do
+      it '詳細ページが表示される' do
+        click_on '毎日の記録'
+        expect(current_path).to eq my_daily_records_path
+        expect(page).to have_content '毎日の記録'
+        expect(2).to eq Record.where(user_id: user.id).count
+        tds = all("td")
+        expect(tds[0]).to have_content "卵"
+        find('#show_button0').click
+        expect(current_path).to eq record_path(second_record.id)
+        expect(page).to have_content "記録詳細"
+        expect(page).to have_content "卵"
+        expect(page).to have_content 4
+        expect(page).to have_content 1
+        expect(page).to have_content "個"
+        expect(page).to have_content "2021-06-06"
+      end
+    end
   end
 end
