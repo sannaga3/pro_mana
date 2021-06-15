@@ -43,7 +43,7 @@ class RecordsController < ApplicationController
 
   def destroy
     @record.destroy
-    redirect_to records_path, notice: t('notice.destroy_record')
+    redirect_to request.referer, notice: t('notice.destroy_record')
   end
 
   def my_daily
