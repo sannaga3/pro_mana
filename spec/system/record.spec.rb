@@ -29,7 +29,7 @@ describe '食品記録機能', type: :system do
         fill_in 'record[ate]', with: 1
         fill_in 'record[record_on]', with: "002021-06-09"
         click_on "登録"
-        expect(current_path).to eq record_path(record.id)
+        expect(current_path).to eq record_path(Record.last.id)
         expect(page).to have_content '食品記録完了'
         expect(page).to have_content '納豆'
         expect(page).to have_content  1
