@@ -21,8 +21,8 @@
                   <% if record == user_records.first %>
                     <div class="container">
                       <div class="row mb-2 font-weight-bold">
-                        <div class="col-6 bold_font_size"><%= t('view.date') + ": " + "#{day}"%></div>
-                        <div class="col-6 bold_font_size"><%= t('view.user_name') + " : " %><%= link_to user_records.first.user.name, user_path(records.first.user.id) %></div>
+                        <div class="col-6 bold_font_size"><span class="table_date"><%= t('view.date') + ": " + "#{day}"%></span></div>
+                        <div class="col-6 bold_font_size"><%= t('view.user_name') + " : " %><span class="table_user_name"><%= link_to user_records.first.user.name, user_path(records.first.user.id) %></span></div>
                       </div>
                     </div>
                     <thead>
