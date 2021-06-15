@@ -87,6 +87,29 @@ describe '食品記録機能', type: :system do
           expect(page).to have_content "個"
         end
       end
+      context 'みんなの記録ページへ遷移した場合' do
+        it '記録全てが日付の降順かつユーザー毎に表示される' do
+          click_on 'みんなの記録'
+          expect(current_path).to eq records_path
+          expect(page).to have_content 'みんなの記録'
+          tds = all("td")
+          expect(tds[0]).to have_content "豆腐"
+          expect(tds[6]).to have_content "卵"
+          expect(tds[12]).to have_content "納豆"
+          expect(tds[18]).to have_content "豆腐"
+          expect(4).to eq Record.count
+          table_days = all(".table_date")
+          expect(table_days[0]).to have_content "2021-06-07"
+          expect(table_days[1]).to have_content "2021-06-06"
+          expect(table_days[2]).to have_content "2021-06-05"
+          expect(table_days[3]).to have_content "2021-06-05"
+          table_user_names = all(".table_user_name")
+          expect(table_user_names[0]).to have_content "garnetcrow"
+          expect(table_user_names[1]).to have_content "すだまさき"
+          expect(table_user_names[2]).to have_content "すだまさき"
+          expect(table_user_names[3]).to have_content "garnetcrow"
+        end
+      end
     end
   end
 end
