@@ -28,7 +28,7 @@ describe '食品記録機能', type: :system do
         fill_in 'record[ate]', with: 1
         fill_in 'record[record_on]', with: "002021-06-09"
         click_on "登録"
-        expect(current_path).to eq records_path
+        expect(current_path).to eq record_path(record.id)
         expect(page).to have_content '食品記録完了'
         expect(page).to have_content '卵'
         expect(page).to have_content '納豆'
@@ -74,6 +74,23 @@ describe '食品記録機能', type: :system do
         expect(page).to have_content 1
         expect(page).to have_content "個"
         expect(page).to have_content "2021-06-06"
+      end
+      context '編集ページの内容を更新した場合' do
+        it '更新内容が詳細ページに反映される' do
+          click_on '毎日の記録'
+          expect(current_path).to eq my_daily_records_path
+          expect(page).to have_content '毎日の記録'
+          expect(2).to eq Record.where(user_id: user.id).count
+          tds = all("td")
+          expect(tds[0]).to have_content "卵"
+          find('#edit_button0').click
+          expect(current_path).to eq edit_record_path(second_record.id)
+          expect(page).to have_content "記録編集"
+          expect(page).to have_content "卵"
+          expect(page).to have_content 4
+          expect(page).to have_content 1
+          expect(page).to have_content "個"
+        end
       end
     end
   end

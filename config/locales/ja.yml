@@ -211,6 +211,7 @@ ja:
     edit: 編集
     destroy: 削除
     show: 詳細
+    update: 更新
     new_user: ユーザー作成
     submit: 登録
     sign_up: サインアップ
