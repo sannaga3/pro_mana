@@ -1,6 +1,6 @@
 require 'rails_helper'
 describe '食品機能', type: :system do
-  describe '食品新規登録テスト' do
+  describe '食品管理機能テスト' do
     let!(:user) { FactoryBot.create(:user)}
     before do
       visit new_user_session_path

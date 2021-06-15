@@ -4,8 +4,8 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.all
+    @records = @records.order(record_on: :desc)
     @days = @records.pluck(:record_on)
-    @records = @records.order("record_on desc, user_id desc")
     @days = @days.uniq
     @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
   end
@@ -20,7 +20,7 @@ class RecordsController < ApplicationController
   def create
     @record = Record.new(record_params)
     if @record.save
-      redirect_to records_path, notice: t('notice.add_record')
+      redirect_to record_path(@record.id), notice: t('notice.add_record')
     else
       render :new
     end
@@ -35,7 +35,7 @@ class RecordsController < ApplicationController
 
   def update
     if @record.update(record_params)
-      redirect_to records_path, notice: t('notice.edit_record')
+      redirect_to record_path(@record.id), notice: t('notice.edit_record')
     else
       render :new
     end
@@ -43,7 +43,7 @@ class RecordsController < ApplicationController
 
   def destroy
     @record.destroy
-    redirect_to records_path, notice: t('notice.destroy_record')
+    redirect_to request.referer, notice: t('notice.destroy_record')
   end
 
   def my_daily
