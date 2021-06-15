@@ -35,7 +35,7 @@ class RecordsController < ApplicationController
 
   def update
     if @record.update(record_params)
-      redirect_to records_path, notice: t('notice.edit_record')
+      redirect_to record_path(@record.id), notice: t('notice.edit_record')
     else
       render :new
     end
