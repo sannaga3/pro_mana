@@ -118,15 +118,18 @@ describe '食品記録機能', type: :system do
           expect(2).to eq Record.where(user_id: user.id).count
           tds = all("td")
           expect(tds[0]).to have_content "卵"
-          find('#show_button0').click
-          expect(current_path).to eq record_path(second_record.id)
-          expect(page).to have_content "記録詳細"
-          expect(page).to have_content "卵"
-          expect(page).to have_content 4
-          expect(page).to have_content 1
-          expect(page).to have_content "個"
-          expect(page).to have_content "2021-06-06"
+          expect(tds[8]).to have_content "納豆"
+          find('#delete_button0').click
+          page.driver.browser.switch_to.alert.accept
+          expect(current_path).to eq my_daily_records_path
+          expect(1).to eq Record.where(user_id: user.id).count
+          expect(page).to have_content "毎日の記録"
+          tds = all("td")
+          expect(tds[0]).to have_content "納豆"
+          table_dates = all(".table_date")
+          expect(table_dates[0]).to have_content "2021-06-05"
         end
+      end
     end
   end
 end
