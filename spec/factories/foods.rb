@@ -19,4 +19,11 @@ FactoryBot.define do
     quantity { '100' }
     unit { 'g' }
   end
+
+  factory :fourth_food, class: Food do
+    name { '鳥もも肉' }
+    protein { 12 }
+    quantity { 50 }
+    unit { 'g' }
+  end
 end
