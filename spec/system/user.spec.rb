@@ -193,14 +193,14 @@ describe 'ユーザー機能', type: :system do
       end
     end
     describe 'ゲストログイン機能' do
-      context 'ゲストログインボタンを押した時' do
-        it 'ゲストログインできる' do
+      context '一般ユーザーのゲストログインボタンを押した時' do
+        it '一般ユーザーでゲストログインできる' do
           click_on 'ゲストログイン'
           expect(page).to have_content 'ゲストユーザーとしてログインしました。'
           expect(page).to have_content 'guest@guest.com'
         end
       end
-      context 'ログアウトボタンを押した時' do
+      context '一般ユーザーがログアウトボタンを押した時' do
         it 'ログアウトできる' do
           click_on 'ゲストログイン'
           expect(page).to have_content 'ゲストユーザーとしてログインしました。'

@@ -23,6 +23,15 @@ class User < ApplicationRecord
     end
   end
 
+  def self.admin_guest
+    find_or_create_by!(email: 'admin_guest@guest.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.password_confirmation = user.password
+      user.name = 'admin_guest'
+      user.admin = true
+    end
+  end
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
