@@ -26,4 +26,11 @@ FactoryBot.define do
     food_id { Food.find_by(name: "豆腐").id }
     user_id { User.find_by(name: "garnetcrow").id }
   end
+
+  factory :fifth_record, class: Record do
+    ate { 2 }
+    record_on { "2021-06-07" }
+    food_id { Food.find_by(name: "鳥もも肉").id }
+    user_id { User.find_by(name: "SUPER BEAVER").id }
+  end
 end
