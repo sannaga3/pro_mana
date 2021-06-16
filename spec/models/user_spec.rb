@@ -1,4 +1,5 @@
 require 'rails_helper'
+require "cancan/matchers"
 
 RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
@@ -75,18 +76,31 @@ RSpec.describe User, type: :model do
       end
     end
   end
-  describe 'ユーザー編集時のバリデーションテスト' do
-    context '編集時にプロフィールコメントに101文字以上入力した場合' do
-      it 'バリデーションエラーになる' do
-        user.profile_comment = "hoge"*26
-        expect(user).not_to be_valid
+  describe '管理者権限機能' do
+    context '管理者権限がある場合' do
+      it 'ユーザ-の作成・編集・削除ができる' do
+        @manager = user
+        @ability = Ability.new(@manager)
+        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        expect(@ability).to be_able_to(:create, test_user)
+        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        expect(@ability).to be_able_to(:edit, test_user)
+        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        expect(@ability).to be_able_to(:destroy, test_user)
       end
     end
-    context '編集時にパスワードが未入力の場合' do
-      it '編集できる' do
-        user.password = ""
-        expect(user).not_to be_valid
+    context '管理者権限がない場合' do
+      it 'ユーザーを作成・編集・削除ができない' do
+        @manager = FactoryBot.create(:third_user)
+        @ability = Ability.new(@manager)
+        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        expect(@ability).to_not be_able_to(:create, test_user)
+        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        expect(@ability).to_not be_able_to(:edit, test_user)
+        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        expect(@ability).to_not be_able_to(:destroy, test_user)
       end
     end
   end
 end
+

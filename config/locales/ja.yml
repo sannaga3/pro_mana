@@ -243,6 +243,7 @@ ja:
     search: 検索
     date: 日付
     button: ボタン
+    admin_guest_login: ゲストログイン(管理者)
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了

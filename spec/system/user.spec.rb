@@ -192,5 +192,41 @@ describe 'ユーザー機能', type: :system do
         end
       end
     end
+    describe 'ゲストログイン機能' do
+      before do
+        visit '/'
+      end
+      context 'ゲストログインボタンを押した時' do
+        it 'ゲストログインできる' do
+          find('#guest_login').click
+          expect(page).to have_content 'ゲストユーザーとしてログインしました。'
+          expect(page).to have_content 'guest@guest.com'
+        end
+      end
+      context 'ログアウトボタンを押した時' do
+        it 'ログアウトできる' do
+          find('#guest_login').click
+          expect(page).to have_content 'ゲストユーザーとしてログインしました。'
+          click_on 'ログアウト'
+          expect(current_path).to eq '/'
+        end
+      end
+      context '管理者ユーザーのゲストログインボタンを押した時' do
+        it '管理者ユーザーでゲストログインできる' do
+          find('#admin_guest_login').click
+          expect(page).to have_content 'ゲストユーザー(管理者)としてログインしました。'
+          expect(page).to have_content 'admin_guest@guest.com'
+        end
+      end
+      context '管理者ユーザーがログアウトボタンを押した時' do
+        it 'ログアウトできる' do
+          find('#admin_guest_login').click
+          expect(page).to have_content 'ゲストユーザー(管理者)としてログインしました。'
+          expect(page).to have_content 'admin_guest@guest.com'
+          click_on 'ログアウト'
+          expect(current_path).to eq '/'
+        end
+      end
+    end
   end
 end
