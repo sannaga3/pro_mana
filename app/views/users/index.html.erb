@@ -2,6 +2,9 @@
   <div>
     <h1><%= t('view.follow_list') %></h1>
   </div>
+  <div>
+    <h4>フォロー方法: みんなの記録ページ → ユーザー名 → 個別のプロフィールページでフォローする</h4>
+  </div>
   <div class="paginate_box rounded mt-3">
     <%= paginate @followed_users, window: 3 %>
   </div>

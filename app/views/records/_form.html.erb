@@ -51,7 +51,7 @@
           <%= form.label t('activerecord.attributes.record.ate'), class: "text-success" %>
         </div>
         <div>
-          <%= form.number_field :ate, class: "ate_width" %>
+          <%= form.number_field :ate, min: '1', class: "ate_width" %>
         </div>
       </div>
       <div class="d-flex flex-column justify-content-center align-items-center mx-2 mt-1">
@@ -59,7 +59,7 @@
           <%= form.label t('activerecord.attributes.record.record_on'), class: "text-success" %>
         </div>
         <div>
-          <%= form.date_field :record_on %>
+          <%= form.date_field :record_on, value: Time.now.strftime("%Y-%m-%d") %>
         </div>
       </div>
     </div>
@@ -78,27 +78,26 @@
 <% end %>
 <div class="d-flex flex-column justify-content-center align-items-center mt-3">
   <% if action_name == "new" %>
-    <div class="mb-3">
-      <h3 class="text-success font-weight-bold">検索</h3>
-    </div>
+    <div class="mb-3"><h3 class="text-success font-weight-bold"><%= t('view.search_foods') %></h3></div>
+    <div><h5><%= t('view.search_exception') %></h5></div>
     <%= search_form_for @q, url: new_record_path do |f| %>
       <table>
         <tbody>
           <tr>
-            <td><%= f.label :name_cont %></td>
-            <td><%= f.search_field :name_cont %></td>
+            <td><%= f.label t('view.search_food') %></td>
+            <td><%= f.search_field :name_cont, min: '1' %></td>
           </tr>
           <tr>
-            <td><%= f.label :protein_eq %></td>
-            <td><%= f.number_field :protein_eq %></td>
+            <td><%= f.label t('view.protein_quantity') %></td>
+            <td><%= f.number_field :protein_eq, min: '1' %>g</td>
           </tr>
           <tr>
-            <td><%= f.label :protein_lteq %></td>
-            <td><%= f.number_field :protein_lteq %></td>
+            <td><%= f.label t('view.protein_quantity') %></td>
+            <td><%= f.number_field :protein_lteq, min: '1' %><%= t('view.over') %></td>
           </tr>
           <tr>
-            <td><%= f.label :protein_gteq %></td>
-            <td><%= f.number_field :protein_gteq %></td>
+            <td><%= f.label t('view.protein_quantity') %></td>
+            <td><%= f.number_field :protein_gteq, min: '1' %><%= t('view.less') %></td>
           </tr>
         </tbody>
       </table>

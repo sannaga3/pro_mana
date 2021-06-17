@@ -14,23 +14,23 @@
             </tr>
             <tr>
               <td><%= f.label :email %></td>
-              <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+              <td><%= f.email_field :email, autocomplete: "email" %></td>
             </tr>
             <tr>
               <td><%= f.label :profile_comment %></td>
-              <td><%= f.text_area :profile_comment, autofocus: true %></td>
+              <td><%= f.text_area :profile_comment %></td>
             </tr>
             <tr>
               <td><%= f.label :height %></td>
-              <td><%= f.number_field :height, autofocus: true %>cm</td>
+              <td><%= f.number_field :height, min: '1' %>cm</td>
             </tr>
             <tr>
               <td><%= f.label :weight %></td>
-              <td><%= f.number_field :weight, step: '0.1', autofocus: true %>kg</td>
+              <td><%= f.number_field :weight, min: '0.1' ,step: '0.1', autofocus: true %>kg</td>
             </tr>
             <tr>
               <td><%= f.label :protein_target %></td>
-              <td><%= f.number_field :protein_target, autofocus: true %>g</td>
+              <td><%= f.number_field :protein_target, min: '1' %>g</td>
             </tr>
             <tr>
               <td>

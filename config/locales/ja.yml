@@ -240,10 +240,16 @@ ja:
     error_sentence: 件のエラーがあります
     follow_or_unfollow: フォロー/解除
     admin_dashboard: 管理画面
+    search_foods: 食品検索
+    search_food: 食品名で検索(部分検索)
     search: 検索
+    search_exception: (検索結果は上記の選択欄に反映されます)
     date: 日付
     button: ボタン
     admin_guest_login: ゲストログイン(管理者)
+    protein_quantity: タンパク質含有量
+    over: g以上
+    less: g以下
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了

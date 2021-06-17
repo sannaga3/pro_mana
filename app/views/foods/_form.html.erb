@@ -16,7 +16,7 @@
         </div>
         <div class="d-flex flex-row justify-content-center align-items-center">
           <div>
-            <%= form.number_field :protein, class: "food_field" %>
+            <%= form.number_field :protein, min: '1', class: "food_field" %>
           </div>
           <div>
             g
@@ -28,7 +28,7 @@
           <%= form.label :quantity, t('activerecord.attributes.food.quantity'), class: "text-success" %>
         </div>
         <div>
-          <%= form.number_field :quantity, class: "food_field" %>
+          <%= form.number_field :quantity, min: '1', class: "food_field" %>
         </div>
       </div>
       <div class="mx-3">
