@@ -20,7 +20,7 @@ ja:
       food:
         name: 名前
         protein: タンパク質量
-        quantity: 量
+        quantity: 基準量
         unit: 単位
       record:
         food: 食品
