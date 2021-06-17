@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 #record_food_id {
   width: 149px;
   height: 24px;
@@ -12,7 +14,6 @@
 .show_text_protein {
   width: 100px;
 }
-
 .picture_nostalgy {
   width: 300px;
   height: 450px;
@@ -22,7 +23,6 @@
 .nostalsy_padding {
   margin-right: 100px;
 }
-
 .day_record_style {
   border: solid 3px green;
   border-radius: 10px;
@@ -42,7 +42,7 @@
   display: block;
   border-radius: 10px;
   position: fixed;
-  left: 70px;
+  left: 0px;
   top: 340px;
 }
 .table_width {
@@ -94,7 +94,8 @@
   top: 150px;
 }
 .egg {
-  width: 300px;
+  position: fixed;
+  width: 20%;
   height: 500px;
   background-image: image_url('egg.jpg');
   background-size: cover;
