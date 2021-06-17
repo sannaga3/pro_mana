@@ -1,12 +1,12 @@
+<div class="ml-5 my_target day_record_style text-center font-weight-bold">
+  <%= t('activerecord.attributes.user.protein_target')  + ": " + current_user.protein_target.to_s + " g" %>
+</div>
 <div class="d-flex flex-column justify-content-center align-items-center">
   <div class="mb-3">
     <h1 class="food_text"><%= t('view.my_daily_record') %></h1>
   </div>
   <div class="d-flex flex-row justify-content-center align-items-center">
-    <div class="my_target day_record_style text-center font-weight-bold mr-5 ">
-      <%= t('activerecord.attributes.user.protein_target')  + ": " + current_user.protein_target.to_s + " g" %>
-    </div>
-    <div class="d-flex flex-column justify-content-center align-items-center ml-5">
+    <div class="d-flex flex-column justify-content-center align-items-center ml-3">
       <div class="paginate_box rounded mt-3">
         <%= paginate @days, window: 3 %>
       </div>
@@ -63,5 +63,5 @@
       </div>
     </div>
   </div>
+  <div class="egg index_picture_margin picture_position_right"></div>
 </div>
-<div class="egg index_picture_margin picture_position_right"></div>
