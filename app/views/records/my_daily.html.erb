@@ -2,6 +2,7 @@
   <%= t('activerecord.attributes.user.protein_target')  + ": " + current_user.protein_target.to_s + " g" %>
 </div>
 <div class="d-flex flex-column justify-content-center align-items-center">
+  <div class="egg index_picture_margin picture_position_right"></div>
   <div class="mb-3">
     <h1 class="food_text"><%= t('view.my_daily_record') %></h1>
   </div>
@@ -30,6 +31,7 @@
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.quantity') %></th>
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.unit') %></th>
                       <th class="record_th text-center"><%= t('activerecord.attributes.record.ate') %></th>
+                      <th class="record_th text-center"><%= "" %></th>
                       <th class="record_th text-center"><%= t('view.button') %></th>
                     </tr>
                   </thead>
@@ -63,5 +65,5 @@
       </div>
     </div>
   </div>
-  <div class="egg index_picture_margin picture_position_right"></div>
+  <div class="egg2 index_picture_margin picture_position_right"></div>
 </div>
