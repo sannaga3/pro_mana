@@ -59,7 +59,7 @@
           <%= form.label t('activerecord.attributes.record.record_on'), class: "text-success" %>
         </div>
         <div>
-          <%= form.date_field :record_on %>
+          <%= form.date_field :record_on, value: Time.now.strftime("%Y-%m-%d") %>
         </div>
       </div>
     </div>
