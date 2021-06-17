@@ -33,18 +33,6 @@
 .border_top {
   border-top: solid 3px green;
 }
-.my_target {
-  width: 270px;
-  height: 40px;
-  font-size: 1.5rem;
-  line-height: 38px;
-  text-decoration: underline dashed 3px rgb(152, 152, 21);
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 0px;
-  top: 340px;
-}
 .table_width {
   min-width: 400px;
 }
@@ -74,14 +62,6 @@
   left: 30px;
   top: 150px;
 }
-.picture_position_left {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 30px;
-  top: 150px;
-}
-
 #record_food_id {
   width: 149px;
   height: 24px;
@@ -127,7 +107,7 @@
   left: 0px;
   top: 340px;
 }
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 768px) {
   .my_target {
     top: auto;
     display: block;
@@ -167,27 +147,16 @@
 .index_picture_margin {
   margin: 0 30px;
 }
-.picture_position_right {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  right: 30px;
-  top: 150px;
-}
-.picture_position_left {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 30px;
-  top: 150px;
-}
-.picture_position_left {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 30px;
-  top: 150px;
-}
+// .picture_position_right {
+//   border-radius: 10px;
+//   right: 30px;
+//   top: 150px;
+// }
+// .picture_position_left {
+//   border-radius: 10px;
+//   left: 30px;
+//   top: 150px;
+// }
 .egg {
   position: fixed;
   display: block;
@@ -205,7 +174,14 @@
   }
   .sunflower, .camera {
     position: static;
-    width: 150px;
-    height: auto;
+    width: 450px;
+    height: 150px;
+    background-position: 50% 50%;
+  }
+  .sunflower {
+    position: static;
+    width: 450px;
+    height: 150px;
+    background-position: 50% 63%;
   }
 }
