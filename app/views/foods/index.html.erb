@@ -1,36 +1,42 @@
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <h1 class="food_text"><%= t('view.foods_index') %></h1>
-  <div class="paginate_box rounded my-3">
-    <%= paginate @foods, window: 3 %>
-  </div>
-  <table>
-    <thead>
-      <tr>
-        <th class="food_th_width text-success"><%= t('view.food_name') %></th>
-        <th class="food_th_width text-success"><%= t('view.protein') %></th>
-        <th class="food_th_width text-success"><%= t('view.quantity') %></th>
-        <th class="food_th_width text-success"><%= t('view.unit') %></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% delete_button_index = 0 %>
-      <% @foods.each do |food| %>
+<div class="d-flex flex-column justify-content-center align-items-center pt-3 px-3">
+  <div class="beans_group2 index_picture_margin"></div>
+  <div class="d-flex flex-column justify-content-center align-items-center pt-3 px-3">
+    <div class="index_picture_margin picture_position_left beans_group"></div>
+    <h1 class="food_text"><%= t('view.foods_index') %></h1>
+    <div class="paginate_box rounded my-3">
+      <%= paginate @foods, window: 3 %>
+    </div>
+    <table>
+      <thead>
         <tr>
-          <td class="text-center"><%= food.name %></td>
-          <td class="text-center"><%= food.protein %>g</td>
-          <td class="text-center"><%= food.quantity %></td>
-          <td class="text-center"><%= food.unit %></td>
-          <td class="text-center"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
-          <td class="text-center"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
-          <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{delete_button_index}" %></td>
+          <th class="food_th_width text-success"><%= t('view.food_name') %></th>
+          <th class="food_th_width text-success"><%= t('view.protein') %></th>
+          <th class="food_th_width text-success"><%= t('view.quantity') %></th>
+          <th class="food_th_width text-success"><%= t('view.unit') %></th>
+          <th colspan="3"></th>
         </tr>
-        <% delete_button_index += 1 %>
-      <% end %>
-    </tbody>
-  </table>
-  <div class="paginate_box rounded mt-3">
-    <%= paginate @foods, window: 3 %>
+      </thead>
+
+      <tbody>
+        <% delete_button_index = 0 %>
+        <% @foods.each do |food| %>
+          <tr>
+            <td class="text-center"><%= food.name %></td>
+            <td class="text-center"><%= food.protein %>g</td>
+            <td class="text-center"><%= food.quantity %></td>
+            <td class="text-center"><%= food.unit %></td>
+            <td class="text-center"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
+            <td class="text-center"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
+            <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{delete_button_index}" %></td>
+          </tr>
+          <% delete_button_index += 1 %>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="paginate_box rounded mt-3">
+      <%= paginate @foods, window: 3 %>
+    </div>
+    <div class="index_picture_margin picture_position_right beans_group"></div>
   </div>
+  <div class="beans_group2 index_picture_margin"></div>
 </div>

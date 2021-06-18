@@ -1,87 +1,8 @@
 @charset "utf-8";
 
-#record_food_id {
-  width: 149px;
-  height: 24px;
-}
-.ate_width {
-  width: 70px;
-}
-.show_text_width {
-  width: 70px;
-  text-align: center;
-}
-.show_text_protein {
-  width: 100px;
-}
-.picture_nostalgy {
-  width: 300px;
-  height: 450px;
-  background-image: image_url('picture_left.jpg');
-  background-size: cover;
-}
-.nostalsy_padding {
-  margin-right: 100px;
-}
-.day_record_style {
-  border: solid 3px green;
-  border-radius: 10px;
-}
-.border_bottom {
-  border-bottom: solid 3px green;
-}
-.border_top {
-  border-top: solid 3px green;
-}
-.my_target {
-  width: 270px;
-  height: 40px;
-  font-size: 1.5rem;
-  line-height: 38px;
-  text-decoration: underline dashed 3px rgb(152, 152, 21);
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 0px;
-  top: 340px;
-}
-.table_width {
-  min-width: 400px;
-}
-.record_th {
-  min-width: 45px;
-}
-.picture_left {
-  width: 210px;
-  height: 380px;
-  background-image: image_url('picture_left.jpg');
-  background-size: cover;
-}
 .index_picture_margin {
   margin: 0 30px;
 }
-.picture_position_right {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  right: 30px;
-  top: 150px;
-}
-.picture_position_left {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 30px;
-  top: 150px;
-}
-.picture_position_left {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 30px;
-  top: 150px;
-}
-
 #record_food_id {
   width: 149px;
   height: 24px;
@@ -115,29 +36,6 @@
 .border_top {
   border-top: solid 3px green;
 }
-.my_target {
-  width: 270px;
-  height: 40px;
-  font-size: 1.5rem;
-  line-height: 38px;
-  text-decoration: underline dashed 3px rgb(152, 152, 21);
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 0px;
-  top: 340px;
-}
-@media only screen and (max-width: 414px) {
-  .my_target {
-    top: auto;
-    display: block;
-    position: static;
-    left: 50%;
-    margin-left: -125px;
-    bottom: 10px;
-  }
-}
-
 .table_width {
   min-width: 400px;
 }
@@ -167,28 +65,15 @@
 .index_picture_margin {
   margin: 0 30px;
 }
-.picture_position_right {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  right: 30px;
-  top: 150px;
-}
-.picture_position_left {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 30px;
-  top: 150px;
-}
-.picture_position_left {
-  display: block;
-  border-radius: 10px;
-  position: fixed;
-  left: 30px;
-  top: 150px;
-}
 .egg {
+  position: fixed;
+  display: block;
+  width: 0px;
+  height: 0px;
+  background-image: image_url('egg.jpg');
+  background-size: cover;
+}
+.egg2 {
   position: fixed;
   display: block;
   width: 300px;
@@ -199,13 +84,79 @@
 @media only screen and (max-width: 1100px) {
   .egg {
     position: static;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 150px;
+    background-position: 50% 60%;
+  }
+  .egg2 {
+    position: static;
+    width: 450px;
+    height: 150px;
     background-position: 50% 100%;
   }
-  .sunflower, .camera {
+  .camera {
     position: static;
-    width: 150px;
-    height: auto;
+    width: 450px;
+    height: 150px;
+    background-position: 50% 50%;
+  }
+  .sunflower {
+    position: static;
+    width: 450px;
+    height: 150px;
+    background-position: 50% 63%;
+  }
+}
+.my_target {
+  max-width: 300px;
+  min-height: 40px;
+  font-size: 1.5rem;
+  line-height: 38px;
+  text-decoration: underline dashed 3px rgb(152, 152, 21);
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  left: 50px;
+  top: 340px;
+}
+@media only screen and (max-width: 1100px) {
+  .my_target {
+    display: block;
+    position: static;
+    left: 50%;
+    margin-left: 150px;
+    text-decoration: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .egg {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 60%;
+  }
+  .egg2 {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 100%;
+  }
+  .camera {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 50%;
+  }
+  .sunflower {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 63%;
+  }
+  .picture_nostalgy {
+    width: 0px;
+    height: 0px;
+    background-image: image_url('picture_left.jpg');
+    background-size: cover;
   }
 }

@@ -7,3 +7,46 @@
   width: 100px;
   text-align: center;
 }
+.beans_group {
+  position: fixed;
+  display: block;
+  width: 330px;
+  height: 250px;
+  top: 250px;
+  background-image: image_url('beans_group.png');
+  background-size: cover;
+}
+.beans_group2 {
+  position: fixed;
+  display: block;
+  width: 0px;
+  height: 0px;
+  background-image: image_url('beans_group.png');
+  background-size: cover;
+}
+@media only screen and (max-width: 1370px) {
+  .beans_group {
+    width: 230px;
+    height: 180px;
+  }
+}
+@media only screen and (max-width: 1150px) {
+  .beans_group {
+    width: 0px;
+    height: 0px;
+  }
+  .beans_group2 {
+    position: static;
+    width: 500px;
+    height: 90px;
+    background-position: 50% 50%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .beans_group2 {
+    position: static;
+    width: 500px;
+    height: 90px;
+    background-position: 50% 50%;
+  }
+}

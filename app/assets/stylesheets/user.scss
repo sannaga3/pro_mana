@@ -39,3 +39,77 @@
 .follow_th_width {
   width: 120px;
 }
+.profile_wrapper {
+  height: 100vh;
+}
+.cat_before {
+  top: 150px;
+  width: 330px;
+  height: 250px;
+  background-image: image_url('cat_before.png');
+  background-size: cover;
+}
+.cat_after {
+  display: block;
+  top: 150px;
+  width: 0px;
+  height: 0px;
+  background-image: image_url('cat_after.png');
+  background-size: cover;
+}
+.cat_after2 {
+  display: block;
+  top: 150px;
+  width: 0px;
+  height: 0px;
+  background-image: image_url('cat_after.png');
+  background-size: cover;
+}
+.cow {
+  position: absolute;
+  bottom: 10%;
+  right: 230px;
+  width: 250px;
+  height: 200px;
+  background-image: image_url('cow.png');
+  background-size: cover;
+}
+@media only screen and (max-width: 1100px) {
+  .cat_before {
+    width: 0px;
+    height: 0px;
+  }
+  .cat_after {
+    position: static;
+    display: block;
+    width: 330px;
+    height: 250px;
+  }
+  .cat_after2 {
+    position: static;
+    display: block;
+    width: 330px;
+    height: 250px;
+  }
+  .cow {
+    right: 180px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cat_after {
+    position: static;
+    display: block;
+    width: 0px;
+    height: 0px;
+  }
+  .cat_after2 {
+    position: static;
+    display: block;
+    width: 0px;
+    height: 0px;
+  }
+  .cow {
+    width: 0px;
+    height: 0px;
+  }
+}

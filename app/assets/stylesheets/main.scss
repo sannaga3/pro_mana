@@ -108,3 +108,32 @@ label {
   color: rgb(85, 215, 59);
   text-shadow: 2px 2px rgb(182, 184, 79);
 }
+.notice_size {
+  width: 400px;
+  height: 80px;
+  font-size: 3rem;
+  line-height: 80px;
+}
+.alert_size {
+  width: 400px;
+  height: 80px;
+  font-size: 3rem;
+  line-height: 80px;
+}
+.picture_position_right {
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  right: 30px;
+  top: 150px;
+}
+.picture_position_left {
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  left: 30px;
+  top: 150px;
+}
+#error_explanation{
+  color: red;
+}
