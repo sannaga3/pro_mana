@@ -120,6 +120,20 @@ label {
   font-size: 3rem;
   line-height: 80px;
 }
+.picture_position_right {
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  right: 30px;
+  top: 150px;
+}
+.picture_position_left {
+  display: block;
+  border-radius: 10px;
+  position: fixed;
+  left: 30px;
+  top: 150px;
+}
 #error_explanation{
   color: red;
 }
