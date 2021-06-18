@@ -67,7 +67,7 @@
 }
 .cow {
   position: absolute;
-  bottom: -10%;
+  bottom: 10%;
   right: 230px;
   width: 250px;
   height: 200px;
@@ -93,5 +93,23 @@
   }
   .cow {
     right: 180px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cat_after {
+    position: static;
+    display: block;
+    width: 0px;
+    height: 0px;
+  }
+  .cat_after2 {
+    position: static;
+    display: block;
+    width: 0px;
+    height: 0px;
+  }
+  .cow {
+    width: 0px;
+    height: 0px;
   }
 }

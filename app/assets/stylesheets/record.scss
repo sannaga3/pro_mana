@@ -128,3 +128,35 @@
     text-decoration: none;
   }
 }
+@media only screen and (max-width: 768px) {
+  .egg {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 60%;
+  }
+  .egg2 {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 100%;
+  }
+  .camera {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 50%;
+  }
+  .sunflower {
+    position: static;
+    width: 0px;
+    height: 0px;
+    background-position: 50% 63%;
+  }
+  .picture_nostalgy {
+    width: 0px;
+    height: 0px;
+    background-image: image_url('picture_left.jpg');
+    background-size: cover;
+  }
+}

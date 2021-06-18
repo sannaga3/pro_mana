@@ -42,3 +42,11 @@
     background-position: 50% 50%;
   }
 }
+@media only screen and (max-width: 768px) {
+  .beans_group2 {
+    position: static;
+    width: 500px;
+    height: 90px;
+    background-position: 50% 50%;
+  }
+}
