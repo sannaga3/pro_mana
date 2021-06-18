@@ -23,8 +23,8 @@ describe '食品機能', type: :system do
         expect(page).to have_content '食品登録完了'
         expect(page).to have_content '食品一覧'
         expect(page).to have_content '鳥もも肉'
-        food_list = all('.text-center')
-        expect(food_list[0]).to have_content "鳥もも肉"
+        expect(1).to eq Food.count
+        sleep(0.5)
       end
     end
     context '食品を編集した場合' do
@@ -52,8 +52,6 @@ describe '食品機能', type: :system do
         find('#delete_button0').click
         page.driver.browser.switch_to.alert.accept
         expect(current_path).to eq foods_path
-        food_list = all('.text-center')
-        expect(food_list[0]).to have_content "納豆"
         expect(page).not_to have_content "卵"
         expect(1).to eq Food.count
       end
