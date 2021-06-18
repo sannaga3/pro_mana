@@ -1,6 +1,7 @@
+
 <div class="d-flex flex-column justify-content-center align-items-center">
   <div>
-    <h1 class="pb-5"><%= t('.title', resource: resource.model_name.human) %></h1>
+    <h1 class="food_text pb-5"><%= t('.title', resource: resource.model_name.human) %></h1>
   </div>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <div class="d-flex flex-row justify-content-center container">
@@ -80,3 +81,4 @@
     </div>
   </div>
 </div>
+<div class="cow"></div>

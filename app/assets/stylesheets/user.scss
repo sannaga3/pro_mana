@@ -46,10 +46,8 @@
   top: 150px;
   width: 330px;
   height: 250px;
-  // padding-right: 100px;
   background-image: image_url('cat_before.png');
   background-size: cover;
-  // background-position: top 150px;
 }
 .cat_after {
   display: block;
@@ -67,9 +65,18 @@
   background-image: image_url('cat_after.png');
   background-size: cover;
 }
+.cow {
+  position: absolute;
+  bottom: -10%;
+  right: 230px;
+  width: 250px;
+  height: 200px;
+  background-image: image_url('cow.png');
+  background-size: cover;
+}
 .beans_group {
   display: block;
-  right: 30px;
+  right: 80px;
   top: 150px;
   width: 325px;
   height: 250px;
@@ -98,5 +105,8 @@
     width: 200px;
     height: 200px;
     background-position: 50% 63%;
+  }
+  .cow {
+    right: 180px;
   }
 }
