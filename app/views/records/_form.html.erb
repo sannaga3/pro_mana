@@ -1,9 +1,8 @@
-<%= render 'layouts/error_messages', model: @record %>
+<div><%= render 'layouts/error_messages', model: @record %></div>
 <%= form_with(model: record, local: true) do |form| %>
   <div class="d-flex flex-column justify-content-center align-items-center mt-5">
     <div class="d-flex flex-row justify-content-center align-items-center my-3">
-      <%= render 'layouts/error_messages', model: @record %>
-      <% if action_name == "new" %>
+      <% if action_name == "new" || action_name == "create" %>
         <div class="d-flex flex-column justify-content-center align-items-center mx-3">
           <div >
             <%= form.label t('activerecord.attributes.record.food'), class: "text-success" %>
@@ -12,7 +11,7 @@
             <%= form.select :food_id, @foods.all.map {|food| ["#{food.name}  " "#{food.protein}g  " "#{food.quantity}""#{food.unit}", food.id]}, include_blank: "選択して下さい" %>
           </div>
         </div>
-      <% elsif action_name == "edit" %>
+      <% elsif action_name == "edit" || action_name == "update" %>
         <div class="d-flex flex-column justify-content-center align-items-center mx-3">
           <div>
             <%= label :name, t('activerecord.attributes.food.name'), class: "text-success" %>

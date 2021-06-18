@@ -257,3 +257,10 @@ ja:
     add_record: 食品記録完了
     edit_record: 食品記録完了
     destroy_record: 食品記録完了
+  alert:
+    failed_add_food: 食品登録失敗
+    failed_edit_food: 食品編集失敗
+    failed_destroy_food: 食品削除失敗
+    failed_add_record: 食品記録失敗
+    failed_edit_record: 食品記録失敗
+    failed_destroy_record: 食品記録失敗
