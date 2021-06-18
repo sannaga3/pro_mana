@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  let(:food) { FactoryBot.create(:food)}
+  let!(:user) { FactoryBot.create(:user) }
+  let(:food) { FactoryBot.create(:food, user: user)}
   describe '食品新規作成時のバリデーションテスト' do
     context '名前、タンパク質量、量、単位、が正しい場合' do
       it '食品を作成できる' do
