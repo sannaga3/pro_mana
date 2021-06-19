@@ -30,7 +30,7 @@ describe '食品記録機能', type: :system do
         fill_in 'record[record_on]', with: "002021-06-09"
         click_on "登録"
         expect(current_path).to eq record_path(Record.last.id)
-        expect(page).to have_content '食品記録完了'
+        expect(page).to have_content '記録作成完了'
         expect(page).to have_content '納豆'
         expect(page).to have_content  1
         expect(page).to have_content "2021-06-09"
@@ -128,6 +128,24 @@ describe '食品記録機能', type: :system do
           expect(tds[0]).to have_content "納豆"
           table_dates = all(".table_date")
           expect(table_dates[0]).to have_content "2021-06-05"
+        end
+      end
+      context '食品検索で食品名にて検索した場合' do
+        it '記録詳細ページであいまい検索かつ自身の食品のみが食品選択欄で選択できる' do
+          click_on '記録作成'
+          expect(current_path).to eq new_record_path
+          expect(page).to have_content '記録作成'
+          expect(page).to have_content '食品検索'
+          options = all('option')
+          select "納豆", from: :record_food_id
+          select "卵", from: :record_food_id
+          expect(options.count).to eq 2
+          fill_in 'q[name_cont]', with: '納'
+          click_on "検索"
+          expect(current_path).to eq new_record_path
+          options = all('option')
+          select "納豆", from: :record_food_id
+          expect(options.count).to eq 1
         end
       end
     end
