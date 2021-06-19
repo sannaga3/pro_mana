@@ -11,27 +11,27 @@
           <tbody>
             <tr>
               <td><%= f.label :name %></td>
-              <td><%= f.text_field :name, placeholder: t('activerecord.attributes.user.name'), autofocus: true %></td>
+              <td><%= f.text_field :name, placeholder: t('view.input_less_than50'), autofocus: true %></td>
             </tr>
             <tr>
               <td><%= f.label :email %></td>
-              <td><%= f.email_field :email, placeholder: t('activerecord.attributes.user.email'), autocomplete: "email" %></td>
+              <td><%= f.email_field :email, placeholder: t('view.input_less_than50'), autocomplete: "email" %></td>
             </tr>
             <tr>
               <td><%= f.label :profile_comment %></td>
-              <td><%= f.text_area :profile_comment, placeholder: t('activerecord.attributes.user.profile_comment') %></td>
+              <td><%= f.text_area :profile_comment, placeholder: t('view.input_less_than100') %></td>
             </tr>
             <tr>
               <td><%= f.label :height %></td>
-              <td><%= f.number_field :height, min: '1', placeholder: t('activerecord.attributes.user.height') %>cm</td>
+              <td><%= f.number_field :height, min: '1', placeholder: t('view.input_integer') %>cm</td>
             </tr>
             <tr>
               <td><%= f.label :weight %></td>
-              <td><%= f.number_field :weight, min: '0.1' ,step: '0.1', placeholder: t('activerecord.attributes.user.weight'), autofocus: true %>kg</td>
+              <td><%= f.number_field :weight, min: '0.1' ,step: '0.1', placeholder: t('view.input_float'), autofocus: true %>kg</td>
             </tr>
             <tr>
               <td><%= f.label :protein_target %></td>
-              <td><%= f.number_field :protein_target, min: '1', placeholder: t('activerecord.attributes.user.protein_target') %>g</td>
+              <td><%= f.number_field :protein_target, min: '1', placeholder: t('view.input_integer') %>g</td>
             </tr>
             <tr>
               <td>

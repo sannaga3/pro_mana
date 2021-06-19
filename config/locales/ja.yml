@@ -251,6 +251,10 @@ ja:
     over: g以上
     less: g以下
     input_over_than: 整数で1以上を入力
+    input_less_than100: 100文字以下で入力
+    input_less_than50: 50文字以下で入力
+    input_integer: 整数で入力
+    input_float: 小数で入力
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
