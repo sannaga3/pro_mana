@@ -139,13 +139,74 @@ describe '食品記録機能', type: :system do
           options = all('option')
           select "納豆", from: :record_food_id
           select "卵", from: :record_food_id
-          expect(options.count).to eq 2
+          expect(options.count).to eq 3
           fill_in 'q[name_cont]', with: '納'
           click_on "検索"
           expect(current_path).to eq new_record_path
           options = all('option')
+          expect(options.count).to eq 2
           select "納豆", from: :record_food_id
-          expect(options.count).to eq 1
+          select "選択して下さい", from: :record_food_id
+        end
+      end
+      context '食品検索でタンパク質含有量の値で検索した場合' do
+        it '記録詳細ページで検索した値と同じタンパク質量の食品かつ自身の食品のみが食品選択欄で選択できる' do
+          click_on '記録作成'
+          expect(current_path).to eq new_record_path
+          expect(page).to have_content '記録作成'
+          expect(page).to have_content '食品検索'
+          options = all('option')
+          select "納豆", from: :record_food_id
+          select "卵", from: :record_food_id
+          expect(options.count).to eq 3
+          fill_in 'q[protein_eq]', with: 4
+          click_on "検索"
+          expect(current_path).to eq new_record_path
+          options = all('option')
+          expect(options.count).to eq 3
+          select "納豆", from: :record_food_id
+          select "納豆", from: :record_food_id
+          select "選択して下さい", from: :record_food_id
+        end
+      end
+      context '食品検索でタンパク質含有量の値以上で検索した場合' do
+        it '記録詳細ページで検索した値以上のタンパク質量の食品かつ自身の食品のみが食品選択欄で選択できる' do
+          click_on '記録作成'
+          expect(current_path).to eq new_record_path
+          expect(page).to have_content '記録作成'
+          expect(page).to have_content '食品検索'
+          options = all('option')
+          select "納豆", from: :record_food_id
+          select "卵", from: :record_food_id
+          expect(options.count).to eq 3
+          fill_in 'q[protein_lteq]', with: 2
+          click_on "検索"
+          expect(current_path).to eq new_record_path
+          options = all('option')
+          expect(options.count).to eq 3
+          select "納豆", from: :record_food_id
+          select "卵", from: :record_food_id
+          select "選択して下さい", from: :record_food_id
+        end
+      end
+      context '食品検索でタンパク質含有量の値以下で検索した場合' do
+        it '記録詳細ページで検索した値以下のタンパク質量の食品かつ自身の食品のみが食品選択欄で選択できる' do
+          click_on '記録作成'
+          expect(current_path).to eq new_record_path
+          expect(page).to have_content '記録作成'
+          expect(page).to have_content '食品検索'
+          options = all('option')
+          select "納豆", from: :record_food_id
+          select "卵", from: :record_food_id
+          expect(options.count).to eq 3
+          fill_in 'q[protein_eq]', with: 2
+          click_on "検索"
+          expect(current_path).to eq new_record_path
+          options = all('option')
+          expect(options.count).to eq 3
+          select "納豆", from: :record_food_id
+          select "卵", from: :record_food_id
+          select "選択して下さい", from: :record_food_id
         end
       end
     end
