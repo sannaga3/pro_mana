@@ -250,6 +250,7 @@ ja:
     protein_quantity: タンパク質含有量
     over: g以上
     less: g以下
+    input_over_than: 整数で1以上を入力
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
