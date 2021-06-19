@@ -179,7 +179,7 @@ describe '食品記録機能', type: :system do
           select "納豆", from: :record_food_id
           select "卵", from: :record_food_id
           expect(options.count).to eq 3
-          fill_in 'q[protein_lteq]', with: 2
+          fill_in 'q[protein_gteq]', with: 2
           click_on "検索"
           expect(current_path).to eq new_record_path
           options = all('option')
@@ -199,13 +199,11 @@ describe '食品記録機能', type: :system do
           select "納豆", from: :record_food_id
           select "卵", from: :record_food_id
           expect(options.count).to eq 3
-          fill_in 'q[protein_eq]', with: 2
+          fill_in 'q[protein_lteq]', with: 2
           click_on "検索"
           expect(current_path).to eq new_record_path
           options = all('option')
-          expect(options.count).to eq 3
-          select "納豆", from: :record_food_id
-          select "卵", from: :record_food_id
+          expect(options.count).to eq 1
           select "選択して下さい", from: :record_food_id
         end
       end
