@@ -1,7 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: %i[ show edit update destroy ]
-  before_action :set_food, only: %i[ show edit update ]
-  before_action :set_foods, only: %i[ new create edit update]
+  before_action :set_food, only: %i[ show edit ]
 
   def index
     @records = Record.all
@@ -13,6 +12,7 @@ class RecordsController < ApplicationController
 
   def new
     @record = Record.new
+    @foods = Food.where(user_id: current_user.id)
     @q = @foods.ransack(params[:q])
     @foods = @q.result(distinct: true)
   end
@@ -37,7 +37,7 @@ class RecordsController < ApplicationController
     if @record.update(record_params)
       redirect_to record_path(@record.id), notice: t('notice.edit_record')
     else
-      render :edit
+      render :new
     end
   end
 
@@ -58,10 +58,6 @@ class RecordsController < ApplicationController
 
   def set_food
     @food = Food.find(@record.food_id)
-  end
-
-  def set_foods
-    @foods = Food.where(user_id: current_user.id)
   end
 
   def set_record
