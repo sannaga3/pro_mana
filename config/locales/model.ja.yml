@@ -18,7 +18,7 @@ ja:
         protein_target: 目標プロテイン摂取量
         admin: 管理者
       food:
-        name: 名前
+        name: 食品名
         protein: タンパク質量
         quantity: 基準量
         unit: 単位
