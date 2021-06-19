@@ -11,27 +11,27 @@
           <tbody>
             <tr>
               <td><%= f.label :name %></td>
-              <td><%= f.text_field :name, autofocus: true %></td>
+              <td><%= f.text_field :name, placeholder: t('activerecord.attributes.user.name'), autofocus: true %></td>
             </tr>
             <tr>
               <td><%= f.label :email %></td>
-              <td><%= f.email_field :email, autocomplete: "email" %></td>
+              <td><%= f.email_field :email, placeholder: t('activerecord.attributes.user.email'), autocomplete: "email" %></td>
             </tr>
             <tr>
               <td><%= f.label :profile_comment %></td>
-              <td><%= f.text_area :profile_comment %></td>
+              <td><%= f.text_area :profile_comment, placeholder: t('activerecord.attributes.user.profile_comment') %></td>
             </tr>
             <tr>
               <td><%= f.label :height %></td>
-              <td><%= f.number_field :height, min: '1' %>cm</td>
+              <td><%= f.number_field :height, min: '1', placeholder: t('activerecord.attributes.user.height') %>cm</td>
             </tr>
             <tr>
               <td><%= f.label :weight %></td>
-              <td><%= f.number_field :weight, min: '0.1' ,step: '0.1', autofocus: true %>kg</td>
+              <td><%= f.number_field :weight, min: '0.1' ,step: '0.1', placeholder: t('activerecord.attributes.user.weight'), autofocus: true %>kg</td>
             </tr>
             <tr>
               <td><%= f.label :protein_target %></td>
-              <td><%= f.number_field :protein_target, min: '1' %>g</td>
+              <td><%= f.number_field :protein_target, min: '1', placeholder: t('activerecord.attributes.user.protein_target') %>g</td>
             </tr>
             <tr>
               <td>
@@ -43,7 +43,7 @@
             <tr>
               <td><%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i></td>
               <td>
-                <%= f.password_field :password, autocomplete: "new-password" %>
+                <%= f.password_field :password, placeholder: "パスワード", autocomplete: "new-password" %>
                 <% if @minimum_password_length %>
                   <br />
                   <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
@@ -52,7 +52,7 @@
             </tr>
             <tr>
               <td><%= f.label :password_confirmation %></td>
-              <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+              <td><%= f.password_field :password_confirmation, placeholder: "パスワード確認用", autocomplete: "new-password" %></td>
             </tr>
           </tbody>
         </table>

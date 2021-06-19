@@ -8,12 +8,12 @@
 
       <div class="field">
         <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <%= f.text_field :name, placeholder: t('activerecord.attributes.user.name'), autofocus: true, autocomplete: "name" %>
       </div>
 
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, placeholder: t('activerecord.attributes.user.email'), autocomplete: "email" %>
       </div>
 
       <div class="field">
@@ -21,12 +21,12 @@
         <% if @minimum_password_length %>
         <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, placeholder: t('activerecord.attributes.user.password'), autocomplete: "new-password" %>
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, placeholder: t('activerecord.attributes.user.password_confirm'), autocomplete: "new-password" %>
       </div>
 
       <div class="my-5 pl-3">
