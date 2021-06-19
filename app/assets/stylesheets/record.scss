@@ -17,12 +17,6 @@
 .show_text_protein {
   width: 100px;
 }
-.picture_nostalgy {
-  width: 300px;
-  height: 450px;
-  background-image: image_url('picture_left.jpg');
-  background-size: cover;
-}
 .nostalsy_padding {
   margin-right: 100px;
 }
@@ -42,10 +36,10 @@
 .record_th {
   min-width: 45px;
 }
-.picture_left {
+.nostalgy {
   width: 210px;
   height: 380px;
-  background-image: image_url('picture_left.jpg');
+  background-image: image_url('nostalgy.jpg');
   background-size: cover;
 }
 .sunflower {
@@ -153,10 +147,8 @@
     height: 0px;
     background-position: 50% 63%;
   }
-  .picture_nostalgy {
+  .nostalgy {
     width: 0px;
     height: 0px;
-    background-image: image_url('picture_left.jpg');
-    background-size: cover;
   }
 }

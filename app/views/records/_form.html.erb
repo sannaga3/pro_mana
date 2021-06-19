@@ -92,11 +92,11 @@
           </tr>
           <tr>
             <td><%= f.label t('view.protein_quantity') %></td>
-            <td><%= f.number_field :protein_lteq, min: '1', placeholder: t('view.input_over_than') %><%= t('view.over') %></td>
+            <td><%= f.number_field :protein_gteq, min: '1', placeholder: t('view.input_over_than') %><%= t('view.over') %></td>
           </tr>
           <tr>
             <td><%= f.label t('view.protein_quantity') %></td>
-            <td><%= f.number_field :protein_gteq, min: '1', placeholder: t('view.input_over_than') %><%= t('view.less') %></td>
+            <td><%= f.number_field :protein_lteq, min: '1', placeholder: t('view.input_over_than') %><%= t('view.less') %></td>
           </tr>
         </tbody>
       </table>
