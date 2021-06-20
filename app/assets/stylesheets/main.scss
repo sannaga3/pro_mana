@@ -129,3 +129,14 @@ label {
 #error_explanation{
   color: red;
 }
+@media only screen and (max-width: 768px) {
+  .notice, .alert {
+    width: 400px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.2rem;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 1;
+  }
+}

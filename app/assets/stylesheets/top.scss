@@ -13,12 +13,13 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: block;
 }
 .top_content_wrapper {
   width: 100%;
-  margin-top: 10%;
+  height: max-content;
+  padding-top: 10%;
   margin-left: 17%;
 }
 #responsiveMenu {
@@ -54,14 +55,14 @@
 }
 @media only screen and (max-width: 1050px) {
   .main_sentense {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: rgba(250, 250, 250, 0.9);
     text-align: center;
     text-shadow: 3px 3px rgb(104, 100, 97);
     z-index: 1;
   }
   .sub_sentense {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
     color: rgba(250, 250, 250, 0.9);
     text-shadow:
@@ -70,12 +71,27 @@
     z-index: 1;
   }
 }
-@media only screen and (max-width: 900px) {
-  .top_button_area {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 350px;
+@media only screen and (max-width: 880px) {
+  .main_sentense {
+    font-size: 2rem;
+  }
+  .sub_sentense {
+    font-size: 1.5rem;
+  }
+  .top_content_wrapper {
+    margin-top: 5%;
+    margin-left: 0;
+  }
+  .nav_color_top, .nav_color {
+    background: linear-gradient(60deg, rgba(214, 213, 122, 0.4), rgba(104, 206, 126, 0.4));
+    height: 45px;
+    z-index: 1;
+  }
+  .main_sentense {
+    z-index: 2;
+  }
+  .sub_sentense {
+    z-index: 2;
   }
 }
 @media only screen and (max-width: 768px) {
