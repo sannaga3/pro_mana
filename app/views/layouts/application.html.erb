@@ -24,11 +24,11 @@
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse justify-content-around" id="responsiveMenu">
+          <div class="collapse navbar-collapse justify-content-left" id="responsiveMenu">
             <% if user_signed_in? %>
               <ul class="navbar-nav mr-auto">
                 <li class="nav-link">
-                  <span class="px-2"><%= t('view.user_name') %>: </span><%= current_user.name %>
+                  <%= t('view.user_name') %>: <%= current_user.name %>
                   <%= "admin" if current_user.admin == true %>
                 </li>
               </ul>
@@ -44,10 +44,10 @@
               </ul>
             <% else %>
               <ul class="navbar-nav navbar-left">
-                <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "px-2 mb-3 nav-link", id: "admin_guest_login"%>
-                <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "login px-2 mb-3 nav-link", id: "guest-login" %>
-                <%= link_to t('view.sign_up'), new_user_registration_path, class: "px-2 nav-link mb-3" %>
-                <%= link_to t('view.login'), new_user_session_path, class: "px-2 nav-link mb-3" %>
+                <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "px-2 nav-link", id: "admin_guest_login"%>
+                <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "login px-2 nav-link", id: "guest-login" %>
+                <%= link_to t('view.sign_up'), new_user_registration_path, class: "px-2 nav-link" %>
+                <%= link_to t('view.login'), new_user_session_path, class: "px-2 nav-link" %>
               </ul>
             <% end %>
           </div>

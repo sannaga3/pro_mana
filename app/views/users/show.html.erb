@@ -38,9 +38,11 @@
         <div class="button_design m-4">
           <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "button_text_color" %>
         </div>
-        <div class="m-4">
-          <%= render 'follow_form', user: @user if @user != current_user %>
-        </div>
+        <% if @user != current_user %>
+          <div class="m-4">
+            <%= render 'follow_form', user: @user if @user != current_user %>
+          </div>
+        <% end %>
         <% if @user == current_user && @user.admin == true %>
           <div class="m-4 button_design admin_dashboard_button">
             <%= link_to t('view.admin_dashboard'), rails_admin_path, class: "button_text_color" %>
