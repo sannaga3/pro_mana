@@ -79,7 +79,6 @@ label {
   background: #93c9ff;
   border-radius: 15px;
 }
-
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;
@@ -105,12 +104,19 @@ label {
   color: rgb(85, 215, 59);
   text-shadow: 2px 2px rgb(182, 184, 79);
 }
-.notice, .alert {
+.notice {
   width: 500px;
   height: 80px;
   line-height: 80px;
-  font-size: 2rem;
-  text-align: center;
+  font-size: 1.7rem;
+  border-radius: 10px;
+  z-index: 1;
+}
+.alert {
+  width: 500px;
+  height: 80px;
+  line-height: 60px;
+  font-size: 1.7rem;
   border-radius: 10px;
   z-index: 1;
 }
