@@ -1,5 +1,4 @@
 @charset "utf-8";
-$white: #fff;
 
 html {
   font-size: 80.5%;
@@ -13,6 +12,14 @@ body {
 .body_wrapper {
   flex: 1;
 }
+.page_title {
+  width: 400px;
+}
+.top_index, .login_index, .sign_up_index{
+  position: relative;
+  z-index: 1;
+}
+.wf-sawarabi { font-family: 'Sawarabi Gothic', sans-serif; }
 h1 {
   font-size: 3rem;
   font-weight: bold;
@@ -46,7 +53,7 @@ label {
   width: 100%;
   height: 56px;
   padding: 0;
-  line-height: 25px;
+  line-height: 30px;
 }
 .contents_wrapper {
   width: 100%;
@@ -58,7 +65,7 @@ label {
   text-align: center;
   line-height: 40px;
   background: linear-gradient(-140deg, #e9f393, #a5f1c2);
-  box-shadow: 1px 1px 1px 1px rgb(194, 136, 49);
+  box-shadow: 1px 1px 1px 1px rgb(37, 129, 82);
   color: rgba(102, 102, 98, 0.9);
   text-shadow: 2px 2px rgb(180, 204, 93);
   border-radius: 10px;
@@ -72,17 +79,13 @@ label {
   border: none;
   color: #696969;
 }
-/* 表示しているページ番号のデザイン */
 .pagination>.active>a {
   background: #93c9ff;
   border-radius: 15px;
 }
-
-/*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;
 }
-
 .grass_header {
   width: 100%;
   height: 100px;
@@ -103,13 +106,20 @@ label {
   color: rgb(85, 215, 59);
   text-shadow: 2px 2px rgb(182, 184, 79);
 }
-.notice, .alert {
+.notice {
   width: 500px;
-  height: 80px;
-  line-height: 80px;
-  font-size: 2rem;
-  text-align: center;
-  border-radius: 10px;
+  height: 60px;
+  line-height: 60px;
+  font-size: 1.7rem;
+  border-radius: 20px;
+  z-index: 1;
+}
+.alert {
+  width: 500px;
+  height: 60px;
+  line-height: 40px;
+  font-size: 1.5rem;
+  border-radius: 20px;
   z-index: 1;
 }
 .picture_position_right {
@@ -127,16 +137,22 @@ label {
   top: 165px;
 }
 #error_explanation{
-  color: red;
+  width: 450px;
+  color: rgb(180, 12, 196);
+  text-shadow: 1px 1px rgb(255, 255, 255);
+  overflow-wrap: break-word;
 }
 @media only screen and (max-width: 768px) {
   .notice, .alert {
     width: 400px;
-    height: 50px;
-    line-height: 50px;
+    height: 40px;
+    line-height: 40px;
     font-size: 1.2rem;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
     z-index: 1;
+  }
+  .alert {
+    line-height: 20px;
   }
 }

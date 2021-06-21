@@ -1,24 +1,9 @@
-<nav class="navbar navbar-expand-md navbar-light nav_color nav_color_top">
-  <a class="navbar-brand">
-    <%= link_to 'プロマネ', "/", class: "navbar-brand logo nav-link" %>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#responsiveMenu" aria-controls="responsiveMenu" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-left ml-4" id="responsiveMenu">
-    <ul class="navbar-nav navbar-left">
-      <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "px-2 nav-link", id: "admin_guest_login"%>
-      <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "login px-2 nav-link", id: "guest_login" %>
-      <%= link_to t('view.sign_up'), new_user_registration_path, class: "px-2 nav-link" %>
-      <%= link_to t('view.login'), new_user_session_path, class: "px-2 nav-link" %>
-    </ul>
-  </div>
-</nav>
-<div class="d-flex flex-column justify-content-center align-items-center top_content_wrapper pl-5">
+<%= render 'layouts/header' %>
+<div class="d-flex flex-column justify-content-center align-items-center top_content_wrapper mt-5 mr-3">
   <% if notice %>
-      <p class="notice alert-light notice text-center"><%= notice %></p>
+      <p class="notice alert-light text-center"><%= notice %></p>
   <% elsif alert%>
-      <p class="alert alert-light alert text-center"><%= alert %></p>
+      <p class="alert alert-light text-center"><%= alert %></p>
   <% end %>
   <div>
     <div class="d-flex flex-column justify-content-center align-items-center mt-3 pb-5">
@@ -26,11 +11,19 @@
       <p class="sub_sentense mt-5 wf-sawarabi">筋トレ、ダイエット、ウェイトアップ</p>
       <p class="sub_sentense mt-1 wf-sawarabi">あなたの努力をサポートします！</p>
     </div>
-    <div class="mt-5 top_button_area">
-      <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3 top_buttons"%>
-      <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3 top_buttons" %>
-      <%= link_to t('view.sign_up'), new_user_registration_path, class: "mx-3 btn btn-secondary mt-3 top_buttons" %>
-      <%= link_to t('view.login'), new_user_session_path, class: "mx-3 btn btn-secondary mt-3 top_buttons" %>
+    <div class="mt-5 top_button_area top_index row">
+      <div class="col-7 col-sm-6 col-lg-4">
+        <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3"%>
+      </div>
+      <div class="col-5 col-sm-6 col-lg-3">
+        <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3" %>
+      </div>
+      <div class="col-7 col-sm-6 col-lg-3">
+        <%= link_to t('view.sign_up'), new_user_registration_path, class: "btn btn-secondary mx-3 mt-3" %>
+      </div>
+      <div class="col-5 col-sm-6 col-lg-2">
+        <%= link_to t('view.login'), new_user_session_path, class: "btn btn-secondary mx-3 mt-3" %>
+      </div>
     </div>
   </div>
 </div>

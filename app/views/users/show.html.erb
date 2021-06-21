@@ -1,38 +1,59 @@
-<div class="index_picture_margin cat_before"></div>
-<div class="d-flex flex-column justify-content-center align-items-center">
-  <div class="index_picture_margin cat_after"></div>
-  <div class="d-flex flex-column justify-content-center align-items-center day_record_style .bg-white m-2 p-3">
+<div class="d-flex flex-row justify-content-center align-items-center">
+  <div class="picture_position_right index_picture_margin cat_before"></div>
+  <div class="d-flex flex-column justify-content-center align-items-center day_record_style .bg-white m-2 p-4">
     <div>
       <h1 class="food_text pb-5"><%= t('view.profile') %></h1>
     </div>
-    <div class="d-flex flex-row justify-content-center">
-      <div class="mx-5">
-        <p><%= t('activerecord.attributes.user.name') %>: <%= @user.name if @user.name%></p>
-        <p><%= t('activerecord.attributes.user.email') %>: <%= @user.email %></p>
-        <p><%= t('activerecord.attributes.user.profile_comment') %>: <%= @user.profile_comment if @user.profile_comment %></p>
-        <p><%= t('activerecord.attributes.user.height') %>: <%= @user.height if @user.height %>cm</p>
-        <p><%= t('activerecord.attributes.user.weight') %>: <%= @user.weight if @user.weight %>kg</p>
-        <p><%= t('activerecord.attributes.user.protein_target') %>: <%= @user.protein_target if @user.protein_target %>g</p>
-      </div>
-      <div class="mx-5">
-        <div><%= t('activerecord.attributes.user.profile_image') %>:</div>
-        <%= image_tag @user.profile_image.url if @user.profile_image? %>
-      </div>
-    </div>
-    <div class="d-flex flex-row justify-content-center mt-5">
-      <div class="button_design m-4">
-        <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "button_text_color" %>
-      </div>
-      <div class="m-4">
-        <%= render 'follow_form', user: @user if @user != current_user %>
-      </div>
-      <% if @user == current_user && @user.admin == true %>
-        <div class="m-4 button_design admin_dashboard_button">
-          <%= link_to t('view.admin_dashboard'), rails_admin_path, class: "button_text_color" %>
+    <div class="d-flex flex-row justify-content-center align-items-center pr-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.name') %>: </div>
+          <div class="col-6 col-sm-6 col-lg-6"><%= @user.name if @user.name%></div>
         </div>
-      <% end %>
+        <div class="row">
+          <div class="col-6 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.email') %>:</div>
+          <div class="col-6 col-sm-6 col-lg-6"><%= @user.email %></div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.profile_image') %>:</div>
+          <div class="col-12 col-sm-6 col-lg-6"><%= image_tag @user.profile_image.url if @user.profile_image? %></div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.profile_comment') %>: </div>
+          <div class="col-12 col-sm-6 col-lg-6"><%= @user.profile_comment if @user.profile_comment %></div>
+        </div>
+        <div class="row">
+          <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.height') %>:</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @user.height if @user.height %>cm</div>
+        </div>
+        <div class="row">
+          <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.weight') %>:</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @user.weight if @user.weight %>kg</div>
+        </div>
+        <div class="row">
+          <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.protein_target') %>:</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @user.protein_target if @user.protein_target %>g</div>
+        </div>
+        <div class="d-flex flex-row justify-content-center mt-5">
+        <div class="button_design m-4">
+          <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "button_text_color" %>
+        </div>
+        <% if @user != current_user %>
+          <div class="m-4">
+            <%= render 'follow_form', user: @user if @user != current_user %>
+          </div>
+        <% end %>
+        <% if @user == current_user && @user.admin == true %>
+          <div class="m-4 button_design admin_dashboard_button">
+            <%= link_to t('view.admin_dashboard'), rails_admin_path, class: "button_text_color" %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="index_picture_margin cat_after2"></div>
+  <div class="picture_position_left index_picture_margin cat_before"></div>
+  <div class="d-flex flex-row justify-content-center align-items-center">
+    <div class="cat_after"></div>
+    <div class="cat_after"></div>
+  </div>
 </div>
-<div class="index_picture_margin cat_before"></div>

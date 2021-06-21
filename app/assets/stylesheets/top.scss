@@ -17,10 +17,8 @@
   display: block;
 }
 .top_content_wrapper {
-  width: 100%;
-  height: max-content;
-  padding-top: 10%;
-  margin-left: 17%;
+  padding-top: 5%;
+  padding-left: 30%;
 }
 #responsiveMenu {
   height: 50px;
@@ -31,6 +29,10 @@
 }
 .text_area {
   width: 80%;
+}
+.top_button_area {
+  width: 800px;
+  height: 100px;
 }
 .main_sentense {
   font-size: 3.5rem;
@@ -48,11 +50,15 @@
   text-align: left;
   z-index: 1;
 }
-.wf-sawarabi { font-family: 'Sawarabi Gothic', sans-serif; }
-.top_buttons {
-  position: relative;
-  z-index: 1;
+.normal_sentense {
+  font-size: 1.3rem;
+  text-align: center;
+  color: rgba(250, 250, 250, 0.9);
+  text-shadow:
+    3px 3px rgb(104, 100, 97);
+  text-align: left;
 }
+.wf-sawarabi { font-family: 'Sawarabi Gothic', sans-serif; }
 @media only screen and (max-width: 1050px) {
   .main_sentense {
     font-size: 2.5rem;
@@ -79,9 +85,10 @@
     font-size: 1.5rem;
   }
   .top_content_wrapper {
-    margin-top: 5%;
-    margin-left: 0;
+    padding-top: 5%;
+    padding-left: 20%;
   }
+
   .nav_color_top, .nav_color {
     background: linear-gradient(60deg, rgba(214, 213, 122, 0.4), rgba(104, 206, 126, 0.4));
     height: 45px;
@@ -96,7 +103,10 @@
 }
 @media only screen and (max-width: 768px) {
   .top_content_wrapper {
-    margin-top: 5%;
-    margin-left: 0;
+    padding-left: 0%;
+  }
+  .top_button_area {
+    width: 450px;
+    height: 100px;
   }
 }
