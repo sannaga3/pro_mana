@@ -11,11 +11,19 @@
       <p class="sub_sentense mt-5 wf-sawarabi">筋トレ、ダイエット、ウェイトアップ</p>
       <p class="sub_sentense mt-1 wf-sawarabi">あなたの努力をサポートします！</p>
     </div>
-    <div class="mt-5 top_button_area top_index">
-      <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3 top_buttons"%>
-      <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3 top_buttons" %>
-      <%= link_to t('view.sign_up'), new_user_registration_path, class: "mx-3 btn btn-secondary mt-3 top_buttons" %>
-      <%= link_to t('view.login'), new_user_session_path, class: "mx-3 btn btn-secondary mt-3 top_buttons" %>
+    <div class="mt-5 top_button_area top_index row">
+      <div class="col-7 col-sm-6 col-lg-4">
+        <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3"%>
+      </div>
+      <div class="col-5 col-sm-6 col-lg-3">
+        <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "btn btn-secondary mx-3 mt-3" %>
+      </div>
+      <div class="col-7 col-sm-6 col-lg-3">
+        <%= link_to t('view.sign_up'), new_user_registration_path, class: "btn btn-secondary mx-3 mt-3" %>
+      </div>
+      <div class="col-5 col-sm-6 col-lg-2">
+        <%= link_to t('view.login'), new_user_session_path, class: "btn btn-secondary mx-3 mt-3" %>
+      </div>
     </div>
   </div>
 </div>
