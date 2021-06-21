@@ -111,7 +111,7 @@ label {
   height: 60px;
   line-height: 60px;
   font-size: 1.7rem;
-  border-radius: 10px;
+  border-radius: 20px;
   z-index: 1;
 }
 .alert {
@@ -119,7 +119,7 @@ label {
   height: 60px;
   line-height: 40px;
   font-size: 1.5rem;
-  border-radius: 10px;
+  border-radius: 20px;
   z-index: 1;
 }
 .picture_position_right {
@@ -137,8 +137,10 @@ label {
   top: 165px;
 }
 #error_explanation{
+  width: 450px;
   color: rgb(180, 12, 196);
   text-shadow: 1px 1px rgb(255, 255, 255);
+  overflow-wrap: break-word;
 }
 @media only screen and (max-width: 768px) {
   .notice, .alert {
@@ -147,7 +149,7 @@ label {
     line-height: 40px;
     font-size: 1.2rem;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
     z-index: 1;
   }
   .alert {
