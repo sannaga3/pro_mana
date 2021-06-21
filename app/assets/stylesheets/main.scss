@@ -15,6 +15,10 @@ body {
 .page_title {
   width: 400px;
 }
+.top_buttons , .login_index{
+  position: relative;
+  z-index: 1;
+}
 h1 {
   font-size: 3rem;
   font-weight: bold;
@@ -48,7 +52,7 @@ label {
   width: 100%;
   height: 56px;
   padding: 0;
-  line-height: 25px;
+  line-height: 30px;
 }
 .contents_wrapper {
   width: 100%;
@@ -83,7 +87,6 @@ label {
 .pagination>li>a:hover {
   border-radius: 15px;
 }
-
 .grass_header {
   width: 100%;
   height: 100px;
@@ -105,21 +108,21 @@ label {
   text-shadow: 2px 2px rgb(182, 184, 79);
 }
 .notice {
-  width: 500px;
+  width: 400px;
   height: 80px;
   line-height: 80px;
   font-size: 1.7rem;
   border-radius: 10px;
   z-index: 1;
 }
-.alert {
-  width: 500px;
-  height: 80px;
-  line-height: 60px;
-  font-size: 1.7rem;
-  border-radius: 10px;
-  z-index: 1;
-}
+// .alert {
+//   width: 500px;
+//   height: 80px;
+//   line-height: 60px;
+//   font-size: 1.5rem;
+//   border-radius: 10px;
+//   z-index: 1;
+// }
 .picture_position_right {
   display: block;
   border-radius: 10px;

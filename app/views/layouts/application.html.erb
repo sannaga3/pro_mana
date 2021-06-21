@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <% if controller_name  != "top" %>
+    <% if controller_name != "top" && !(controller_name == "sessions" && action_name == "new") %>
       <div class='body_wrapper'>
         <nav class="navbar navbar-expand-md navbar-light nav_color">
           <a class="navbar-brand">
