@@ -13,7 +13,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center ml-3">
       <% index = 0 %>
       <% @days.each do |day| %>
-        <% records = @records.where(record_on: day) %>
+        <% records = @records.pick_record_on(day) %>
         <div class="border-success day_record_style my-4">
           <% if @records != nil %>
             <div class="container">
