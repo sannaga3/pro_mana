@@ -6,7 +6,7 @@ class Food < ApplicationRecord
   belongs_to :user
   has_many :records
 
-  # scope :find_food_id, -> (food_id) {
-  #   find(id: food_id)
-  # }
+  scope :pick_user_id, -> (user_id) {
+    where(user_id: user_id)
+  }
 end
