@@ -14,54 +14,219 @@ User.create!(
   )
 end
 
-5.times do |n|
+3.times do |j|
   Food.create!(
-    name: "豆腐#{n}",
-    protein: rand(1..10) ,
-    quantity: 1,
-    unit: "丁",
-    user_id: User.first.id
+    name: "豆腐",
+    protein: 6,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
   )
   Food.create!(
-    name: "納豆#{n}",
-    protein: rand(1..10) ,
+    name: "納豆",
+    protein: 4,
     quantity: 1,
     unit: "パック",
-    user_id: User.first.id
+    user_id: User.first.id + j
   )
   Food.create!(
-    name: "卵#{n}",
-    protein: rand(1..10) ,
+    name: "卵",
+    protein: 4,
     quantity: 1,
     unit: "個",
-    user_id: User.first.id
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "鳥もも肉",
+    protein: 12,
+    quantity: 50,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "鳥むね肉",
+    protein: 20,
+    quantity: 50,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "鳥ささみ",
+    protein: 11,
+    quantity: 50,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "ローストビーフ",
+    protein: 36,
+    quantity: 170,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "エビ",
+    protein: 17,
+    quantity: 6,
+    unit: "尾",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "いくら",
+    protein: 16,
+    quantity: 50,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "焼きたらこ",
+    protein: 14,
+    quantity: 50,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "するめ",
+    protein: 35,
+    quantity: 50,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "きな粉",
+    protein: 4,
+    quantity: 10,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "がんもどき",
+    protein: 15,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "牛乳",
+    protein: 6,
+    quantity: 200,
+    unit: "ml",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "豆乳",
+    protein: 8,
+    quantity: 200,
+    unit: "ml",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "ヨーグルト",
+    protein: 4,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "カマンベールチーズ",
+    protein: 19,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "パルメザンチーズ",
+    protein: 44,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "チェダーチーズ",
+    protein: 26,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "ゴーダチーズ",
+    protein: 25,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "ブルーチーズ",
+    protein: 19,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "スライスチーズ",
+    protein: 3,
+    quantity: 1,
+    unit: "枚",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "白米",
+    protein: 6,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "玄米",
+    protein: 7,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
+  )
+  Food.create!(
+    name: "オートミール",
+    protein: 14,
+    quantity: 100,
+    unit: "g",
+    user_id: User.first.id + j
   )
 end
 
-3.times do |m|
+
+
+
+
+
+first_user_id =  User.first.id
+second_user_id = User.second.id
+third_user_id = User.third.id
+first_user_food_first = Food.where(user_id: first_user_id).first.id
+first_user_food_last = Food.where(user_id: first_user_id).last.id
+second_user_food_first = Food.where(user_id: second_user_id).first.id
+second_user_food_last = Food.where(user_id: second_user_id).last.id
+third_user_food_first = Food.where(user_id: third_user_id).first.id
+third_user_food_last = Food.where(user_id: third_user_id).last.id
+30.times do |m|
+  d1 = Date.parse("2021/06/01")
+  d2 = Date.parse("2021/06/15")
+  date = Random.rand(d1..d2)
   Record.create!(
-    ate: 1,
-    record_on: "2021-06-07",
-    food_id: Food.first.id + m,
-    user_id: User.first.id + m
+    ate: Random.rand(1..3),
+    record_on: date,
+    food_id: Random.rand(first_user_food_first..first_user_food_last),
+    user_id: first_user_id
   )
   Record.create!(
-    ate: 2,
-    record_on: "2021-06-08",
-    food_id: Food.first.id + m,
-    user_id: User.first.id + m
+    ate: Random.rand(1..3),
+    record_on: date,
+    food_id: Random.rand(second_user_food_first..second_user_food_last),
+    user_id: second_user_id
   )
   Record.create!(
-    ate: 1,
-    record_on: "2021-06-09",
-    food_id: Food.first.id + m,
-    user_id: User.first.id + m
-  )
-  Record.create!(
-    ate: 3,
-    record_on: "2021-06-10",
-    food_id: Food.first.id + m,
-    user_id: User.first.id + m
+    ate: Random.rand(1..3),
+    record_on: date,
+    food_id: Random.rand(third_user_food_first..third_user_food_last),
+    user_id: third_user_id
   )
 end
 
