@@ -9,12 +9,12 @@
         <%= paginate @days, window: 3 %>
       </div>
       <% @days.each do |day| %>
-        <% records = @records.where(record_on: day) %>
+        <% records = @records.pick_record_on(day) %>
         <% if @records != nil %>
           <% user_ids = records.pluck(:user_id)%>
           <% user_ids.uniq! %>
           <% user_ids.each do |user_id| %>
-            <% user_records = records.where(user_id: user_id) %>
+            <% user_records = records.pick_user_id(user_id) %>
             <div class="border-success day_record_style my-4">
               <table>
                 <% user_records.each do |record| %>

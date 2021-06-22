@@ -5,4 +5,11 @@ class Food < ApplicationRecord
   validates :unit, presence: true, length: { in: 1..10 }
   belongs_to :user
   has_many :records
+
+  scope :pick_user_id, -> (user_id) {
+    where(user_id: user_id)
+  }
+  scope :pick_food, -> (food_id) {
+    find_by(id: food_id)
+  }
 end
