@@ -38,7 +38,7 @@
                   <% @protein_amount = 0 %>
                 <% end %>
                 <tbody>
-                  <% food = Food.find(record.food_id) %>
+                  <% food = @foods.pick_food(record.food_id) %>
                   <tr>
                     <td class="text-center"><%= food.name %></td>
                     <td class="text-center"><%= food.protein %></td>

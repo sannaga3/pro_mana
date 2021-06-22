@@ -47,11 +47,12 @@ class RecordsController < ApplicationController
   end
 
   def my_daily
-    @records = Record.where(user_id: current_user.id)
+    @records = Record.pick_user_id(current_user.id)
     @records = @records.order(record_on: :desc)
     @days = @records.pluck(:record_on)
     @days = @days.uniq
     @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
+    @foods = Food.all
   end
 
   private
