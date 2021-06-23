@@ -39,6 +39,7 @@ gem 'mini_magick'
 gem 'ransack'
 gem 'bootstrap', '~> 4.3.1'
 gem 'kaminari'
+gem 'simple_calendar', '~> 2.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
