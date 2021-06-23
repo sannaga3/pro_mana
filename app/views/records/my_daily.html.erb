@@ -10,7 +10,7 @@
   <%= date.day %>
   <% records.each do |record| %>
     <div>
-      <%= record.start_on %>
+      <%= record.start_time %>
     </div>
   <% end %>
 <% end %>
@@ -21,7 +21,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center ml-3">
       <% index = 0 %>
       <% @days.each do |day| %>
-        <% records = @records.pick_record_on(day) %>
+        <% records = @records.pick_start_time(day) %>
         <div class="border-success day_record_style my-4">
           <% if @records != nil %>
             <div class="container">
@@ -63,7 +63,7 @@
               <% end %>
             </table>
             <div class="border_top text-center font-weight-bold bold_font_size my-1 pt-1">
-                <span class="total_protein"><%= t('view.my_daily_amount_protein') + " #{@protein_amount}" + " g" %></span>
+              <span class="total_protein"><%= t('view.my_daily_amount_protein') + " #{@protein_amount}" + " g" %></span>
             </div>
           <% end %>
         </div>

@@ -25,7 +25,7 @@ ja:
       record:
         food: 食品
         ate: 食事量
-        record_on: 日付
+        start_time: 日付
       friendship:
         follower_id: フォローするユーザーのID
         followed_id: フォローされるユーザーのID

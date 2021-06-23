@@ -27,7 +27,7 @@ describe '食品記録機能', type: :system do
         expect(4).to eq Record.count
         select "納豆", from: :record_food_id
         fill_in 'record[ate]', with: 1
-        fill_in 'record[record_on]', with: "002021-06-09"
+        fill_in 'record[start_time]', with: "002021-06-09"
         click_on "登録"
         expect(current_path).to eq record_path(Record.last.id)
         expect(page).to have_content '記録作成完了'

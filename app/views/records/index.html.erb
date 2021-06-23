@@ -9,7 +9,7 @@
         <%= paginate @days, window: 3 %>
       </div>
       <% @days.each do |day| %>
-        <% records = @records.pick_record_on(day) %>
+        <% records = @records.pick_start_time(day) %>
         <% if @records != nil %>
           <% user_ids = records.pluck(:user_id)%>
           <% user_ids.uniq! %>

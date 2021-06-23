@@ -55,10 +55,10 @@
       </div>
       <div class="d-flex flex-column justify-content-center align-items-center mx-2 mt-1">
         <div>
-          <%= form.label t('activerecord.attributes.record.record_on'), class: "text-success" %>
+          <%= form.label t('activerecord.attributes.record.start_time'), class: "text-success" %>
         </div>
         <div>
-          <%= form.date_field :record_on, value: Time.now.strftime("%Y-%m-%d") %>
+          <%= form.date_field :start_time, value: Time.now.strftime("%Y-%m-%d") %>
         </div>
       </div>
     </div>
