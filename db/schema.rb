@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_125552) do
 
   create_table "records", force: :cascade do |t|
     t.integer "ate", null: false
-    t.date "record_on", null: false
+    t.date "start_time", null: false
     t.bigint "food_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

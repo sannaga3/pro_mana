@@ -212,19 +212,19 @@ third_user_food_last = Food.where(user_id: third_user_id).last.id
   date = Random.rand(d1..d2)
   Record.create!(
     ate: Random.rand(1..3),
-    record_on: date,
+    start_time: date,
     food_id: Random.rand(first_user_food_first..first_user_food_last),
     user_id: first_user_id
   )
   Record.create!(
     ate: Random.rand(1..3),
-    record_on: date,
+    start_time: date,
     food_id: Random.rand(second_user_food_first..second_user_food_last),
     user_id: second_user_id
   )
   Record.create!(
     ate: Random.rand(1..3),
-    record_on: date,
+    start_time: date,
     food_id: Random.rand(third_user_food_first..third_user_food_last),
     user_id: third_user_id
   )
