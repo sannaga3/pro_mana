@@ -6,6 +6,14 @@
   <div class="mb-3">
     <h1 class="food_text"><%= t('view.my_daily_record') %></h1>
   </div>
+  <%= month_calendar events: @records do |date, records| %>
+  <%= date.day %>
+  <% records.each do |record| %>
+    <div>
+      <%= record.start_on %>
+    </div>
+  <% end %>
+<% end %>
   <div class="paginate_box rounded mt-3">
     <%= paginate @days, window: 3 %>
   </div>
