@@ -9,4 +9,12 @@ class Record < ApplicationRecord
   scope :pick_user_id, -> (user_id) {
     where(user_id: user_id)
   }
+
+  def self.sum_protein(records)
+    sum = 0
+    records.each do |record|
+      sum += (record.food.protein * record.ate)
+    end
+    return sum
+  end
 end
