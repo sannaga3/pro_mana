@@ -6,7 +6,7 @@
   <div class="mb-3">
     <h1 class="food_text"><%= t('view.my_daily_record') %></h1>
   </div>
-  <div><%= t('view.my_daily_protein_calendar') %></div>
+  <div class="box7"><span><%= t('view.my_daily_protein_calendar') %></span></div>
   <div>
     <%= month_calendar events: @records do |date, records| %>
       <div class="text_color">
@@ -17,6 +17,7 @@
       </div>
     <% end %>
   </div>
+  <div class="box7 pt-3"><span><%= t('view.daily_record') %></span></div>
   <div class="paginate_box rounded mt-3">
     <%= paginate @days, window: 3 %>
   </div>

@@ -1,22 +1,22 @@
 <div class="simple-calendar">
   <div class="calendar-heading box25">
     <%= link_to t('view.previous_month'), calendar.url_for_previous_view %>
-    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <span class="calendar-title"><%= "#{start_date.year}年 " %><%= t('date.month_names')[start_date.month] %></span>
     <%= link_to t('view.next_month'), calendar.url_for_next_view %>
   </div>
 
-  <table class="table table-striped">
-    <thead>
-      <tr>
+  <table class="table table_border">
+    <thead class="table_border">
+      <tr class="table_border">
         <% date_range.slice(0, 7).each do |day| %>
           <th><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody class="table_border">
       <% date_range.each_slice(7) do |week| %>
-        <tr>
+        <tr class="table_border">
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
