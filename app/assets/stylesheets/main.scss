@@ -12,6 +12,10 @@ body {
 .body_wrapper {
   flex: 1;
 }
+.background_color {
+  background: linear-gradient(60deg,  rgba(255, 255, 255, 0.7), rgba(205, 247, 139, 0.4));
+  z-index: 1;
+}
 .page_title {
   width: 400px;
 }
