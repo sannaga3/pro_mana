@@ -1,5 +1,13 @@
 @charset "utf-8";
 
+.food_table {
+  background-color: #fff;
+  border: solid 1px rgb(150, 143, 143);
+  border-radius: 30px;
+  box-shadow: 5px 5px rgb(175, 167, 167);
+  padding-bottom: 1%;
+  padding-right: 5px;
+}
 .food_field {
   width: 100px;
 }
