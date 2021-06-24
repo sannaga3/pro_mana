@@ -6,6 +6,18 @@
   <div class="mb-3">
     <h1 class="food_text"><%= t('view.my_daily_record') %></h1>
   </div>
+  <div class="box7"><span><%= t('view.my_daily_protein_calendar') %></span></div>
+  <div>
+    <%= month_calendar events: @records do |date, records| %>
+      <div class="text_color">
+        <%= "#{date.day}日" %>
+      </div>
+      <div class="text_color">
+        <%= "#{Record.sum_protein(records)}g" if records.length > 0 %>
+      </div>
+    <% end %>
+  </div>
+  <div class="box7 pt-3"><span><%= t('view.daily_record') %></span></div>
   <div class="paginate_box rounded mt-3">
     <%= paginate @days, window: 3 %>
   </div>
@@ -13,7 +25,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center ml-3">
       <% index = 0 %>
       <% @days.each do |day| %>
-        <% records = @records.pick_record_on(day) %>
+        <% records = @records.pick_start_time(day) %>
         <div class="border-success day_record_style my-4">
           <% if @records != nil %>
             <div class="container">
@@ -55,7 +67,7 @@
               <% end %>
             </table>
             <div class="border_top text-center font-weight-bold bold_font_size my-1 pt-1">
-                <span class="total_protein"><%= t('view.my_daily_amount_protein') + " #{@protein_amount}" + " g" %></span>
+              <span class="total_protein"><%= t('view.my_daily_amount_protein') + " #{@protein_amount}" + " g" %></span>
             </div>
           <% end %>
         </div>

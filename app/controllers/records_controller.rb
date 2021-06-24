@@ -4,8 +4,8 @@ class RecordsController < ApplicationController
 
   def index
     @records = Record.all
-    @records = @records.order(record_on: :desc)
-    @days = @records.pluck(:record_on)
+    @records = @records.order(start_time: :desc)
+    @days = @records.pluck(:start_time)
     @days = @days.uniq
     @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
   end
@@ -48,8 +48,8 @@ class RecordsController < ApplicationController
 
   def my_daily
     @records = Record.pick_user_id(current_user.id)
-    @records = @records.order(record_on: :desc)
-    @days = @records.pluck(:record_on)
+    @records = @records.order(start_time: :desc)
+    @days = @records.pluck(:start_time)
     @days = @days.uniq
     @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
     @foods = Food.all
@@ -66,6 +66,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:ate, :record_on, :food_id ,:user_id)
+    params.require(:record).permit(:ate, :start_time, :food_id ,:user_id)
   end
 end
