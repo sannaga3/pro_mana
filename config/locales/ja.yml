@@ -257,6 +257,7 @@ ja:
     input_integer: 整数で入力
     input_float: 小数で入力
     previous_month: 先月
+    next_month: 先月
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
