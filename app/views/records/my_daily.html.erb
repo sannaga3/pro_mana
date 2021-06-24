@@ -9,8 +9,10 @@
   <div><%= t('view.my_daily_protein_calendar') %></div>
   <div>
     <%= month_calendar events: @records do |date, records| %>
-      <%= date.day %><%= "日" %>
-      <div>
+      <div class="text_color">
+        <%= "#{date.day} 日" %>
+      </div>
+      <div class="text_color">
         <%= "#{Record.sum_protein(records)}g" if records.length > 0 %>
       </div>
     <% end %>
