@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :passive_friendships, foreign_key: 'followed_id', class_name: 'Friendship', dependent: :destroy
   has_many :following, through: :active_friendships, source: :followed
   has_many :followers, through: :passive_friendships, source: :follower
+  has_many :bmi, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|
