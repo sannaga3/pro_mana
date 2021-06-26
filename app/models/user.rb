@@ -8,6 +8,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { in: 1..50 }
   validates :email, presence: true, uniqueness: true, length: { in: 1..50 }
   validates :profile_comment, length: { maximum: 100 }
+  validates :height, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
+  validates :weight, numericality: { greater_than: 0 }, allow_blank: true
   validates :protein_target, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
   mount_uploader :profile_image, ImageUploader
   has_many :foods, dependent: :destroy
@@ -16,7 +18,6 @@ class User < ApplicationRecord
   has_many :following, through: :active_friendships, source: :followed
   has_many :followers, through: :passive_friendships, source: :follower
   has_many :bmis, dependent: :destroy
-  accepts_nested_attributes_for :bmis
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|

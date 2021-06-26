@@ -16,8 +16,6 @@ ActiveRecord::Schema.define(version: 2021_06_25_152713) do
   enable_extension "plpgsql"
 
   create_table "bmis", force: :cascade do |t|
-    t.integer "height", null: false
-    t.float "weight", null: false
     t.float "status"
     t.date "record_on", null: false
     t.bigint "user_id"
@@ -72,6 +70,8 @@ ActiveRecord::Schema.define(version: 2021_06_25_152713) do
     t.string "name", null: false
     t.string "profile_image"
     t.string "profile_comment"
+    t.integer "height"
+    t.float "weight"
     t.integer "protein_target"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false

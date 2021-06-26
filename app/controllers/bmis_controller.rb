@@ -10,7 +10,7 @@ class BmisController < ApplicationController
   end
 
   def create
-    @bmi = @user.bmi.build(Bmi_params)
+    @bmi = Bmi.new(calculation_bmi)
     if @bmi.save
       redirect_to user_bmis_path(@user), notice: "aaaaaa"
     else
@@ -22,8 +22,8 @@ class BmisController < ApplicationController
   end
 
   def update
-    if @bmi.update(food_params)
-      redirect_to foods_path, notice: t('notice.edit_food')
+    if @bmi.update(bmi_params)
+      redirect_to bmi_path, notice: t('notice.edit_food')
     else
       render :new
     end
@@ -42,5 +42,9 @@ class BmisController < ApplicationController
 
   def bmi_params
     params.require(:bmi).permit(:height, :weight, :status, :record_on, :user_id)
+  end
+
+  def calculation_bmi
+    bmi_params.merge(@bmi.set_calculation_bmi)
   end
 end
