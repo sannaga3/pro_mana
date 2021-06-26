@@ -24,11 +24,11 @@
         </div>
         <div class="row">
           <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.height') %>:</div>
-          <div class="col-4 col-sm-6 col-lg-6"><%= @user.height if @user.height %>cm</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @user.bmis.last.height if @user.bmis.last %>cm</div>
         </div>
         <div class="row">
           <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.weight') %>:</div>
-          <div class="col-4 col-sm-6 col-lg-6"><%= @user.weight if @user.weight %>kg</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @user.bmis.last.weight if @user.bmis.last %>kg</div>
         </div>
         <div class="row">
           <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.protein_target') %>:</div>

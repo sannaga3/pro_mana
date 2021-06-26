@@ -41,6 +41,6 @@ class BmisController < ApplicationController
   end
 
   def bmi_params
-    params.require(:bmi).permit(:status, :record_on, :user_id)
+    params.require(:bmi).permit(:height, :weight, :status, :record_on, :user_id)
   end
 end

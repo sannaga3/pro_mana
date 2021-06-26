@@ -1,6 +1,6 @@
 User.create!(
   email: "a@example.com",
-  name: "ユーザーa",
+  name: "ユーザーaa",
   password: "aaaaaa",
   admin: true
 )
@@ -191,11 +191,6 @@ end
     user_id: User.first.id + j
   )
 end
-
-
-
-
-
 
 first_user_id =  User.first.id
 second_user_id = User.second.id

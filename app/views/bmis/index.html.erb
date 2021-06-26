@@ -1,18 +1,18 @@
-<div>
-  <h1 class="food_text"><%= "BMI一覧" %></h1>
-</div>
-<div class="row row_index">
-  <div class="col-3"><%= "BMI" %></div>
-  <div class="col-3"><%= "日付" %></div>
-</div>
-<% if @bmis!= nil %>
-  <% @bmis.each do |bmi| %>
-  <div class="row">
-    <div class="col-3"><%= bmi.bmi %></div>
-    <div class="col-3"><%= bmi.rerocd_on %></div>
+<div class="d-flex flex-column justify-content-center align-items-center container bmi_wrapper">
+  <div>
+    <h1 class="food_text"><%= "BMI一覧" %></h1>
   </div>
+  <div class="row row_index">
+    <div class="col-3"><%= "BMI" %></div>
+    <div class="col-3"><%= "日付" %></div>
+  </div>
+  <% if @bmis!= nil %>
+    <% @bmis.each do |bmi| %>
+    <div class="row">
+      <div class="col-3"><%= bmi.bmi %></div>
+      <div class="col-3"><%= bmi.rerocd_on %></div>
+    </div>
+    <% end %>
   <% end %>
-<% end %>
-<%= link_to "bmi作成", new_bmi_path, class: "button_text_color" %>
-
-
+  <%= link_to "bmi作成", new_bmi_path, class: "button_text_color" %>
+</div>
