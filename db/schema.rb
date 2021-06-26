@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2021_06_25_152713) do
   enable_extension "plpgsql"
 
   create_table "bmis", force: :cascade do |t|
-    t.integer "status"
+    t.float "status"
     t.date "record_on"
     t.bigint "user_id"
     t.datetime "created_at", null: false

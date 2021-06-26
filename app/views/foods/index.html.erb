@@ -28,12 +28,6 @@
             <td class="text-center"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
             <td class="text-center"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
             <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{delete_button_index}" %></td>
-            <% other_food = record.food %>
-            <%= puts other_food %>
-            <%= link_to "自分の食品に登録する", new_food_path(@food, name: other_food.name, protein: other_food.protein, quantity: other_food.quantity, unit: other_food.unit, user_id: current_user.id), method: :post, class: "btn btn-outline-success mb-1", id: "edit_button" %>
-            <%# <%= link_to "自分の食品に登録する", foods_path(name: other_food.name, protein: other_food.protein, quantity: other_food.quantity, unit: other_food.unit, user_id: current_user.id), controller: :food, action: :create, class: "btn btn-outline-success mb-1", id: "edit_button" %>
-            <%# <%= link_to "自分の食品に登録する", foods_path(name: other_food.name, protein: other_food.protein, quantity: other_food.quantity, unit: other_food.unit, user_id: current_user.id), method: :post, controller: "food", class: "btn btn-outline-success mb-1", id: "edit_button" %>
-            <%# <%= link_to "自分の食品に登録する", controller: :foods, action: :create, name: other_food.name, protein: other_food.protein, quantity: other_food.quantity, unit: other_food.unit, user_id: current_user.id, class: "btn btn-outline-success mb-1", id: "edit_button" %>
           </tr>
           <% delete_button_index += 1 %>
         <% end %>
