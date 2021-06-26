@@ -10,9 +10,16 @@ class BmisController < ApplicationController
   end
 
   def create
-    @bmi = Bmi.new(calculation_bmi)
+    @user = current_user
+    weight = @user.weight
+    height = (@user.height / 100.0).to_f
+    @bmi_calculate = weight/(height ** 2).to_f
+    @bmi_calculate = @bmi_calculate.round(1)
+    # @bmi_calculate = (weight / height ** 2).round(1)
+    # binding.irb
+    @bmi = Bmi.new(bmi_params)
     if @bmi.save
-      redirect_to user_bmis_path(@user), notice: "aaaaaa"
+      redirect_to bmis_path, notice: "aaaaaa"
     else
       render :index
     end
@@ -41,10 +48,6 @@ class BmisController < ApplicationController
   end
 
   def bmi_params
-    params.require(:bmi).permit(:height, :weight, :status, :record_on, :user_id)
-  end
-
-  def calculation_bmi
-    bmi_params.merge(@bmi.set_calculation_bmi)
+    params.require(:bmi).permit(:record_on, :status, :user_id).merge(status: @bmi_calculate)
   end
 end

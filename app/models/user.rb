@@ -52,7 +52,7 @@ class User < ApplicationRecord
   def follow!(other_user)
     active_friendships.create!(followed_id: other_user.id)
   end
-  #フォローしているかどうかを確認する
+
   def following?(other_user)
     active_friendships.find_by(followed_id: other_user.id)
   end
