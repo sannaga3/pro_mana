@@ -36,8 +36,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :profile_image
       t.string :profile_comment
-      t.integer :height
-      t.float :weight
       t.integer :protein_target
       t.boolean :admin, default: false
       t.timestamps null: false
