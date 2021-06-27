@@ -55,7 +55,7 @@ class BmisController < ApplicationController
 
   def destroy
     @bmi.destroy
-    redirect_to foods_path, notice: t('notice.destroy_food')
+    redirect_to bmis_path, notice: "BMIを削除しました"
   end
 
   private
@@ -65,9 +65,8 @@ class BmisController < ApplicationController
   end
 
   def calculate_bmi
-    
+    #リファクタリング用
   end
-  
 
   def bmi_params
     params.require(:bmi).permit(:height, :weight, :record_on, :status, :user_id).merge(status: @bmi_calculate)
