@@ -3,18 +3,23 @@
     <h1 class="food_text"><%= "BMI一覧" %></h1>
   </div>
   <div class="row row_index">
-    <div class="col-3"><%= "日付" %></div>
-    <div class="col-3"><%= "BMI" %></div>
-    <div class="col-3"><%= "身長" %></div>
-    <div class="col-3"><%= "体重" %></div>
+    <div class="col-3 text-center"><%= "日付" %></div>
+    <div class="col-1 text-center"><%= "BMI" %></div>
+    <div class="col-2 text-center"><%= "身長" %></div>
+    <div class="col-2 text-center"><%= "体重" %></div>
+    <div class="col-4 text-center"><%= "ボタン" %></div>
   </div>
   <% if @bmis!= nil %>
     <% @bmis.each do |bmi| %>
       <div class="row row_index">
-        <div class="col-3"><%= bmi.record_on %></div>
-        <div class="col-3"><%= bmi.status %></div>
-        <div class="col-3"><%= bmi.height %></div>
-        <div class="col-3"><%= bmi.weight %></div>
+        <div class="col-3 text-center"><%= bmi.record_on %></div>
+        <div class="col-1 text-center"><%= bmi.status %></div>
+        <div class="col-2 text-center"><%= bmi.height %></div>
+        <div class="col-2 text-center"><%= bmi.weight %></div>
+        <div class="col-4 text-center">
+          <%= link_to t('view.edit'), edit_bmi_path(bmi.id), class: "btn btn-outline-success" %>
+          <%= link_to t('view.destroy'), bmi_path(bmi.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
+        </div>
       </div>
     <% end %>
   <% end %>

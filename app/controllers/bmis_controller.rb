@@ -35,10 +35,21 @@ class BmisController < ApplicationController
   def update
     weight = @bmi.weight
     height = (@bmi.height / 100.0).to_f
+    @bmi_calculate = weight/(height ** 2).to_f
+    @bmi_calculate = @bmi_calculate.round(1)
+    # @bmi.assign_attributes(bmi_params)
+    @bmi.status = @bmi_calculate
+    @bmi.record_on = params[:record_on]
+    @bmis = Bmi.where(user_id: current_user.id)
+    @built_bmi = @bmis.find_by(record_on: @bmi.record_on)
+    if @built_bmi != nil
+      flash.now[:notice] = '同じ日付のBMIが既に登録されています'
+      render :edit and return
+    end
     if @bmi.update(bmi_params)
-      redirect_to bmi_path, notice: t('notice.edit_food')
+      redirect_to bmis_path, notice: "BMI編集"
     else
-      render :new
+      render :edit
     end
   end
 
