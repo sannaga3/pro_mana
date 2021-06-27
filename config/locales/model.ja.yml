@@ -5,6 +5,7 @@ ja:
       food: 食品
       record: 記録
       friendship: フォロー
+      bmi: BMI
     attributes:
       user:
         name: ユーザー名
@@ -29,3 +30,7 @@ ja:
       friendship:
         follower_id: フォローするユーザーのID
         followed_id: フォローされるユーザーのID
+      bmi:
+        height: 身長
+        weight: 体重
+        record_on: 日付

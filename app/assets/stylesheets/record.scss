@@ -220,6 +220,6 @@
   text-shadow: 1px 1px rgb(69, 65, 65);
 }
 .table_border, .table_border td, .table thead th {
-  border: dashed 2px #fff;
+  border: dashed 2px #fff !important;
   z-index: 1;
 }

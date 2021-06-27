@@ -24,7 +24,7 @@
         </div>
         <div class="row">
           <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.height') %>:</div>
-          <div class="col-4 col-sm-6 col-lg-6"><%= @user.height if @user.height %>cm</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @user.height if @user.weight %>cm</div>
         </div>
         <div class="row">
           <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.weight') %>:</div>
@@ -41,6 +41,10 @@
         <% if @user != current_user %>
           <div class="m-4">
             <%= render 'follow_form', user: @user if @user != current_user %>
+          </div>
+        <% else %>
+          <div class="m-4 button_design">
+            <%= link_to "BMI", bmis_path, class: "button_text_color" %>
           </div>
         <% end %>
         <% if @user == current_user && @user.admin == true %>

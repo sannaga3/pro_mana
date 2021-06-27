@@ -40,6 +40,7 @@ gem 'ransack'
 gem 'bootstrap', '~> 4.3.1'
 gem 'kaminari'
 gem 'simple_calendar', '~> 2.0'
+gem "chartkick"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

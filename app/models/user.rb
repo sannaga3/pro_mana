@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :passive_friendships, foreign_key: 'followed_id', class_name: 'Friendship', dependent: :destroy
   has_many :following, through: :active_friendships, source: :followed
   has_many :followers, through: :passive_friendships, source: :follower
+  has_many :bmis, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|
@@ -51,7 +52,7 @@ class User < ApplicationRecord
   def follow!(other_user)
     active_friendships.create!(followed_id: other_user.id)
   end
-  #フォローしているかどうかを確認する
+
   def following?(other_user)
     active_friendships.find_by(followed_id: other_user.id)
   end
