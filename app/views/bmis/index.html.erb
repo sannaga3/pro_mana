@@ -1,13 +1,13 @@
 <div class="d-flex flex-column justify-content-center align-items-center container bmi_wrapper">
   <div>
-    <h1 class="food_text"><%= "BMI一覧" %></h1>
+    <h1 class="food_text"><%= t('view.bmi_index') %></h1>
   </div>
   <div class="row row_index">
-    <div class="col-3 text-center"><%= "日付" %></div>
-    <div class="col-1 text-center"><%= "BMI" %></div>
-    <div class="col-2 text-center"><%= "身長" %></div>
-    <div class="col-2 text-center"><%= "体重" %></div>
-    <div class="col-4 text-center"><%= "ボタン" %></div>
+    <div class="col-3 text-center"><%= t('activerecord.attributes.bmi.record_on') %></div>
+    <div class="col-1 text-center"><%= t('activerecord.attributes.bmi.bmi') %></div>
+    <div class="col-2 text-center"><%= t('activerecord.attributes.bmi.height') %></div>
+    <div class="col-2 text-center"><%= t('activerecord.attributes.bmi.weight') %></div>
+    <div class="col-4 text-center"><%= t('view.button') %></div>
   </div>
   <% if @bmis!= nil %>
     <% @bmis.each do |bmi| %>
@@ -24,7 +24,7 @@
     <% end %>
   <% end %>
   <div class="button_design mt-5">
-    <%= link_to "bmi作成", new_bmi_path, class: "button_text_color" %>
+    <%= link_to t('view.bmi_create'), new_bmi_path, class: "button_text_color" %>
   </div>
 </div>
-<%= line_chart @chart_elements, xtitle: "期間", ytitle: "BMI" %>
+<%= line_chart @chart_elements, xtitle: t('view.term'), ytitle: "BMI" %>

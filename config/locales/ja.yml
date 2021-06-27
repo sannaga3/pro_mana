@@ -259,6 +259,11 @@ ja:
     previous_month: 先月
     next_month: 来月
     daily_record: 記録詳細
+    bmi_create: BMI作成
+    bmi_registration: BMI登録
+    bmi_edit: BMI編集
+    bmi_index: BMI一覧
+    term: 期間
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了

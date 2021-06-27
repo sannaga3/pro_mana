@@ -13,7 +13,9 @@
     <div div class="col-12 col-sm-6 col-lg-5"><%= f.date_field :record_on, value: Time.now.strftime("%Y-%m-%d") %></div>
   </div>
   <div class="col-12 col-sm-6 col-lg-5"><%= f.hidden_field :user_id, value:current_user.id %></div>
-  <%= f.submit 'submit' %>
+  <div class="button_text_color">
+    <%= f.submit t('view.bmi_create'), class: "button_design submit_button" %>
+  </div>
 <% end %>
-<%= link_to "戻る", bmis_path, class: "button_text_color" %>
+<%= link_to t('view.back'), bmis_path, class: "button_text_color" %>
 </div>
