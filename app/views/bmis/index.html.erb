@@ -27,4 +27,6 @@
     <%= link_to t('view.bmi_create'), new_bmi_path, class: "button_text_color" %>
   </div>
 </div>
-<%= line_chart @chart_elements, xtitle: t('view.term'), ytitle: "BMI" %>
+<div class="bmi_graph">
+  <%= line_chart @chart_elements, xtitle: t('view.term'), ytitle: "BMI" %>
+</div>
