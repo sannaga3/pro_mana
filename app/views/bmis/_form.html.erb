@@ -17,7 +17,7 @@
     <div class="col-3"><%= f.hidden_field :user_id, value:current_user.id %></div>
     <div class="row mt-5 mx-5 px-3 py-5">
       <div class="col-4 button_text_color">
-        <%= f.submit t('view.bmi_create'), class: "button_design submit_button" %>
+        <%= f.submit button_text, class: "button_design submit_button" %>
       </div>
       <div class="col-4 button_text_color button_design submit_button mx-5">
         <%= link_to t('view.back'), bmis_path, class: "button_text_color" %>
