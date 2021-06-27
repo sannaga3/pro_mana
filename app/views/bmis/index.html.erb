@@ -1,22 +1,22 @@
-<div class="d-flex flex-column justify-content-center align-items-center container bmi_wrapper">
+<div class="d-flex flex-column justify-content-center align-items-center container bmi_wrapper border-success day_record_style my-4 mr-5">
   <div>
     <h1 class="food_text"><%= t('view.bmi_index') %></h1>
   </div>
-  <div class="row row_index">
-    <div class="col-3 text-center"><%= t('activerecord.attributes.bmi.record_on') %></div>
-    <div class="col-1 text-center"><%= t('activerecord.attributes.bmi.bmi') %></div>
-    <div class="col-2 text-center"><%= t('activerecord.attributes.bmi.height') %></div>
-    <div class="col-2 text-center"><%= t('activerecord.attributes.bmi.weight') %></div>
-    <div class="col-4 text-center"><%= t('view.button') %></div>
+  <div class="row row_index my-2">
+    <div class="col-3 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.record_on') %></div>
+    <div class="col-1 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.bmi') %></div>
+    <div class="col-2 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.height') %></div>
+    <div class="col-2 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.weight') %></div>
+    <div class="col-3 text-center font-weight-bold"><%= t('view.button') %></div>
   </div>
   <% if @bmis!= nil %>
     <% @bmis.each do |bmi| %>
       <div class="row row_index">
-        <div class="col-3 text-center"><%= bmi.record_on %></div>
-        <div class="col-1 text-center"><%= bmi.status %></div>
-        <div class="col-2 text-center"><%= bmi.height %></div>
-        <div class="col-2 text-center"><%= bmi.weight %></div>
-        <div class="col-4 text-center">
+        <div class="col-3 text-center align-bottom mt-2"><%= bmi.record_on %></div>
+        <div class="col-1 text-center mt-2"><%= bmi.status %></div>
+        <div class="col-2 text-center mt-2"><%= bmi.height %></div>
+        <div class="col-2 text-center mt-2"><%= bmi.weight %></div>
+        <div class="col-3 text-center">
           <%= link_to t('view.edit'), edit_bmi_path(bmi.id), class: "btn btn-outline-success" %>
           <%= link_to t('view.destroy'), bmi_path(bmi.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
         </div>
