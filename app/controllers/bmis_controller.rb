@@ -1,5 +1,5 @@
 class BmisController < ApplicationController
-  before_action :set_bmi, only: %i[ edit update destroy ]
+  before_action :set_bmi, only: [:edit, :update, :destroy ]
 
   def index
     @bmis = Bmi.where(user_id: current_user.id).order(record_on: :desc)
@@ -16,6 +16,7 @@ class BmisController < ApplicationController
   end
 
   def create
+    Bmi.calculate_bmi
     @user = current_user
     weight = @user.weight
     height = (@user.height / 100.0).to_f
@@ -39,23 +40,23 @@ class BmisController < ApplicationController
   end
 
   def update
+    @record_on = Bmi.new(bmi_params)
     weight = @bmi.weight
     height = (@bmi.height / 100.0).to_f
     @bmi_calculate = weight/(height ** 2).to_f
     @bmi_calculate = @bmi_calculate.round(1)
-    # @bmi.assign_attributes(bmi_params)
     @bmi.status = @bmi_calculate
-    @bmi.record_on = params[:record_on]
     @bmis = Bmi.where(user_id: current_user.id)
-    @built_bmi = @bmis.find_by(record_on: @bmi.record_on)
+    @built_bmi = @bmis.find_by(record_on: @record_on.record_on)
     if @built_bmi != nil
       flash.now[:notice] = '同じ日付のBMIが既に登録されています'
-      render :edit and return
-    end
-    if @bmi.update(bmi_params)
-      redirect_to bmis_path, notice: "BMI編集"
-    else
       render :edit
+    else
+      if @bmi.update(bmi_params)
+        redirect_to bmis_path, notice: "BMI編集"
+      else
+        render :edit
+      end
     end
   end
 
