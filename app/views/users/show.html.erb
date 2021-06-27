@@ -42,6 +42,10 @@
           <div class="m-4">
             <%= render 'follow_form', user: @user if @user != current_user %>
           </div>
+        <% else %>
+          <div class="m-4 button_design">
+            <%= link_to "BMI", bmis_path, class: "button_text_color" %>
+          </div>
         <% end %>
         <% if @user == current_user && @user.admin == true %>
           <div class="m-4 button_design admin_dashboard_button">
@@ -51,7 +55,6 @@
       </div>
     </div>
   </div>
-  <%= link_to t('view.admin_dashboard'), bmis_path, class: "button_text_color" %>
   <div class="picture_position_left index_picture_margin cat_before"></div>
   <div class="d-flex flex-row justify-content-center align-items-center">
     <div class="cat_after"></div>

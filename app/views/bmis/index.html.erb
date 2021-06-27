@@ -10,11 +10,15 @@
   </div>
   <% if @bmis!= nil %>
     <% @bmis.each do |bmi| %>
-    <div class="row row_index">
-      <div class="col-3"><%= bmi.record_on %></div>
-      <div class="col-3"><%= bmi.status %></div>
-    </div>
+      <div class="row row_index">
+        <div class="col-3"><%= bmi.record_on %></div>
+        <div class="col-3"><%= bmi.status %></div>
+        <div class="col-3"><%= bmi.height %></div>
+        <div class="col-3"><%= bmi.weight %></div>
+      </div>
     <% end %>
   <% end %>
-  <%= link_to "bmi作成", new_bmi_path, class: "button_text_color" %>
+  <div class="button_design mt-5">
+    <%= link_to "bmi作成", new_bmi_path, class: "button_text_color" %>
+  </div>
 </div>

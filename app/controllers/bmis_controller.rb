@@ -15,13 +15,17 @@ class BmisController < ApplicationController
     height = (@user.height / 100.0).to_f
     @bmi_calculate = weight/(height ** 2).to_f
     @bmi_calculate = @bmi_calculate.round(1)
-    # @bmi_calculate = (weight / height ** 2).round(1)
-    # binding.irb
     @bmi = Bmi.new(bmi_params)
+    @bmis = Bmi.all.where(user_id: current_user.id)
+    @built_bmi = @bmis.find_by(record_on: @bmi.record_on)
+    if @built_bmi
+      flash.now[:notice] = '同じ日付のBMIが既に登録されています'
+      render :new and return
+    end
     if @bmi.save
-      redirect_to bmis_path, notice: "aaaaaa"
+      redirect_to bmis_path, notice: "BMI登録"
     else
-      render :index
+      render :new
     end
   end
 
@@ -29,6 +33,8 @@ class BmisController < ApplicationController
   end
 
   def update
+    weight = @bmi.weight
+    height = (@bmi.height / 100.0).to_f
     if @bmi.update(bmi_params)
       redirect_to bmi_path, notice: t('notice.edit_food')
     else
@@ -47,7 +53,12 @@ class BmisController < ApplicationController
     @bmi = Bmi.find(params[:id])
   end
 
+  def calculate_bmi
+    
+  end
+  
+
   def bmi_params
-    params.require(:bmi).permit(:record_on, :status, :user_id).merge(status: @bmi_calculate)
+    params.require(:bmi).permit(:height, :weight, :record_on, :status, :user_id).merge(status: @bmi_calculate)
   end
 end

@@ -1,6 +1,19 @@
-<%= form_with(model: @bmi, local: true ) do |f| %>
-  <%= f.date_field :record_on, value: Time.now.strftime("%Y-%m-%d") %>
-  <%= f.hidden_field :user_id, value:current_user.id %>
+<div>
+  <%= form_with(model: @bmi, local: true ) do |f| %>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-5"><%= f.label :height %></div>
+    <div class="col-12 col-sm-6 col-lg-5"><%= f.number_field :height, min: '1', placeholder: t('view.input_integer') %>cm</div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-5"><%= f.label :weight %></div>
+    <div class="col-12 col-sm-6 col-lg-5"><%= f.number_field :weight, min: '0.1' ,step: '0.1', placeholder: t('view.input_float'), autofocus: true %>kg</div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-sm-6 col-lg-5"><%= f.label :record_on %></div>
+    <div div class="col-12 col-sm-6 col-lg-5"><%= f.date_field :record_on, value: Time.now.strftime("%Y-%m-%d") %></div>
+  </div>
+  <div class="col-12 col-sm-6 col-lg-5"><%= f.hidden_field :user_id, value:current_user.id %></div>
   <%= f.submit 'submit' %>
 <% end %>
-<%= link_to "bmi作成", new_bmi_path, class: "button_text_color" %>
+<%= link_to "戻る", bmis_path, class: "button_text_color" %>
+</div>
