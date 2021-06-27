@@ -27,3 +27,4 @@
     <%= link_to "bmi作成", new_bmi_path, class: "button_text_color" %>
   </div>
 </div>
+<%= line_chart @chart_elements, xtitle: "期間", ytitle: "BMI" %>

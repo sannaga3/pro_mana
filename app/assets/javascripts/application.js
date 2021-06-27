@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require chartkick
+//= require Chart.bundle
 //= require jquery/dist/jquery.js
 //= require popper
 //= require bootstrap-sprockets
