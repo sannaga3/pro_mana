@@ -13,6 +13,7 @@ class FoodsController < ApplicationController
   end
 
   def create
+    @food = Food.new(food_params_by_link)
     @food = Food.new(food_params)
     if @food.save
       redirect_to foods_path, notice: t('notice.add_food')
@@ -41,6 +42,16 @@ class FoodsController < ApplicationController
   end
 
   private
+
+  def food_params_by_link
+    {
+      name: params[:name],
+      protein: params[:protein],
+      quantity: params[:quantity],
+      unit: params[:unit],
+      user_id: params[:user_id]
+    }
+  end
 
   def set_food
     @food = Food.find(params[:id])
