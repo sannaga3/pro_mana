@@ -1,5 +1,5 @@
 require 'rails_helper'
-require "cancan/matchers"
+require 'cancan/matchers'
 
 RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
@@ -17,25 +17,25 @@ RSpec.describe User, type: :model do
     end
     context '名前が51文字以上の場合' do
       it 'バリデーションエラーになる' do
-        user.name = "a"*51
+        user.name = 'a' * 51
         expect(user).to be_invalid
       end
     end
     context 'メールアドレスが未入力の場合' do
       it 'バリデーションエラーになる' do
-        user.email = ""
+        user.email = ''
         expect(user).to be_invalid
       end
     end
     context 'メールアドレスが無効な形式の場合' do
       it 'バリデーションエラーになる' do
-        user.email = "foobar"
+        user.email = 'foobar'
         expect(user).to be_invalid
       end
     end
     context 'メールアドレスが51文字以上の場合' do
       it 'バリデーションエラーになる' do
-        user.email = "foo"*20
+        user.email = 'foo' * 20
         expect(user).to be_invalid
       end
     end
@@ -45,33 +45,33 @@ RSpec.describe User, type: :model do
           name: 'すだまさき',
           email: 'machigaisagasi@example.com',
           password: 'sayonaraerezi',
-          password_confirmation: 'sayonaraerezi',
+          password_confirmation: 'sayonaraerezi'
         )
         user = User.new(
           name: 'すだまさき',
           email: 'machigaisagasi@example.com',
           password: 'sayonaraerezi',
-          password_confirmation: 'sayonaraerezi',
+          password_confirmation: 'sayonaraerezi'
         )
         user.invalid?
-        expect(user.errors[:email]).to include("はすでに存在します")
+        expect(user.errors[:email]).to include('はすでに存在します')
       end
     end
     context 'パスワードが未入力の場合' do
       it 'バリデーションエラーになる' do
-        user.password = ""
+        user.password = ''
         expect(user).to be_invalid
       end
     end
     context 'パスワードが6文字以下の場合' do
       it 'バリデーションエラーになる' do
-        user.password = "hoge"
+        user.password = 'hoge'
         expect(user).to be_invalid
       end
     end
     context 'パスワード51文字以上の場合' do
       it 'バリデーションエラーになる' do
-        user.password = "hoge"*13
+        user.password = 'hoge' * 13
         expect(user).to be_invalid
       end
     end
@@ -81,11 +81,11 @@ RSpec.describe User, type: :model do
       it 'ユーザ-の作成・編集・削除ができる' do
         @manager = user
         @ability = Ability.new(@manager)
-        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        test_user = User.new(name: 'test', email: 'test@test.com', password: 'password')
         expect(@ability).to be_able_to(:create, test_user)
-        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        test_user = User.new(name: 'test', email: 'test@test.com', password: 'password')
         expect(@ability).to be_able_to(:edit, test_user)
-        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        test_user = User.new(name: 'test', email: 'test@test.com', password: 'password')
         expect(@ability).to be_able_to(:destroy, test_user)
       end
     end
@@ -93,14 +93,13 @@ RSpec.describe User, type: :model do
       it 'ユーザーを作成・編集・削除ができない' do
         @manager = FactoryBot.create(:third_user)
         @ability = Ability.new(@manager)
-        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        test_user = User.new(name: 'test', email: 'test@test.com', password: 'password')
         expect(@ability).to_not be_able_to(:create, test_user)
-        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        test_user = User.new(name: 'test', email: 'test@test.com', password: 'password')
         expect(@ability).to_not be_able_to(:edit, test_user)
-        test_user = User.new(name: "test", email: "test@test.com", password: "password")
+        test_user = User.new(name: 'test', email: 'test@test.com', password: 'password')
         expect(@ability).to_not be_able_to(:destroy, test_user)
       end
     end
   end
 end
-

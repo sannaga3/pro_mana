@@ -30,7 +30,7 @@ describe 'ユーザー機能', type: :system do
     end
     context '名前が51文字以上の場合' do
       it 'バリデーションエラーになる' do
-        fill_in 'user[name]', with: "すだまさき"*11
+        fill_in 'user[name]', with: 'すだまさき' * 11
         fill_in 'user[email]', with: 'machigaisagasi@example.com'
         fill_in 'user[password]', with: 'sayonaraerezi'
         fill_in 'user[password_confirmation]', with: 'sayonaraerezi'
@@ -40,7 +40,7 @@ describe 'ユーザー機能', type: :system do
     end
     context 'メールアドレスが未入力の場合' do
       it 'バリデーションエラーになる' do
-        fill_in 'user[name]', with: "すだまさき"
+        fill_in 'user[name]', with: 'すだまさき'
         fill_in 'user[email]', with: ''
         fill_in 'user[password]', with: 'sayonaraerezi'
         fill_in 'user[password_confirmation]', with: 'sayonaraerezi'
@@ -51,8 +51,8 @@ describe 'ユーザー機能', type: :system do
     end
     context 'メールアドレスが51文字以上の場合' do
       it 'バリデーションエラーになる' do
-        fill_in 'user[name]', with: "すだまさき"
-        fill_in 'user[email]', with: 'machigaisagasi'*3 + '@example.com'
+        fill_in 'user[name]', with: 'すだまさき'
+        fill_in 'user[email]', with: 'machigaisagasi' * 3 + '@example.com'
         fill_in 'user[password]', with: 'sayonaraerezi'
         fill_in 'user[password_confirmation]', with: 'sayonaraerezi'
         click_button 'アカウント登録'
@@ -61,7 +61,7 @@ describe 'ユーザー機能', type: :system do
     end
     context 'パスワードが未記入の場合' do
       it 'バリデーションエラーになる' do
-        fill_in 'user[name]', with: "すだまさき"
+        fill_in 'user[name]', with: 'すだまさき'
         fill_in 'user[email]', with: 'machigaisagasi@example.com'
         fill_in 'user[password]', with: ''
         fill_in 'user[password_confirmation]', with: ''
@@ -71,17 +71,17 @@ describe 'ユーザー機能', type: :system do
     end
     context 'パスワードが51文字以上の場合' do
       it 'バリデーションエラーになる' do
-        fill_in 'user[name]', with: "すだまさき"
+        fill_in 'user[name]', with: 'すだまさき'
         fill_in 'user[email]', with: 'machigaisagasi@example.com'
-        fill_in 'user[password]', with: 'sayonaraerezi'*4
-        fill_in 'user[password_confirmation]', with: 'sayonaraerezi'*4
+        fill_in 'user[password]', with: 'sayonaraerezi' * 4
+        fill_in 'user[password_confirmation]', with: 'sayonaraerezi' * 4
         click_button 'アカウント登録'
         expect(page).to have_content 'パスワードは50文字以内で入力してください'
       end
     end
     context 'パスワードが一致しない場合' do
       it 'バリデーションエラーになる' do
-        fill_in 'user[name]', with: "すだまさき"
+        fill_in 'user[name]', with: 'すだまさき'
         fill_in 'user[email]', with: 'machigaisagasi@example.com'
         fill_in 'user[password]', with: 'sayonaraerezi'
         fill_in 'user[password_confirmation]', with: 'sayonarae'
@@ -91,7 +91,7 @@ describe 'ユーザー機能', type: :system do
     end
   end
   describe 'ユーザーのログインテスト' do
-    let!(:user) { FactoryBot.create(:user)}
+    let!(:user) { FactoryBot.create(:user) }
     before do
       visit new_user_session_path
     end
@@ -138,7 +138,7 @@ describe 'ユーザー機能', type: :system do
       end
     end
     describe 'ユーザーの編集テスト' do
-      let!(:user) { FactoryBot.create(:user)}
+      let!(:user) { FactoryBot.create(:user) }
       before do
         visit new_user_session_path
         fill_in 'user[email]', with: 'machigaisagasi@example.com'

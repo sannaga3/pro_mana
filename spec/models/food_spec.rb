@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   let!(:user) { FactoryBot.create(:user) }
-  let(:food) { FactoryBot.create(:food, user: user)}
+  let(:food) { FactoryBot.create(:food, user: user) }
   describe '食品新規作成時のバリデーションテスト' do
     context '名前、タンパク質量、量、単位、が正しい場合' do
       it '食品を作成できる' do
@@ -17,31 +17,31 @@ RSpec.describe Food, type: :model do
     end
     context '食品名が51文字以上の場合' do
       it 'バリデーションエラーになる' do
-        food.name = "納豆"*26
+        food.name = '納豆' * 26
         expect(food).to be_invalid
       end
     end
     context 'タンパク質量が未入力の場合' do
       it 'バリデーションエラーになる' do
-        food.protein = ""
+        food.protein = ''
         expect(food).to be_invalid
       end
     end
     context '量が未入力の場合' do
       it 'バリデーションエラーになる' do
-        food.quantity = ""
+        food.quantity = ''
         expect(food).to be_invalid
       end
     end
     context '単位が未入力の場合' do
       it 'バリデーションエラーになる' do
-        food.unit = ""
+        food.unit = ''
         expect(food).to be_invalid
       end
     end
     context '単位が11文字以上の場合' do
       it 'バリデーションエラーになる' do
-        food.unit = "個"*11
+        food.unit = '個' * 11
         expect(food).to be_invalid
       end
     end

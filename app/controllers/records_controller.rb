@@ -1,6 +1,6 @@
 class RecordsController < ApplicationController
-  before_action :set_record, only: %i[ show edit update destroy ]
-  before_action :set_food, only: %i[ show edit ]
+  before_action :set_record, only: %i[show edit update destroy]
+  before_action :set_food, only: %i[show edit]
 
   def index
     @records = Record.all
@@ -30,8 +30,7 @@ class RecordsController < ApplicationController
     @record = Record.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @record.update(record_params)
@@ -66,6 +65,6 @@ class RecordsController < ApplicationController
   end
 
   def record_params
-    params.require(:record).permit(:ate, :start_time, :food_id ,:user_id)
+    params.require(:record).permit(:ate, :start_time, :food_id, :user_id)
   end
 end

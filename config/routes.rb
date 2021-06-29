@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  root to: "top#index"
+  root to: 'top#index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, :controllers => {
+  devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
@@ -10,13 +10,13 @@ Rails.application.routes.draw do
     post 'users/admin_guest_sign_in', to: 'users/sessions#new_admin_guest'
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
-  resources :users, only: [:index, :show]
-  resources :bmis, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :users, only: %i[index show]
+  resources :bmis, only: %i[index new create edit update destroy]
   resources :foods
   resources :records do
     collection do
       get :my_daily
     end
   end
-  resources :friendships, only: [:create, :destroy]
+  resources :friendships, only: %i[create destroy]
 end

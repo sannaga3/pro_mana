@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Record, type: :model do
-  let!(:user) { FactoryBot.create(:user)}
+  let!(:user) { FactoryBot.create(:user) }
   let!(:food_one) { FactoryBot.create(:food, user: user) }
-  let(:record) { FactoryBot.create(:record)}
+  let(:record) { FactoryBot.create(:record) }
   describe '食品記録作成時のバリデーションテスト' do
     context '食事量と日付が正しい場合' do
       it '記録を作成できる' do
