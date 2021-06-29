@@ -23,12 +23,12 @@
           <div class="col-12 col-sm-6 col-lg-6"><%= @user.profile_comment if @user.profile_comment %></div>
         </div>
         <div class="row">
-          <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.height') %>:</div>
-          <div class="col-4 col-sm-6 col-lg-6"><%= @user.height if @user.weight %>cm</div>
+          <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.bmi.height') %>:</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @bmi.height if @bmi %>cm</div>
         </div>
         <div class="row">
-          <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.weight') %>:</div>
-          <div class="col-4 col-sm-6 col-lg-6"><%= @user.weight if @user.weight %>kg</div>
+          <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.bmi.weight') %>:</div>
+          <div class="col-4 col-sm-6 col-lg-6"><%= @bmi.weight if @bmi %>kg</div>
         </div>
         <div class="row">
           <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.protein_target') %>:</div>

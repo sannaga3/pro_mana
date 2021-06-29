@@ -8,8 +8,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { in: 1..50 }
   validates :email, presence: true, uniqueness: true, length: { in: 1..50 }
   validates :profile_comment, length: { maximum: 100 }
-  validates :height, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
-  validates :weight, numericality: { greater_than: 0 }, allow_blank: true
   validates :protein_target, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
   mount_uploader :profile_image, ImageUploader
   has_many :foods, dependent: :destroy

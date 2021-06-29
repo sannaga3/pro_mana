@@ -72,8 +72,6 @@ ActiveRecord::Schema.define(version: 2021_06_25_152713) do
     t.string "name", null: false
     t.string "profile_image"
     t.string "profile_comment"
-    t.integer "height"
-    t.float "weight"
     t.integer "protein_target"
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
