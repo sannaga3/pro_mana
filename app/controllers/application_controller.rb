@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
                     :password_confirmation,
                     :profile_image,
                     :profile_comment,
-                    :height,
-                    :weight,
                     :protein_target,
                     :admin,
                     :profile_image_cache,

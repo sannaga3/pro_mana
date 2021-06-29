@@ -14,8 +14,6 @@ ja:
         password_confirm: パスワード確認用
         profile_image: プロフィール画像
         profile_comment: 自己紹介文
-        height: 身長
-        weight: 体重
         protein_target: 目標プロテイン摂取量
         admin: 管理者
       food:
