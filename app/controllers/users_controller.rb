@@ -7,5 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @bmi = Bmi.pick_user_id(@user.id)
+    @bmi = @bmi.last if @bmi != nil
   end
 end
