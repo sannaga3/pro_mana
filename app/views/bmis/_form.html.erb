@@ -3,12 +3,12 @@
     <div class="row mt-5">
       <div class="col-3"><%= f.label :height %></div>
       <div class="col-5"><%= f.number_field :height, min: '1', placeholder: t('view.input_integer') %></div>
-      <div class="col-1">cm</div>
+      <div class="col-2 ml-4">cm</div>
     </div>
     <div class="row mt-4">
       <div class="col-3"><%= f.label :weight %></div>
       <div class="col-5"><%= f.number_field :weight, min: '0.1' ,step: '0.1', placeholder: t('view.input_float'), autofocus: true %></div>
-      <div class="col-1">kg</div>
+      <div class="col-2 ml-4">kg</div>
     </div>
     <div class="row mt-4">
       <div class="col-3"><%= f.label :record_on %></div>
