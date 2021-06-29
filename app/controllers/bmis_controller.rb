@@ -1,5 +1,5 @@
 class BmisController < ApplicationController
-  before_action :set_bmi, only: [:edit, :update, :destroy ]
+  before_action :set_bmi, only: %i[edit update destroy]
 
   def index
     @bmis = Bmi.where(user_id: current_user.id).order(record_on: :desc)
@@ -20,7 +20,7 @@ class BmisController < ApplicationController
     @bmi = Bmi.new(bmi_params)
     weight = @bmi.weight
     height = (@bmi.height / 100.0).to_f
-    @bmi_calculate = weight/(height ** 2).to_f
+    @bmi_calculate = weight / (height**2).to_f
     @bmi_calculate = @bmi_calculate.round(1)
     @bmi.status = @bmi_calculate
     @bmis = Bmi.all.where(user_id: current_user.id)
@@ -30,39 +30,36 @@ class BmisController < ApplicationController
       render :new and return
     end
     if @bmi.save
-      redirect_to bmis_path, notice: "BMI登録"
+      redirect_to bmis_path, notice: 'BMI登録'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @record_on = Bmi.new(bmi_params)
     weight = @bmi.weight
     height = (@bmi.height / 100.0).to_f
-    @bmi_calculate = weight/(height ** 2).to_f
+    @bmi_calculate = weight / (height**2).to_f
     @bmi_calculate = @bmi_calculate.round(1)
     @bmi.status = @bmi_calculate
     @bmis = Bmi.where(user_id: current_user.id)
     @built_bmi = @bmis.find_by(record_on: @record_on.record_on)
-    if @built_bmi != nil
+    if !@built_bmi.nil?
       flash.now[:notice] = '同じ日付のBMIが既に登録されています'
       render :edit
+    elsif @bmi.update(bmi_params)
+      redirect_to bmis_path, notice: 'BMI編集'
     else
-      if @bmi.update(bmi_params)
-        redirect_to bmis_path, notice: "BMI編集"
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 
   def destroy
     @bmi.destroy
-    redirect_to bmis_path, notice: "BMIを削除しました"
+    redirect_to bmis_path, notice: 'BMIを削除しました'
   end
 
   private
@@ -72,7 +69,7 @@ class BmisController < ApplicationController
   end
 
   def calculate_bmi
-    #リファクタリング用
+    # リファクタリング用
   end
 
   def bmi_params

@@ -3,10 +3,10 @@ class Record < ApplicationRecord
   belongs_to :user
   validates :ate, presence: { message: 'を入力してください。' }, numericality: { only_integer: true, greater_than: 0 }
 
-  scope :pick_start_time, -> (day) {
+  scope :pick_start_time, lambda { |day|
     where(start_time: day)
   }
-  scope :pick_user_id, -> (user_id) {
+  scope :pick_user_id, lambda { |user_id|
     where(user_id: user_id)
   }
 
@@ -15,6 +15,6 @@ class Record < ApplicationRecord
     records.each do |record|
       sum += (record.food.protein * record.ate)
     end
-    return sum
+    sum
   end
 end

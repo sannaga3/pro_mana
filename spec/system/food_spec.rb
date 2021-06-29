@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe '食品機能', type: :system do
   describe '食品管理機能テスト' do
-    let!(:user) { FactoryBot.create(:user)}
+    let!(:user) { FactoryBot.create(:user) }
     before do
       visit new_user_session_path
       fill_in 'user[email]', with: 'machigaisagasi@example.com'
@@ -29,15 +29,15 @@ describe '食品機能', type: :system do
     end
     context '食品を編集した場合' do
       it '食品一覧画面の一番最初に表示される' do
-        FactoryBot.create(:food,user: user)
-        FactoryBot.create(:second_food,user: user)
+        FactoryBot.create(:food, user: user)
+        FactoryBot.create(:second_food, user: user)
         click_on '食品一覧'
         expect(current_path).to eq foods_path
         expect(page).to have_content '食品一覧'
         expect(page).to have_content '卵'
         expect(page).to have_content '納豆'
         food_list = all('.text-center')
-        expect(food_list[0]).to have_content "卵"
+        expect(food_list[0]).to have_content '卵'
       end
     end
     context '食品を削除した場合' do
@@ -52,7 +52,7 @@ describe '食品機能', type: :system do
         find('#delete_button0').click
         page.driver.browser.switch_to.alert.accept
         expect(current_path).to eq foods_path
-        expect(page).not_to have_content "卵"
+        expect(page).not_to have_content '卵'
         expect(1).to eq Food.count
       end
     end
