@@ -28,7 +28,8 @@
             <div><%= reply.contact.user.name %></div>
           </div>
           <div class="col-12 text-left"><%= label :comment, t('activerecord.attributes.reply.comment'), class: "text-success" %><%= reply.comment %></div>
-          <%= link_to 'Edit', edit_reply_path(id: reply.id, contact_id: @contact.id) %>
+          <%= link_to t('view.edit'), edit_reply_path(id: reply.id, contact_id: @contact.id) %>
+          <%= link_to t('view.destroy'), reply_path(id: reply.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
           <br>
         </div>
       <% end %>

@@ -1,6 +1,6 @@
 class RepliesController < ApplicationController
   before_action :set_reply, only: %i[ edit update destroy ]
-  before_action :set_contact, only: %i[ new edit destroy ]
+  before_action :set_contact, only: %i[ new edit ]
 
   def new
     @reply = Reply.new
@@ -28,7 +28,7 @@ class RepliesController < ApplicationController
 
   def destroy
     @reply.destroy
-    redirect_to contacts_path, notice: t('notice.destroy_contact')
+    redirect_to contact_path(@reply.contact_id), notice: t('notice.destroy_reply')
   end
 
   private
