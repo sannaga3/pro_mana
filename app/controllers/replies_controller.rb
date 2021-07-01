@@ -3,15 +3,15 @@ class RepliesController < ApplicationController
 
   def new
     @reply = Reply.new
+    @contact = Contact.find(params[:contact_id])
   end
 
   def create
-    @reply = Reply.new(contact_params)
-    @reply.replyer_id = current_user
+    @reply = Reply.new(reply_params)
     if @reply.save
-      redirect_to contacts_path, notice: t('notice.add_contact')
+      redirect_to contacts_path, notice: t('notice.add_reply')
     else
-      render :new, notice: t('notice.failed_add_contact')
+      render :new, notice: t('notice.failed_add_reply')
     end
   end
 
@@ -20,9 +20,9 @@ class RepliesController < ApplicationController
 
   def update
     if @reply.update(reply_params)
-      redirect_to contacts_path, notice: t('notice.edit_contact')
+      redirect_to contacts_path, notice: t('notice.edit_reply')
     else
-      render :new, notice: t('notice.failed_edit_contact')
+      render :edit, notice: t('notice.failed_edit_reply')
     end
   end
 
@@ -38,6 +38,6 @@ class RepliesController < ApplicationController
   end
 
   def reply_params
-    params.require(:reply).permit(:content)
+    params.require(:reply).permit(:comment, :replier_id, :contact_id)
   end
 end

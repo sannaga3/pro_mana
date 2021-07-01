@@ -1,5 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center contact-show_wrapper day_record_style bg-white mt-5">
-  <h1 class="food_text"><%= t('view.contact_show') %></h1>
+  <h1 class="food_text mt-3"><%= t('view.contact_show') %></h1>
   <div class=" mt-5 contact_container">
     <div class="mx-3 mt-3 row contact_area">
       <div class="col-4"><%= label :name, t('activerecord.attributes.contact.title'), class: "text-success" %></div>
@@ -14,8 +14,25 @@
     <div class="button_design submit_button mt-5 mx-3">
       <%= link_to t('view.edit'), edit_contact_path(@contact.id), class: "button_text_color" %>
     </div>
-    <div class="button_design submit_button mt-5 mx-3">
+    <div class="button_design submit_button mt-5 my-2 mx-3">
       <%= link_to t('view.back'), contacts_path, class: "button_text_color" %>
     </div>
   </div>
+  <div class="food_text my-3"><h3><%= t('view.reply_index') %></h3></div>
+  <div class="reply_index_wrapper d-flex flex-column justify-content-left container">
+    <% if @replies != nil %>
+      <% @replies.each do |reply| %>
+        <div class="mx-3 mt-3 row contact_area">
+          <div>
+            <div class="col-12 text-left" ><%= label :replier_id, t('activerecord.attributes.reply.replier_id'), class: "text-success" %></div>
+            <div><%= reply.contact.user.name %></div>
+          </div>
+          <div class="col-12 text-left"><%= label :comment, t('activerecord.attributes.reply.comment'), class: "text-success" %><%= reply.comment %></div>
+          <%= link_to 'Edit', edit_reply_path(id: reply.id) %>
+          <br>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <%= link_to t('view.reply_new'), new_reply_path(contact_id: @contact.id) %>
 </div>

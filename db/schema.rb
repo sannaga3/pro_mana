@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_201527) do
 
   create_table "replies", force: :cascade do |t|
     t.text "comment", null: false
-    t.integer "replyer_id", null: false
+    t.integer "replier_id", null: false
     t.bigint "contact_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

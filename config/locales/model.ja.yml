@@ -36,5 +36,5 @@ ja:
         title: タイトル
         content: 内容
       reply:
-        comment: 返信
-        replier: 返信者
+        comment: 内容
+        replier_id: 返信者
