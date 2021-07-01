@@ -28,7 +28,7 @@
             <div><%= reply.contact.user.name %></div>
           </div>
           <div class="col-12 text-left"><%= label :comment, t('activerecord.attributes.reply.comment'), class: "text-success" %><%= reply.comment %></div>
-          <%= link_to 'Edit', edit_reply_path(id: reply.id) %>
+          <%= link_to 'Edit', edit_reply_path(id: reply.id, contact_id: @contact.id) %>
           <br>
         </div>
       <% end %>

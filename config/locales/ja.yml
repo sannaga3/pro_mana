@@ -283,8 +283,8 @@ ja:
     edit_contact:  お問合せ編集完了
     destroy_contact:  お問合せ削除完了
     add_reply:  返信作成
-    edit_reply:  編集編集完了
-    destroy_reply:  編集削除完了
+    edit_reply:  返信編集完了
+    destroy_reply:  返信削除完了
   alert:
     failed_add_food: 食品登録失敗
     failed_edit_food: 食品編集失敗
@@ -292,6 +292,6 @@ ja:
     failed_add_record: 食品記録失敗
     failed_edit_record: 食品記録失敗
     failed_destroy_record: 食品記録失敗
-    failed_add_reply:  編集作成失敗
-    failed_edit_reply:  編集編集失敗
-    failed_destroy_reply:  編集削除失敗
+    failed_add_reply:  返信作成失敗
+    failed_edit_reply:  返信編集失敗
+    failed_destroy_reply:  返信削除失敗
