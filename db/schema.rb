@@ -10,77 +10,88 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_625_152_713) do
+ActiveRecord::Schema.define(version: 2021_07_01_062736) do
+
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'bmis', force: :cascade do |t|
-    t.integer 'height', null: false
-    t.float 'weight', null: false
-    t.float 'status'
-    t.date 'record_on', null: false
-    t.bigint 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['user_id'], name: 'index_bmis_on_user_id'
+  create_table "bmis", force: :cascade do |t|
+    t.integer "height", null: false
+    t.float "weight", null: false
+    t.float "status"
+    t.date "record_on", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bmis_on_user_id"
   end
 
-  create_table 'foods', force: :cascade do |t|
-    t.string 'name', null: false
-    t.integer 'protein', null: false
-    t.integer 'quantity', null: false
-    t.string 'unit', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.bigint 'user_id'
-    t.index ['user_id'], name: 'index_foods_on_user_id'
+  create_table "contacts", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 
-  create_table 'friendships', force: :cascade do |t|
-    t.integer 'follower_id'
-    t.integer 'followed_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['followed_id'], name: 'index_friendships_on_followed_id'
-    t.index %w[follower_id followed_id], name: 'index_friendships_on_follower_id_and_followed_id', unique: true
-    t.index ['follower_id'], name: 'index_friendships_on_follower_id'
+  create_table "foods", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "protein", null: false
+    t.integer "quantity", null: false
+    t.string "unit", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
-  create_table 'records', force: :cascade do |t|
-    t.integer 'ate', null: false
-    t.date 'start_time', null: false
-    t.bigint 'food_id'
-    t.bigint 'user_id'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['food_id'], name: 'index_records_on_food_id'
-    t.index ['user_id'], name: 'index_records_on_user_id'
+  create_table "friendships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_friendships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_friendships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_friendships_on_follower_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email', default: '', null: false
-    t.string 'encrypted_password', default: '', null: false
-    t.string 'reset_password_token'
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.integer 'sign_in_count', default: 0, null: false
-    t.datetime 'current_sign_in_at'
-    t.datetime 'last_sign_in_at'
-    t.inet 'current_sign_in_ip'
-    t.inet 'last_sign_in_ip'
-    t.string 'name', null: false
-    t.string 'profile_image'
-    t.string 'profile_comment'
-    t.integer 'protein_target'
-    t.boolean 'admin', default: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['email'], name: 'index_users_on_email', unique: true
-    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
+  create_table "records", force: :cascade do |t|
+    t.integer "ate", null: false
+    t.date "start_time", null: false
+    t.bigint "food_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_records_on_food_id"
+    t.index ["user_id"], name: "index_records_on_user_id"
   end
 
-  add_foreign_key 'bmis', 'users'
-  add_foreign_key 'foods', 'users'
-  add_foreign_key 'records', 'foods'
-  add_foreign_key 'records', 'users'
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.string "name", null: false
+    t.string "profile_image"
+    t.string "profile_comment"
+    t.integer "protein_target"
+    t.boolean "admin", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  add_foreign_key "bmis", "users"
+  add_foreign_key "contacts", "users"
+  add_foreign_key "foods", "users"
+  add_foreign_key "records", "foods"
+  add_foreign_key "records", "users"
 end
