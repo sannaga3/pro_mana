@@ -1,13 +1,13 @@
-<div class="d-flex flex-column justify-content-center align-items-center">
+<div class="d-flex flex-column justify-content-center align-items-center contact-show_wrapper day_record_style bg-white mt-5">
   <h1 class="food_text"><%= t('view.contact_show') %></h1>
-  <div class="d-flex flex-row justify-content-center align-items-center mt-5">
-    <div class="mx-3 mt-3">
-      <div class=""><%= label :name, t('activerecord.attributes.contact.title'), class: "text-success" %></div>
-      <div class=""><%= @contact.title %></div>
+  <div class=" mt-5 contact_container">
+    <div class="mx-3 mt-3 row contact_area">
+      <div class="col-4"><%= label :name, t('activerecord.attributes.contact.title'), class: "text-success" %></div>
+      <div class="col-8 text-left pt-1"><%= @contact.title %></div>
     </div>
-    <div class="mx-3 mt-3">
-      <div class=""><%= label :protein, t('activerecord.attributes.contact.content'), class: "text-success" %></div>
-      <div><%= @contact.content %></div>
+    <div class="mx-3 mt-3 row contact_area">
+      <div class="col-4"><%= label :protein, t('activerecord.attributes.contact.content'), class: "text-success" %></div>
+      <div class="col-8 text-left pt-1"><%= @contact.content %></div>
     </div>
   </div>
   <div class="d-flex flex-row justify-content-center align-items-center mt-3">
