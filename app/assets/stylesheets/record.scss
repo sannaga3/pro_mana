@@ -17,9 +17,6 @@
 .show_text_protein {
   width: 100px;
 }
-.nostalsy_padding {
-  margin-right: 100px;
-}
 .day_record_style {
   border: solid 3px green;
   border-radius: 10px;
@@ -43,10 +40,14 @@
   min-width: 45px;
 }
 .nostalgy {
-  width: 210px;
-  height: 380px;
+  width: 350px;
+  height: 470px;
   background-image: image_url('nostalgy.jpg');
   background-size: cover;
+}
+.nostalsy_setting {
+  margin-right: 100px;
+  border-radius: 20px;
 }
 .sunflower {
   display: block;
@@ -86,12 +87,12 @@
   min-height: 40px;
   font-size: 1.5rem;
   line-height: 38px;
-  text-decoration: underline dashed 3px rgb(152, 152, 21);
   display: block;
   border-radius: 10px;
   position: fixed;
   left: 50px;
   top: 340px;
+  padding-bottom: 10px;
 }
 @media only screen and (max-width: 1300px) {
   .my_target {
@@ -121,7 +122,6 @@
     position: static;
     left: 50%;
     margin-left: 150px;
-    text-decoration: none;
   }
   .camera {
     position: static;
