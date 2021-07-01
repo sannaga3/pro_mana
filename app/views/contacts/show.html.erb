@@ -1,0 +1,21 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <h1 class="food_text"><%= t('view.contact_show') %></h1>
+  <div class="d-flex flex-row justify-content-center align-items-center mt-5">
+    <div class="mx-3 mt-3">
+      <div class=""><%= label :name, t('activerecord.attributes.contact.title'), class: "text-success" %></div>
+      <div class=""><%= @contact.title %></div>
+    </div>
+    <div class="mx-3 mt-3">
+      <div class=""><%= label :protein, t('activerecord.attributes.contact.content'), class: "text-success" %></div>
+      <div><%= @contact.content %></div>
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+    <div class="button_design submit_button mt-5 mx-3">
+      <%= link_to t('view.edit'), edit_contact_path(@contact.id), class: "button_text_color" %>
+    </div>
+    <div class="button_design submit_button mt-5 mx-3">
+      <%= link_to t('view.back'), contacts_path, class: "button_text_color" %>
+    </div>
+  </div>
+</div>

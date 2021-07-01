@@ -32,3 +32,6 @@ ja:
         height: 身長
         weight: 体重
         record_on: 日付
+      contact:
+        title: タイトル
+        content: 内容

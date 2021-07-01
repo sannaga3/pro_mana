@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     end
   end
   resources :friendships, only: %i[create destroy]
+  resources :contacts
 end
