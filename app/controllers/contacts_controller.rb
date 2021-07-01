@@ -38,6 +38,8 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    @contact.destroy
+    redirect_to contacts_path, notice: t('notice.destroy_contact')
   end
 
   private
