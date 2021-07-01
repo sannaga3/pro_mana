@@ -253,6 +253,7 @@ ja:
     input_over_than: 整数で1以上を入力
     input_less_than100: 100文字以下で入力
     input_less_than50: 50文字以下で入力
+    input_less_than1000: 1000文字以下で入力
     input_integer: 整数で入力
     input_float: 小数で入力
     previous_month: 先月
@@ -264,6 +265,7 @@ ja:
     bmi_index: BMI一覧
     term: 期間
     contact: お問合せ
+    contact_index: お問合せ一覧
     contact_new: 新規お問合せ
   notice:
     add_food: 食品登録完了

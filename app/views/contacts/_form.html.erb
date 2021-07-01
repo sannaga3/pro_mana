@@ -1,0 +1,21 @@
+<div class="d-flex flex-column justify-content-center align-items-center contact_new_wrapper content">
+  <%= form_with(model: @contact, local: true ) do |f| %>
+    <div class="row mt-5">
+      <div class="col-3"><%= f.label :title %></div>
+      <div class="col-9"><%= f.text_area :title, placeholder: t('view.input_less_than100'), autofocus: true, class: "contact_form_title" %></div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-3"><%= f.label :content %></div>
+      <div class="col-9"><%= f.text_area :content, placeholder: t('view.input_less_than1000'), class: "contact_form_content" %></div>
+    </div>
+    <div><%= f.hidden_field :user_id, value: current_user.id %></div>
+    <div class="row mt-5 mx-5 px-3 py-5">
+      <div class="col-4 button_text_color">
+        <%= f.submit button_text, class: "button_design submit_button" %>
+      </div>
+      <div class="col-4 button_text_color button_design submit_button mx-5">
+        <%= link_to t('view.back'), contacts_path, class: "button_text_color" %>
+      </div>
+    </div>
+  <% end %>
+</div>

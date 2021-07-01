@@ -1,6 +1,16 @@
 @charset "utf-8";
 
-
+.contact_new_wrapper {
+  width: 500px;
+}
 .contact_new_button {
   width: 100px;
+}
+.contact_form_title {
+  width: 100%;
+  min-height: 50px;
+}
+.contact_form_content {
+  width: 100%;
+  min-height: 100px;
 }

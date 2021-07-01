@@ -1,5 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center mt-5">
- <h1><%= t('view.contact') %></h1>
+  <h1><%= t('view.contact_index') %></h1>
   <div class="row row_index">
     <div class="col-3 text-center align-bottom mt-2"><%= t('activerecord.attributes.user.name') %></div>
     <div class="col-3 text-center mt-2"><%= t('activerecord.attributes.contact.title') %></div>
@@ -11,7 +11,7 @@
         <div class="col-3 text-center align-bottom mt-2"><%= contact.user.name %></div>
         <div class="col-3 text-center mt-2"><%= contact.title %></div>
         <div class="col-3 text-center">
-          <%= link_to t('view.show'), show_path(contact.id), class: "btn btn-outline-success" %>
+          <%= link_to t('view.show'), contact_path(contact.id), class: "btn btn-outline-success" %>
           <%= link_to t('view.destroy'), contact_path(contact.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
         </div>
       </div>
