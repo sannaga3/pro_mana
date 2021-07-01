@@ -267,6 +267,8 @@ ja:
     contact: お問合せ
     contact_index: お問合せ一覧
     contact_new: 新規お問合せ
+    contact_show: お問合せ詳細
+    contact_edit: お問合せ編集
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
