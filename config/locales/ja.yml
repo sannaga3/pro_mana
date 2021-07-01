@@ -263,6 +263,8 @@ ja:
     bmi_edit: BMI編集
     bmi_index: BMI一覧
     term: 期間
+    contact: お問合せ
+    contact_new: 新規お問合せ
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
@@ -270,6 +272,9 @@ ja:
     add_record: 記録作成完了
     edit_record: 記録編集完了
     destroy_record: 記録削除完了
+    add_contact:  新規お問合せ作成
+    edit_contact:  お問合せ編集完了
+    destroy_contact:  お問合せ削除完了
   alert:
     failed_add_food: 食品登録失敗
     failed_edit_food: 食品編集失敗
@@ -277,3 +282,6 @@ ja:
     failed_add_record: 食品記録失敗
     failed_edit_record: 食品記録失敗
     failed_destroy_record: 食品記録失敗
+    failed_add_contact:  お問合せ作成失敗
+    failed_edit_contact:  お問合せ編集失敗
+    failed_destroy_contact:  お問合せ削除失敗

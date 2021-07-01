@@ -40,6 +40,7 @@
                 <li class="nav-item"><%= link_to t('view.my_daily_record'), my_daily_records_path, class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.records_index'), records_path, class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.follow'), users_path, class: "px-2 nav-link" %></li>
+                <li class="nav-item"><%= link_to t('view.contact'), contacts_path, class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.logout'), destroy_user_session_path, method: :delete, class: "px-2 nav-link" %></li>
               </ul>
             <% else %>
