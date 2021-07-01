@@ -35,3 +35,6 @@ ja:
       contact:
         title: タイトル
         content: 内容
+      reply:
+        comment: 内容
+        replier_id: 返信者

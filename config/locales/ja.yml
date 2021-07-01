@@ -269,6 +269,9 @@ ja:
     contact_new: 新規お問合せ
     contact_show: お問合せ詳細
     contact_edit: お問合せ編集
+    reply_new: 返信作成
+    reply_edit: 返信編集
+    reply_index: 返信一覧
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了
@@ -279,6 +282,9 @@ ja:
     add_contact:  新規お問合せ作成
     edit_contact:  お問合せ編集完了
     destroy_contact:  お問合せ削除完了
+    add_reply:  返信作成
+    edit_reply:  返信編集完了
+    destroy_reply:  返信削除完了
   alert:
     failed_add_food: 食品登録失敗
     failed_edit_food: 食品編集失敗
@@ -286,6 +292,6 @@ ja:
     failed_add_record: 食品記録失敗
     failed_edit_record: 食品記録失敗
     failed_destroy_record: 食品記録失敗
-    failed_add_contact:  お問合せ作成失敗
-    failed_edit_contact:  お問合せ編集失敗
-    failed_destroy_contact:  お問合せ削除失敗
+    failed_add_reply:  返信作成失敗
+    failed_edit_reply:  返信編集失敗
+    failed_destroy_reply:  返信削除失敗

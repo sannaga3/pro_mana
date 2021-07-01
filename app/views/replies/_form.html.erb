@@ -1,0 +1,18 @@
+<div class="d-flex flex-column justify-content-center align-items-center contact_new_wrapper container">
+  <%= form_with(model: @reply, local: true ) do |f| %>
+    <div class="row mt-4">
+      <div class="col-3"><%= f.label :comment %></div>
+      <div class="col-9"><%= f.text_area :comment, placeholder: t('view.input_less_than1000'), class: "contact_form_content" %></div>
+    </div>
+    <%= f.hidden_field :replier_id, value: current_user.id %>
+    <%= f.hidden_field :contact_id, value: @contact.id %>
+    <div class="row mt-5 mx-5 px-3 py-5">
+      <div class="col-4 button_text_color">
+        <%= f.submit button_text, class: "button_design submit_button" %>
+      </div>
+      <div class="col-4 button_text_color button_design submit_button mx-5">
+        <%= link_to t('view.back'), contacts_path, class: "button_text_color" %>
+      </div>
+    </div>
+  <% end %>
+</div>
