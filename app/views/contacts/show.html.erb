@@ -20,7 +20,7 @@
       <% @replies.each do |reply| %>
         <div class="mx-3 mt-3 row contact_area">
           <div class="col-3 text-left reply_content_title" ><%= label :replier_id, t('activerecord.attributes.reply.replier_id'), class: "text-success" %></div>
-          <div class="col-9 text-left reply_name_area"><span class="reply_name_content"><%= reply.contact.user.name %></span></div>
+          <div class="col-9 text-left reply_name_area"><span class="reply_name_content"><%= User.find(reply.replier_id).name %></span></div>
           <div class="col-3 text-left reply_content_title mt-4"><%= label :comment, t('activerecord.attributes.reply.comment'), class: "text-success" %></div>
           <div class="col-9 text-left reply_content_area mt-4"><%= reply.comment %></div>
           <% if reply.replier_id == current_user.id %>
