@@ -23,12 +23,14 @@
           <div class="col-9 text-left reply_name_area"><span class="reply_name_content"><%= reply.contact.user.name %></span></div>
           <div class="col-3 text-left reply_content_title mt-4"><%= label :comment, t('activerecord.attributes.reply.comment'), class: "text-success" %></div>
           <div class="col-9 text-left reply_content_area mt-4"><%= reply.comment %></div>
-          <div class="button_design submit_button mt-5 mx-3">
-            <%= link_to t('view.edit'), edit_reply_path(id: reply.id, contact_id: @contact.id), class: "button_text_color" %>
-          </div>
-          <div class="button_design submit_button mt-5 mx-3">
-            <%= link_to t('view.destroy'), reply_path(id: reply.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button_text_color" %>
-          </div>
+          <% if reply.replier_id == current_user.id %>
+            <div class="button_design submit_button mt-5 mx-3">
+              <%= link_to t('view.edit'), edit_reply_path(id: reply.id, contact_id: @contact.id), class: "button_text_color" %>
+            </div>
+            <div class="button_design submit_button mt-5 mx-3">
+              <%= link_to t('view.destroy'), reply_path(id: reply.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "button_text_color" %>
+            </div>
+          <% end %>
           <br>
         </div>
       <% end %>
