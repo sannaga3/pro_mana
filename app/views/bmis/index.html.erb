@@ -4,7 +4,7 @@
   </div>
   <div class="row row_index my-2">
     <div class="col-3 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.record_on') %></div>
-    <div class="col-1 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.bmi') %></div>
+    <div class="col-2 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.bmi') %></div>
     <div class="col-2 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.height') %></div>
     <div class="col-2 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.weight') %></div>
     <div class="col-3 text-center font-weight-bold"><%= t('view.button') %></div>
@@ -13,7 +13,7 @@
     <% @bmis.each do |bmi| %>
       <div class="row row_index">
         <div class="col-3 text-center align-bottom mt-2"><%= bmi.record_on %></div>
-        <div class="col-1 text-center mt-2"><%= bmi.status %></div>
+        <div class="col-2 text-center mt-2"><%= bmi.status %></div>
         <div class="col-2 text-center mt-2"><%= bmi.height %></div>
         <div class="col-2 text-center mt-2"><%= bmi.weight %></div>
         <div class="col-3 text-center">
