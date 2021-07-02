@@ -10,6 +10,7 @@ body {
   flex-direction: column;
 }
 .body_wrapper {
+  overflow-wrap : break-word;
   flex: 1;
 }
 .background_color {

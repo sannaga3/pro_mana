@@ -3,3 +3,25 @@
 .reply_index_wrapper {
   min-height: 150px;
 }
+.reply_content_title {
+  padding-top: 10px;
+}
+.reply_content_area {
+  background: #fff;
+  border: solid 1px rgb(134, 129, 129);
+  box-shadow: 2px 2px rgb(134, 129, 129);
+  border-radius: 15px;
+  width: 90%;
+  padding: 10px;
+}
+.reply_name_content {
+  font-size: 1.3rem;
+  color: rgb(23, 24, 23);
+  text-shadow: 1px 1px #fff;
+  border-bottom: solid 2px rgb(0, 0, 0);
+  min-width: 60px;
+  padding: 10px 0 0 0;
+}
+.reply_name_area {
+  padding-top: 8px;
+}
