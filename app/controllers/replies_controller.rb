@@ -8,6 +8,7 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new(reply_params)
+    @contact = Contact.find(@reply.contact.id)
     if @reply.save
       redirect_to contact_path(@reply.contact_id), notice: t('notice.add_reply')
     else
