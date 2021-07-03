@@ -33,12 +33,12 @@ class RepliesController < ApplicationController
 
   private
 
-  def set_reply
-    @reply = Reply.find(params[:id])
-  end
-
   def set_contact
     @contact = Contact.find(params[:contact_id])
+  end
+
+  def set_reply
+    @reply = Reply.find(params[:id])
   end
 
   def reply_params

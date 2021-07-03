@@ -17,7 +17,6 @@ class BmisController < ApplicationController
 
   def create
     @bmi = current_user.bmis.new(bmi_params)
-    binding.irb
     if @bmi.save
       redirect_to bmis_path, notice: 'BMI登録'
     else
