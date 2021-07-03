@@ -2,7 +2,8 @@ class BmisController < ApplicationController
   before_action :set_bmi, only: %i[edit update destroy]
 
   def index
-    @bmis = Bmi.where(user_id: current_user.id).order(record_on: :desc)
+    # @bmis = Bmi.where(user_id: current_user.id).order(record_on: :desc)
+    @bmis = Bmi.pick_user_id(current_user.id).order_record_on
     if @bmis.count > 2
       @chart_elements = []
       @bmis.each do |bmi|
@@ -16,19 +17,8 @@ class BmisController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @bmi = Bmi.new(bmi_params)
-    weight = @bmi.weight
-    height = (@bmi.height / 100.0).to_f
-    @bmi_calculate = weight / (height**2).to_f
-    @bmi_calculate = @bmi_calculate.round(1)
-    @bmi.status = @bmi_calculate
-    @bmis = Bmi.all.where(user_id: current_user.id)
-    @built_bmi = @bmis.find_by(record_on: @bmi.record_on)
-    if @built_bmi
-      flash.now[:notice] = '同じ日付のBMIが既に登録されています'
-      render :new and return
-    end
+    @bmi = current_user.bmis.new(bmi_params)
+    binding.irb
     if @bmi.save
       redirect_to bmis_path, notice: 'BMI登録'
     else
@@ -39,19 +29,9 @@ class BmisController < ApplicationController
   def edit; end
 
   def update
-    @record_on = Bmi.new(bmi_params)
-    weight = @bmi.weight
-    height = (@bmi.height / 100.0).to_f
-    @bmi_calculate = weight / (height**2).to_f
-    @bmi_calculate = @bmi_calculate.round(1)
-    @bmi.status = @bmi_calculate
-    @bmis = Bmi.where(user_id: current_user.id)
-    @built_bmi = @bmis.find_by(record_on: @record_on.record_on)
-    if !@built_bmi.nil?
-      flash.now[:notice] = '同じ日付のBMIが既に登録されています'
-      render :edit
-    elsif @bmi.update(bmi_params)
-      redirect_to bmis_path, notice: 'BMI編集'
+    @bmi = current_user.bmis.find(params[:id])
+    if @bmi.update(bmi_params)
+      redirect_to bmis_path, notice: 'BMI編集しました'
     else
       render :edit
     end
@@ -68,11 +48,7 @@ class BmisController < ApplicationController
     @bmi = Bmi.find(params[:id])
   end
 
-  def calculate_bmi
-    # リファクタリング用
-  end
-
   def bmi_params
-    params.require(:bmi).permit(:height, :weight, :record_on, :status, :user_id).merge(status: @bmi_calculate)
+    params.require(:bmi).permit(:height, :weight, :record_on, :status)
   end
 end
