@@ -1,4 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center contact_area container">
+  <div><%= render 'layouts/error_messages', model: @reply %></div>
   <%= form_with(model: @reply, local: true ) do |f| %>
     <div class="row mt-4">
       <div class="col-3"><%= f.label :comment, class: "text-success" %></div>
