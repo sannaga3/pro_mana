@@ -2,7 +2,6 @@ class BmisController < ApplicationController
   before_action :set_bmi, only: %i[edit update destroy]
 
   def index
-    # @bmis = Bmi.where(user_id: current_user.id).order(record_on: :desc)
     @bmis = Bmi.pick_user_id(current_user.id).order_record_on
     if @bmis.count > 2
       @chart_elements = []
@@ -18,7 +17,6 @@ class BmisController < ApplicationController
 
   def create
     @bmi = current_user.bmis.new(bmi_params)
-    binding.irb
     if @bmi.save
       redirect_to bmis_path, notice: 'BMI登録'
     else

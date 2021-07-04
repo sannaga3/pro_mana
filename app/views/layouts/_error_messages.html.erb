@@ -1,6 +1,6 @@
 <% if model.errors.any? %>
   <div id='error_explanation top_index'>
-    <h2><%= model.errors.count %><%= t('view.error_sentence') %></h2>
+    <h2 class="pl-4"><%= model.errors.count %><%= t('errors.template.header.other') %></h2>
     <ul>
       <% model.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>

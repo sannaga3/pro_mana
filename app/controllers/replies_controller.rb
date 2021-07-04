@@ -8,6 +8,7 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new(reply_params)
+    @contact = Contact.find(@reply.contact.id)
     if @reply.save
       redirect_to contact_path(@reply.contact_id), notice: t('notice.add_reply')
     else
@@ -33,12 +34,12 @@ class RepliesController < ApplicationController
 
   private
 
-  def set_reply
-    @reply = Reply.find(params[:id])
-  end
-
   def set_contact
     @contact = Contact.find(params[:contact_id])
+  end
+
+  def set_reply
+    @reply = Reply.find(params[:id])
   end
 
   def reply_params
