@@ -24,17 +24,17 @@ describe '食品記録機能', type: :system do
         click_on '記録作成'
         expect(current_path).to eq new_record_path
         expect(page).to have_content '記録作成'
-        expect(4).to eq Record.count
+        expect(4).to eq NutritionRecord.count
         select '納豆', from: :record_food_id
         fill_in 'record[ate]', with: 1
         fill_in 'record[start_time]', with: '002021-06-09'
         click_on '登録'
-        expect(current_path).to eq record_path(Record.last.id)
+        expect(current_path).to eq record_path(NutritionRecord.last.id)
         expect(page).to have_content '記録作成完了'
         expect(page).to have_content '納豆'
         expect(page).to have_content 1
         expect(page).to have_content '2021-06-09'
-        expect(5).to eq Record.count
+        expect(5).to eq NutritionRecord.count
       end
     end
     context '毎日の記録ページのリンクをクリックした場合' do
@@ -42,7 +42,7 @@ describe '食品記録機能', type: :system do
         click_on '毎日の記録'
         expect(current_path).to eq my_daily_records_path
         expect(page).to have_content '毎日の記録'
-        expect(2).to eq Record.where(user_id: user.id).count
+        expect(2).to eq NutritionRecord.where(user_id: user.id).count
         tds = all('td')
         expect(tds[0]).to have_content '卵'
         expect(page).to have_content '納豆'
@@ -58,7 +58,7 @@ describe '食品記録機能', type: :system do
         click_on '毎日の記録'
         expect(current_path).to eq my_daily_records_path
         expect(page).to have_content '毎日の記録'
-        expect(2).to eq Record.where(user_id: user.id).count
+        expect(2).to eq NutritionRecord.where(user_id: user.id).count
         tds = all('td')
         expect(tds[0]).to have_content '卵'
         find('#show_button0').click
@@ -75,7 +75,7 @@ describe '食品記録機能', type: :system do
           click_on '毎日の記録'
           expect(current_path).to eq my_daily_records_path
           expect(page).to have_content '毎日の記録'
-          expect(2).to eq Record.where(user_id: user.id).count
+          expect(2).to eq NutritionRecord.where(user_id: user.id).count
           tds = all('td')
           expect(tds[0]).to have_content '卵'
           find('#edit_button0').click
@@ -97,7 +97,7 @@ describe '食品記録機能', type: :system do
           expect(tds[6]).to have_content '卵'
           expect(tds[12]).to have_content '納豆'
           expect(tds[18]).to have_content '豆腐'
-          expect(4).to eq Record.count
+          expect(4).to eq NutritionRecord.count
           table_days = all('.table_date')
           expect(table_days[0]).to have_content '2021-06-07'
           expect(table_days[1]).to have_content '2021-06-06'
@@ -115,14 +115,14 @@ describe '食品記録機能', type: :system do
           click_on '毎日の記録'
           expect(current_path).to eq my_daily_records_path
           expect(page).to have_content '毎日の記録'
-          expect(2).to eq Record.where(user_id: user.id).count
+          expect(2).to eq NutritionRecord.where(user_id: user.id).count
           tds = all('td')
           expect(tds[0]).to have_content '卵'
           expect(tds[8]).to have_content '納豆'
           find('#delete_button0').click
           page.driver.browser.switch_to.alert.accept
           expect(current_path).to eq my_daily_records_path
-          expect(1).to eq Record.where(user_id: user.id).count
+          expect(1).to eq NutritionRecord.where(user_id: user.id).count
           expect(page).to have_content '毎日の記録'
           tds = all('td')
           expect(tds[0]).to have_content '納豆'
