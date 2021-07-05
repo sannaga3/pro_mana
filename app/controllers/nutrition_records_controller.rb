@@ -1,10 +1,10 @@
-class RecordsController < ApplicationController
+class NutritionRecordsController < ApplicationController
   before_action :set_record, only: %i[show edit update destroy]
   before_action :set_food, only: %i[show edit]
   before_action :pick_foods, only: %i[new create]
 
   def index
-    @records = Record.all
+    @records = NutritionRecord.all
     @records = @records.order(start_time: :desc)
     @days = @records.pluck(:start_time)
     @days = @days.uniq
@@ -12,11 +12,11 @@ class RecordsController < ApplicationController
   end
 
   def new
-    @record = Record.new
+    @record = NutritionRecord.new
   end
 
   def create
-    @record = Record.new(record_params)
+    @record = NutritionRecord.new(nutrition_record_params)
     if @record.save
       redirect_to record_path(@record.id), notice: t('notice.add_record')
     else
@@ -25,13 +25,13 @@ class RecordsController < ApplicationController
   end
 
   def show
-    @record = Record.find(params[:id])
+    @record = NutritionRecord.find(params[:id])
   end
 
   def edit; end
 
   def update
-    if @record.update(record_params)
+    if @record.update(nutrition_record_params)
       redirect_to record_path(@record.id), notice: t('notice.edit_record')
     else
       render :new
@@ -44,7 +44,7 @@ class RecordsController < ApplicationController
   end
 
   def my_daily
-    @records = Record.pick_user_id(current_user.id)
+    @records = NutritionRecord.pick_user_id(current_user.id)
     @records = @records.order(start_time: :desc)
     @days = @records.pluck(:start_time)
     @days = @days.uniq
@@ -65,10 +65,10 @@ class RecordsController < ApplicationController
   end
 
   def set_record
-    @record = Record.find(params[:id])
+    @record = NutritionRecord.find(params[:id])
   end
 
   def record_params
-    params.require(:record).permit(:ate, :start_time, :food_id, :user_id)
+    params.require(:nutrition_record).permit(:ate, :start_time, :food_id, :user_id)
   end
 end
