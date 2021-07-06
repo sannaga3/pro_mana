@@ -1,6 +1,6 @@
 class NutritionRecordsController < ApplicationController
   before_action :set_record, only: %i[show edit update destroy]
-  # before_action :set_food, only: %i[show edit]
+  # before_action :set_food, only: %i[edit]
   before_action :pick_foods, only: %i[new create]
 
   def index
@@ -32,11 +32,14 @@ class NutritionRecordsController < ApplicationController
     @foods = Food.find(food_ids)
   end
 
-  def edit; end
+  def edit
+    @food = Food.find(@nutrition_record.nutrition_record_lines[0].food_id)
+    @foods = Food.pick_user_id(current_user.id)
+  end
 
   def update
-    if @record.update(nutrition_record_params)
-      redirect_to nutrition_record_path(@record.id), notice: t('notice.edit_record')
+    if @nutrition_record.update(nutrition_record_params)
+      redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.edit_record')
     else
       render :new
     end
@@ -48,11 +51,13 @@ class NutritionRecordsController < ApplicationController
   end
 
   def my_daily
-    @records = NutritionRecord.pick_user_id(current_user.id)
-    @records = @records.order(start_time: :desc)
-    @days = @records.pluck(:start_time)
-    @days = @days.uniq
-    @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
+    # @records = NutritionRecord.pick_user_id(current_user.id)
+    # @records = @records.order(start_time: :desc)
+    # @days = @records.pluck(:start_time)
+    # @days = @days.uniq
+    # @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
+    # @foods = Food.all
+    @nutrition_records = current_user.nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
     @foods = Food.all
   end
 
@@ -65,11 +70,11 @@ class NutritionRecordsController < ApplicationController
   end
 
   def set_food
-    @foods = Food.where(@nutrition_record_lines.food_id)
+    @foods = Food.find(@nutrition_record_lines.food_id)
   end
 
   def set_record
-    @record = NutritionRecord.find(params[:id])
+    @nutrition_record = NutritionRecord.find(params[:id])
   end
 
   def nutrition_record_params

@@ -13,7 +13,7 @@ class NutritionRecord < ApplicationRecord
   def self.sum_protein(records)
     sum = 0
     records.each do |record|
-      sum += (record.nutrition_record_lines[0].food.protein * record.nutrition_record_lines[0].ate)
+      sum += (Food.find_by(id: record.nutrition_record_lines[0].food_id).protein * record.nutrition_record_lines[0].ate)
     end
     sum
   end
