@@ -36,9 +36,9 @@
                 <li class="nav-item"><%= link_to t('view.profile'), user_path(current_user.id), class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.food_new'), new_food_path, class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.foods_index'), foods_path, class: "px-2 nav-link" %></li>
-                <li class="nav-item"><%= link_to t('view.record_new'), new_record_path, class: "px-2 nav-link" %></li>
-                <li class="nav-item"><%= link_to t('view.my_daily_record'), my_daily_records_path, class: "px-2 nav-link" %></li>
-                <li class="nav-item"><%= link_to t('view.records_index'), records_path, class: "px-2 nav-link" %></li>
+                <li class="nav-item"><%= link_to t('view.record_new'), new_nutrition_record_path, class: "px-2 nav-link" %></li>
+                <li class="nav-item"><%= link_to t('view.my_daily_record'), my_daily_nutrition_records_path, class: "px-2 nav-link" %></li>
+                <li class="nav-item"><%= link_to t('view.records_index'), nutrition_records_path, class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.follow'), users_path, class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.contact'), contacts_path, class: "px-2 nav-link" %></li>
                 <li class="nav-item"><%= link_to t('view.logout'), destroy_user_session_path, method: :delete, class: "px-2 nav-link" %></li>

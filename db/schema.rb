@@ -67,13 +67,10 @@ ActiveRecord::Schema.define(version: 2021_07_05_111701) do
   end
 
   create_table "nutrition_records", force: :cascade do |t|
-    t.integer "ate", null: false
     t.date "start_time", null: false
-    t.bigint "food_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["food_id"], name: "index_nutrition_records_on_food_id"
     t.index ["user_id"], name: "index_nutrition_records_on_user_id"
   end
 
@@ -113,7 +110,6 @@ ActiveRecord::Schema.define(version: 2021_07_05_111701) do
   add_foreign_key "foods", "users"
   add_foreign_key "nutrition_record_lines", "foods"
   add_foreign_key "nutrition_record_lines", "nutrition_records"
-  add_foreign_key "nutrition_records", "foods"
   add_foreign_key "nutrition_records", "users"
   add_foreign_key "replies", "contacts"
 end

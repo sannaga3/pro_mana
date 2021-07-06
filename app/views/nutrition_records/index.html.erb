@@ -37,7 +37,7 @@
                     </thead>
                   <% end %>
                   <tbody>
-                    <% food = Food.find(record.food_id) %>
+                    <% food = Food.find(record.nutrition_record_lines.food_id) %>
                     <tr>
                       <td class="text-center"><%= food.name %></td>
                       <td class="text-center"><%= food.protein %>g</td>

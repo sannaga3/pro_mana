@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show]
   resources :bmis, only: %i[index new create edit update destroy]
   resources :foods
-  resources :records do
+  resources :nutrition_records do
     collection do
       get :my_daily
     end

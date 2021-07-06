@@ -13,7 +13,7 @@
         <%= "#{date.day}日" %>
       </div>
       <div class="text_color">
-        <%= "#{Record.sum_protein(records)}g" if records.length > 0 %>
+        <%= "#{NutritionRecord.sum_protein(records)}g" if records.length > 0 %>
       </div>
     <% end %>
   </div>
@@ -62,7 +62,7 @@
                     <td><%= link_to t('view.destroy'), record_path(record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning mb-1", id: "delete_button#{index}" %></td>
                   </tr>
                 </tbody>
-                <% @protein_amount += (food.protein * record.ate) %>
+                <% @protein_amount += (food.protein * record.nutrition_record_lines[0].ate) %>
                 <% index += 1 %>
               <% end %>
             </table>
