@@ -12,7 +12,7 @@ class NutritionRecordsController < ApplicationController
   end
 
   def new
-    @nutriton_record = NutritionRecord.new
+    @nutrition_record = NutritionRecord.new
     @nutrition_record.nutrition_record_lines.build
   end
 
