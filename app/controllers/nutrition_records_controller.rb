@@ -1,14 +1,10 @@
 class NutritionRecordsController < ApplicationController
   before_action :set_record, only: %i[show edit update destroy]
-  # before_action :set_food, only: %i[edit]
+  before_action :set_foods, only: %i[index my_daily]
   before_action :pick_foods, only: %i[new create]
 
   def index
-    @records = NutritionRecord.all
-    @records = @records.order(start_time: :desc)
-    @days = @records.pluck(:start_time)
-    @days = @days.uniq
-    @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
+    @nutrition_records = current_user.nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -28,8 +24,7 @@ class NutritionRecordsController < ApplicationController
   def show
     @nutrition_record = NutritionRecord.find(params[:id])
     @nutrition_record_lines = @nutrition_record.nutrition_record_lines
-    food_ids = @nutrition_record_lines.pluck(:food_id)
-    @foods = Food.find(food_ids)
+    @foods = Food.find(@nutrition_record_lines.pluck(:food_id))
   end
 
   def edit
@@ -46,19 +41,12 @@ class NutritionRecordsController < ApplicationController
   end
 
   def destroy
-    @record.destroy
+    @nutrition_record.destroy
     redirect_to request.referer, notice: t('notice.destroy_record')
   end
 
   def my_daily
-    # @records = NutritionRecord.pick_user_id(current_user.id)
-    # @records = @records.order(start_time: :desc)
-    # @days = @records.pluck(:start_time)
-    # @days = @days.uniq
-    # @days = Kaminari.paginate_array(@days).page(params[:page]).per(5)
-    # @foods = Food.all
     @nutrition_records = current_user.nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
-    @foods = Food.all
   end
 
   private
@@ -69,8 +57,8 @@ class NutritionRecordsController < ApplicationController
     @foods = @q.result(distinct: true)
   end
 
-  def set_food
-    @foods = Food.find(@nutrition_record_lines.food_id)
+  def set_foods
+    @foods = Food.all
   end
 
   def set_record
