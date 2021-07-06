@@ -1,7 +1,6 @@
 class NutritionRecord < ApplicationRecord
   belongs_to :user
   has_many :nutrition_record_lines
-  validates :ate, presence: { message: 'を入力してください。' }, numericality: { only_integer: true, greater_than: 0 }
 
   scope :pick_start_time, lambda { |day|
     where(start_time: day)
