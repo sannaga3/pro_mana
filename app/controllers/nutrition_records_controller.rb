@@ -1,6 +1,6 @@
 class NutritionRecordsController < ApplicationController
-  before_action :set_record, only: %i[show edit update destroy]
-  before_action :set_foods, only: %i[index my_daily]
+  before_action :set_nutrition_record, only: %i[show edit update destroy]
+  before_action :set_foods, only: %i[index show update my_daily]
   before_action :pick_foods, only: %i[new create]
 
   def index
@@ -13,21 +13,22 @@ class NutritionRecordsController < ApplicationController
   end
 
   def create
-    @record = NutritionRecord.new(nutrition_record_params)
-    if @record.save
-      redirect_to nutrition_record_path(@record.id), notice: t('notice.add_record')
+    @nutrition_record = NutritionRecord.new(nutrition_record_params)
+    if @nutrition_record.save
+      redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
     else
       render :new
     end
   end
 
   def show
-    @nutrition_record = NutritionRecord.find(params[:id])
-    @nutrition_record_lines = @nutrition_record.nutrition_record_lines
-    @foods = Food.find(@nutrition_record_lines.pluck(:food_id))
+    @foods.pick_user_id(current_user.id).where.not(food_id: nil, ate: nil)
   end
 
   def edit
+    5.times do
+      @nutrition_record.nutrition_record_lines.build
+    end
     @food = Food.find(@nutrition_record.nutrition_record_lines[0].food_id)
     @foods = Food.pick_user_id(current_user.id)
   end
@@ -36,7 +37,7 @@ class NutritionRecordsController < ApplicationController
     if @nutrition_record.update(nutrition_record_params)
       redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.edit_record')
     else
-      render :new
+      render :edit
     end
   end
 
@@ -47,6 +48,7 @@ class NutritionRecordsController < ApplicationController
 
   def my_daily
     @nutrition_records = current_user.nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
+    @nutrition_record_lines = @nutrition_records.map {|line| line.nutrition_record_lines}
   end
 
   private
@@ -61,7 +63,7 @@ class NutritionRecordsController < ApplicationController
     @foods = Food.all
   end
 
-  def set_record
+  def set_nutrition_record
     @nutrition_record = NutritionRecord.find(params[:id])
   end
 

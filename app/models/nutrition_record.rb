@@ -10,10 +10,12 @@ class NutritionRecord < ApplicationRecord
     where(user_id: user_id)
   }
 
-  def self.sum_protein(records)
+  def self.sum_protein(nutrition_records)
     sum = 0
-    records.each do |record|
-      sum += (Food.find_by(id: record.nutrition_record_lines[0].food_id).protein * record.nutrition_record_lines[0].ate)
+    nutrition_records.each do |nutrition_record|
+      nutrition_record.nutrition_record_lines.each do |line|
+        sum += (Food.find_by(id: line.food_id).protein * line.ate)
+      end
     end
     sum
   end

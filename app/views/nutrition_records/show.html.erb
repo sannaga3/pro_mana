@@ -1,67 +1,48 @@
 <div class="nostalgy mr-3 ml-2"></div>
 <div class="d-flex flex-column justify-content-center align-items-center ml-5">
   <h1 class="food_text"><%= t('view.record_show') %></h1>
-  <div class="d-flex flex-row justify-content-center align-items-center mt-5">
-    <div class="mx-3 mt-3">
-      <div class="show_text_width">
-        <%= label :name, t('activerecord.attributes.food.name'), class: "text-success" %>
-      </div>
-      <div class="show_text_width">
-        <%= @foods[0].name %>
-      </div>
-    </div>
-    <div class="mx-3 mt-3">
-      <div class="show_text_protein">
-        <%= label :protein, t('activerecord.attributes.food.protein'), class: "text-success" %>
-      </div>
-      <div class="d-flex flex-row justify-content-center align-items-center">
-        <div >
-          <%= @foods[0].protein %>
-        </div>
-        <div>
-          g
-        </div>
-      </div>
-    </div>
-    <div class="mx-3 mt-3">
-      <div class="show_text_width">
-        <%= label :quantity, t('activerecord.attributes.food.quantity'), class: "text-success" %>
-      </div>
-      <div class="show_text_width">
-        <%= @foods[0].quantity %>
-      </div>
-    </div>
-    <div class="mx-3 mt-3">
-      <div class="show_text_width">
-        <%= label :unit, t('activerecord.attributes.food.unit'), class: "text-success" %>
-      </div>
-      <div class="show_text_width">
-        <%= @foods[0].unit %>
-      </div>
-    </div>
-    <div class="mx-3 mt-3">
-      <div class="show_text_width">
-        <%= label :ate, t('activerecord.attributes.nutrition_record_line.ate'), class: "text-success" %>
-      </div>
-      <div class="show_text_width">
-        <%= @nutrition_record_lines[0].ate %>
-      </div>
-    </div>
-    <div class="mx-3 mt-3">
-      <div class="food_th_width">
-        <%= label :start_time, t('activerecord.attributes.nutrition_record.start_time'), class: "text-success" %>
-      </div>
-      <div class="food_th_width">
-        <%= @nutrition_record.start_time %>
-      </div>
-    </div>
+  <div class="mx-3 mt-3">
+    <div class="food_th_width"><%= label :start_time, t('activerecord.attributes.nutrition_record.start_time'), class: "text-success" %></div>
+    <div class="food_th_width"><%= @nutrition_record.start_time %></div>
   </div>
-  <div class="d-flex flex-row justify-content-center align-items-center mt-3">
-    <div class="button_design submit_button mt-5 mx-3">
-      <%= link_to t('view.edit'), edit_nutrition_record_path(@nutrition_record), class: "button_text_color" %>
-    </div>
-    <div class="button_design submit_button mt-5 mx-3">
-      <%= link_to t('view.back'), nutrition_records_path, class: "button_text_color" %>
-    </div>
+  <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+    <% @nutrition_record.nutrition_record_lines.each do |line| %>
+      <% food = @foods.pick_food(line.food_id) if line.food_id != nil %>
+      <% if food != nil %>
+        <div class="d-flex flex-row justify-content-center align-items-center mt-5">
+          <div class="mx-3 mt-3">
+            <div class="show_text_width"><%= label :name, t('activerecord.attributes.food.name'), class: "text-success" %></div>
+            <div class="show_text_width"><%= food.name %></div>
+          </div>
+          <div class="mx-3 mt-3">
+            <div class="show_text_protein"><%= label :protein, t('activerecord.attributes.food.protein'), class: "text-success" %></div>
+            <div class="d-flex flex-row justify-content-center align-items-center">
+              <div><%= food.protein %></div>
+              <div>g</div>
+            </div>
+          </div>
+          <div class="mx-3 mt-3">
+            <div class="show_text_width"><%= label :quantity, t('activerecord.attributes.food.quantity'), class: "text-success" %></div>
+            <div class="show_text_width"><%= food.quantity %></div>
+          </div>
+          <div class="mx-3 mt-3">
+            <div class="show_text_width"><%= label :unit, t('activerecord.attributes.food.unit'), class: "text-success" %></div>
+            <div class="show_text_width"><%= food.unit %></div>
+          </div>
+          <div class="mx-3 mt-3">
+            <div class="show_text_width"><%= label :ate, t('activerecord.attributes.nutrition_record_line.ate'), class: "text-success" %></div>
+            <div class="show_text_width"><%= line.ate %></div>
+          </div>
+          <div class="d-flex flex-row justify-content-center align-items-center mt-3">
+            <div class="button_design submit_button mt-5 mx-3">
+              <%= link_to t('view.edit'), edit_nutrition_record_path(@nutrition_record), class: "button_text_color" %>
+            </div>
+            <div class="button_design submit_button mt-5 mx-3">
+              <%= link_to t('view.back'), nutrition_records_path, class: "button_text_color" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
