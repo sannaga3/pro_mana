@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Record, type: :model do
+RSpec.describe NutritionRecord, type: :model do
   let!(:user) { FactoryBot.create(:user) }
   let!(:food_one) { FactoryBot.create(:food, user: user) }
   let(:record) { FactoryBot.create(:record) }

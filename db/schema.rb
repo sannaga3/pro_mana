@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_201527) do
+ActiveRecord::Schema.define(version: 2021_07_05_111701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,15 +56,22 @@ ActiveRecord::Schema.define(version: 2021_07_01_201527) do
     t.index ["follower_id"], name: "index_friendships_on_follower_id"
   end
 
-  create_table "records", force: :cascade do |t|
-    t.integer "ate", null: false
-    t.date "start_time", null: false
+  create_table "nutrition_record_lines", force: :cascade do |t|
+    t.integer "ate"
+    t.bigint "nutrition_record_id"
     t.bigint "food_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_id"], name: "index_nutrition_record_lines_on_food_id"
+    t.index ["nutrition_record_id"], name: "index_nutrition_record_lines_on_nutrition_record_id"
+  end
+
+  create_table "nutrition_records", force: :cascade do |t|
+    t.date "start_time", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["food_id"], name: "index_records_on_food_id"
-    t.index ["user_id"], name: "index_records_on_user_id"
+    t.index ["user_id"], name: "index_nutrition_records_on_user_id"
   end
 
   create_table "replies", force: :cascade do |t|
@@ -101,7 +108,8 @@ ActiveRecord::Schema.define(version: 2021_07_01_201527) do
   add_foreign_key "bmis", "users"
   add_foreign_key "contacts", "users"
   add_foreign_key "foods", "users"
-  add_foreign_key "records", "foods"
-  add_foreign_key "records", "users"
+  add_foreign_key "nutrition_record_lines", "foods"
+  add_foreign_key "nutrition_record_lines", "nutrition_records"
+  add_foreign_key "nutrition_records", "users"
   add_foreign_key "replies", "contacts"
 end

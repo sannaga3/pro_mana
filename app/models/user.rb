@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates :protein_target, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
   mount_uploader :profile_image, ImageUploader
   has_many :foods, dependent: :destroy
+  has_many :nutrition_records, dependent: :destroy
   has_many :active_friendships, foreign_key: 'follower_id', class_name: 'Friendship', dependent: :destroy
   has_many :passive_friendships, foreign_key: 'followed_id', class_name: 'Friendship', dependent: :destroy
   has_many :following, through: :active_friendships, source: :followed

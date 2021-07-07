@@ -3,7 +3,7 @@
     <h1 class="food_text"><%= t('view.follow_list') %></h1>
   </div>
   <div class="mt-3">
-    <h4>フォロー方法: <%= link_to t('view.records_index'), records_path %> → ユーザー名 → 個別のプロフィールページでフォローする</h4>
+    <h4>フォロー方法: <%= link_to t('view.records_index'), nutrition_records_path %> → ユーザー名 → 個別のプロフィールページでフォローする</h4>
   </div>
   <div class="paginate_box rounded mt-3">
     <%= paginate @followed_users, window: 3 %>

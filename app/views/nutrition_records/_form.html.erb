@@ -1,0 +1,67 @@
+<%= form_with(model: @nutrition_record, local: true) do |f| %>
+  <div><%= render 'layouts/error_messages', model: f.object %></div>
+  <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+    <div class="d-flex flex-row  my-3">
+      <div class="d-flex flex-column mx-2 mt-1">
+        <div><%= f.label t('activerecord.attributes.nutrition_record.start_time'), class: "text-success" %></div>
+        <div><%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d") %></div>
+      </div>
+    </div>
+    <%= f.fields_for :nutrition_record_lines do |line| %>
+      <div class="d-flex flex-row mx-2 mt-1">
+        <div class="d-flex flex-column mx-3 mt-1">
+          <div><%= line.label t('activerecord.attributes.food.name'), class: "text-success" %></div>
+          <div><%= line.select :food_id, @foods.all.map {|food| ["#{food.name}  " "#{food.protein}g  " "#{food.quantity}""#{food.unit}", food.id]}, include_blank: "選択して下さい"%></div>
+        </div>
+        <div class="d-flex flex-column mx-3 mt-1">
+          <div><%= line.label t('activerecord.attributes.nutrition_record_line.ate'), class: "text-success" %></div>
+          <div><%= line.number_field :ate, min: '1', placeholder: t('activerecord.attributes.nutrition_record_line.ate'), class: "ate_width" %></div>
+        </div>
+      </div>
+    <% end %>
+    <div class="d-flex flex-row mx-3">
+      <div class="mt-5 mx-3">
+        <%= f.submit button_text, class: "button_design submit_button button_text_color" %>
+      </div>
+      <% if @nutrition_record.id %>
+        <div class="button_design submit_button mt-5 ml-2">
+          <%= link_to t('view.back'), nutrition_record_path(@nutrition_record.id) , class: "button_text_color" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <%= f.hidden_field :user_id, value:current_user.id %>
+<% end %>
+<div class="d-flex flex-column justify-content-center align-items-center mt-3">
+  <% if action_name == "new" %>
+    <div class="mb-3"><h3 class="text-success font-weight-bold"><%= t('view.search_foods') %></h3></div>
+    <div><h5><%= t('view.search_exception') %></h5></div>
+    <%= search_form_for @q, url: new_nutrition_record_path do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <td><%= f.label t('view.search_food') %></td>
+            <td><%= f.search_field :name_cont, placeholder: t('activerecord.attributes.food.name') %></td>
+          </tr>
+          <tr>
+            <td><%= f.label t('view.protein_quantity') %></td>
+            <td><%= f.number_field :protein_eq, min: '1', placeholder: t('view.input_over_than') %>g</td>
+          </tr>
+          <tr>
+            <td><%= f.label t('view.protein_quantity') %></td>
+            <td><%= f.number_field :protein_gteq, min: '1', placeholder: t('view.input_over_than') %><%= t('view.over') %></td>
+          </tr>
+          <tr>
+            <td><%= f.label t('view.protein_quantity') %></td>
+            <td><%= f.number_field :protein_lteq, min: '1', placeholder: t('view.input_over_than') %><%= t('view.less') %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex flex-row justify-content-center">
+        <div class="mt-5">
+          <%= f.submit t('view.search'), class: "button_design submit_button button_text_color" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

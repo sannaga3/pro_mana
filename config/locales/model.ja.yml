@@ -3,7 +3,8 @@ ja:
     models:
       user: ユーザー
       food: 食品
-      record: 記録
+      nutrition_record: 日付記録
+      nutrition_record_line: 食事記録
       friendship: フォロー
       bmi: BMI
     attributes:
@@ -21,10 +22,10 @@ ja:
         protein: タンパク質量
         quantity: 基準量
         unit: 単位
-      record:
-        food: 食品
-        ate: 食事量
+      nutrition_record:
         start_time: 日付
+      nutrition_record_line:
+        ate: 食事量
       friendship:
         follower_id: フォローするユーザーのID
         followed_id: フォローされるユーザーのID

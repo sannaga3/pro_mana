@@ -8,41 +8,40 @@
   </div>
   <div class="box7"><span><%= t('view.my_daily_protein_calendar') %></span></div>
   <div>
-    <%= month_calendar events: @records do |date, records| %>
+    <%= month_calendar events: @nutrition_records do |date, nutrition_records| %>
       <div class="text_color">
         <%= "#{date.day}日" %>
       </div>
       <div class="text_color">
-        <%= "#{Record.sum_protein(records)}g" if records.length > 0 %>
+        <%= "#{NutritionRecord.sum_protein(nutrition_records)}g" if nutrition_records.length > 0 %>
       </div>
     <% end %>
   </div>
   <div class="box7 pt-3"><span><%= t('view.daily_record') %></span></div>
   <div class="paginate_box rounded mt-3">
-    <%= paginate @days, window: 3 %>
+    <%= paginate @nutrition_records, window: 3 %>
   </div>
   <div class="d-flex flex-row justify-content-center align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center ml-3">
       <% index = 0 %>
-      <% @days.each do |day| %>
-        <% records = @records.pick_start_time(day) %>
+      <% @nutrition_records.each do |nutrition_record| %>
         <div class="border-success day_record_style my-4">
-          <% if @records != nil %>
+          <% if @nutrition_records != nil %>
             <div class="container">
               <div class="row font-weight-bold">
-                <div class="col-12 bold_font_size text-center"><span class="table_date"><%= t('view.date') + ": " + "#{day}"%></span></div>
+                <div class="col-12 bold_font_size text-center"><span class="table_date"><%= t('view.date') + ": " + "#{nutrition_record.start_time}"%></span></div>
               </div>
             </div>
             <table>
-              <% records.each do |record| %>
-                <% if record == records.first %>
+              <% nutrition_record.nutrition_record_lines.each do |line| %>
+                <% if line == nutrition_record.nutrition_record_lines.first %>
                   <thead>
                     <tr class="border_bottom">
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.name') %></th>
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.protein') %></th>
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.quantity') %></th>
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.unit') %></th>
-                      <th class="record_th text-center"><%= t('activerecord.attributes.record.ate') %></th>
+                      <th class="record_th text-center"><%= t('activerecord.attributes.nutrition_record_line.ate') %></th>
                       <th class="record_th text-center"><%= "" %></th>
                       <th class="record_th text-center"><%= t('view.button') %></th>
                     </tr>
@@ -50,20 +49,22 @@
                   <% @protein_amount = 0 %>
                 <% end %>
                 <tbody>
-                  <% food = @foods.pick_food(record.food_id) %>
-                  <tr>
-                    <td class="text-center"><%= food.name %></td>
-                    <td class="text-center"><%= food.protein %></td>
-                    <td class="text-center"><%= food.quantity %></td>
-                    <td class="text-center"><%= food.unit %></td>
-                    <td class="text-center"><%= record.ate %></td>
-                    <td><%= link_to t('view.show'), record_path(record.id), class: "btn btn-outline-warning mb-1", id: "show_button#{index}" %></td>
-                    <td><%= link_to t('view.edit'), edit_record_path(record.id), class: "btn btn-outline-success mb-1", id: "edit_button#{index}" %></td>
-                    <td><%= link_to t('view.destroy'), record_path(record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning mb-1", id: "delete_button#{index}" %></td>
-                  </tr>
+                  <% food = @foods.pick_food(line.food_id)%>
+                  <% if line.food_id != nil  %>
+                    <tr>
+                      <td class="text-center"><%= food.name %></td>
+                      <td class="text-center"><%= food.protein %></td>
+                      <td class="text-center"><%= food.quantity %></td>
+                      <td class="text-center"><%= food.unit %></td>
+                      <td class="text-center"><%= line.ate %></td>
+                      <td><%= link_to t('view.show'), nutrition_record_path(nutrition_record.id), class: "btn btn-outline-warning mb-1", id: "show_button#{index}" %></td>
+                      <td><%= link_to t('view.edit'), edit_nutrition_record_path(nutrition_record.id), class: "btn btn-outline-success mb-1", id: "edit_button#{index}" %></td>
+                      <td><%= link_to t('view.destroy'), nutrition_record_path(nutrition_record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning mb-1", id: "delete_button#{index}" %></td>
+                      <% @protein_amount += (food.protein * line.ate) %>
+                      <% index += 1 %>
+                    </tr>
+                  <% end %>
                 </tbody>
-                <% @protein_amount += (food.protein * record.ate) %>
-                <% index += 1 %>
               <% end %>
             </table>
             <div class="border_top text-center font-weight-bold bold_font_size my-1 pt-1">
@@ -73,7 +74,7 @@
         </div>
       <% end %>
       <div class="paginate_box rounded mt-3">
-        <%= paginate @days, window: 3 %>
+        <%= paginate @nutrition_records, window: 3 %>
       </div>
     </div>
   </div>
