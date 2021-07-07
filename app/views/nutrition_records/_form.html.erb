@@ -1,6 +1,6 @@
 <%= form_with(model: @nutrition_record, local: true) do |f| %>
   <div><%= render 'layouts/error_messages', model: f.object %></div>
-  <div class="d-flex flex-column justify-content-center align-items-center mt-5">
+  <div class="d-flex flex-column justify-content-center align-items-center mt-3">
     <div class="d-flex flex-row my-3">
       <div class="d-flex flex-column mx-2 mt-1">
         <div><%= f.label t('activerecord.attributes.nutrition_record.start_time'), class: "text-success" %></div>
