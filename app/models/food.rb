@@ -4,6 +4,7 @@ class Food < ApplicationRecord
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :unit, presence: true, length: { in: 1..10 }
   belongs_to :user
+  has_many :nutrition_record_lines
 
   scope :pick_current_user_id, lambda { |user_id|
     where(user_id: user_id)
