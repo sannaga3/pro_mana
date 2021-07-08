@@ -14,15 +14,23 @@ class NutritionRecordsController < ApplicationController
 
   def create
     @nutrition_record = NutritionRecord.new(nutrition_record_params)
-    if @nutrition_record.save
-      redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
-    else
+    if @nutrition_record.nutrition_record_lines.empty?
+      flash.now[:alert] = t('alert.failed_add_record_blank')
+      @nutrition_record.nutrition_record_lines.build
       render :new
+      return
+    else
+      if @nutrition_record.save
+        redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
+      else
+        flash.now[:alert] = t('alert.failed_add_record')
+        render :new
+      end
     end
   end
 
   def show
-    @foods.pick_user_id(current_user.id).where.not(food_id: nil, ate: nil)
+    @foods.pick_current_user_id(current_user.id).where.not(food_id: nil, ate: nil)
   end
 
   def edit
@@ -30,13 +38,14 @@ class NutritionRecordsController < ApplicationController
       @nutrition_record.nutrition_record_lines.build
     end
     @food = Food.find(@nutrition_record.nutrition_record_lines[0].food_id)
-    @foods = Food.pick_user_id(current_user.id)
+    @foods = Food.pick_current_user_id(current_user.id)
   end
 
   def update
     if @nutrition_record.update(nutrition_record_params)
       redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.edit_record')
     else
+      flash.now[:alert] = t('alert.failed_edit_record_blank')
       render :edit
     end
   end

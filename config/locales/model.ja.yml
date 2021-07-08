@@ -24,8 +24,6 @@ ja:
         unit: 単位
       nutrition_record:
         start_time: 日付
-      nutrition_record_line:
-        ate: 食事量
       friendship:
         follower_id: フォローするユーザーのID
         followed_id: フォローされるユーザーのID

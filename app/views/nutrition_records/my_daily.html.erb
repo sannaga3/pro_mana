@@ -41,7 +41,7 @@
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.protein') %></th>
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.quantity') %></th>
                       <th class="record_th text-center"><%= t('activerecord.attributes.food.unit') %></th>
-                      <th class="record_th text-center"><%= t('activerecord.attributes.nutrition_record_line.ate') %></th>
+                      <th class="record_th text-center"><%= t('activerecord.attributes.nutrition_record_lines.ate') %></th>
                       <th class="record_th text-center"><%= "" %></th>
                       <th class="record_th text-center"><%= t('view.button') %></th>
                     </tr>
@@ -60,7 +60,7 @@
                       <td><%= link_to t('view.show'), nutrition_record_path(nutrition_record.id), class: "btn btn-outline-warning mb-1", id: "show_button#{index}" %></td>
                       <td><%= link_to t('view.edit'), edit_nutrition_record_path(nutrition_record.id), class: "btn btn-outline-success mb-1", id: "edit_button#{index}" %></td>
                       <td><%= link_to t('view.destroy'), nutrition_record_path(nutrition_record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning mb-1", id: "delete_button#{index}" %></td>
-                      <% @protein_amount += (food.protein * line.ate) %>
+                      <% @protein_amount += (food.protein * line.ate) if line.ate != nil %>
                       <% index += 1 %>
                     </tr>
                   <% end %>
