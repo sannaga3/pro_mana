@@ -33,7 +33,7 @@
   <%= f.hidden_field :user_id, value:current_user.id %>
 <% end %>
 <div class="d-flex flex-column justify-content-center align-items-center mt-3">
-  <% if action_name == "new" %>
+  <% if action_name == "new" || action_name == "create" %>
     <div class="mb-3"><h3 class="text-success font-weight-bold"><%= t('view.search_foods') %></h3></div>
     <div><h5><%= t('view.search_exception') %></h5></div>
     <%= search_form_for @q, url: new_nutrition_record_path do |f| %>

@@ -17,6 +17,7 @@ class NutritionRecordsController < ApplicationController
     if @nutrition_record.save
       redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
     else
+      @nutrition_record.nutrition_record_lines.build
       render :new
     end
   end

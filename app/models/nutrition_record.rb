@@ -2,6 +2,7 @@ class NutritionRecord < ApplicationRecord
   belongs_to :user
   has_many :nutrition_record_lines, dependent: :destroy
   accepts_nested_attributes_for :nutrition_record_lines, allow_destroy: true, reject_if: :all_blank
+  validates :start_time, uniqueness: { scope: :user }, on: :create
 
   scope :pick_start_time, lambda { |day|
     where(start_time: day)
