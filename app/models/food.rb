@@ -4,9 +4,8 @@ class Food < ApplicationRecord
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :unit, presence: true, length: { in: 1..10 }
   belongs_to :user
-  belongs_to :nutrition_record_line
 
-  scope :pick_user_id, lambda { |user_id|
+  scope :pick_current_user_id, lambda { |user_id|
     where(user_id: user_id)
   }
   scope :pick_food, lambda { |food_id|

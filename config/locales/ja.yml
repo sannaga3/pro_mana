@@ -294,6 +294,7 @@ ja:
     failed_edit_food: 食品編集失敗
     failed_destroy_food: 食品削除失敗
     failed_add_record: 記録作成失敗
+    failed_add_record_blank: 記録作成失敗。入力項目が足りません。
     failed_edit_record: 記録更新失敗
     failed_edit_record_blank: 記録更新失敗。入力項目が足りません。
     failed_destroy_record: 記録削除失敗
