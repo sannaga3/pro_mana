@@ -10,7 +10,7 @@
     <%= f.fields_for :nutrition_record_lines do |line| %>
       <div class="d-flex flex-row mx-2 mt-1">
         <div class="d-flex flex-column mx-3 mt-1">
-          <div><%= line.label t('activerecord.attributes.food.name'), class: "text-success" %></div>
+          <div><%= line.label t('activerecord.attributes.nutrition_record_lines.food'), class: "text-success" %></div>
           <div><%= line.select :food_id, @foods.all.map {|food| ["#{food.name}  " "#{food.protein}g  " "#{food.quantity}""#{food.unit}", food.id]}, include_blank: "選択して下さい"%></div>
         </div>
         <div class="d-flex flex-column mx-3 mt-1">

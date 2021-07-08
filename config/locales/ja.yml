@@ -3,7 +3,7 @@ ja:
     attributes:
       nutrition_record_lines:
         ate: 食事量
-        food_id: 食品名
+        food: 食品名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

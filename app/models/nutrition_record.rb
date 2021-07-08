@@ -16,7 +16,7 @@ class NutritionRecord < ApplicationRecord
     sum = 0
     nutrition_records.each do |nutrition_record|
       nutrition_record.nutrition_record_lines.each do |line|
-        sum += (Food.find_by(id: line.food_id).protein * line.ate) if line.food_id != nil
+        sum += (Food.find_by(id: line.food_id).protein * line.ate) if (line.food_id != nil) && (line.ate != nil)
       end
     end
     sum
