@@ -1,5 +1,9 @@
 ja:
   activerecord:
+    attributes:
+      nutrition_record_lines:
+        ate: 食事量
+        food_id: 食品名
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -289,10 +293,10 @@ ja:
     failed_add_food: 食品登録失敗
     failed_edit_food: 食品編集失敗
     failed_destroy_food: 食品削除失敗
-    failed_add_record: 食品記録失敗
-    failed_edit_record: 食品更新失敗
-    failed_edit_record_blank: 食品更新失敗。入力項目が足りません。
-    failed_destroy_record: 食品削除失敗
+    failed_add_record: 記録作成失敗
+    failed_edit_record: 記録更新失敗
+    failed_edit_record_blank: 記録更新失敗。入力項目が足りません。
+    failed_destroy_record: 記録削除失敗
     failed_add_reply:  返信作成失敗
     failed_edit_reply:  返信編集失敗
     failed_destroy_reply:  返信削除失敗

@@ -2,7 +2,8 @@ class NutritionRecord < ApplicationRecord
   belongs_to :user
   has_many :nutrition_record_lines, dependent: :destroy
   accepts_nested_attributes_for :nutrition_record_lines, allow_destroy: true, reject_if: :all_blank
-  validates :start_time, uniqueness: { scope: :user }, on: :create
+  validates :start_time, presence: true
+  validates :start_time,  uniqueness: { scope: :user }, on: :create
 
   scope :pick_start_time, lambda { |day|
     where(start_time: day)
@@ -15,7 +16,7 @@ class NutritionRecord < ApplicationRecord
     sum = 0
     nutrition_records.each do |nutrition_record|
       nutrition_record.nutrition_record_lines.each do |line|
-        sum += (Food.find_by(id: line.food_id).protein * line.ate)
+        sum += (Food.find_by(id: line.food_id).protein * line.ate) if line.food_id != nil
       end
     end
     sum

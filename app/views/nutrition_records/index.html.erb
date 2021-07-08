@@ -30,32 +30,34 @@
                   </tr>
                 </thead>
               <% end %>
-              <tbody>
-                <% food = @foods.pick_food(line.food_id) %>
-                <tr>
-                  <td class="text-center"><%= food.name %></td>
-                  <td class="text-center"><%= food.protein %>g</td>
-                  <td class="text-center"><%= food.quantity %></td>
-                  <td class="text-center"><%= food.unit %></td>
-                  <td class="text-center"><%= line.ate %></td>
-                  <td>
-                    <% if current_user == nutrition_record.user %>
-                      <%= link_to t('view.show'), nutrition_record_path(nutrition_record.id), class: "btn btn-outline-warning" %>
-                      <%= link_to t('view.edit'), edit_nutrition_record_path(nutrition_record.id), class: "btn btn-outline-success" %>
-                      <%= link_to t('view.destroy'), nutrition_record_path(nutrition_record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
-                    <% else %>
-                      <%= form_with(model: food, local: true, url: foods_path, method: :post) do |f| %>
-                        <%= f.hidden_field :name, value: food.name %>
-                        <%= f.hidden_field :protein, value: food.protein %>
-                        <%= f.hidden_field :quantity, value: food.quantity %>
-                        <%= f.hidden_field :unit, value: food.unit %>
-                        <%= f.hidden_field :user_id, value: current_user.id %>
-                        <%= f.submit "自分の食品に登録する", class: "btn btn-outline-success mb-1", id: "edit_button" %>
+              <% if line.food_id != nil %>
+                <tbody>
+                  <% food = @foods.pick_food(line.food_id) %>
+                  <tr>
+                    <td class="text-center"><%= food.name %></td>
+                    <td class="text-center"><%= food.protein %>g</td>
+                    <td class="text-center"><%= food.quantity %></td>
+                    <td class="text-center"><%= food.unit %></td>
+                    <td class="text-center"><%= line.ate %></td>
+                    <td>
+                      <% if current_user == nutrition_record.user %>
+                        <%= link_to t('view.show'), nutrition_record_path(nutrition_record.id), class: "btn btn-outline-warning" %>
+                        <%= link_to t('view.edit'), edit_nutrition_record_path(nutrition_record.id), class: "btn btn-outline-success" %>
+                        <%= link_to t('view.destroy'), nutrition_record_path(nutrition_record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
+                      <% else %>
+                        <%= form_with(model: food, local: true, url: foods_path, method: :post) do |f| %>
+                          <%= f.hidden_field :name, value: food.name %>
+                          <%= f.hidden_field :protein, value: food.protein %>
+                          <%= f.hidden_field :quantity, value: food.quantity %>
+                          <%= f.hidden_field :unit, value: food.unit %>
+                          <%= f.hidden_field :user_id, value: current_user.id %>
+                          <%= f.submit "自分の食品に登録する", class: "btn btn-outline-success mb-1", id: "edit_button" %>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                  </td>
-                </tr>
-              </tbody>
+                    </td>
+                  </tr>
+                </tbody>
+              <% end %>
             <% end %>
           </table>
         </div>

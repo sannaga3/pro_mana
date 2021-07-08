@@ -14,11 +14,17 @@ class NutritionRecordsController < ApplicationController
 
   def create
     @nutrition_record = NutritionRecord.new(nutrition_record_params)
-    if @nutrition_record.save
-      redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
-    else
+    if @nutrition_record.nutrition_record_lines.empty?
+      flash.now[:alert] = t('alert.failed_edit_record_blank')
       @nutrition_record.nutrition_record_lines.build
       render :new
+      return
+    else
+      if @nutrition_record.save
+        redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
+      else
+        render :new
+      end
     end
   end
 
@@ -53,6 +59,10 @@ class NutritionRecordsController < ApplicationController
   end
 
   private
+
+  def check_nutrition_record_nil
+
+  end
 
   def pick_foods
     @foods = Food.where(user_id: current_user.id)
