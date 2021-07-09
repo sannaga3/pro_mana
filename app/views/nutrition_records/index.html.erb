@@ -16,7 +16,7 @@
                 <div class="container">
                   <div class="row mb-2 font-weight-bold">
                     <div class="col-6 bold_font_size"><span class="table_date"><%= t('view.date') + ": " + "#{nutrition_record.start_time}"%></span></div>
-                    <div class="col-6 bold_font_size"><%= t('view.user_name') + " : " %><span class="table_user_name"><%= link_to @nutrition_records.first.user.name, user_path(nutrition_record.user.id) %></span></div>
+                    <div class="col-6 bold_font_size"><%= t('view.user_name') + " : " %><span class="table_user_name"><%= link_to line.nutrition_record.user.name, user_path(nutrition_record.user.id) %></span></div>
                   </div>
                 </div>
                 <thead>

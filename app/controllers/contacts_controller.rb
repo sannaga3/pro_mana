@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
     if current_user.admin == true
       @contacts = Contact.all
     else
-      @contacts = Contact.where(user_id: current_user.id)
+      @contacts = Contact.pick_current_user_id(current_user.id)
     end
   end
 
@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @replies = Reply.where(contact_id: params[:id])
+    @replies = Reply.pick_contact_id(params[:id])
   end
 
   def edit

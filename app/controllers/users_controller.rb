@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @bmi = Bmi.pick_user_id(@user.id).order(record_on: :desc)
+    @bmi = Bmi.pick_current_user_id(@user.id).order_record_on
     @bmi = @bmi.first unless @bmi.nil?
   end
 end
