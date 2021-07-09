@@ -10,4 +10,7 @@ class Food < ApplicationRecord
   scope :pick_food, lambda { |food_id|
     find_by(id: food_id)
   }
+  scope :nil_check, lambda {
+    where.not(food_id: nil, ate: nil)
+  }
 end

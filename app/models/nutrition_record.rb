@@ -9,6 +9,7 @@ class NutritionRecord < ApplicationRecord
   scope :pick_start_time, lambda { |day|
     where(start_time: day)
   }
+  scope :order_start_time, lambda { order(start_time: :desc) }
 
   def self.sum_protein(nutrition_records)
     sum = 0

@@ -4,7 +4,7 @@ class NutritionRecordsController < ApplicationController
   before_action :pick_foods, only: %i[new create]
 
   def index
-    @nutrition_records = current_user.nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
+    @nutrition_records = current_user.nutrition_records.order_start_time.page(params[:page]).per(5)
   end
 
   def new
@@ -30,7 +30,7 @@ class NutritionRecordsController < ApplicationController
   end
 
   def show
-    @foods.pick_current_user_id(current_user.id).where.not(food_id: nil, ate: nil)
+    @foods.pick_current_user_id(current_user.id).nil_check
   end
 
   def edit
@@ -56,7 +56,7 @@ class NutritionRecordsController < ApplicationController
   end
 
   def my_daily
-    @nutrition_records = current_user.nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
+    @nutrition_records = current_user.nutrition_records.order_start_time.page(params[:page]).per(5)
     @nutrition_record_lines = @nutrition_records.map {|line| line.nutrition_record_lines}
   end
 

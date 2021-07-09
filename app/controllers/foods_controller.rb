@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
 
   def index
     @foods = Food.all
-    @foods = @foods.pick_current_user_id(current_user.id).order(id: :desc)
+    @foods = @foods.pick_current_user_id(current_user.id).order_id
     @foods = Kaminari.paginate_array(@foods).page(params[:page]).per(10)
   end
 

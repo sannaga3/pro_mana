@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @replies = Reply.where(contact_id: params[:id])
+    @replies = Reply.pick_contact_id(params[:id])
   end
 
   def edit
