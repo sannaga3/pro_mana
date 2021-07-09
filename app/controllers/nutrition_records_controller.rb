@@ -63,7 +63,7 @@ class NutritionRecordsController < ApplicationController
   private
 
   def pick_foods
-    @foods = Food.where(user_id: current_user.id)
+    @foods = Food.pick_current_user_id(current_user.id)
     @q = @foods.ransack(params[:q])
     @foods = @q.result(distinct: true)
   end

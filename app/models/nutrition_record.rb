@@ -1,4 +1,5 @@
 class NutritionRecord < ApplicationRecord
+  include CommonScope
   belongs_to :user
   has_many :nutrition_record_lines, dependent: :destroy
   accepts_nested_attributes_for :nutrition_record_lines, allow_destroy: true, reject_if: :all_blank
@@ -7,9 +8,6 @@ class NutritionRecord < ApplicationRecord
 
   scope :pick_start_time, lambda { |day|
     where(start_time: day)
-  }
-  scope :pick_user_id, lambda { |user_id|
-    where(user_id: user_id)
   }
 
   def self.sum_protein(nutrition_records)

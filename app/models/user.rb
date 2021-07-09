@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include CommonScope
   before_validation { email.downcase! }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
