@@ -7,7 +7,7 @@ class NutritionRecord < ApplicationRecord
   validates :start_time,  uniqueness: { scope: :user }
 
   scope :pick_start_time, lambda { |day|
-    where(start_time: day)
+    where("start_time = ?", day)
   }
   scope :order_start_time, lambda { order(start_time: :desc) }
 
