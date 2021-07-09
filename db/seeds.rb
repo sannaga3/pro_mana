@@ -1,15 +1,21 @@
 User.create!(
   email: 'a@example.com',
-  name: 'ユーザーaa',
+  name: 'ユーザーa',
   password: 'aaaaaa',
   admin: true
+)
+User.create!(
+  email: 'guest@guest.com',
+  name: 'guest',
+  password: SecureRandom.urlsafe_base64
+  admin: false
 )
 
 20.times do |i|
   User.create!(
     email: "#{i}@example.com",
     name: "ユーザー#{i}",
-    password: 'aaaaaa',
+    password: 'password',
     admin: false
   )
 end
@@ -192,6 +198,183 @@ end
   )
 end
 
+guest_user_id = User.find_by("email = ?", "guest@guest.com")
+Food.create!(
+  name: '豆腐',
+  protein: 6,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '納豆',
+  protein: 4,
+  quantity: 1,
+  unit: 'パック',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '卵',
+  protein: 4,
+  quantity: 1,
+  unit: '個',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '鳥もも肉',
+  protein: 12,
+  quantity: 50,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '鳥むね肉',
+  protein: 20,
+  quantity: 50,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '鳥ささみ',
+  protein: 11,
+  quantity: 50,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'ローストビーフ',
+  protein: 36,
+  quantity: 170,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'エビ',
+  protein: 17,
+  quantity: 6,
+  unit: '尾',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'いくら',
+  protein: 16,
+  quantity: 50,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '焼きたらこ',
+  protein: 14,
+  quantity: 50,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'するめ',
+  protein: 35,
+  quantity: 50,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'きな粉',
+  protein: 4,
+  quantity: 10,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'がんもどき',
+  protein: 15,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '牛乳',
+  protein: 6,
+  quantity: 200,
+  unit: 'ml',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '豆乳',
+  protein: 8,
+  quantity: 200,
+  unit: 'ml',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'ヨーグルト',
+  protein: 4,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'カマンベールチーズ',
+  protein: 19,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'パルメザンチーズ',
+  protein: 44,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'チェダーチーズ',
+  protein: 26,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'ゴーダチーズ',
+  protein: 25,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'ブルーチーズ',
+  protein: 19,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'スライスチーズ',
+  protein: 3,
+  quantity: 1,
+  unit: '枚',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '白米',
+  protein: 6,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: '玄米',
+  protein: 7,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+Food.create!(
+  name: 'オートミール',
+  protein: 14,
+  quantity: 100,
+  unit: 'g',
+  user_id: guest_user_id
+)
+
 first_user_id =  User.first.id
 second_user_id = User.second.id
 third_user_id = User.third.id
@@ -201,6 +384,8 @@ second_user_food_first = Food.where(user_id: second_user_id).first.id
 second_user_food_last = Food.where(user_id: second_user_id).last.id
 third_user_food_first = Food.where(user_id: third_user_id).first.id
 third_user_food_last = Food.where(user_id: third_user_id).last.id
+guest_user_food_first = Food.where(user_id: guest_user_id).first.id
+guest_user_food_last = Food.where(user_id: guest_user_id).last.id
 30.times do |_m|
   d1 = Date.parse('2021/06/01')
   d2 = Date.parse('2021/06/15')
@@ -222,6 +407,12 @@ third_user_food_last = Food.where(user_id: third_user_id).last.id
     start_time: date,
     food_id: Random.rand(third_user_food_first..third_user_food_last),
     user_id: third_user_id
+  )
+  Record.create!(
+    ate: Random.rand(1..3),
+    start_time: date,
+    food_id: Random.rand(guest_user_food_first..guest_user_food_last),
+    user_id: guest_user_id
   )
 end
 
