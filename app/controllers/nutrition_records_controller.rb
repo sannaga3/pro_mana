@@ -4,7 +4,8 @@ class NutritionRecordsController < ApplicationController
   before_action :pick_foods, only: %i[new create]
 
   def index
-    @nutrition_records = current_user.nutrition_records.order_start_time.page(params[:page]).per(5)
+    @nutrition_records = NutritionRecord.all
+    @nutrition_records = @nutrition_records.order_start_time.page(params[:page]).per(5)
   end
 
   def new
