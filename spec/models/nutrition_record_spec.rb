@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe NutritionRecord, type: :model do
   let!(:user) { FactoryBot.create(:user) }
   let!(:food) { FactoryBot.create(:food, user: user) }
+  let!(:fourth_food) { FactoryBot.create(:fourth_food, user: user) }
   let(:record) { FactoryBot.build(:record, user: user) }
-  let!(:second_record) { FactoryBot.create(:second_record, user: user) }
+  let!(:sixth_record) { FactoryBot.create(:sixth_record, user: user) }
   describe '食品記録作成時のバリデーションテスト' do
     context '日付が重複しておらず、食品が選択されており食事量が入力されている場合' do
       it '記録を作成できる' do

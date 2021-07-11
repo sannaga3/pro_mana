@@ -40,6 +40,14 @@ FactoryBot.define do
     end
   end
 
+  factory :sixth_record, class: NutritionRecord do
+    start_time { '2021-06-06' }
+    user_id { User.find_by(name: 'すだまさき').id }
+    after(:build) do |sixth_record|
+      sixth_record.nutrition_record_lines << FactoryBot.build(:fifth_nutrition_record_line, nutrition_record: sixth_record)
+    end
+  end
+
   factory :nutrition_record_line, class: NutritionRecordLine do
     ate { 1 }
     food { Food.find_by(name: '納豆') }
