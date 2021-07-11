@@ -8,6 +8,7 @@
       <div class="paginate_box rounded mt-3">
         <%= paginate @nutrition_records, window: 3 %>
       </div>
+      <% index = 0 %>
       <% @nutrition_records.each do |nutrition_record| %>
         <div class="border-success day_record_style my-4">
           <table>
@@ -34,11 +35,11 @@
                 <tbody>
                   <% food = @foods.pick_food(line.food_id) %>
                   <tr>
-                    <td class="text-center"><%= food.name %></td>
-                    <td class="text-center"><%= food.protein %>g</td>
-                    <td class="text-center"><%= food.quantity %></td>
-                    <td class="text-center"><%= food.unit %></td>
-                    <td class="text-center"><%= line.ate %></td>
+                    <td class="text-center"><%= content_tag :span, food.name, id: "food_name#{index}" %></td>
+                    <td class="text-center"><%= content_tag :span, food.protein, id: "food_protein#{index}" %></td>
+                    <td class="text-center"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></td>
+                    <td class="text-center"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></td>
+                    <td class="text-center"><%= content_tag :span, line.ate, id: "food_ate#{index}" %></td>
                     <td>
                       <% if current_user == nutrition_record.user %>
                         <%= link_to t('view.show'), nutrition_record_path(nutrition_record.id), class: "btn btn-outline-warning" %>
@@ -58,6 +59,7 @@
                   </tr>
                 </tbody>
               <% end %>
+              <% index += 1 %>
             <% end %>
           </table>
         </div>

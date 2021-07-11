@@ -20,16 +20,6 @@ FactoryBot.define do
   end
 
   factory :third_user, class: User do
-    name { 'asian kong-hu generation' }
-    email { 'mirainokakera@example.com' }
-    profile_image { '' }
-    profile_comment { 'ボーカルのGotchです。リライト聴いたら帰る人多いんで、リライト警察が見回りしてます。' }
-    protein_target { '80' }
-    password { 'standard' }
-    admin { 'false' }
-  end
-
-  factory :fourth_user, class: User do
     name { 'SUPER BEAVER' }
     email { 'arigatou@example.com' }
     profile_image { '' }

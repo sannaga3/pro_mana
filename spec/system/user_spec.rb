@@ -156,14 +156,12 @@ describe 'ユーザー機能', type: :system do
           fill_in 'user[password]', with: 'hitotsudake'
           fill_in 'user[password_confirmation]', with: 'hitotsudake'
           fill_in 'user[profile_comment]', with: '中学生の時に歌手デビューしてます。'
-          fill_in 'user[height]', with: '158'
-          fill_in 'user[weight]', with: '51'
-          fill_in 'user[protein_target]', with: '85'
+          fill_in 'user[protein_target]', with: 85
           click_on '更新'
           expect(current_path).to eq user_path(user.id)
           expect(page).to have_content 'プロフィール'
           expect(page).to have_content 'たかはたみつき'
-          expect(page).to have_content '158'
+          expect(page).to have_content 85
         end
       end
       context 'パスワードを入力せずに変更ボタンを押した場合' do
@@ -171,14 +169,12 @@ describe 'ユーザー機能', type: :system do
           fill_in 'user[name]', with: 'たかはたみつき'
           fill_in 'user[email]', with: 'taisetunamono@example.com'
           fill_in 'user[profile_comment]', with: '中学生の時に歌手デビューしてます。'
-          fill_in 'user[height]', with: '158'
-          fill_in 'user[weight]', with: '51'
-          fill_in 'user[protein_target]', with: '85'
+          fill_in 'user[protein_target]', with: 85
           click_on '更新'
           expect(current_path).to eq user_path(user.id)
           expect(page).to have_content 'プロフィール'
           expect(page).to have_content 'たかはたみつき'
-          expect(page).to have_content '158'
+          expect(page).to have_content '中学生の時に歌手デビューしてます'
         end
       end
       context 'プロフィール画像を挿入した場合' do

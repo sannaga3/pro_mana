@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Friendship, type: :system do
   let!(:user) { FactoryBot.create(:user) }
   let!(:third_user) { FactoryBot.create(:third_user) }
-  let!(:fourth_user) { FactoryBot.create(:fourth_user) }
+  let!(:third_user) { FactoryBot.create(:third_user) }
   let!(:fourth_food) { FactoryBot.create(:fourth_food, user: third_user) }
   let!(:fifth_record) { FactoryBot.create(:fifth_record, user: third_user) }
   describe 'フォロー機能' do
@@ -16,7 +16,7 @@ RSpec.describe Friendship, type: :system do
       expect(page).to have_content 'ログインしました。'
       expect(page).to have_content 'すだまさき'
       click_on 'みんなの記録'
-      expect(current_path).to eq records_path
+      expect(current_path).to eq nutrition_records_path
       expect(page).to have_content 'みんなの記録'
     end
     context '別ユーザーのプロフィールページでフォローボタンを押した場合,' do
@@ -43,16 +43,16 @@ RSpec.describe Friendship, type: :system do
       it 'フォローが解除される' do
         Friendship.create(
           follower_id: user.id,
-          followed_id: fourth_user.id
+          followed_id: third_user.id
         )
-        visit user_path(fourth_user.id)
-        expect(current_path).to eq user_path(fourth_user.id)
+        visit user_path(third_user.id)
+        expect(current_path).to eq user_path(third_user.id)
         expect(page).to have_content 'プロフィール'
         unfollow_button = all('#unfollow')
         expect(unfollow_button.count).to eq 1
         find('#unfollow').click
         sleep(0.5)
-        expect(current_path).to eq user_path(fourth_user.id)
+        expect(current_path).to eq user_path(third_user.id)
         unfollow_button = all('#unfollow')
         expect(unfollow_button.count).to eq 0
         follow_button = all('#follow')
