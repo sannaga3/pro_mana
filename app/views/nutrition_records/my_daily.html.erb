@@ -53,7 +53,7 @@
                   <% if line.food_id != nil  %>
                     <tr>
                       <td class="text-center"><%= content_tag :span, food.name, id: "food_name#{index}" %></td>
-                      <td class="text-center"><%= content_tag :span, food.protein, id: "food_protein#{index}" %></td>
+                      <td class="text-center"><%= content_tag :span, "#{food.protein}g", id: "food_protein#{index}" %></td>
                       <td class="text-center"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></td>
                       <td class="text-center"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></td>
                       <td class="text-center"><%= content_tag :span, line.ate, id: "food_ate#{index}" %></td>

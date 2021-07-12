@@ -9,6 +9,7 @@
         <%= paginate @nutrition_records, window: 3 %>
       </div>
       <% index = 0 %>
+      <% my_food_button_index = 0 %>
       <% @nutrition_records.each do |nutrition_record| %>
         <div class="border-success day_record_style my-4">
           <table>
@@ -36,7 +37,7 @@
                   <% food = @foods.pick_food(line.food_id) %>
                   <tr>
                     <td class="text-center"><%= content_tag :span, food.name, id: "food_name#{index}" %></td>
-                    <td class="text-center"><%= content_tag :span, food.protein, id: "food_protein#{index}" %></td>
+                    <td class="text-center"><%= content_tag :span, "#{food.protein}g", id: "food_protein#{index}" %></td>
                     <td class="text-center"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></td>
                     <td class="text-center"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></td>
                     <td class="text-center"><%= content_tag :span, line.ate, id: "food_ate#{index}" %></td>
@@ -52,7 +53,8 @@
                           <%= f.hidden_field :quantity, value: food.quantity %>
                           <%= f.hidden_field :unit, value: food.unit %>
                           <%= f.hidden_field :user_id, value: current_user.id %>
-                          <%= f.submit "自分の食品に登録する", class: "btn btn-outline-success mb-1", id: "edit_button" %>
+                          <%= f.submit "自分の食品に登録する", class: "btn btn-outline-success mb-1", id: "my_food_button#{my_food_button_index}" %>
+                          <% my_food_button_index += 1 %>
                         <% end %>
                       <% end %>
                     </td>
