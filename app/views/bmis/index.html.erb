@@ -9,18 +9,20 @@
     <div class="col-2 text-center font-weight-bold"><%= t('activerecord.attributes.bmi.weight') %></div>
     <div class="col-3 text-center font-weight-bold"><%= t('view.button') %></div>
   </div>
+  <% index = 0 %>
   <% if @bmis!= nil %>
     <% @bmis.each do |bmi| %>
       <div class="row row_index">
-        <div class="col-3 text-center align-bottom mt-2"><%= bmi.record_on %></div>
-        <div class="col-2 text-center mt-2"><%= bmi.status %></div>
-        <div class="col-2 text-center mt-2"><%= bmi.height %></div>
-        <div class="col-2 text-center mt-2"><%= bmi.weight %></div>
+        <%= content_tag :div, bmi.record_on, id: "record_on#{index}", class: "col-3 text-center align-bottom mt-2" %>
+        <%= content_tag :div, bmi.status, id: "status#{index}", class: "col-2 text-center align-bottom mt-2" %>
+        <%= content_tag :div, bmi.height, id: "height#{index}", class: "col-2 text-center align-bottom mt-2" %>
+        <%= content_tag :div, bmi.weight, id: "weight#{index}", class: "col-2 text-center align-bottom mt-2" %>
         <div class="col-3 text-center">
           <%= link_to t('view.edit'), edit_bmi_path(bmi.id), class: "btn btn-outline-success" %>
           <%= link_to t('view.destroy'), bmi_path(bmi.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
         </div>
       </div>
+      <% index += 1 %>
     <% end %>
   <% end %>
   <div class="button_design mt-5">
