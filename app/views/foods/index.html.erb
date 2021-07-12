@@ -18,18 +18,18 @@
       </thead>
 
       <tbody>
-        <% delete_button_index = 0 %>
+        <% index = 0 %>
         <% @foods.each do |food| %>
           <tr>
-            <td class="text-center"><%= food.name %></td>
-            <td class="text-center"><%= food.protein %>g</td>
-            <td class="text-center"><%= food.quantity %></td>
-            <td class="text-center"><%= food.unit %></td>
+            <td class="text-center"><%= content_tag :span, food.name, id: "food_name#{index}" %></td>
+            <td class="text-center"><%= content_tag :span, "#{food.protein}g", id: "food_protein#{index}" %></td>
+            <td class="text-center"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></td>
+            <td class="text-center"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></td>
             <td class="text-center"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
             <td class="text-center"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
-            <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{delete_button_index}" %></td>
+            <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{index}" %></td>
           </tr>
-          <% delete_button_index += 1 %>
+          <% index += 1 %>
         <% end %>
       </tbody>
     </table>
