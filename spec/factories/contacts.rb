@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :contact do
-    title { "メレブはチョヒャドを覚えた" }
-    content { "ヨシピコ「メレブさん、その呪文を私に掛けてください」" }
+    title { "メレブはスイーツを覚えた" }
+content { "ヨシピコ「メレブさん、その呪文を私に掛けてください」" }
   end
 
   factory :second_contact, class: Contact do
