@@ -5,16 +5,18 @@
     <div class="col-4 text-center font-weight-bold text-success my-3"><%= t('activerecord.attributes.contact.title') %></div>
     <div class="col-4 text-center font-weight-bold text-success my-3"><%= t('view.button') %></div>
   </div>
+  <% index = 0 %>
   <% if @contacts != nil %>
     <% @contacts.each do |contact| %>
       <div class="row row_index">
-        <div class="col-4 text-center my-3"><%= contact.user.name %></div>
-        <div class="col-4 text-center my-3"><%= contact.title %></div>
+        <%= content_tag :div, contact.user.name, id: "user#{index}", class: "col-4 text-center my-3" %>
+        <%= content_tag :div, contact.title, id: "title#{index}", class: "col-4 text-center my-3" %>
         <div class="col-4 text-center">
           <%= link_to t('view.show'), contact_path(contact.id), class: "btn btn-outline-success mt-2" %>
           <%= link_to t('view.destroy'), contact_path(contact.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning mt-2" %>
         </div>
       </div>
+      <% index += 1 %>
     <% end %>
   <% end %>
   <%= link_to t('view.contact_new'), new_contact_path, class: "button_design button_text_color contact_new_button mt-5" %>
