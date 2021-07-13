@@ -14,7 +14,9 @@
         <div class="col-12 col-sm-6 col-lg-6"><%= f.label :profile_image %>:</div>
         <div class="col-12 col-sm-6 col-lg-4">
           <%= f.file_field :profile_image, autofocus: true %>
-          <%= image_tag(@user.profile_image.url) if @user.profile_image && @user.profile_image.url %>
+          <% if @user.profile_image && @user.profile_image.url %>
+            <%= image_tag @user.profile_image.url, class: "profile_picture" %>
+          <% end %>
           <%= f.hidden_field :profile_image_cache %>
         </div>
         <div class="col-12 col-sm-6 col-lg-6"><%= f.label :profile_comment %></div>
@@ -48,4 +50,3 @@
     </div>
   </div>
 </div>
-<div class="cow"></div>
