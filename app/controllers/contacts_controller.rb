@@ -3,9 +3,9 @@ class ContactsController < ApplicationController
 
   def index
     if current_user.admin == true
-      @contacts = Contact.all
+      @contacts = Contact.all.order_id
     else
-      @contacts = Contact.pick_current_user_id(current_user.id)
+      @contacts = Contact.pick_current_user_id(current_user.id).order_id
     end
   end
 

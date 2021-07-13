@@ -47,7 +47,6 @@ describe "BMI管理機能", type: :system do
         fill_in 'bmi[record_on]', with: '002021-07-08'
         click_on '更新'
         expect(current_path).to eq bmis_path
-        binding.irb
         first_record_on = find('#record_on0')
         expect(first_record_on).to have_content '2021-07-08'
         first_status = find('#status0')
