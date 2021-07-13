@@ -20,5 +20,10 @@ Rails.application.routes.draw do
   end
   resources :friendships, only: %i[create destroy]
   resources :contacts
-  resources :replies, only: %i[ index new create edit update destroy]
+  resources :replies, only: %i[index new create edit update destroy]
+  resources :top, only: %i[index] do
+    collection do
+      get :user_guide
+    end
+  end
 end
