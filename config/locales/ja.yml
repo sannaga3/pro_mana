@@ -276,6 +276,15 @@ ja:
     reply_new: 返信作成
     reply_edit: 返信編集
     reply_index: 返信一覧
+    user_guide: ご利用ガイド
+    top_page: トップページ
+    food_copy: みんなの記録と食品コピー機能
+    follow_function: フォロー機能
+    bmi_function: BMI機能
+    egg: "卵"
+    unit_ko: "個"
+    integer: 整数
+    back_to_top: 一番上に戻る
   notice:
     add_food: 食品登録完了
     edit_food: 食品編集完了

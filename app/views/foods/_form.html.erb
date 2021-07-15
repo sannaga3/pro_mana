@@ -7,7 +7,7 @@
           <%= form.label :name, t('activerecord.attributes.food.name'), class: "text-success" %>
         </div>
         <div>
-          <%= form.text_field :name, placeholder: t('activerecord.attributes.food.name'), autofocus: true, class: "food_field" %>
+          <%= form.text_field :name, placeholder: t('view.egg'), autofocus: true, class: "food_field" %>
         </div>
       </div>
       <div class="mx-3">
@@ -16,7 +16,7 @@
         </div>
         <div class="d-flex flex-row justify-content-center align-items-center">
           <div>
-            <%= form.number_field :protein, min: '1', placeholder: t('activerecord.attributes.food.protein'), class: "food_field" %>
+            <%= form.number_field :protein, min: '1', placeholder: "4g", class: "food_field" %>
           </div>
           <div>
             g
@@ -28,7 +28,7 @@
           <%= form.label :quantity, t('activerecord.attributes.food.quantity'), class: "text-success" %>
         </div>
         <div>
-          <%= form.number_field :quantity, min: '1', placeholder: t('activerecord.attributes.food.quantity'), class: "food_field" %>
+          <%= form.number_field :quantity, min: '1', placeholder: 1, class: "food_field" %>
         </div>
       </div>
       <div class="mx-3">
@@ -36,7 +36,7 @@
           <%= form.label :unit, t('activerecord.attributes.food.unit'), class: "text-success" %>
         </div>
         <div>
-          <%= form.text_field :unit, placeholder: t('activerecord.attributes.food.unit'), class: "food_field" %>
+          <%= form.text_field :unit, placeholder: t('view.unit_ko'), class: "food_field" %>
         </div>
       </div>
     </div>

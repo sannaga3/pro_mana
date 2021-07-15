@@ -15,7 +15,7 @@
         </div>
         <div class="d-flex flex-column mx-3 mt-1">
           <div><%= line.label t('activerecord.attributes.nutrition_record_lines.ate'), class: "text-success" %></div>
-          <div><%= line.number_field :ate, min: '1', placeholder: t('activerecord.attributes.nutrition_record_lines.ate'), class: "ate_width" %></div>
+          <div><%= line.number_field :ate, min: '1', placeholder: t('view.integer'), class: "ate_width" %></div>
         </div>
       </div>
     <% end %>
@@ -41,7 +41,7 @@
         <tbody>
           <tr>
             <td><%= f.label t('view.search_food') %></td>
-            <td><%= f.search_field :name_cont, placeholder: t('activerecord.attributes.food.name') %></td>
+            <td><%= f.search_field :name_cont, placeholder: t('view.egg') %></td>
           </tr>
           <tr>
             <td><%= f.label t('view.protein_quantity') %></td>

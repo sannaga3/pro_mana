@@ -7,10 +7,10 @@
   </button>
   <div class="collapse navbar-collapse justify-content-left ml-4" id="responsiveMenu">
     <ul class="navbar-nav navbar-left">
-      <%= link_to t('view.admin_guest_login'), users_admin_guest_sign_in_path, method: :post, class: "px-2 nav-link", id: "admin_guest_login"%>
       <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "login px-2 nav-link", id: "guest_login" %>
       <%= link_to t('view.sign_up'), new_user_registration_path, class: "px-2 nav-link" %>
       <%= link_to t('view.login'), new_user_session_path, class: "px-2 nav-link" %>
+      <%= link_to t('view.user_guide'), user_guide_top_index_path, class: "px-2 nav-link" %>
     </ul>
   </div>
 </nav>
