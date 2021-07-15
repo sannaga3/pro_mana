@@ -1,0 +1,2 @@
+class NutritionRecordLinesController < ApplicationController
+end
