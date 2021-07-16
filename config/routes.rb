@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :my_daily
     end
   end
+  resources :nutrition_record_lines, only: %i[destroy]
   resources :friendships, only: %i[create destroy]
   resources :contacts
   resources :replies, only: %i[index new create edit update destroy]

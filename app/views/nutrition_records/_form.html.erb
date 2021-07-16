@@ -4,7 +4,11 @@
     <div class="d-flex flex-row my-3">
       <div class="d-flex flex-column mx-2 mt-1">
         <div><%= f.label t('activerecord.attributes.nutrition_record.start_time'), class: "text-success" %></div>
-        <div><%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d") %></div>
+        <% if action_name == "new" %>
+          <div><%= f.date_field :start_time, value: Time.now.strftime("%Y-%m-%d") %></div>
+        <% elsif action_name == "edit" %>
+          <div><%= f.date_field :start_time, value: @nutrition_record.start_time %></div>
+        <% end %>
       </div>
     </div>
     <%= f.fields_for :nutrition_record_lines do |line| %>
