@@ -45,7 +45,7 @@
                       <% if current_user == nutrition_record.user %>
                         <%= link_to t('view.show'), nutrition_record_path(nutrition_record.id), class: "btn btn-outline-warning" %>
                         <%= link_to t('view.edit'), edit_nutrition_record_path(nutrition_record.id), class: "btn btn-outline-success" %>
-                        <%= link_to t('view.destroy'), nutrition_record_path(nutrition_record.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
+                        <%= link_to t('view.destroy'), nutrition_record_line_path(line.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning" %>
                       <% else %>
                         <%= form_with(model: food, local: true, url: foods_path, method: :post) do |f| %>
                           <%= f.hidden_field :name, value: food.name %>
