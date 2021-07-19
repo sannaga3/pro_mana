@@ -43,6 +43,6 @@ class RepliesController < ApplicationController
   end
 
   def reply_params
-    params.require(:reply).permit(:comment, :replier_id, :contact_id)
+    params.require(:reply).permit(:comment, :contact_id, :user_id)
   end
 end
