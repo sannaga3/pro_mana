@@ -36,7 +36,7 @@ describe "お問合せ管理機能", type: :system do
     end
     context '管理者ユーザーの返信に対して一般ユーザーが返信を返した場合' do
       it '返信内容がお問合せ詳細ページに2番目の返信として反映される' do
-        FactoryBot.create(:reply, contact: second_contact, replier_id: user.id)
+        FactoryBot.create(:reply, contact: second_contact, user_id: user.id)
         click_on "ログアウト"
         visit new_user_session_path
         fill_in 'user[email]', with: 'arigatou@example.com'
@@ -65,7 +65,7 @@ describe "お問合せ管理機能", type: :system do
     end
     context '自分の返信内容を編集した場合' do
       it '編集内容がお問合せ詳細ページに反映される' do
-        FactoryBot.create(:reply, contact: second_contact, replier_id: user.id)
+        FactoryBot.create(:reply, contact: second_contact, user_id: user.id)
         first(:link, "詳細").click
         expect(current_path).to eq contact_path(second_contact.id)
         expect(Reply.count).to eq 1
@@ -84,7 +84,7 @@ describe "お問合せ管理機能", type: :system do
     end
     context '自分の返信内容を削除した場合' do
       it 'お問合せ詳細ページから該当の返信が削除される' do
-        FactoryBot.create(:reply, contact: second_contact, replier_id: user.id)
+        FactoryBot.create(:reply, contact: second_contact, user_id: user.id)
         first(:link, "詳細").click
         expect(current_path).to eq contact_path(second_contact.id)
         expect(Reply.count).to eq 1
