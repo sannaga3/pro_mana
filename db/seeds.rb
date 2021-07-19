@@ -20,6 +20,8 @@ end
 User.create!(
   email: 'guest@guest.com',
   name: 'guest',
+  profile_comment: 'ゲストユーザーです。宜しくお願いします。',
+  protein_target: 90
   password: SecureRandom.urlsafe_base64,
   admin: false
 )
@@ -280,6 +282,10 @@ end
     follower_id: User.first.id,
     followed_id: User.second.id + 2 + m
   )
+  Friendship.create!(
+    follower_id: guest_user_id,
+    followed_id: User.second.id + 2 + m
+  )
 end
 
 # bmisテーブル
@@ -344,21 +350,21 @@ end
   Reply.create!(
     comment: "返答#{o}",
     contact_id: Contact.first.id,
-    replier_id: first_user_id
+    user_id: first_user_id
   )
   Reply.create!(
     comment: "質問#{o}",
     contact_id: Contact.first.id,
-    replier_id: second_user_id
+    user_id: second_user_id
   )
   Reply.create!(
     comment: "返答#{o}",
     contact_id: Contact.find_by("user_id = ?", guest_user_id).id,
-    replier_id: first_user_id
+    user_id: first_user_id
   )
   Reply.create!(
     comment: "質問#{o}",
     contact_id: Contact.find_by("user_id = ?", guest_user_id).id,
-    replier_id: guest_user_id
+    user_id: guest_user_id
   )
 end
