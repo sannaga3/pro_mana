@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "お問合せ管理機能", type: :system do
+describe 'お問合せ管理機能', type: :system do
   let!(:user) { FactoryBot.create(:user) }
   let!(:third_user) { FactoryBot.create(:third_user) }
   let!(:contact) { FactoryBot.create(:contact, user: user) }
@@ -18,10 +18,10 @@ describe "お問合せ管理機能", type: :system do
     end
     context '一般ユーザーのお問合せに管理者ユーザーが返信を作成した場合' do
       it '返信内容がお問合せ詳細ページに反映される' do
-        first(:link, "詳細").click
+        first(:link, '詳細').click
         expect(current_path).to eq contact_path(second_contact.id)
         expect(Reply.count).to eq 0
-        click_on "返信作成"
+        click_on '返信作成'
         expect(current_path).to eq new_reply_path
         fill_in 'reply[comment]', with: 'チョヒャド！！チョヒャド！！チョヒャド！！チョヒャド！！チョヒャド！！チョヒャド！！チョヒャド！！'
         click_on '登録'
@@ -36,14 +36,14 @@ describe "お問合せ管理機能", type: :system do
     end
     context '管理者ユーザーの返信に対して一般ユーザーが返信を返した場合' do
       it '返信内容がお問合せ詳細ページに2番目の返信として反映される' do
-        FactoryBot.create(:reply, contact: second_contact, replier_id: user.id)
-        click_on "ログアウト"
+        FactoryBot.create(:reply, contact: second_contact, user_id: user.id)
+        click_on 'ログアウト'
         visit new_user_session_path
         fill_in 'user[email]', with: 'arigatou@example.com'
         fill_in 'user[password]', with: 'himitsu'
         click_button 'ログイン'
         click_on 'お問合せ'
-        first(:link, "詳細").click
+        first(:link, '詳細').click
         expect(current_path).to eq contact_path(second_contact.id)
         expect(Reply.count).to eq 1
         click_on '返信作成'
@@ -65,12 +65,12 @@ describe "お問合せ管理機能", type: :system do
     end
     context '自分の返信内容を編集した場合' do
       it '編集内容がお問合せ詳細ページに反映される' do
-        FactoryBot.create(:reply, contact: second_contact, replier_id: user.id)
-        first(:link, "詳細").click
+        FactoryBot.create(:reply, contact: second_contact, user_id: user.id)
+        first(:link, '詳細').click
         expect(current_path).to eq contact_path(second_contact.id)
         expect(Reply.count).to eq 1
-        find("#edit_button0").click
-        expect(page).to have_content "返信編集"
+        find('#edit_button0').click
+        expect(page).to have_content '返信編集'
         fill_in 'reply[comment]', with: '仏だけにほっとけよー'
         click_on '更新'
         sleep(0.5)
@@ -84,11 +84,11 @@ describe "お問合せ管理機能", type: :system do
     end
     context '自分の返信内容を削除した場合' do
       it 'お問合せ詳細ページから該当の返信が削除される' do
-        FactoryBot.create(:reply, contact: second_contact, replier_id: user.id)
-        first(:link, "詳細").click
+        FactoryBot.create(:reply, contact: second_contact, user_id: user.id)
+        first(:link, '詳細').click
         expect(current_path).to eq contact_path(second_contact.id)
         expect(Reply.count).to eq 1
-        find("#destroy_button0").click
+        find('#destroy_button0').click
         page.driver.browser.switch_to.alert.accept
         expect(current_path).to eq contact_path(second_contact.id)
         expect(Reply.count).to eq 0

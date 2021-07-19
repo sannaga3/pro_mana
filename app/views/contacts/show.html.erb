@@ -21,10 +21,10 @@
       <% @replies.each do |reply| %>
         <div class="mx-3 mt-3 row contact_area">
           <div class="col-3 text-left reply_content_title" ><%= label :replier_id, t('activerecord.attributes.reply.replier_id'), class: "text-success" %></div>
-          <div class="col-9 text-left reply_name_area"><%= content_tag :span, User.find(reply.replier_id).name, id: "replier#{index}", class: "reply_name_content" %></div>
+          <div class="col-9 text-left reply_name_area"><%= content_tag :span, reply.user.name, id: "replier#{index}", class: "reply_name_content" %></div>
           <div class="col-3 text-left reply_content_title mt-4"><%= label :comment, t('activerecord.attributes.reply.comment'), class: "text-success" %></div>
           <div class="col-9 text-left reply_content_area mt-4"><%= content_tag :span, reply.comment, id: "comment#{index}" %></div>
-          <% if reply.replier_id == current_user.id %>
+          <% if reply.user_id == current_user.id %>
             <div class="button_design submit_button mt-5 mx-3">
               <%= link_to t('view.edit'), edit_reply_path(id: reply.id, contact_id: @contact.id), id: "edit_button#{index}", class: "button_text_color" %>
             </div>

@@ -29,8 +29,8 @@ RSpec.describe Friendship, type: :system do
         expect(current_path).to eq user_path(third_user.id)
         sleep(0.5)
         has_selector?('#follow0')
-        find("#follow0").click
-        click_button "フォロー"
+        find('#follow0').click
+        click_button 'フォロー'
         has_no_selector?('#follow0')
         has_selector?('#unfollow0')
       end
@@ -61,11 +61,11 @@ RSpec.describe Friendship, type: :system do
         expect(current_path).to eq users_path
         expect(page).to have_content 'フォロー一覧'
         has_selector?('#unfollow0')
-        find("#unfollow0").click
+        find('#unfollow0').click
         sleep(0.5)
         has_no_selector?('#unfollow0')
         has_selector?('#follow0')
-        find("#follow0").click
+        find('#follow0').click
         sleep(0.5)
         has_no_selector?('#follow0')
         has_selector?('#unfollow0')

@@ -27,7 +27,7 @@ RSpec.describe Bmi, type: :model do
         new_bmi = Bmi.new(
           height: 160,
           weight: 55.5,
-          record_on: "2021-07-02"
+          record_on: '2021-07-02'
         )
         expect(new_bmi).to be_invalid
       end

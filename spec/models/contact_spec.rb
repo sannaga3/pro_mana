@@ -23,13 +23,13 @@ RSpec.describe Contact, type: :model do
     end
     context 'titleが101文字以上の場合' do
       it 'バリデーションエラーになる' do
-        contact.title = "a" * 101
+        contact.title = 'a' * 101
         expect(contact).to be_invalid
       end
     end
     context 'contentが1001文字以上の場合' do
       it 'バリデーションエラーになる' do
-        contact.title = "プラズマクラスターー！" * 100
+        contact.title = 'プラズマクラスターー！' * 100
         expect(contact).to be_invalid
       end
     end

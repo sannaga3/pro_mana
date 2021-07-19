@@ -1,12 +1,12 @@
 class ContactsController < ApplicationController
-  before_action :set_contact, only: %i[ show edit update destroy ]
+  before_action :set_contact, only: %i[show edit update destroy]
 
   def index
-    if current_user.admin == true
-      @contacts = Contact.all.order_id
-    else
-      @contacts = Contact.pick_current_user_id(current_user.id).order_id
-    end
+    @contacts = if current_user.admin == true
+                  Contact.all.order_id
+                else
+                  Contact.pick_current_user_id(current_user.id).order_id
+                end
   end
 
   def new
@@ -26,8 +26,7 @@ class ContactsController < ApplicationController
     @replies = Reply.pick_contact_id(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @contact.update(contact_params)

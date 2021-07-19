@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Reply, type: :model do
   let!(:user) { FactoryBot.create(:user) }
   let!(:contact) { FactoryBot.create(:contact, user: user) }
-  let(:reply) { FactoryBot.build(:reply, contact: contact, replier_id: user.id) }
+  let(:reply) { FactoryBot.build(:reply, contact: contact, user_id: user.id) }
   describe '返信作成時のバリデーションテスト' do
     context 'commentが1000文字以内かつcontact_idとreplier_idがある場合' do
       it '返信を作成できる' do
@@ -28,9 +28,9 @@ RSpec.describe Reply, type: :model do
         expect(reply).to be_invalid
       end
     end
-    context 'replier_idがないの場合' do
+    context 'user_idがないの場合' do
       it 'バリデーションエラーになる' do
-        reply.replier_id = nil
+        reply.user_id = nil
         expect(reply).to be_invalid
       end
     end

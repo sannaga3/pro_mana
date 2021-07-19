@@ -8,9 +8,9 @@ class Food < ApplicationRecord
   has_many :nutrition_record_lines
 
   scope :pick_food, lambda { |food_id|
-    find_by("id = ?", food_id)
+    find_by('id = ?', food_id)
   }
   scope :nil_check, lambda {
-    where.not("food_id = ?", nil).where.not("ate = ?", nil)
+    where.not('food_id = ?', nil).where.not('ate = ?', nil)
   }
 end
