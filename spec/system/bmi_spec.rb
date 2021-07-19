@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "BMI管理機能", type: :system do
+describe 'BMI管理機能', type: :system do
   let!(:user) { FactoryBot.create(:user) }
   let!(:bmi) { FactoryBot.build(:bmi, user: user) }
   let!(:second_bmi) { FactoryBot.create(:second_bmi, user: user) }
@@ -19,7 +19,7 @@ describe "BMI管理機能", type: :system do
     context 'BMIを新規作成した場合' do
       it '最新の記録がBMI一覧ページの一番上に表示される' do
         expect(current_path).to eq bmis_path
-        click_on "BMI作成"
+        click_on 'BMI作成'
         expect(current_path).to eq new_bmi_path
         fill_in 'bmi[height]', with: 160
         fill_in 'bmi[weight]', with: 57.2
@@ -40,7 +40,7 @@ describe "BMI管理機能", type: :system do
     context 'BMIを編集した場合' do
       it '編集内容がBMI一覧に表示される' do
         expect(current_path).to eq bmis_path
-        find(:link, "編集").click
+        find(:link, '編集').click
         expect(current_path).to eq edit_bmi_path(second_bmi.id)
         fill_in 'bmi[height]', with: 160
         fill_in 'bmi[weight]', with: 56
@@ -61,7 +61,7 @@ describe "BMI管理機能", type: :system do
     context 'BMIを削除した場合' do
       it 'BMI一覧から該当のインスタンスが削除される' do
         expect(current_path).to eq bmis_path
-        find(:link, "削除").click
+        find(:link, '削除').click
         page.driver.browser.switch_to.alert.accept
         expect(current_path).to eq bmis_path
         expect(Bmi.count).to eq 0

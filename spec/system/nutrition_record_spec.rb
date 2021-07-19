@@ -91,8 +91,8 @@ describe '食品記録機能', type: :system do
         expect(page).to have_content 4
         fill_in 'nutrition_record[start_time]',	with: '002021-06-06'
         select '納豆', from: :nutrition_record_nutrition_record_lines_attributes_0_food_id
-        fill_in "nutrition_record[nutrition_record_lines_attributes][0][ate]",	with: 3
-        click_on "更新"
+        fill_in 'nutrition_record[nutrition_record_lines_attributes][0][ate]',	with: 3
+        click_on '更新'
         expect(page).to have_content '記録詳細'
         expect(page).to have_content '納豆'
         expect(page).to have_content 4

@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :reply do
-    comment { "ヨシピコーーー！" }
+    comment { 'ヨシピコーーー！' }
   end
 end

@@ -4,6 +4,5 @@ class TopController < ApplicationController
     redirect_to user_path(current_user.id) if current_user
   end
 
-  def user_guide
-  end
+  def user_guide; end
 end

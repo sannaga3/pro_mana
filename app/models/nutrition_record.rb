@@ -7,15 +7,15 @@ class NutritionRecord < ApplicationRecord
   validates :start_time,  uniqueness: { scope: :user }
 
   scope :pick_start_time, lambda { |day|
-    where("start_time = ?", day)
+    where('start_time = ?', day)
   }
-  scope :order_start_time, lambda { order(start_time: :desc) }
+  scope :order_start_time, -> { order(start_time: :desc) }
 
   def self.sum_protein(nutrition_records)
     sum = 0
     nutrition_records.each do |nutrition_record|
       nutrition_record.nutrition_record_lines.each do |line|
-        sum += (Food.find_by(id: line.food_id).protein * line.ate) if (line.food_id != nil) && (line.ate != nil)
+        sum += (Food.find_by(id: line.food_id).protein * line.ate) if !line.food_id.nil? && !line.ate.nil?
       end
     end
     sum

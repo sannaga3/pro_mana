@@ -7,6 +7,6 @@ class Bmi < ApplicationRecord
   before_validation :set_bmi
 
   def set_bmi
-    self.status = (weight/((height/100.0) ** 2).to_f).round(1) if height != nil && weight != nil
+    self.status = (weight / ((height / 100.0)**2).to_f).round(1) if !height.nil? && !weight.nil?
   end
 end

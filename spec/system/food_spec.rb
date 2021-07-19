@@ -71,8 +71,8 @@ describe '食品機能', type: :system do
         expect(Food.count).to eq 2
         find('#my_food_button0').click
         expect(current_path).to eq foods_path
-        first_food = find("#food_name0")
-        expect(first_food).to have_content "豆腐"
+        first_food = find('#food_name0')
+        expect(first_food).to have_content '豆腐'
         expect(page).to have_content '納豆'
         expect(Food.count).to eq 3
       end

@@ -19,14 +19,12 @@ class NutritionRecordsController < ApplicationController
       flash.now[:alert] = t('alert.failed_add_record_blank')
       @nutrition_record.nutrition_record_lines.build
       render :new
-      return
+      nil
+    elsif @nutrition_record.save
+      redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
     else
-      if @nutrition_record.save
-        redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
-      else
-        flash.now[:alert] = t('alert.failed_add_record')
-        render :new
-      end
+      flash.now[:alert] = t('alert.failed_add_record')
+      render :new
     end
   end
 
@@ -59,7 +57,7 @@ class NutritionRecordsController < ApplicationController
   def my_daily
     @calendar_elements = current_user.nutrition_records.order_start_time
     @nutrition_records = current_user.nutrition_records.order_start_time.page(params[:page]).per(5)
-    @nutrition_record_lines = @nutrition_records.map {|line| line.nutrition_record_lines}
+    @nutrition_record_lines = @nutrition_records.map { |line| line.nutrition_record_lines }
   end
 
   private
@@ -80,7 +78,6 @@ class NutritionRecordsController < ApplicationController
 
   def nutrition_record_params
     params.require(:nutrition_record).permit(:start_time, :user_id, nutrition_record_lines_attributes:
-      [:id, :ate, :nutrition_record_id, :food_id]
-    )
+      %i[id ate nutrition_record_id food_id])
   end
 end
