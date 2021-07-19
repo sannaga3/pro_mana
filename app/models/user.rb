@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_friendships, source: :follower
   has_many :bmis, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :replies, dependent: :destroy
 
   def self.guest
     find_or_create_by!(email: 'guest@guest.com') do |user|
