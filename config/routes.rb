@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   resources :bmis, except: :show
   resources :foods
   resources :nutrition_records do
-    collection do
-      get :my_daily
-    end
+    get 'my_daily', on: :member
   end
   resources :nutrition_record_lines, only: %i[destroy]
   resources :friendships, only: %i[create destroy]
