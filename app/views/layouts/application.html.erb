@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <% if (controller_name != "top" || action_name == "user_guide") && !((controller_name == "sessions" || controller_name == "registrations" ) && (action_name == "new" || action_name == "create" )) %>
+    <% if (controller_name != "top" || controller_name == "user_guide") && !((controller_name == "sessions" || controller_name == "registrations" ) && (action_name == "new" || action_name == "create" )) %>
       <div class='body_wrapper background_color'>
         <nav class="navbar navbar-expand-md navbar-light nav_color">
           <a class="navbar-brand">

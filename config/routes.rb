@@ -19,9 +19,6 @@ Rails.application.routes.draw do
   resources :friendships, only: %i[create destroy]
   resources :contacts
   resources :replies, except: :show
-  resources :top, only: %i[index] do
-    collection do
-      get :user_guide
-    end
-  end
+  resources :top, only: %i[index]
+  resources :user_guide, only: %i[index]
 end
