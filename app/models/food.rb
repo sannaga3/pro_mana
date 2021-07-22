@@ -4,7 +4,7 @@ class Food < ApplicationRecord
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :unit, presence: true, length: { in: 1..10 }
   belongs_to :user
-  has_many :nutrition_record_lines
+  has_many :nutrition_record_lines, dependent: :destroy
 
   scope :pick_food, lambda { |food_id|
     find_by('id = ?', food_id)
