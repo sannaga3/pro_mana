@@ -1,0 +1,2 @@
+class UserGuideController < ApplicationController
+end
