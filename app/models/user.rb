@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  include CommonScope
   before_validation { email.downcase! }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -42,15 +41,15 @@ class User < ApplicationRecord
     result
   end
 
-  def follow!(other_user)
+  def follow(other_user)
     active_friendships.create!(followed_id: other_user.id)
   end
 
-  def following?(other_user)
+  def following(other_user)
     active_friendships.find_by(followed_id: other_user.id)
   end
 
-  def unfollow!(other_user)
+  def unfollow(other_user)
     active_friendships.find_by(followed_id: other_user.id).destroy
   end
 end

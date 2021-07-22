@@ -2,8 +2,7 @@ class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
 
   def index
-    @foods = Food.all
-    @foods = @foods.pick_current_user_id(current_user.id).order_id
+    @foods = current_user.foods.order(id: :desc)
     @foods = Kaminari.paginate_array(@foods).page(params[:page]).per(10)
   end
 

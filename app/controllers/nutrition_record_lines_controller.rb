@@ -4,8 +4,4 @@ class NutritionRecordLinesController < ApplicationController
     @nutrition_record_line.destroy
     redirect_to request.referer, notice: t('notice.destroy_record')
   end
-
-  # def nutrition_record_line_params
-  #   params.require(:contact).permit(:comment)
-  # end
 end

@@ -3,9 +3,9 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = if current_user.admin == true
-                  Contact.all.order_id
+                  Contact.includes(:user).order(id: :desc)
                 else
-                  Contact.pick_current_user_id(current_user.id).order_id
+                  current_user.contacts.order(id: :desc)
                 end
   end
 
@@ -23,7 +23,7 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @replies = Reply.pick_contact_id(params[:id])
+    @replies = @contact.replies
   end
 
   def edit; end
