@@ -39,14 +39,14 @@
           <div class="d-flex flex-row justify-content-center mt-5">
             <div class="index_picture_margin cat_before mr-5"></div>
             <div class="cat_after mr-5"></div>
-            <div class="button_design m-4">
-              <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "button_text_color" %>
-            </div>
             <% if @user != current_user %>
               <div class="m-4">
-                <%= render 'follow_form', user: @user if @user != current_user %>
+                <%= render 'follow_form', user: @user %>
               </div>
             <% else %>
+              <div class="button_design m-4">
+                <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "button_text_color" %>
+              </div>
               <div class="m-4 button_design">
                 <%= link_to "BMI", bmis_path, class: "button_text_color" %>
               </div>
@@ -56,9 +56,6 @@
                 <%= link_to t('view.admin_dashboard'), rails_admin_path, class: "button_text_color" %>
               </div>
             <% end %>
-            <div class="m-4 button_design admin_dashboard_button">
-              <%= link_to t('view.user_guide'), user_guide_index_path, class: "button_text_color" %>
-            </div>
           </div>
         </div>
       </div>
