@@ -10,20 +10,15 @@ Rails.application.routes.draw do
     get '/users/sign_out', to: 'devise/sessions#destroy'
   end
   resources :users, only: %i[index show]
-  resources :bmis, only: %i[index new create edit update destroy]
+  resources :bmis, except: :show
   resources :foods
   resources :nutrition_records do
-    collection do
-      get :my_daily
-    end
+    get 'my_daily', on: :member
   end
   resources :nutrition_record_lines, only: %i[destroy]
   resources :friendships, only: %i[create destroy]
   resources :contacts
-  resources :replies, only: %i[index new create edit update destroy]
-  resources :top, only: %i[index] do
-    collection do
-      get :user_guide
-    end
-  end
+  resources :replies, except: :show
+  resources :top, only: %i[index]
+  resources :user_guide, only: %i[index]
 end

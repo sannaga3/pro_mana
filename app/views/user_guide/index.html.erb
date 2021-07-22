@@ -6,13 +6,13 @@
   </div>
   <section>
     <ol>
-      <li><%= link_to t('view.top_page'), user_guide_top_index_path(anchor: 'top_page'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.profile'), user_guide_top_index_path(anchor: 'profile'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.food_new'), user_guide_top_index_path(anchor: 'food_new'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.record_new'), user_guide_top_index_path(anchor: 'record_new'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.food_copy'), user_guide_top_index_path(anchor: 'food_copy'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.follow_function'), user_guide_top_index_path(anchor: 'follow_function'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.bmi_function'), user_guide_top_index_path(anchor: 'bmi_function'), class: "px-2 nav-link" %></li>
+      <li><%= link_to t('view.top_page'), user_guide_index_path(anchor: 'top_page'), class: "px-2 nav-link" %></li>
+      <li><%= link_to t('view.profile'), user_guide_index_path(anchor: 'profile'), class: "px-2 nav-link" %></li>
+      <li><%= link_to t('view.food_new'), user_guide_index_path(anchor: 'food_new'), class: "px-2 nav-link" %></li>
+      <li><%= link_to t('view.record_new'), user_guide_index_path(anchor: 'record_new'), class: "px-2 nav-link" %></li>
+      <li><%= link_to t('view.food_copy'), user_guide_index_path(anchor: 'food_copy'), class: "px-2 nav-link" %></li>
+      <li><%= link_to t('view.follow_function'), user_guide_index_path(anchor: 'follow_function'), class: "px-2 nav-link" %></li>
+      <li><%= link_to t('view.bmi_function'), user_guide_index_path(anchor: 'bmi_function'), class: "px-2 nav-link" %></li>
     </ol>
   </section>
   <hr>
@@ -188,7 +188,7 @@
   <hr>
   <section>
   <p>ご利用ガイドは以上になります。お疲れ様でした。</p>
-  <%= link_to t('view.back_to_top'), user_guide_top_index_path, class: "px-2 nav-link" %>
+  <%= link_to t('view.back_to_top'), user_guide_index_path, class: "px-2 nav-link" %>
   </section>
   <hr>
 </div>
