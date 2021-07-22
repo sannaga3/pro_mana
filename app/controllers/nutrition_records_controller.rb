@@ -4,8 +4,8 @@ class NutritionRecordsController < ApplicationController
   before_action :pick_foods, only: %i[new create]
 
   def index
-    @nutrition_records = NutritionRecord.all
-    @nutrition_records = @nutrition_records.order_start_time.page(params[:page]).per(5)
+    @nutrition_records = NutritionRecord.includes(:user)
+    @nutrition_records = @nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
   end
 
   def new
@@ -19,7 +19,7 @@ class NutritionRecordsController < ApplicationController
       flash.now[:alert] = t('alert.failed_add_record_blank')
       @nutrition_record.nutrition_record_lines.build
       render :new
-      nil
+      return
     elsif @nutrition_record.save
       redirect_to nutrition_record_path(@nutrition_record.id), notice: t('notice.add_record')
     else
@@ -29,7 +29,7 @@ class NutritionRecordsController < ApplicationController
   end
 
   def show
-    @foods.pick_current_user_id(current_user.id).nil_check
+    current_user.foods.nil_check
   end
 
   def edit
@@ -37,7 +37,7 @@ class NutritionRecordsController < ApplicationController
       @nutrition_record.nutrition_record_lines.build
     end
     @food = Food.find(@nutrition_record.nutrition_record_lines[0].food_id)
-    @foods = Food.pick_current_user_id(current_user.id)
+    @foods = current_user.foods
   end
 
   def update
@@ -55,21 +55,21 @@ class NutritionRecordsController < ApplicationController
   end
 
   def my_daily
-    @calendar_elements = current_user.nutrition_records.order_start_time
-    @nutrition_records = current_user.nutrition_records.order_start_time.page(params[:page]).per(5)
+    @calendar_elements = current_user.nutrition_records.order(start_time: :desc)
+    @nutrition_records = @calendar_elements.page(params[:page]).per(5)
     @nutrition_record_lines = @nutrition_records.map { |line| line.nutrition_record_lines }
   end
 
   private
 
   def pick_foods
-    @foods = Food.pick_current_user_id(current_user.id)
+    @foods = current_user.foods
     @q = @foods.ransack(params[:q])
     @foods = @q.result(distinct: true)
   end
 
   def set_foods
-    @foods = Food.all
+    @foods = Food.includes(:user)
   end
 
   def set_nutrition_record

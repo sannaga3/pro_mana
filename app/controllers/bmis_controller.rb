@@ -2,7 +2,7 @@ class BmisController < ApplicationController
   before_action :set_bmi, only: %i[edit update destroy]
 
   def index
-    @bmis = Bmi.pick_current_user_id(current_user.id).order_record_on.page(params[:page]).per(30)
+      @bmis = current_user.bmis.order(record_on: :desc).page(params[:page]).per(30)
     if @bmis.count > 2
       @chart_elements = []
       @bmis.each do |bmi|

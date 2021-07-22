@@ -7,7 +7,7 @@ class RepliesController < ApplicationController
   end
 
   def create
-    @reply = Reply.new(reply_params)
+    @reply = current_user.replies.new(reply_params)
     @contact = Contact.find(@reply.contact.id)
     if @reply.save
       redirect_to contact_path(@reply.contact_id), notice: t('notice.add_reply')
@@ -42,6 +42,6 @@ class RepliesController < ApplicationController
   end
 
   def reply_params
-    params.require(:reply).permit(:comment, :contact_id, :user_id)
+    params.require(:reply).permit(:comment, :contact_id)
   end
 end

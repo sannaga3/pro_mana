@@ -1,5 +1,4 @@
 class Food < ApplicationRecord
-  include CommonScope
   validates :name, presence: true, length: { in: 1..50 }
   validates :protein, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
