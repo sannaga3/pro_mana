@@ -27,7 +27,7 @@
           <div class="collapse navbar-collapse justify-content-left" id="responsiveMenu">
             <% if user_signed_in? %>
               <ul class="navbar-nav mr-auto">
-                <li class="nav-link">
+                <li class="">
                   <%= t('view.user_name') %>: <%= current_user.name %>
                   <%= "admin" if current_user.admin == true %>
                 </li>

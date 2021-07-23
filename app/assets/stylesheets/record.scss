@@ -28,7 +28,6 @@
   background-color: #fff;
   z-index: 1;
   border: solid 1px rgb(150, 143, 143);
-  box-shadow: 5px 5px rgb(175, 167, 167);
   padding-bottom: 1%;
   padding-right: 5px;
 }
@@ -54,23 +53,11 @@
   position: fixed;
   left: 50px;
   top: 340px;
-  padding-bottom: 10px;
+  padding: 5px 10px 10px 10px;
 }
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 1200px) {
   .my_target {
-    display: block;
     position: static;
-    left: 50%;
-    margin-left: 150px;
-    text-decoration: none;
-  }
-}
-@media only screen and (max-width: 1300px) {
-  .my_target {
-    display: block;
-    position: static;
-    left: 50%;
-    margin-left: 150px;
   }
 }
 .box7{
@@ -87,7 +74,6 @@
 .box7 span {
   color: rgb(238, 106, 35);
   font-weight: bold;
-  text-shadow: 1px 1px rgb(189, 174, 174);
 }
 .simple-calendar {
   width: 470px;
@@ -120,11 +106,10 @@
 }
 .text_color {
   font-size: 1.2rem;
-  color: #81838c;
-  background: -webkit-linear-gradient(0deg, #cec9c9, #a6a8a4);
+  color: #5b5d63;
+  background: -webkit-linear-gradient(0deg, #686565, #4b4d4a);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px rgb(69, 65, 65);
 }
 .table_border, .table_border td, .table thead th {
   border: dashed 2px #fff !important;
