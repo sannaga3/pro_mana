@@ -39,10 +39,6 @@ td {
   font-size: 1rem;
   padding-top: 10px;
 }
-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
 .logo {
   display: block;
   width: 100px;
@@ -78,21 +74,6 @@ label {
 .contents_wrapper {
   width: 100%;
 }
-.button_design {
-  width: 60px;
-  height: 40px;
-  font-size: 1rem;
-  text-align: center;
-  line-height: 40px;
-  background: linear-gradient(-140deg, #e9f393, #a5f1c2);
-  box-shadow: 1px 1px 1px 1px rgb(37, 129, 82);
-  color: rgba(102, 102, 98, 0.9);
-  border-radius: 10px;
-  margin: 0 5px 5px 5px;
-}
-.button_text_color {
-  color: rgba(102, 102, 98, 0.9);
-}
 .pagination>li>a {
   border: none;
   color: #696969;
@@ -112,33 +93,33 @@ label {
   color: rgb(80, 156, 65);
   font-weight: 800;
 }
-.notice {
+.notice, .alert {
   display: block;
   width: 700px;
   height: 60px;
   line-height: 60px;
   font-size: 1.7rem;
   font-weight: 600;
+  text-align: center;
   border-radius: 20px;
-  margin-bottom: 3%;
   margin-left: 17%;
+  margin-bottom: 3%;
   z-index: 1;
 }
-.alert {
-  width: 700px;
-  height: 60px;
+.alert{
   line-height: 40px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  border-radius: 20px;
-  margin-left: 17%;
-  margin-bottom: 3%;
-  z-index: 1;
+}
+.login_alert {
+  margin-left: 0;
 }
 #error_explanation{
-  width: 450px;
+  padding: 1%;
+  max-width: 90%;
+  border-radius: 15px;
   color: rgb(180, 12, 196);
   overflow-wrap: break-word;
+  background: #fff;
+  z-index: 1;
 }
 @media only screen and (max-width: 768px) {
   .notice, .alert {

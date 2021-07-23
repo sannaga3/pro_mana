@@ -254,6 +254,8 @@ ja:
     protein_quantity: タンパク質含有量
     over: g以上
     less: g以下
+    password_information: パスワードを再度入力
+    input_over_than6: 6文字以上
     input_over_than: 整数で1以上を入力
     input_less_than100: 100文字以下で入力
     input_less_than50: 50文字以下で入力
