@@ -1,23 +1,23 @@
 <%= render 'layouts/header' %>
 <div class="d-flex flex-column justify-content-center align-items-center mt-5">
   <div class="mt-3">
-    <h1 class="main_sentense sign_up_index wf-sawarabi"><%= t('.sign_up') %></h1>
+    <h1 class="main_sentence sign_up_index wf-sawarabi"><%= t('.sign_up') %></h1>
   </div>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="mt-3">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="sign_up_index">
-        <%= f.label :name, class: "normal_sentense wf-sawarabi" %><br />
+        <%= f.label :name, class: "normal_sentence wf-sawarabi" %><br />
         <%= f.text_field :name, placeholder: t('activerecord.attributes.user.name'), autofocus: true, autocomplete: "name" %>
       </div>
 
       <div class="sign_up_index">
-        <%= f.label :email, class: "normal_sentense wf-sawarabi" %><br />
+        <%= f.label :email, class: "normal_sentence wf-sawarabi" %><br />
         <%= f.email_field :email, placeholder: t('activerecord.attributes.user.email'), autocomplete: "email" %>
       </div>
 
       <div class="sign_up_index">
-        <%= f.label :password, class: "normal_sentense wf-sawarabi" %>
+        <%= f.label :password, class: "normal_sentence wf-sawarabi" %>
         <% if @minimum_password_length %>
         <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
         <% end %><br />
@@ -25,7 +25,7 @@
       </div>
 
       <div class="sign_up_index">
-        <%= f.label :password_confirmation, class: "normal_sentense wf-sawarabi" %><br />
+        <%= f.label :password_confirmation, class: "normal_sentence wf-sawarabi" %><br />
         <%= f.password_field :password_confirmation, placeholder: t('activerecord.attributes.user.password_confirm'), autocomplete: "new-password" %>
       </div>
 
