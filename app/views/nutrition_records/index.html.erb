@@ -1,6 +1,6 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
   <div class="mb-3">
-    <h1 class="food_text"><%= t('view.records_index') %></h1>
+    <h1 class="main_title"><%= t('view.records_index') %></h1>
   </div>
   <div class="d-flex flex-row justify-content-center align-items-center">
     <div class="d-flex flex-column justify-content-center align-items-center">
@@ -10,7 +10,7 @@
       <% index = 0 %>
       <% my_food_button_index = 0 %>
       <% @nutrition_records.each do |nutrition_record| %>
-        <div class="border-success day_record_style my-4">
+        <div class="border-success main_contents_container my-4">
           <table>
             <% nutrition_record.nutrition_record_lines.each do |line| %>
               <% if line == nutrition_record.nutrition_record_lines.first %>

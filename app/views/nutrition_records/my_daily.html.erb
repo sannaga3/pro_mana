@@ -1,9 +1,9 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
   <div class="mb-3">
-    <h1 class="food_text"><%= t('view.my_daily_record') %></h1>
+    <h1 class="main_title"><%= t('view.my_daily_record') %></h1>
   </div>
   <div class="box7"><span><%= t('view.my_daily_protein_calendar') %></span></div>
-  <div class="my_target day_record_style text-center font-weight-bold pb-2">
+  <div class="my_target main_contents_container text-center font-weight-bold pb-2">
     <%= t('activerecord.attributes.user.protein_target')  + ": " + current_user.protein_target.to_s + " g" %>
   </div>
   <div>
@@ -24,7 +24,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center ml-3">
       <% index = 0 %>
       <% @nutrition_records.each do |nutrition_record| %>
-        <div class="border-success day_record_style my-4">
+        <div class="border-success main_contents_container my-4">
           <% if @nutrition_records != nil %>
             <div class="container">
               <div class="row font-weight-bold">

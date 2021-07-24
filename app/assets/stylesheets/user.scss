@@ -12,14 +12,6 @@
   width: 135px;
   border: none;
 }
-.sign_up_button {
-  width: 135px;
-  border: none;
-}
-.login_button {
-  width: 130px;
-  border: none;
-}
 .admin_dashboard_button {
   width: 100px;
   border: none;
@@ -40,8 +32,11 @@
   width: 120px;
 }
 .profile_wrapper {
-  min-height: 100%;
+  position: absolute;
+  margin-top: 15%;
+  left: 2%;
 }
 .profile_picture {
   border-radius: 30px;
 }
+// col-6 offset-3

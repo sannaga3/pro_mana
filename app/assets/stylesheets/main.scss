@@ -1,4 +1,5 @@
 @charset "utf-8";
+$dark_gray: rgb(90, 90, 90);
 
 html {
   font-size: 80.5%;
@@ -11,11 +12,72 @@ body {
 }
 .body_wrapper {
   overflow-wrap : break-word;
+  min-width: 100vh;
   flex: 1;
 }
+.top_image {
+  width: 100%;
+  height: 100vh;
+  background-image: image_url('top_image.jpg');
+  background-size: cover;
+}
+.top_image_repeat {
+  width: 100%;
+  height: 100vh;
+  background-image: image_url('top_image.jpg');
+  background-size: cover;
+}
+
+.top_image::before {
+  content: '';
+  background-color: rgba(16, 71, 97, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+.header_user_name {
+  display: block;
+  width: 180px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-left: 7%;
+}
+.side_bar {
+  position: absolute;
+  display: flex;
+  top: 140px;
+  left: 30%;
+  width: 200px;
+  height: 300px;
+  border-radius: 20px;
+  padding: 1%;
+  background-color: rgb(255, 255, 255);
+}
+.side_bar:hover {
+  transform: scale(1.05);
+}
+.side_bar_item {
+  color:  rgba(14, 29, 163, 0.7) !important;
+  font-size: 1.4rem;
+  text-align: center;
+  font-weight: 500;
+  list-style: none;
+}
+.side_bar_title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: $dark_gray;
+  text-align: center;
+  padding-bottom: 3%;
+  border-bottom: dashed 2px rgb(179, 172, 172);
+  list-style: none;
+}
 .background_color {
-  background: linear-gradient(60deg,  rgba(255, 255, 255, 0.7), rgba(205, 247, 139, 0.4));
-  z-index: 2;
+  background: linear-gradient(60deg,  rgba(209, 244, 253, 0.7), rgba(101, 136, 253, 0.4));
+  z-index: 3;
 }
 hr {
   border-width: 90%;
@@ -38,6 +100,10 @@ th, .bold_font_size {
 td {
   font-size: 1rem;
   padding-top: 10px;
+}
+.main_title {
+  color: $dark_gray;
+  font-weight: 800;
 }
 .logo {
   display: block;
@@ -63,13 +129,24 @@ td {
   width: 90%;
   padding: auto;
 }
-.card-footer {
-  background: linear-gradient(60deg,  rgba(104, 206, 126, 0.7), rgba(214, 213, 122, 0.4));
+footer {
+  pointer-events: none;
+}
+.footer {
+  position: absolute;
+  height: 60px;
+  margin: auto 4% 4% 4%;
+  border-radius: 40px;
+  width: 90%;
+  background: #fff;
+}
+.footer span {
+  font-size: 1.1rem;
+}
+#copy_right {
   text-align: center;
-  width: 100%;
-  height: 56px;
-  padding: 0;
-  line-height: 30px;
+  line-height: 60px;
+  list-style: none;
 }
 .contents_wrapper {
   width: 100%;
@@ -88,10 +165,6 @@ td {
 .submit_button {
   width: 70px;
   border: none;
-}
-.food_text {
-  color: rgb(80, 156, 65);
-  font-weight: 800;
 }
 .notice, .alert {
   display: block;

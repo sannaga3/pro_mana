@@ -1,17 +1,10 @@
-<%= render 'layouts/header' %>
 <div class="d-flex flex-column justify-content-center top_content_wrapper mt-5">
-  <% if notice %>
-    <p class="notice alert-light text-center"><%= notice %></p>
-  <% elsif alert%>
-    <p class="alert alert-light text-center"><%= alert %></p>
-  <% else %>
-    <div class="my-5"></div>
-  <% end %>
+  <%= render 'layouts/flash_message' %>
   <div class="d-flex flex-column justify-content-center align-items-center">
     <div class="mt-3 diagonal_strings">
       <p class="main_sentence mt-5 wf-sawarabi text-left">筋トレ、ダイエット、ウェイトアップ</p>
-      <p class="main_sentence mt-1 wf-sawarabi text-left">タンパク質の量を可視化することで</p>
-      <p class="main_sentence mt-1 wf-sawarabi text-right">どれだけ理想に近づけるか！</p>
+      <p class="main_sentence mt-1 wf-sawarabi text-left">タンパク質を可視化することで</p>
+      <p class="main_sentence mt-1 wf-sawarabi text-right">どれだけあなたに貢献できるか！</p>
     </div>
   </div>
 </div>
