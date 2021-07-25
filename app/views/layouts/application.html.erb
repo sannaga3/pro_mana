@@ -17,18 +17,20 @@
   <body>
     <div class="top_image body_wrapper">
       <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <%= link_to 'プロマネ', "/", class: "logo ml-3" %>
+        <%= link_to 'プロマネ', "/", class: "logo" %>
+        <% if user_signed_in? %>
+          <ul class="navbar-nav mr-auto">
+            <li class="header_user_name">
+              <%= t('view.user_name') %>: <%= current_user.name %>
+              <%= "admin" if current_user.admin == true %>
+            </li>
+          </ul>
+        <% end %>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-left" id="responsiveMenu">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <% if user_signed_in? %>
-            <ul class="navbar-nav mr-auto">
-              <li class="header_user_name">
-                <%= t('view.user_name') %>: <%= current_user.name %>
-                <%= "admin" if current_user.admin == true %>
-              </li>
-            </ul>
             <ul class="navbar-nav navbar-right">
               <li class="nav-item"><%= link_to t('view.profile'), user_path(current_user.id), class: "nav-link" %></li>
               <li class="nav-item"><%= link_to t('view.follow'), users_path, class: "nav-link" %></li>

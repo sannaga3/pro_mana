@@ -35,6 +35,7 @@
   position: absolute;
   top: 140px;
   min-width: 560px;
+  border-radius: 30px;
   left: 5%;
 }
 .follow_table {
@@ -43,6 +44,7 @@
   border: 2px solid rgb(138, 138, 138);
 }
 .profile_detail_container, .profile_edit_container {
+  border-radius: 20px;
   width: 500px;
   height: 380px;
   border: 2px solid rgb(138, 138, 138);

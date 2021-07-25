@@ -21,13 +21,6 @@ body {
   background-image: image_url('top_image.jpg');
   background-size: cover;
 }
-// .top_image_repeat {
-//   width: 100%;
-//   height: 100vh;
-//   background-image: image_url('top_image.jpg');
-//   background-size: cover;
-// }
-
 .top_image::before {
   content: '';
   background-color: rgba(16, 71, 97, 0.7);
@@ -152,6 +145,13 @@ footer {
   border: none;
   color: #696969;
 }
+.main_contents_container {
+  background-color: #fff;
+  z-index: 1;
+  border: solid 1px rgb(150, 143, 143);
+  padding-bottom: 1%;
+  padding-right: 5px;
+}
 .pagination>.active>a {
   background: #93c9ff;
   border-radius: 15px;
@@ -182,6 +182,20 @@ footer {
 .login_alert {
   margin-left: 0;
 }
+@media only screen and (max-width: 960px) {
+  .notice, .alert {
+    width: 500px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.3rem;
+    text-align: center;
+    border-radius: 20px;
+    z-index: 1;
+  }
+  .alert {
+    line-height: 20px;
+  }
+}
 .scroll{
   overflow:scroll;
 }
@@ -197,18 +211,4 @@ footer {
   overflow-wrap: break-word;
   background: #fff;
   z-index: 1;
-}
-@media only screen and (max-width: 768px) {
-  .notice, .alert {
-    width: 400px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 1.2rem;
-    text-align: center;
-    border-radius: 20px;
-    z-index: 1;
-  }
-  .alert {
-    line-height: 20px;
-  }
 }
