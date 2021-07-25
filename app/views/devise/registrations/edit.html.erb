@@ -1,52 +1,79 @@
-
-<div class="d-flex flex-column justify-content-center align-items-center container">
-  <div class="col-12 text-center">
-    <h1 class="main_title pb-5"><%= t('.title', resource: resource.model_name.human) %></h1>
+<div class="row">
+  <div class="col-2">
+    <%= render 'layouts/side_bar' %>
   </div>
-  <%= render "devise/shared/error_messages", resource: resource, class: "text-center" %>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <div class="d-flex flex-row justify-content-center container col-8">
-      <div class="row">
-        <div class="col-12 col-sm-6 col-lg-6"><%= f.label :name %></div>
-        <div class="col-12 col-sm-6 col-lg-4"><%= f.text_field :name, placeholder: t('view.input_less_than50'), autofocus: true %></div>
-        <div class="col-12 col-sm-6 col-lg-6"><%= f.label :email %></div>
-        <div class="col-12 col-sm-6 col-lg-4"><%= f.email_field :email, placeholder: t('view.input_less_than50'), autocomplete: "email" %></div>
-        <div class="col-12 col-sm-6 col-lg-6"><%= f.label :profile_image %>:</div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <%= f.file_field :profile_image, autofocus: true %>
-          <% if @user.profile_image && @user.profile_image.url %>
-            <%= image_tag @user.profile_image.url, class: "profile_picture" %>
-          <% end %>
-          <%= f.hidden_field :profile_image_cache %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-6"><%= f.label :profile_comment %></div>
-        <div class="col-12 col-sm-6 col-lg-4"><%= f.text_area :profile_comment, placeholder: t('view.input_less_than100') %></div>
-        <div class="col-12 col-sm-6 col-lg-6"><%= f.label :protein_target %></div>
-        <div class="col-12 col-sm-6 col-lg-4"><%= f.number_field :protein_target, min: '1', placeholder: t('view.input_integer') %>g</div>
-        <div class="col-12 col-sm-6 col-lg-6"><%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i></div>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <%= f.password_field :password, placeholder: t('activerecord.attributes.user.password'), autocomplete: "new-password" %>
-          <% if @minimum_password_length %>
-            <br />
-            <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
-          <% end %>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-6"><%= f.label :password_confirmation %></div>
-        <div class="col-12 col-sm-6 col-lg-4"><%= f.password_field :password_confirmation, placeholder: t('activerecord.attributes.user.password_confirm'), autocomplete: "new-password" %></div>
-        <div class="mt-4 ml-5 pl-5"><%= f.submit t('view.update'), class: "btn btn-success" %></div>
+  <div class="profile_edit_wrapper col-7 offset-1">
+    <div class="d-flex flex-column justify-content-center align-items-center main_contents_container bg-white p-2">
+      <div>
+        <h1 class="main_title pb-2"><%= t('.title', resource: resource.model_name.human) %></h1>
       </div>
-    </div>
-  <% end %>
-  <div class="d-flex flex-row justify-content-center mt-3">
-    <div class="button_design m-4">
-      <%= link_to t('devise.shared.links.back'), :back, class: "button_text_color" %>
-    </div>
-    <div class="m-4">
-      <% if @user == current_user %>
-        <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "button_design delete_button" %>
-      <% else %>
-        <%= render 'follow_form', user: @user if @user != current_user %>
-      <% end %>
+      <%= render "devise/shared/error_messages", resource: resource, class: "text-center" %>
+      <div class="justify-content-center align-items-center profile_edit_container scroll">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <div class="container">
+            <hr>
+            <div class="row">
+              <div class="col-6 col-lg-4"><%= f.label :name %></div>
+              <div class="col-6 col-lg-8"><%= f.text_field :name, placeholder: t('view.input_less_than50'), autofocus: true %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-6 col-lg-4"><%= f.label :email %></div>
+              <div class="col-6 col-lg-8"><%= f.email_field :email, placeholder: t('view.input_less_than50'), autocomplete: "email" %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-12 col-lg-4"><%= f.label :profile_image %>:</div>
+              <div class="col-12 col-lg-8">
+                <%= f.file_field :profile_image, autofocus: true %>
+                <% if @user.profile_image && @user.profile_image.url %>
+                  <%= image_tag @user.profile_image.url, class: "profile_picture" %>
+                <% end %>
+                <%= f.hidden_field :profile_image_cache %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-12 col-lg-4"><%= f.label :profile_comment %></div>
+              <div class="col-12 col-lg-8"><%= f.text_area :profile_comment, placeholder: t('view.input_less_than100'), id: "introduce_form" %></div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-6 col-lg-4"><%= f.label :protein_target %></div>
+              <div class="col-6 col-lg-8"><%= f.number_field :protein_target, min: '1', placeholder: t('view.input_integer') %>g</div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-6 col-lg-4"><%= f.label :password %> <i>(<%= t('.leave_blank_if_you_don_t_want_to_change_it') %>)</i></div>
+              <div class="col-6 col-lg-8">
+                <%= f.password_field :password, placeholder: t('activerecord.attributes.user.password'), autocomplete: "new-password" %>
+                <% if @minimum_password_length %>
+                  <br />
+                  <em><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></em>
+                <% end %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-6 col-lg-4"><%= f.label :password_confirmation %></div>
+              <div class="col-6 col-lg-8"><%= f.password_field :password_confirmation, placeholder: t('activerecord.attributes.user.password_confirm'), autocomplete: "new-password" %></div>
+            </div>
+            <hr>
+            <div class="my-4 row col-12 justify-content-center"><%= f.submit t('view.update'), class: "btn btn-primary" %></div>
+            <hr>
+          </div>
+        <% end %>
+      </div>
+      <div class="row col-10 justify-content-end my-4 mr-1">
+        <div class="col-3"><%= link_to t('devise.shared.links.back'), :back, class: "btn btn-secondary" %></div>
+        <div class="col-2 offset-2">
+          <% if @user == current_user %>
+            <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete, class: "btn btn-danger" %>
+          <% else %>
+            <%= render 'follow_form', user: @user if @user != current_user %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

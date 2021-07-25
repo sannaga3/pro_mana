@@ -31,12 +31,26 @@
 .follow_th_width {
   width: 120px;
 }
-.profile_wrapper {
+.profile_wrapper, .profile_edit_wrapper, .follow_wrapper {
   position: absolute;
-  margin-top: 15%;
-  left: 2%;
+  top: 140px;
+  min-width: 560px;
+  left: 5%;
+}
+.follow_table {
+  width: 380px;
+  height: 250px;
+  border: 2px solid rgb(138, 138, 138);
+}
+.profile_detail_container, .profile_edit_container {
+  width: 500px;
+  height: 380px;
+  border: 2px solid rgb(138, 138, 138);
 }
 .profile_picture {
   border-radius: 30px;
 }
-// col-6 offset-3
+#introduce_form{
+  width: 150%;
+  max-height: 180px;
+}

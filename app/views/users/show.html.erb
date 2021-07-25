@@ -1,64 +1,72 @@
-<div class="row side_bar_locate">
+<div class="row">
   <div class="col-2">
     <%= render 'layouts/side_bar' %>
   </div>
-  <div class="profile_wrapper col-6 offset-1">
-    <div class="d-flex flex-column justify-content-center align-items-center main_contents_container .bg-white profile_area p-2">
+  <div class="profile_wrapper col-7 offset-1">
+    <div class="row d-flex flex-column justify-content-center align-items-center main_contents_container p-2">
       <div>
-        <h1 class="main_title pb-5"><%= t('view.profile') %></h1>
+        <h1 class="main_title pb-2"><%= t('view.profile') %></h1>
       </div>
-      <div class="d-flex flex-row justify-content-center align-items-center pr-5">
+      <div class="justify-content-center align-items-center profile_detail_container scroll-y">
         <div class="container">
+          <hr>
           <div class="row">
-            <div class="col-6 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.name') %>: </div>
-            <div class="col-6 col-sm-6 col-lg-6"><%= @user.name if @user.name%></div>
+            <div class="col-6 col-sm-4"><%= t('activerecord.attributes.user.name') %>: </div>
+            <div class="col-6 col-sm-8"><%= @user.name if @user.name%></div>
           </div>
+          <hr>
           <div class="row">
-            <div class="col-6 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.email') %>:</div>
-            <div class="col-6 col-sm-6 col-lg-6"><%= @user.email %></div>
+            <div class="col-6 col-sm-4"><%= t('activerecord.attributes.user.email') %>:</div>
+            <div class="col-6 col-sm-8"><%= @user.email %></div>
           </div>
+          <hr>
           <div class="row">
-            <div class="col-12 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.profile_image') %>:</div>
+            <div class="col-12 col-sm-4"><%= t('activerecord.attributes.user.profile_image') %>:</div>
             <% if @user.profile_image? %>
-              <div class="col-12 col-sm-6 col-lg-6"><%= image_tag @user.profile_image.url, class: "profile_picture" %></div>
+              <div class="col-12 col-sm-8"><%= image_tag @user.profile_image.url, class: "profile_picture" %></div>
             <% end %>
           </div>
+          <hr>
           <div class="row">
-            <div class="col-12 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.profile_comment') %>: </div>
-            <div class="col-12 col-sm-6 col-lg-6"><%= @user.profile_comment if @user.profile_comment %></div>
+            <div class="col-12 col-sm-4"><%= t('activerecord.attributes.user.profile_comment') %>: </div>
+            <div class="col-12 col-sm-8"><%= @user.profile_comment if @user.profile_comment %></div>
           </div>
+          <hr>
           <div class="row">
-            <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.bmi.height') %>:</div>
-            <div class="col-4 col-sm-6 col-lg-6"><%= @bmi.height if @bmi %>cm</div>
+            <div class="col-4"><%= t('activerecord.attributes.bmi.height') %>:</div>
+            <div class="col-8"><%= @bmi.height if @bmi %>cm</div>
           </div>
+          <hr>
           <div class="row">
-            <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.bmi.weight') %>:</div>
-            <div class="col-4 col-sm-6 col-lg-6"><%= @bmi.weight if @bmi %>kg</div>
+            <div class="col-4"><%= t('activerecord.attributes.bmi.weight') %>:</div>
+            <div class="col-8"><%= @bmi.weight if @bmi %>kg</div>
           </div>
+          <hr>
           <div class="row">
-            <div class="col-8 col-sm-6 col-lg-6"><%= t('activerecord.attributes.user.protein_target') %>:</div>
-            <div class="col-4 col-sm-6 col-lg-6"><%= @user.protein_target if @user.protein_target %>g</div>
+            <div class="col-4"><%= t('activerecord.attributes.user.protein_target') %>:</div>
+            <div class="col-8"><%= @user.protein_target if @user.protein_target %>g</div>
           </div>
-          <div class="d-flex flex-row justify-content-center mt-5">
-            <% if @user != current_user %>
-              <div class="m-4">
-                <%= render 'follow_form', user: @user %>
-              </div>
-            <% else %>
-              <div class="button_design m-4">
-                <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "button_text_color" %>
-              </div>
-              <div class="m-4 button_design">
-                <%= link_to "BMI", bmis_path, class: "button_text_color" %>
-              </div>
-            <% end %>
-            <% if @user == current_user && @user.admin == true %>
-              <div class="m-4 button_design admin_dashboard_button">
-                <%= link_to t('view.admin_dashboard'), rails_admin_path, class: "button_text_color" %>
-              </div>
-            <% end %>
-          </div>
+          <hr>
         </div>
+      </div>
+      <div class="d-flex flex-row justify-content-center my-3">
+        <% if @user != current_user %>
+          <div class="mx-5">
+            <%= render 'follow_form', user: @user %>
+          </div>
+        <% else %>
+          <div class="mx-5">
+            <%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "btn btn-primary" %>
+          </div>
+          <div class="mx-5">
+            <%= link_to "BMI", bmis_path, class: "btn btn-secondary" %>
+          </div>
+        <% end %>
+        <% if @user == current_user && @user.admin == true %>
+          <div class="m-4 button_design admin_dashboard_button">
+            <%= link_to t('view.admin_dashboard'), rails_admin_path, class: "button_text_color" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
