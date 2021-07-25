@@ -33,10 +33,12 @@
 }
 .profile_wrapper, .profile_edit_wrapper, .follow_wrapper {
   position: absolute;
+  background: #fff;
+  border: border 1px #fff;
   top: 140px;
   min-width: 560px;
   border-radius: 30px;
-  left: 5%;
+  left: 6%;
 }
 .follow_table {
   width: 380px;
@@ -44,6 +46,8 @@
   border: 2px solid rgb(138, 138, 138);
 }
 .profile_detail_container, .profile_edit_container {
+  background: #fff;
+  border: border 1px #fff;
   border-radius: 20px;
   width: 500px;
   height: 380px;

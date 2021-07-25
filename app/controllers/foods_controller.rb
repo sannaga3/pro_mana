@@ -26,7 +26,7 @@ class FoodsController < ApplicationController
 
   def update
     if @food.update(food_params)
-      redirect_to foods_path, notice: t('notice.edit_food')
+      redirect_to food_path(@food.id), notice: t('notice.edit_food')
     else
       render :new
     end

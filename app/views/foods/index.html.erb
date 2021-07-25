@@ -1,38 +1,47 @@
-<div class="d-flex flex-column justify-content-center align-items-center pt-3 px-3 mb-4">
-  <div class="d-flex flex-column justify-content-center align-items-center pt-3 px-3 food_table">
-    <h1 class="main_title"><%= t('view.foods_index') %></h1>
-    <div class="paginate_box rounded my-3">
-      <%= paginate @foods, window: 3 %>
-    </div>
-    <table class="record_table">
-      <thead>
-        <tr>
-          <th class="food_th_width text-success"><%= t('activerecord.attributes.food.name') %></th>
-          <th class="food_th_width text-success"><%= t('activerecord.attributes.food.protein') %></th>
-          <th class="food_th_width text-success"><%= t('activerecord.attributes.food.quantity') %></th>
-          <th class="food_th_width text-success"><%= t('activerecord.attributes.food.unit') %></th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% index = 0 %>
-        <% @foods.each do |food| %>
-          <tr>
-            <td class="text-center"><%= content_tag :span, food.name, id: "food_name#{index}" %></td>
-            <td class="text-center"><%= content_tag :span, "#{food.protein}g", id: "food_protein#{index}" %></td>
-            <td class="text-center"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></td>
-            <td class="text-center"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></td>
-            <td class="text-center"><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></td>
-            <td class="text-center"><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></td>
-            <td class="text-center"><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{index}" %></td>
-          </tr>
-          <% index += 1 %>
-        <% end %>
-      </tbody>
-    </table>
-    <div class="paginate_box rounded mt-3">
-      <%= paginate @foods, window: 3 %>
+<div class="row">
+  <div class="col-2">
+    <%= render 'layouts/side_bar' %>
+  </div>
+  <div class="profile_edit_wrapper col-7 offset-1">
+    <div class="d-flex flex-column justify-content-center align-items-center p-3">
+      <div>
+        <h1 class="main_title"><%= t('view.foods_index') %><%= render 'layouts/flash_message' %></h1>
+      </div>
+      <div class="paginate_box rounded my-1">
+        <%= paginate @foods, window: 3 %>
+      </div>
+      <div class="food_index_container scroll">
+        <div class="container">
+          <hr>
+          <div class="row row-10 justify-content-center">
+            <div class="col-3 label_font"><%= t('activerecord.attributes.food.name') %></div>
+            <div class="col-2 label_font"><%= t('activerecord.attributes.food.protein') %></div>
+            <div class="col-2 label_font"><%= t('activerecord.attributes.food.quantity') %></div>
+            <div class="col-1 label_font"><%= t('activerecord.attributes.food.unit') %></div>
+            <div class="col-4 label_font"><%= t('view.button') %></div>
+          </div>
+          <hr>
+          <% index = 0 %>
+          <% @foods.each do |food| %>
+            <div class="row row-10 justify-content-center">
+              <div class="col-3 text-center mt-2"><%= content_tag :span, food.name, id: "food_name#{index}" %></div>
+              <div class="col-2 text-center mt-2"><%= content_tag :span, "#{food.protein}g", id: "food_protein#{index}" %></div>
+              <div class="col-2 text-center mt-2"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></div>
+              <div class="col-1 text-center mt-2"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></div>
+              <div class="col-4 row justify-content-center mr-3">
+                <div><%= link_to t('view.show'), food_path(food.id), class: "btn btn-outline-warning" %></div>
+                <div><%= link_to t('view.edit'), edit_food_path(food.id), class: "btn btn-outline-success" %></div>
+                <div><%= link_to t('view.destroy'), food_path(food.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{index}" %></div>
+              </div>
+            </div>
+            <hr>
+            <% index += 1 %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row col-10 justify-content-center mt-3" mb-2>
+        <%= link_to t('view.back'), :back, class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>
