@@ -196,6 +196,22 @@ footer {
     line-height: 20px;
   }
 }
+.main_title_and_flash_container {
+  width: 90%;
+}
+.after_login_notice, .after_login_alert {
+  height: 30px;
+  line-height: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(12, 146, 0);
+  text-align: center;
+  border-radius: 20px;
+  z-index: 2;
+}
+.after_login_alert {
+  color: rgb(204, 0, 0);
+}
 .scroll{
   overflow:scroll;
 }
