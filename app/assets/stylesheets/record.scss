@@ -1,8 +1,52 @@
 @charset "utf-8";
 
-.record_edit_wrapper {
-  width: 450px;
-  margin: 5% 0;
+.nutrition_record_form_wrapper, .nutrition_record_index_wrapper, .nutrition_record_my_daily_wrapper {
+  position: absolute;
+  min-width: 60%;
+  height: 480px;
+  background: #fff;
+  border: border 1px #fff;
+  border-radius: 30px;
+  top: 140px;
+  left: 6%;
+}
+.nutrition_record_index_wrapper, .nutrition_record_my_daily_wrapper {
+  height: 500px;
+  left: 12%;
+}
+@media only screen and (max-width: 992px) {
+  .nutrition_record_index_wrapper .nutrition_record_my_daily_wrapper {
+    min-width: 600px;
+    left: 0;
+  }
+}
+.nutrition_record_form_container, .nutrition_record_index_container, .nutrition_record_my_daily_container {
+  border-radius: 20px;
+  min-width: 90%;
+  height: 350px;
+  border: 2px solid rgb(138, 138, 138);
+}
+.nutrition_record_index_container, .my_daily_container {
+  height: 370px;
+}
+.nutrition_record_lines_container {
+  width: 90%;
+  border-top: solid 2px rgb(150, 143, 143);
+  border-bottom: solid 2px rgb(150, 143, 143);
+}
+.nutrition_record_lines_my_daily {
+  width: 90%;
+  border-top: solid 2px rgb(150, 143, 143);
+  margin-right: 2%;
+}
+.record_line_container_large {
+  width: 180px;
+}
+.record_line_container_middle {
+  width: 100px;
+}
+.record_line_container_small {
+  width: 50px;
 }
 .index_picture_margin {
   margin: 0 30px;
@@ -23,35 +67,38 @@
   text-align: center;
 }
 .border_bottom {
-  border-bottom: solid 3px green;
+  border-bottom: solid 2px rgb(139, 139, 139);
 }
 .border_top {
-  border-top: solid 3px green;
+  border-top: solid 2px rgb(139, 139, 139);
 }
-.table_width {
-  min-width: 400px;
+.day_user_box {
+  width: 50%;
 }
-.record_th {
-  min-width: 45px;
+.record_lines_border {
+  border: solid 2px rgb(139, 139, 139);
 }
 .my_target {
-  max-width: 300px;
-  min-height: 40px;
-  font-size: 1.5rem;
-  line-height: 38px;
+  width: 200px;
+  height: 36px;
+  font-size: 1.2rem;
+  line-height: 30px;
   display: block;
+  border-radius: 30px;
+  color: #5a5a5a;
+  padding: 10px;
+  margin-left: 20px;
+  z-index: 1;
+}
+#toggle_button {
+  width: 90px;
+  height: 20px;
+  font-size: 1rem;
+  line-height: 10px;
   border-radius: 10px;
-  position: fixed;
-  left: 50px;
-  top: 340px;
-  padding: 5px 10px 10px 10px;
+  z-index: 1;
 }
-@media only screen and (max-width: 1200px) {
-  .my_target {
-    position: static;
-  }
-}
-.box7{
+.box7 {
   font-size: 1.5rem;
   padding: 0.5em 1em;
   width: 450px;
@@ -70,11 +117,14 @@
   width: 470px;
   padding: 5%;
   margin: 3% 0;
-  background: linear-gradient(-130deg, #f2d267, #faeccd);
+  background: linear-gradient(-130deg, #679ff2, #d1d0ce);
   opacity: 0.8;
-  box-shadow: 0px 0px 0px 5px #f1d68f;
+  box-shadow: 0px 0px 0px 5px #757573;
   border: dashed 3px white;
   padding: 0.2em 0.5em;
+  .day {
+    height: 70px;
+  }
 }
 .calendar-title {
   font-size: 1.4rem;
@@ -86,12 +136,12 @@
   margin: 10px 0;
 }
 .calendar-heading a {
-  color: #f86e33;
+  color: #170099;
   font-size: 1.2rem;
   padding: 0 10px;
 }
 .calendar-heading a:hover {
-  color: #f04406;
+  color: #0051ff;
   font-size: 1.3rem;
   padding: 0 10px;
 }

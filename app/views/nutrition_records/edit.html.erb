@@ -1,10 +1,18 @@
-<div class="d-flex flex-row justify-content-around align-items-center">
-  <div class="d-flex flex-column justify-content-center align-items-center main_contents_container record_edit_wrapper">
-    <div>
-      <h1 class="main_title mt-3"><%= t('view.record_edit') %></h1>
-    </div>
-    <div>
-      <%= render 'form', record: @record %>
+<div class="row">
+  <div class="col-2">
+    <%= render 'layouts/side_bar' %>
+  </div>
+  <div class="nutrition_record_form_wrapper col-7 offset-1">
+    <div class="d-flex flex-column justify-content-center align-items-center p-3">
+      <div>
+        <h1 class="main_title mt-3"><%= t('view.record_edit') %></h1>
+      </div>
+      <div class="nutrition_record_form_container justify-content-center align-items-center scroll">
+        <%= render 'form', record: @record %>
+      </div>
+      <div class="row col-10 justify-content-center mt-3">
+        <%= link_to t('view.back'), :back, class: "btn btn-secondary" %>
+      </div>
     </div>
   </div>
 </div>
