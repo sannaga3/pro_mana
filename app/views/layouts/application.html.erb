@@ -32,7 +32,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
           <% if user_signed_in? %>
             <ul class="navbar-nav navbar-right">
-              <% if controller_name == "nutrition_records" && (action_name == "my_daily" || action_name == "index") %>
+              <% if controller_name == "nutrition_records" && (action_name == "my_daily" || action_name == "index") || controller_name == "bmis" && action_name == "index"  %>
                 <div class="dropdown">
                   <button type="button" id="dropdown1"
                       class="btn btn-secondary dropdown-toggle"

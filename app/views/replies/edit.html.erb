@@ -1,8 +1,20 @@
-<div class="d-flex flex-column justify-content-center align-items-center main_contents_container bg-white contact_new_wrapper p-3 my-5">
-  <div>
-    <h1 class="main_title"><%= t('view.reply_edit') %></h1>
-  </div>
-  <div>
-    <%= render 'form', reply: @reply %>
+<div class="main_wrapper">
+  <div class="reply_main_wrapper d-flex flex-row justify-content-around">
+    <div class="side_bar_container">
+      <%= render 'layouts/side_bar' %>
+    </div>
+    <div class="reply_form_wrapper">
+      <div class="d-flex flex-column justify-content-center align-items-center p-3">
+        <div>
+          <h1 class="main_title p-2"><%= t('view.reply_edit') %></h1>
+        </div>
+        <div class="reply_form_container scroll">
+          <%= render 'form', reply: @reply%>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <%= link_to t('view.back'), :back, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

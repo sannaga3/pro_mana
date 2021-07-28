@@ -1,8 +1,8 @@
 <%= month_calendar events: @calendar_elements do |date, nutrition_records| %>
-  <div class="text_color">
+  <div>
     <%= "#{date.day}日" %>
   </div>
-  <div class="text_color">
+  <div>
     <%= "#{NutritionRecord.sum_protein(nutrition_records)}g" if nutrition_records.length > 0 %>
   </div>
 <% end %>

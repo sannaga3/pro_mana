@@ -8,16 +8,18 @@
   border: border 1px #fff;
   border-radius: 30px;
   top: 140px;
-  left: 6%;
 }
 .nutrition_record_index_wrapper, .nutrition_record_my_daily_wrapper {
   height: 500px;
-  left: 12%;
 }
 @media only screen and (max-width: 992px) {
   .nutrition_record_index_wrapper .nutrition_record_my_daily_wrapper {
     min-width: 600px;
     left: 0;
+  }
+  .nutrition_record_form_wrapper {
+    min-width: 550px;
+    left: 5%;
   }
 }
 .nutrition_record_form_container, .nutrition_record_index_container, .nutrition_record_my_daily_container {
@@ -90,7 +92,7 @@
   margin-left: 20px;
   z-index: 1;
 }
-#toggle_button {
+#modal_button {
   width: 90px;
   height: 20px;
   font-size: 1rem;
@@ -145,13 +147,7 @@
   font-size: 1.3rem;
   padding: 0 10px;
 }
-.text_color {
-  font-size: 1.2rem;
-  color: #5b5d63;
-  background: -webkit-linear-gradient(0deg, #686565, #4b4d4a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+
 .table_border, .table_border td, .table thead th {
   border: dashed 2px #fff !important;
   z-index: 1;
