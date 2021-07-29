@@ -39,14 +39,14 @@
             <div class="nutrition_record_lines_my_daily scroll my-4">
               <% if @nutrition_records != nil %>
                 <div>
-                  <div class="d-flex flex-row">
+                  <div class="d-flex flex-row my-1">
                     <div class="col-12 text-center"><span class="bold_font_size font-weight-bold"><%= t('view.date') + ": " + "#{nutrition_record.start_time}"%></span></div>
                   </div>
                 </div>
                 <div>
                   <% nutrition_record.nutrition_record_lines.each do |line| %>
                     <% if line == nutrition_record.nutrition_record_lines.first %>
-                      <div class="d-flex flex-row justify-content-start border_bottom">
+                      <div class="d-flex flex-row justify-content-start border_bottom pb-1">
                         <div class="record_line_container_large text-center"><%= t('activerecord.attributes.food.name') %></div>
                         <div class="record_line_container_middle text-center"><%= t('activerecord.attributes.food.protein') %></div>
                         <div class="record_line_container_small text-center"><%= t('activerecord.attributes.food.quantity') %></div>
@@ -59,12 +59,12 @@
                     <% food = @foods.pick_food(line.food_id)%>
                     <% if line.food_id != nil  %>
                       <div class="d-flex flex-row justify-content-center">
-                        <div class="record_line_container_large text-center mt-2"><%= content_tag :span, food.name, id: "food_name#{index}" %></div>
-                        <div class="record_line_container_middle text-center mt-2"><%= content_tag :span, "#{food.protein}g", id: "food_protein#{index}" %></div>
-                        <div class="record_line_container_small text-center mt-2"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></div>
-                        <div class="record_line_container_small text-center mt-2"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></div>
-                        <div class="record_line_container_small text-center mt-2"><%= content_tag :span, line.ate, id: "food_ate#{index}" %></div>
-                        <div class="record_line_container_large d-flex flex-row text-center">
+                        <div class="record_line_container_large text-center mt-3"><%= content_tag :span, food.name, id: "food_name#{index}" %></div>
+                        <div class="record_line_container_middle text-center mt-3"><%= content_tag :span, "#{food.protein}g", id: "food_protein#{index}" %></div>
+                        <div class="record_line_container_small text-center mt-3"><%= content_tag :span, food.quantity, id: "food_quantity#{index}" %></div>
+                        <div class="record_line_container_small text-center mt-3"><%= content_tag :span, food.unit, id: "food_unit#{index}" %></div>
+                        <div class="record_line_container_small text-center mt-3"><%= content_tag :span, line.ate, id: "food_ate#{index}" %></div>
+                        <div class="record_line_container_large d-flex flex-row text-center mt-2 mb-1">
                           <%= link_to t('view.show'), nutrition_record_path(nutrition_record.id), class: "btn btn-outline-warning ml-3", id: "show_button#{index}" %>
                           <%= link_to t('view.edit'), edit_nutrition_record_path(nutrition_record.id), class: "btn btn-outline-success", id: "edit_button#{index}" %>
                           <%= link_to t('view.destroy'), nutrition_record_line_path(line.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-warning", id: "delete_button#{index}" %>

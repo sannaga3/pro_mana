@@ -1,6 +1,6 @@
-<hr>
 <%= form_with(model: @nutrition_record, local: true) do |f| %>
   <p class="text-center"><%= render 'layouts/error_messages', model: f.object %><%= render 'layouts/flash_message' %></p>
+  <div class="content_border"></div>
   <% if action_name == "new" || action_name == "create" %>
     <div class="d-flex flex-row justify-content-center align-items-center mt-3 ml-4">
   <% elsif action_name == "edit" || action_name == "update" %>
@@ -34,8 +34,8 @@
   </div>
   <%= f.hidden_field :user_id, value:current_user.id %>
 <% end %>
-<hr>
-<div class="d-flex flex-column justify-content-center align-items-center mt-4">
+<% if action_name == "new" || action_name == "create" %><div class="content_border"></div><% end %>
+<div class="d-flex flex-column justify-content-center align-items-center content_border my-4">
   <% if action_name == "new" || action_name == "create" %>
     <div class="mb-3"><h3 class="main_title"><%= t('view.search_foods') %></h3></div>
     <div><h5><%= t('view.search_exception') %></h5></div>
@@ -68,4 +68,3 @@
     <% end %>
   <% end %>
 </div>
-<hr>

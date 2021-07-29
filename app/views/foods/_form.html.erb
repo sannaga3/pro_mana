@@ -1,6 +1,6 @@
 <%= form_with(model: food, local: true) do |form| %>
+  <%= render 'layouts/error_messages', model: @food %>
   <div class="d-flex flex-column justify-content-center align-items-center mt-5">
-    <%= render 'layouts/error_messages', model: @food %>
     <div class="d-flex flex-row my-3">
       <div class="mx-2">
         <div><%= form.label :name, t('activerecord.attributes.food.name'), class: "label_font" %></div>

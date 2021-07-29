@@ -1,35 +1,32 @@
-<div class="row">
-  <div class="col-2">
-    <%= render 'layouts/side_bar' %>
-  </div>
-  <div class="food_show_wrapper col-7 offset-1 d-flex justify-content-center">
-    <div>
-      <div>
+<div class="main_wrapper">
+  <div class="food_main_wrapper d-flex flex-row justify-content-around">
+    <div class="side_bar_container">
+      <%= render 'layouts/side_bar' %>
+    </div>
+    <div class="food_show_wrapper">
+      <div class="d-flex flex-column justify-content-center align-items-center p-3">
         <h1 class="main_title text-center p-3"><%= t('view.food_show') %><%= render 'layouts/flash_message' %></h1>
-      </div>
-      <div class="food_show_container">
-        <div class="row mt-5 d-flex justify-content-center ml-2">
-          <div class="col-3 row-0">
-            <div class="col-12"><span class="label_font"><%= t('activerecord.attributes.food.protein')%></span></div>
-            <div class="col-12"><%= @food.name %></div>
-          </div>
-          <div class="col-3 row-0">
-            <div class="col-12"><span class="label_font"><%= t('activerecord.attributes.food.protein')%></span></div>
-            <div class="col-12"><%= "#{@food.protein}g" %></div>
-          </div>
-          <div class="col-2 row-0">
-            <div class="col-12"><span class="label_font"><%= t('activerecord.attributes.food.quantity')%></span></div>
-            <div class="col-12"><%= @food.quantity %></div>
-          </div>
-          <div class="col-2 row-0">
-            <div class="col-12"><span class="label_font"><%= t('activerecord.attributes.food.unit')%></span></div>
-            <div class="col-12"><%= @food.unit %></div>
+        <div class="food_show_container scroll">
+          <div class="d-flex flex-column justify-content-center mt-5">
+            <div class="content_border"></div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="food_item_large"><%= t('activerecord.attributes.food.protein')%></div>
+              <div class="food_item_middle"><%= t('activerecord.attributes.food.protein')%></div>
+              <div class="food_item_middle"><%= t('activerecord.attributes.food.quantity')%></div>
+              <div class="food_item_small"><%= t('activerecord.attributes.food.unit')%></div>
+            </div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="food_item_large"><%= @food.name %></div>
+              <div class="food_item_middle"><%= "#{@food.protein}g" %></div>
+              <div class="food_item_middle"><%= @food.quantity %></div>
+              <div class="food_item_small"><%= @food.unit %></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="d-flex flex-row justify-content-center align-items-center">
-        <%= link_to t('view.edit'), edit_food_path(@food.id), class: "btn btn-primary mt-4 mx-4" %>
-        <%= link_to t('view.back'), foods_path, class: "btn btn-secondary mt-4 mx-4" %>
+        <div class="d-flex flex-row justify-content-center align-items-center">
+          <%= link_to t('view.edit'), edit_food_path(@food.id), class: "btn btn-primary mt-4 mx-4" %>
+          <%= link_to t('view.back'), foods_path, class: "btn btn-secondary mt-4 mx-4" %>
+        </div>
       </div>
     </div>
   </div>

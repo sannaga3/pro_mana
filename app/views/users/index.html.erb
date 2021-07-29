@@ -1,41 +1,37 @@
-<div class="row">
-  <div class="col-2">
-    <%= render 'layouts/side_bar' %>
-  </div>
-  <div class="follow_wrapper col-7 offset-1">
-    <div class="d-flex flex-column justify-content-center align-items-center p-2">
-      <div class="col-12 text-center">
-        <h1 class="main_title py-2"><%= t('view.follow_list') %></h1>
-      </div>
-      <div class="mt-3">
-        <h5>フォロー方法: <%= link_to t('view.records_index'), nutrition_records_path %> → ユーザー名 → 個別のプロフィールページでフォローする</h5>
-      </div>
-      <div class="paginate_box rounded mt-2">
-        <%= paginate @followed_users, window: 3 %>
-      </div>
-      <div class="follow_table scroll-y">
-        <div class="d-flex flex-row justify-content-center align-items-center mt-2">
-          <div class="container">
-            <div class="row justify-content-center">
-              <span class="col-5 font-weight-bold"><%= t('view.user_name') %></span>
-              <span class="col-4 font-weight-bold"><%= t('view.follow_or_unfollow') %></span>
+<div class="main_wrapper">
+  <div class="profile_main_wrapper d-flex flex-row justify-content-around">
+    <div class="side_bar_container">
+      <%= render 'layouts/side_bar' %>
+    </div>
+    <div class="follow_wrapper">
+      <div class="d-flex flex-column justify-content-center align-items-center p-2">
+        <div class="text-center">
+          <h1 class="main_title py-2"><%= t('view.follow_list') %></h1>
+        </div>
+        <div class="mt-3">
+          <h5>フォロー方法: <%= link_to t('view.records_index'), nutrition_records_path %> → ユーザー名 → 個別のプロフィールページでフォローする</h5>
+        </div>
+        <div class="paginate_box rounded mt-2">
+          <%= paginate @followed_users, window: 3 %>
+        </div>
+        <div class="follow_container scroll">
+          <div class="d-flex flex-column justify-content-center align-items-center content_border">
+            <div class="row justify-content-center content_border">
+              <span class="follow_item"><%= t('view.user_name') %></span>
+              <span class="follow_item"><%= t('view.follow_or_unfollow') %></span>
             </div>
             <% @followed_users.each do |user| %>
-              <hr>
-              <div class="row justify-content-center">
-                <div class="col-5"><%= link_to user.name, user_path(user.id), class: "btn btn-outline-primary" %></div>
-                <div class="col-4"><%= render 'follow_form', user: user %></div>
+              <div class="row justify-content-center content_border">
+                <div class="follow_item"><%= link_to user.name, user_path(user.id), class: "btn btn-outline-primary" %></div>
+                <div class="follow_item"><%= render 'follow_form', user: user %></div>
               </div>
             <% end %>
             <hr>
           </div>
         </div>
-      </div>
-      <div class="paginate_box rounded mt-2">
-        <%= paginate @followed_users, window: 3 %>
-      </div>
-      <div class="button_design m-2">
-        <%= link_to t('view.back'), request.referer, class: "btn btn-secondary" %>
+        <div class="button_design mt-2">
+          <%= link_to t('view.back'), request.referer, class: "btn btn-secondary" %>
+        </div>
       </div>
     </div>
   </div>
