@@ -1,8 +1,20 @@
-<div class="d-flex flex-column justify-content-center align-items-center day_record_style bg-white contact_new_wrapper p-3 my-5">
-  <div>
-    <h1 class="food_text"><%= t('view.contact_new') %></h1>
-  </div>
-  <div class="contact_area">
-    <%= render 'form', food: @contact %>
+<div class="main_wrapper">
+  <div class="contact_main_wrapper d-flex flex-row justify-content-around">
+    <div class="side_bar_container">
+      <%= render 'layouts/side_bar' %>
+    </div>
+    <div class="contact_form_wrapper">
+      <div class="d-flex flex-column justify-content-center align-items-center p-3">
+        <div>
+          <h1 class="main_title pt-2"><%= t('view.contact_new') %></h1>
+        </div>
+        <div class="contact_form_container scroll">
+          <%= render 'form', contact: @contact %>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <%= link_to t('view.back'), contacts_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

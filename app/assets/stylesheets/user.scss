@@ -12,14 +12,6 @@
   width: 135px;
   border: none;
 }
-.sign_up_button {
-  width: 135px;
-  border: none;
-}
-.login_button {
-  width: 130px;
-  border: none;
-}
 .admin_dashboard_button {
   width: 100px;
   border: none;
@@ -39,54 +31,52 @@
 .follow_th_width {
   width: 120px;
 }
-.profile_wrapper {
-  min-height: 100%;
+.profile_wrapper, .profile_edit_wrapper, .follow_wrapper {
+  width: 60%;
+  height: 500px;
+  background: #fff;
+  border: border 1px #fff;
+  border-radius: 30px;
+  margin-top: 140px;
+  z-index: 1;
+}
+.profile_detail_container, .profile_edit_container {
+  border-radius: 20px;
+  width: 90%;
+  height: 380px;
+  border: 2px solid rgb(138, 138, 138);
+}
+.follow_wrapper {
+  height: 480px;
+}
+.follow_container {
+  width: 90%;
+  height: 280px;
+  border-radius: 20px;
+  border: 2px solid rgb(138, 138, 138);
 }
 .profile_picture {
   border-radius: 30px;
 }
-.cat_before {
+.profile_label{
   width: 150px;
-  height: 110px;
-  background-image: image_url('cat_before.png');
-  background-size: cover;
+  height: 30px;
+  text-align: left;
 }
-.cat_after {
-  width: 0px;
-  height: 0px;
-  background-image: image_url('cat_after.png');
-  background-size: cover;
+.profile_item {
+  width: 50%;
+  min-height: 30px;
 }
-.cow {
-  position: absolute;
-  bottom: 20%;
-  right: 10%;
-  width: 250px;
-  height: 200px;
-  background-image: image_url('cow.png');
-  background-size: cover;
+#introduce_form{
+  width: 150%;
+  max-height: 180px;
 }
-@media only screen and (max-width: 1200px) {
-  .cow {
-    width: 0px;
-    height: 0px;
-  }
+.follow_item, .follow_item_header {
+  width: 140px;
+  height: 40px;
+  text-align: center;
 }
-@media only screen and (max-width: 1024px) {
-  .cat_before {
-    width: 0px;
-    height: 0px;
-  }
-  .cat_after {
-    width: 130px;
-    height: 100px;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .cat_after {
-    position: static;
-    display: block;
-    width: 0px;
-    height: 0px;
-  }
+.follow_item_header {
+  height: 20px;
+  margin-bottom: 1%;
 }

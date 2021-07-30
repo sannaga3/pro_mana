@@ -1,39 +1,45 @@
-<div class="nostalgy mr-3 ml-3"></div>
-<div class="d-flex flex-column justify-content-center align-items-center day_record_style ml-5 my-5">
-  <h1 class="food_text mt-4"><%= t('view.record_show') %></h1>
-  <div class="mt-3">
-    <div class="food_th_width"><%= label :start_time, t('activerecord.attributes.nutrition_record.start_time'), class: "text-success" %></div>
-    <div class="food_th_width"><%= @nutrition_record.start_time %></div>
-  </div>
-  <div class="d-flex flex-row mt-3">
-    <div class="button_design submit_button mt-3 mx-3">
-      <%= link_to t('view.edit'), edit_nutrition_record_path(@nutrition_record), class: "button_text_color" %>
+<div class="main_wrapper">
+  <div class="nutrition_main_wrapper d-flex flex-row justify-content-around">
+    <div class="side_bar_container">
+      <%= render 'layouts/side_bar' %>
     </div>
-    <div class="button_design submit_button mt-3 mx-3">
-      <%= link_to t('view.back'), nutrition_records_path, class: "button_text_color" %>
-    </div>
-  </div>
-  <div class="d-flex flex-column ml-4 my-4">
-    <% @nutrition_record.nutrition_record_lines.each do |line| %>
-      <% food = @foods.pick_food(line.food_id) if line.food_id != nil %>
-      <% if food != nil %>
-        <% if line == @nutrition_record.nutrition_record_lines.first %>
-          <div class="d-flex flex-row mx-3 mt-3 border_top_gray">
-            <div class="show_text_width mx-3"><%= label :name, t('activerecord.attributes.food.name'), class: "text-success" %></div>
-            <div class="show_text_protein mx-3"><%= label :protein, t('activerecord.attributes.food.protein'), class: "text-success" %></div>
-            <div class="show_text_width mx-3"><%= label :quantity, t('activerecord.attributes.food.quantity'), class: "text-success" %></div>
-            <div class="show_text_width mx-3"><%= label :unit, t('activerecord.attributes.food.unit'), class: "text-success" %></div>
-            <div class="show_text_width mx-3"><%= label :ate, t('activerecord.attributes.nutrition_record_lines.ate'), class: "text-success" %></div>
+    <div class="nutrition_record_show_wrapper">
+      <h1 class="main_title text-center pt-3"><%= t('view.record_show') %><%= render 'layouts/flash_message' %></h1>
+      <div class="d-flex flex-column justify-content-center align-items-center p-3">
+        <div class="nutrition_record_show_container scroll">
+          <div class="d-flex flex-column align-items-center my-4">
+            <div class="d-flex flex-row justify-content-center m2-3">
+              <div class="record_line_container_small font-weight-bold text-center mx-3"><%= label :start_time, t('activerecord.attributes.nutrition_record.start_time') %>:</div>
+              <div class="record_line_container_middle font-weight-bold"><%= @nutrition_record.start_time %></div>
+            </div>
+            <% @nutrition_record.nutrition_record_lines.each do |line| %>
+              <% food = @foods.pick_food(line.food_id) if line.food_id != nil %>
+              <% if food != nil %>
+                <% if line == @nutrition_record.nutrition_record_lines.first %>
+                  <div class="d-flex flex-row justify-content-center mt-3 content_border">
+                    <div class="record_line_container_large"><%= label :name, t('activerecord.attributes.food.name') %></div>
+                    <div class="record_line_container_middle"><%= label :protein, t('activerecord.attributes.food.protein') %></div>
+                    <div class="record_line_container_small"><%= label :quantity, t('activerecord.attributes.food.quantity') %></div>
+                    <div class="record_line_container_small"><%= label :unit, t('activerecord.attributes.food.unit') %></div>
+                    <div class="record_line_container_small"><%= label :ate, t('activerecord.attributes.nutrition_record_lines.ate') %></div>
+                  </div>
+                <% end %>
+                <div class="d-flex flex-row justify-content-center content_border">
+                  <div class="record_line_container_large my-2"><%= food.name %></div>
+                  <div class="record_line_container_middle my-2"><%= "#{food.protein} g" %></div>
+                  <div class="record_line_container_small my-2"><%= food.quantity %></div>
+                  <div class="record_line_container_small my-2"><%= food.unit %></div>
+                  <div class="record_line_container_small my-2"><%= line.ate %></div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-        <% end %>
-        <div class="d-flex flex-row border_top_gray mx-3 mt-3">
-          <div class="show_text_width mx-3 mt-3"><%= food.name %></div>
-          <div class="show_text_protein mx-3 mt-3"><%= "#{food.protein} g" %></div>
-          <div class="show_text_width mx-3 mt-3"><%= food.quantity %></div>
-          <div class="show_text_width mx-3 mt-3"><%= food.unit %></div>
-          <div class="show_text_width mx-3 mt-3"><%= line.ate %></div>
         </div>
-      <% end %>
-    <% end %>
+        <div class="row justify-content-center mt-3">
+          <%= link_to t('view.edit'), edit_nutrition_record_path(@nutrition_record), class: "btn btn-primary mx-3" %>
+          <%= link_to t('view.back'), nutrition_records_path, class: "btn btn-secondary mx-3" %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -225,7 +225,7 @@ ja:
     profile: プロフィール
     user_name: ユーザー名
     follow: フォロー
-    follow_list: フォロー一覧
+    follow_list: フォローリスト
     food_name: 食品名
     protein: タンパク質
     quantity: 量
@@ -254,6 +254,8 @@ ja:
     protein_quantity: タンパク質含有量
     over: g以上
     less: g以下
+    password_information: パスワードを再度入力
+    input_over_than6: 6文字以上
     input_over_than: 整数で1以上を入力
     input_less_than100: 100文字以下で入力
     input_less_than50: 50文字以下で入力
@@ -273,6 +275,7 @@ ja:
     contact_new: 新規お問合せ
     contact_show: お問合せ詳細
     contact_edit: お問合せ編集
+    contact_content: お問合せ内容
     reply_new: 返信作成
     reply_edit: 返信編集
     reply_index: 返信一覧

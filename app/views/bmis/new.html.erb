@@ -1,6 +1,20 @@
-<div class="d-flex flex-column justify-content-center align-items-center container bmi_wrapper">
-  <div class="my-3">
-    <h1 class="food_text"><%=t('view.bmi_registration') %></h1>
+<div class="main_wrapper">
+  <div class="bmi_main_wrapper d-flex flex-row justify-content-around">
+    <div class="side_bar_container">
+      <%= render 'layouts/side_bar' %>
+    </div>
+    <div class="bmi_form_wrapper">
+      <div class="d-flex flex-column justify-content-center align-items-center p-3">
+        <div>
+          <h1 class="main_title pb-2"><%=t('view.bmi_registration') %></h1>
+        </div>
+        <div class="bmi_form_container scroll">
+          <%= render 'form', bmi: @bmi%>
+        </div>
+        <div class="row justify-content-center mt-3">
+          <%= link_to t('view.back'), :back, class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= render 'form' %>
 </div>

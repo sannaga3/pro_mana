@@ -51,7 +51,7 @@ class NutritionRecordsController < ApplicationController
 
   def destroy
     @nutrition_record.destroy
-    redirect_to contacts_path, notice: t('notice.destroy_record')
+    redirect_to request.referer, notice: t('notice.destroy_record')
   end
 
   def my_daily

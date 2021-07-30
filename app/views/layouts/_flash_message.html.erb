@@ -1,0 +1,13 @@
+<% if !user_signed_in? %>
+  <% if notice %>
+    <span class="notice alert-light text-center"><%= notice %></span>
+  <% elsif alert%>
+    <span class="alert alert-light text-center"><%= alert %></span>
+  <% end %>
+<% else %>
+  <% if notice %>
+    <span class="after_login_notice text-center"><%= notice %></span>
+  <% elsif alert%>
+    <span class="after_login_alert text-center"><%= alert %></span>
+  <% end %>
+<% end %>

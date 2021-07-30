@@ -3,11 +3,11 @@
   <% unless current_user.following(user) %>
     <%= form_with(model: current_user.active_friendships.build(followed_id: user.id)) do |f| %>
       <%= f.hidden_field :followed_id %>
-      <%= f.submit "フォロー", class: "button_design follow_button", id: "follow#{index}" %>
+      <%= f.submit "フォロー", class: "btn btn-info", id: "follow#{index}" %>
     <% end %>
   <% else %>
     <%= form_with(model: current_user.active_friendships.find_by(followed_id: user.id), method: :delete ) do |f| %>
-      <%= f.submit "フォロー解除", class: "button_design unfollow_button", id: "unfollow#{index}"%>
+      <%= f.submit "フォロー解除", class: "btn btn-warning text-white", id: "unfollow#{index}"%>
     <% end %>
   <% end %>
 </div>

@@ -1,49 +1,64 @@
-<div class="d-flex flex-column justify-content-center align-items-center contact-show_wrapper day_record_style bg-white mt-5">
-  <h1 class="food_text mt-3"><%= t('view.contact_show') %></h1>
-  <div class="reply_index_wrapper d-flex flex-column justify-content-left container">
-    <div class="mx-3 mt-3 row contact_area">
-      <div class="col-3 text-left reply_content_title mt-4"><%= label :name, t('activerecord.attributes.contact.title'), class: "text-success" %></div>
-      <div class="col-9 text-left reply_content_area mt-4"><%= @contact.title %></div>
-      <div class="col-3 text-left reply_content_title mt-4"><%= label :protein, t('activerecord.attributes.contact.content'), class: "text-success" %></div>
-      <div class="col-9 text-left reply_content_area mt-4"><%= @contact.content %></div>
-      <div class="button_design submit_button mt-5 mx-3">
-        <%= link_to t('view.edit'), edit_contact_path(@contact.id), class: "button_text_color" %>
-      </div>
-      <div class="button_design submit_button mt-5 my-2 mx-3">
-        <%= link_to t('view.back'), contacts_path, class: "button_text_color" %>
-      </div>
+<div class="main_wrapper">
+  <div class="contact_main_wrapper d-flex flex-row justify-content-around">
+    <div class="side_bar_container">
+      <%= render 'layouts/side_bar' %>
     </div>
-  </div>
-  <div class="food_text my-3"><h1><%= t('view.reply_index') %></h1></div>
-  <div class="reply_index_wrapper d-flex flex-column justify-content-left container">
-    <% index = 0 %>
-    <% if @replies != nil %>
-      <% @replies.each do |reply| %>
-        <div class="mx-3 mt-3 row contact_area">
-          <div class="col-3 text-left reply_content_title" ><%= label :replier_id, t('activerecord.attributes.reply.replier_id'), class: "text-success" %></div>
-          <div class="col-9 text-left reply_name_area"><%= content_tag :span, reply.user.name, id: "replier#{index}", class: "reply_name_content" %></div>
-          <div class="col-3 text-left reply_content_title mt-4"><%= label :comment, t('activerecord.attributes.reply.comment'), class: "text-success" %></div>
-          <div class="col-9 text-left reply_content_area mt-4"><%= content_tag :span, reply.comment, id: "comment#{index}" %></div>
-          <% if reply.user_id == current_user.id %>
-            <div class="button_design submit_button mt-5 mx-3">
-              <%= link_to t('view.edit'), edit_reply_path(id: reply.id, contact_id: @contact.id), id: "edit_button#{index}", class: "button_text_color" %>
-            </div>
-            <div class="button_design submit_button mt-5 mx-3">
-              <%= link_to t('view.destroy'), reply_path(id: reply.id), method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy_button#{index}", class: "button_text_color" %>
-            </div>
-          <% end %>
-          <br>
+    <div class="contact_show_wrapper">
+      <div class="d-flex flex-column justify-content-center align-items-center p-3">
+        <div>
+          <h1 class="main_title pt-2"><%= t('view.contact_show') %><%= render 'layouts/flash_message' %></h1>
         </div>
-        <% index += 1 %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="reply_index_wrapper d-flex flex-row justify-content-left">
-    <div class="button_design submit_button mx-5 mt-4">
-      <%= link_to t('view.reply_new'), new_reply_path(contact_id: @contact.id), class: "button_text_color" %>
-    </div>
-    <div class="button_design submit_button mx-5 mt-4">
-      <%= link_to t('view.back'), contacts_path, class: "button_text_color" %>
+        <div class="contact_show_container scroll">
+          <div class="d-flex flex-column justify-content-center">
+            <div class="main_title mt-3 text-center"><h2><%= t('view.contact_content') %></h2></div>
+            <div class="d-flex flex-row justify-content-center">
+              <div class="text-left reply_title mt-3"><%= label :name, t('activerecord.attributes.contact.title') %></div>
+              <div class="text-left reply_content mt-3"><%= @contact.title %></div>
+            </div>
+            <div class="d-flex flex-row justify-content-center">
+              <div class="text-left reply_title mt-3"><%= label :protein, t('activerecord.attributes.contact.content') %></div>
+              <div class="text-left reply_content mt-3"><%= @contact.content %></div>
+            </div>
+            <div class="contact_show_buttons d-flex justify-content-end">
+              <%= link_to t('view.edit'), edit_contact_path(@contact.id), class: "btn btn-primary mx-2" %>
+              <%= link_to t('view.back'), contacts_path, class: "btn btn-secondary mx-2" %>
+            </div>
+          </div>
+          <div class="reply_border"></div>
+          <div class="main_title mt-3 text-center"><h2><%= t('view.reply_index') %></h2></div>
+          <div class="d-flex flex-column justify-content-left">
+            <% index = 0 %>
+            <% if @replies != nil %>
+              <% @replies.each do |reply| %>
+                <div class="d-flex flex-column">
+                  <div class="d-flex flex-row justify-content-center">
+                    <div class="text-left reply_title mt-3"><%= label :replier_id, t('activerecord.attributes.reply.replier_id') %></div>
+                    <div class="text-left reply_content mt-3"><%= content_tag :span, reply.user.name, id: "replier#{index}" %></div>
+                  </div>
+                  <div class="d-flex flex-row justify-content-center">
+                    <div class="text-left reply_title mt-3"><%= label :comment, t('activerecord.attributes.reply.comment') %></div>
+                    <div class="text-left reply_content mt-3"><%= content_tag :span, reply.comment, id: "comment#{index}" %></div>
+                  </div>
+                </div>
+                <% if reply.user_id == current_user.id %>
+                  <div class="contact_show_buttons d-flex justify-content-end">
+                    <%= link_to t('view.edit'), edit_reply_path(id: reply.id, contact_id: @contact.id), id: "edit_button#{index}", class: "btn btn-primary mx-2" %>
+                    <%= link_to t('view.destroy'), reply_path(id: reply.id), method: :delete, data: { confirm: 'Are you sure?' }, id: "destroy_button#{index}", class: "btn btn-secondary mx-2" %>
+                  </div>
+                <% end %>
+                <div class="reply_border"></div>
+                <% index += 1 %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="row justify-content-center my-3">
+            <%= link_to t('view.reply_new'), new_reply_path(contact_id: @contact.id), class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div class="justify-content-center mt-3">
+          <%= link_to t('view.back'), contacts_path, class: "btn btn-secondary" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
