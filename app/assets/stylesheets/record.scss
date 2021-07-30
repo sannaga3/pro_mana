@@ -9,8 +9,11 @@
   margin-top: 140px;
   z-index: 1;
 }
-.nutrition_record_index_wrapper, .nutrition_record_my_daily_wrapper {
+.nutrition_record_index_wrapper {
   height: 500px;
+}
+.nutrition_record_my_daily_wrapper {
+  height: 510px;
 }
 @media only screen and (max-width: 992px) {
   .nutrition_record_index_wrapper .nutrition_record_my_daily_wrapper {
@@ -19,7 +22,6 @@
   }
   .nutrition_record_form_wrapper {
     min-width: 550px;
-    left: 5%;
   }
 }
 .nutrition_record_form_container, .nutrition_record_index_container, .nutrition_record_my_daily_container, .nutrition_record_show_container {
@@ -28,8 +30,11 @@
   height: 350px;
   border: 2px solid rgb(138, 138, 138);
 }
-.nutrition_record_index_container, .my_daily_container {
-  height: 370px;
+.nutrition_record_index_container {
+  height: 360px;
+}
+.my_daily_container {
+  height: 380px;
 }
 .nutrition_record_lines_container {
   width: 90%;

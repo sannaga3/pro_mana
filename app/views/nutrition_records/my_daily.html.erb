@@ -4,6 +4,9 @@
       <div class="d-flex flex-row justify-content-right">
         <h1 class="main_title"><%= t('view.my_daily_record') %></h1><span class="my_target"><%= t('activerecord.attributes.user.protein_target')  + ": " + current_user.protein_target.to_s + " g" %></span>
       </div>
+      <div>
+        <%= render 'layouts/flash_message' %>
+      </div>
       <div class="d-flex flex-row justify-content-center align-items-center">
         <div class="paginate_box rounded mt-2">
           <%= paginate @nutrition_records, window: 3 %>
@@ -11,26 +14,6 @@
         <button type="button" class="btn btn-primary mb-2 ml-5" data-toggle="modal" data-target="#Modal", id="modal_button">
           カレンダー
         </button>
-        <div class="modal_contents_container">
-          <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
-            <div class="modal-dialog modalog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="Modal">タンパク質カレンダー</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= render 'calendar', record: @calendar_elements %>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_button">閉じる</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
       <div class="nutrition_record_my_daily_container scroll">
         <div class="d-flex flex-column justify-content-center align-items-center ml-3">
@@ -81,6 +64,26 @@
               <% end %>
             </div>
           <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal_contents_container">
+  <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
+    <div class="modal-dialog modalog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Modal">タンパク質カレンダー</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render 'calendar', record: @calendar_elements %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_button">閉じる</button>
         </div>
       </div>
     </div>
