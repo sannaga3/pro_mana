@@ -46,9 +46,12 @@
   height: 380px;
   border: 2px solid rgb(138, 138, 138);
 }
+.follow_wrapper {
+  height: 480px;
+}
 .follow_container {
   width: 90%;
-  height: 270px;
+  height: 280px;
   border-radius: 20px;
   border: 2px solid rgb(138, 138, 138);
 }
@@ -75,4 +78,5 @@
 }
 .follow_item_header {
   height: 20px;
+  margin-bottom: 1%;
 }

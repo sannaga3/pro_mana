@@ -17,8 +17,8 @@
         <div class="follow_container scroll">
           <div class="d-flex flex-column justify-content-center align-items-center content_border">
             <div class="row justify-content-center content_border">
-              <span class="follow_item"><%= t('view.user_name') %></span>
-              <span class="follow_item"><%= t('view.follow_or_unfollow') %></span>
+              <span class="follow_item_header"><%= t('view.user_name') %></span>
+              <span class="follow_item_header"><%= t('view.follow_or_unfollow') %></span>
             </div>
             <% @followed_users.each do |user| %>
               <div class="row justify-content-center content_border">
@@ -29,7 +29,7 @@
             <hr>
           </div>
         </div>
-        <div class="button_design mt-2">
+        <div class="row justify-content-center mt-2">
           <%= link_to t('view.back'), request.referer, class: "btn btn-secondary" %>
         </div>
       </div>
