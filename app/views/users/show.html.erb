@@ -8,45 +8,43 @@
         <div>
           <h1 class="main_title pb-2"><%= t('view.profile') %><%= render 'layouts/flash_message' %></h1>
         </div>
-          <div class="profile_detail_container scroll">
-            <div class="d-flex flex-column justify-content-center">
-              <div class="content_border"></div>
-              <div class="d-flex flex-row justify-content-center content_border">
-                <div class="profile_label"><%= t('activerecord.attributes.user.name') %>: </div>
-                <div class="profile_item"><%= @user.name if @user.name%></div>
-              </div>
-              <div class="d-flex flex-row justify-content-center content_border">
-                <div class="profile_label"><%= t('activerecord.attributes.user.email') %>:</div>
-                <div class="profile_item"><%= @user.email %></div>
-              </div>
-              <div class="d-flex flex-row justify-content-center content_border">
-                <div class="profile_label"><%= t('activerecord.attributes.user.profile_image') %>:</div>
-                <% if @user.profile_image? %>
-                  <div class="profile_item"><%= image_tag @user.profile_image.url, class: "profile_picture" %></div>
-                <% end %>
-              </div>
-              <div class="d-flex flex-row justify-content-center content_border">
-                <div class="profile_label"><%= t('activerecord.attributes.user.profile_comment') %>: </div>
-                <div class="profile_item"><%= @user.profile_comment if @user.profile_comment %></div>
-              </div>
-              <div class="d-flex flex-row justify-content-center content_border">
-                <div class="profile_label"><%= t('activerecord.attributes.bmi.height') %>:</div>
-                <div class="profile_item "><%= @bmi.height if @bmi %>cm</div>
-              </div>
-              <div class="d-flex flex-row justify-content-center content_border">
-                <div class="profile_label"><%= t('activerecord.attributes.bmi.weight') %>:</div>
-                <div class="profile_item"><%= @bmi.weight if @bmi %>kg</div>
-              </div>
-              <div class="d-flex flex-row justify-content-center content_border">
-                <div class="profile_label"><%= t('activerecord.attributes.user.protein_target') %>:</div>
-                <div class="profile_item"><%= @user.protein_target if @user.protein_target %>g</div>
-              </div>
-              <div class="content_border"></div>
+        <div class="profile_detail_container scroll">
+          <div class="d-flex flex-column justify-content-center">
+            <div class="content_border"></div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="profile_label"><%= t('activerecord.attributes.user.name') %>: </div>
+              <div class="profile_item"><%= @user.name if @user.name%></div>
             </div>
-           <% end %>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="profile_label"><%= t('activerecord.attributes.user.email') %>:</div>
+              <div class="profile_item"><%= @user.email %></div>
+            </div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="profile_label"><%= t('activerecord.attributes.user.profile_image') %>:</div>
+              <% if @user.profile_image? %>
+                <div class="profile_item"><%= image_tag @user.profile_image.url, class: "profile_picture" %></div>
+              <% end %>
+            </div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="profile_label"><%= t('activerecord.attributes.user.profile_comment') %>: </div>
+              <div class="profile_item"><%= @user.profile_comment if @user.profile_comment %></div>
+            </div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="profile_label"><%= t('activerecord.attributes.bmi.height') %>:</div>
+              <div class="profile_item "><%= @bmi.height if @bmi %>cm</div>
+            </div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="profile_label"><%= t('activerecord.attributes.bmi.weight') %>:</div>
+              <div class="profile_item"><%= @bmi.weight if @bmi %>kg</div>
+            </div>
+            <div class="d-flex flex-row justify-content-center content_border">
+              <div class="profile_label"><%= t('activerecord.attributes.user.protein_target') %>:</div>
+              <div class="profile_item"><%= @user.protein_target if @user.protein_target %>g</div>
+            </div>
+            <div class="content_border"></div>
           </div>
         </div>
-        <div class="d-flex flex-row justify-content-center">
+        <div class="d-flex flex-row justify-content-center mt-3">
           <% if @user != current_user %>
             <div class="mx-5"><%= render 'follow_form', user: @user %></div>
           <% else %>
