@@ -2,7 +2,7 @@
   <div class="bmi_index_wrapper">
     <div class="d-flex flex-column justify-content-center align-items-center">
       <h1 class="main_title p-2"><%= t('view.bmi_index') %><%= render 'layouts/flash_message' %></h1>
-      <div class="graph_button_container">
+      <div class="graph_button_container d-flex flex-row justify-content-center">
         <div class="graph_paginate"><%= paginate @bmis, window: 3 %></div>
         <button type="button" class="btn btn-primary ml-3" data-toggle="modal" data-target="#Modal", id="graph_modal_button">
           BMIグラフ
