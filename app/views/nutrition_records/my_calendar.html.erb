@@ -1,0 +1,21 @@
+<div class="d-flex flex-column justify-content-start align-items-center">
+  <%= month_calendar events: @calendar_elements do |date, nutrition_records| %>
+    <div>
+      <%= "#{date.day}日" %>
+    </div>
+    <div>
+      <%= "#{NutritionRecord.sum_protein(nutrition_records)}g" if nutrition_records.length > 0 %>
+    </div>
+  <% end %>
+  <div class="row justify-content-center mb-3">
+    <%= link_to t('view.close'), "#", id: "close_calendar", class: "btn btn-primary" %>
+  </div>
+</div>
+
+<script>
+$(function() {
+  $('#close_calendar').on('click', function(e) {
+    window.close();
+  });
+});
+</script>

@@ -55,9 +55,12 @@ class NutritionRecordsController < ApplicationController
   end
 
   def my_daily
-    @calendar_elements = current_user.nutrition_records.order(start_time: :desc)
-    @nutrition_records = @calendar_elements.page(params[:page]).per(5)
+    @nutrition_records = current_user.nutrition_records.order(start_time: :desc).page(params[:page]).per(5)
     @nutrition_record_lines = @nutrition_records.map { |line| line.nutrition_record_lines }
+  end
+
+  def my_calendar
+    @calendar_elements = current_user.nutrition_records.order(start_time: :desc)
   end
 
   private

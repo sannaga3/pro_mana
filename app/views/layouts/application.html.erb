@@ -15,12 +15,15 @@
   </head>
 
   <body>
-    <div class="top_image body_wrapper">
-      <% if user_signed_in? %>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <% else %>
-        <nav class="navbar navbar-top navbar-expand-lg navbar-light bg-light fixed-top">
-      <% end %>
+    <% if controller_name == "nutrition_records" && action_name == "my_calendar" %>
+      <%= yield %>
+    <% else %>
+      <div class="top_image body_wrapper">
+        <% if user_signed_in? %>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <% else %>
+          <nav class="navbar navbar-top navbar-expand-lg navbar-light bg-light fixed-top">
+        <% end %>
         <%= link_to 'プロマネ', "/", class: "logo" %>
         <% if user_signed_in? %>
           <ul class="navbar-nav mr-auto">
@@ -38,11 +41,7 @@
             <ul class="navbar-nav navbar-right">
               <% if controller_name == "nutrition_records" && (action_name == "my_daily" || action_name == "index") || controller_name == "bmis" && action_name == "index"  %>
                 <div class="dropdown">
-                  <button type="button" id="dropdown1"
-                      class="btn btn-secondary dropdown-toggle"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false">
+                  <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     メインコンテンツ
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdown1">
@@ -54,11 +53,7 @@
                   </div>
                 </div>
                 <div class="dropdown">
-                  <button type="button" id="dropdown2"
-                      class="btn btn-secondary dropdown-toggle"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false">
+                  <button type="button" id="dropdown2" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     サブコンテンツ
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdown1">
@@ -83,10 +78,11 @@
             </ul>
           <% end %>
         </div>
-      </nav>
-      <%= yield %>
-    </div>
-    <% if (controller_name != "top" || controller_name == "user_guide") && !((controller_name == "sessions" || controller_name == "registrations" ) && (action_name == "new" || action_name == "create" )) %>
+        </nav>
+        <%= yield %>
+      </div>
+    <% end %>
+    <% if (controller_name != "top" || controller_name == "user_guide") && !((controller_name == "sessions" || controller_name == "registrations" ) && (action_name == "new" || action_name == "create" )) && !((controller_name == "nutrition_records" ) && (action_name == "my_calendar" )) %>
       <footer class="footer fixed-bottom">
         <li id="copy_right">&copy; tetsuya</li>
       </footer>
