@@ -15,81 +15,83 @@
   </head>
 
   <body>
-    <div class="top_image body_wrapper">
-      <% if user_signed_in? %>
+    <% if controller_name == "nutrition_records" && action_name == "my_calendar" %>
+      <%= yield %>
+    <% else %>
+      <div class="top_image body_wrapper">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <% else %>
-        <nav class="navbar navbar-top navbar-expand-lg navbar-light bg-light fixed-top">
-      <% end %>
-        <%= link_to 'プロマネ', "/", class: "logo" %>
-        <% if user_signed_in? %>
-          <ul class="navbar-nav mr-auto">
-            <li class="header_user_name">
-              <%= t('view.user_name') %>: <%= current_user.name %>
-              <%= "admin" if current_user.admin == true %>
-            </li>
-          </ul>
-        <% end %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <%= link_to 'プロマネ', "/", class: "logo" %>
           <% if user_signed_in? %>
-            <ul class="navbar-nav navbar-right">
-              <% if controller_name == "nutrition_records" && (action_name == "my_daily" || action_name == "index") || controller_name == "bmis" && action_name == "index"  %>
-                <div class="dropdown">
-                  <button type="button" id="dropdown1"
-                      class="btn btn-secondary dropdown-toggle"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false">
-                    メインコンテンツ
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown_item"><%= link_to t('view.food_new'), new_food_path, class: "px-2 nav-link" %></li>
-                    <li class="dropdown_item"><%= link_to t('view.foods_index'), foods_path, class: "px-2 nav-link" %></li>
-                    <li class="dropdown_item"><%= link_to t('view.record_new'), new_nutrition_record_path, class: "px-2 nav-link" %></li>
-                    <li class="dropdown_item"><%= link_to t('view.my_daily_record'), my_daily_nutrition_record_path(current_user.id), class: "px-2 nav-link" %></li>
-                    <li class="dropdown_item"><%= link_to t('view.records_index'), nutrition_records_path, class: "px-2 nav-link" %></li>
-                  </div>
-                </div>
-                <div class="dropdown">
-                  <button type="button" id="dropdown2"
-                      class="btn btn-secondary dropdown-toggle"
-                      data-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false">
-                    サブコンテンツ
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdown1">
-                    <li class="dropdown_item"><%= link_to t('view.profile'), user_path(current_user.id), class: "nav-link" %></li>
-                    <li class="dropdown_item"><%= link_to t('view.follow'), users_path, class: "nav-link" %></li>
-                    <li class="dropdown_item"><%= link_to t('view.contact'), contacts_path, class: "nav-link" %></li>
-                  </div>
-                </div>
-              <% else %>
-                <li class="nav-item"><%= link_to t('view.profile'), user_path(current_user.id), class: "nav-link" %></li>
-                <li class="nav-item"><%= link_to t('view.follow'), users_path, class: "nav-link" %></li>
-                <li class="nav-item"><%= link_to t('view.contact'), contacts_path, class: "nav-link" %></li>
-              <% end %>
-              <li class="nav-item"><%= link_to t('view.logout'), destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-            </ul>
-          <% else %>
             <ul class="navbar-nav mr-auto">
-              <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "login nav-link", id: "guest_login" %></li>
-              <%= link_to t('view.sign_up'), new_user_registration_path, class: "nav-link" %>
-              <%= link_to t('view.login'), new_user_session_path, class: "nav-link" %>
-              <%= link_to t('view.user_guide'), user_guide_index_path, class: "nav-link" %>
+              <li class="header_user_name">
+                <%= t('view.user_name') %>: <%= current_user.name %>
+                <%= "admin" if current_user.admin == true %>
+              </li>
             </ul>
           <% end %>
-        </div>
-      </nav>
-      <%= yield %>
-    </div>
-    <% if (controller_name != "top" || controller_name == "user_guide") && !((controller_name == "sessions" || controller_name == "registrations" ) && (action_name == "new" || action_name == "create" )) %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <% if user_signed_in? %>
+              <ul class="navbar-nav navbar-right">
+                <% if controller_name == "nutrition_records" && (action_name == "my_daily" || action_name == "index") || controller_name == "bmis" && action_name == "index"  %>
+                  <div class="dropdown">
+                    <button type="button" id="dropdown1" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      メインコンテンツ
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdown1">
+                      <li class="dropdown_item"><%= link_to t('view.food_new'), new_food_path, class: "px-2 nav-link" %></li>
+                      <li class="dropdown_item"><%= link_to t('view.foods_index'), foods_path, class: "px-2 nav-link" %></li>
+                      <li class="dropdown_item"><%= link_to t('view.record_new'), new_nutrition_record_path, class: "px-2 nav-link" %></li>
+                      <li class="dropdown_item"><%= link_to t('view.my_daily_record'), my_daily_nutrition_record_path(current_user.id), class: "px-2 nav-link" %></li>
+                      <li class="dropdown_item"><%= link_to t('view.records_index'), nutrition_records_path, class: "px-2 nav-link" %></li>
+                    </div>
+                  </div>
+                  <div class="dropdown">
+                    <button type="button" id="dropdown2" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      サブコンテンツ
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdown1">
+                      <li class="dropdown_item"><%= link_to t('view.profile'), user_path(current_user.id), class: "nav-link" %></li>
+                      <li class="dropdown_item"><%= link_to t('view.follow'), users_path, class: "nav-link" %></li>
+                      <li class="dropdown_item"><%= link_to t('view.contact'), contacts_path, class: "nav-link" %></li>
+                    </div>
+                  </div>
+                <% else %>
+                  <li class="nav-item"><%= link_to t('view.profile'), user_path(current_user.id), class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to t('view.follow'), users_path, class: "nav-link" %></li>
+                  <li class="nav-item"><%= link_to t('view.contact'), contacts_path, class: "nav-link" %></li>
+                <% end %>
+                <li class="nav-item"><%= link_to t('view.logout'), destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+              </ul>
+            <% else %>
+              <ul class="navbar-nav mr-auto">
+                <%= link_to t('view.guest_login'), users_guest_sign_in_path, method: :post, class: "login nav-link", id: "guest_login" %></li>
+                <%= link_to t('view.sign_up'), new_user_registration_path, class: "nav-link" %>
+                <%= link_to t('view.login'), new_user_session_path, class: "nav-link" %>
+                <%= link_to t('view.user_guide'), user_guide_index_path, class: "nav-link" %>
+              </ul>
+            <% end %>
+          </div>
+        </nav>
+        <%= yield %>
+      </div>
+    <% end %>
+    <% if (controller_name != "top" || controller_name == "user_guide") && !((controller_name == "sessions" || controller_name == "registrations" ) && (action_name == "new" || action_name == "create" )) && !((controller_name == "nutrition_records" ) && (action_name == "my_calendar" )) %>
       <footer class="footer fixed-bottom">
         <li id="copy_right">&copy; tetsuya</li>
       </footer>
     <% end %>
   </body>
 </html>
+
+<script>
+  $(function() {
+    if($('.main_sentence').length) {
+      $("nav").addClass("navbar-top");
+    } else {
+      $("nav").removeClass("navbar-top");
+    }
+  });
+</script>

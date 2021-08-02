@@ -11,9 +11,7 @@
         <div class="paginate_box rounded mt-2">
           <%= paginate @nutrition_records, window: 3 %>
         </div>
-        <button type="button" class="btn btn-primary mb-2 ml-5" data-toggle="modal" data-target="#Modal", id="modal_button">
-          カレンダー
-        </button>
+        <%= link_to "カレンダー", my_calendar_nutrition_record_path(current_user.id), id: "my_calendar", class: "btn btn-primary mb-2 ml-5"%>
       </div>
       <div class="nutrition_record_my_daily_container scroll">
         <div class="d-flex flex-column justify-content-center align-items-center ml-3">
@@ -70,23 +68,14 @@
     </div>
   </div>
 </div>
-<div class="modal_contents_container">
-  <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="Modal" aria-hidden="true">
-    <div class="modal-dialog modalog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="Modal">タンパク質カレンダー</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <%= render 'calendar', record: @calendar_elements %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close_button">閉じる</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+<script>
+  $(function() {
+    $('#my_calendar').on('click', function(e) {
+      width_locate = window.innerWidth / 2 - 237;
+      height_locate = window.innerHeight / 5;
+      window.open(this.href, 'my_calendar', 'width=475 height=610' + ',' + 'top=' + height_locate + ',' + 'left=' + width_locate );
+      return false;
+    });
+  });
+</script>

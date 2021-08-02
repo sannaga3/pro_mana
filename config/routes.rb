@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :nutrition_records do
     get 'my_daily', on: :member
+    get 'my_calendar', on: :member
   end
   resources :nutrition_record_lines, only: %i[destroy]
   resources :friendships, only: %i[create destroy]
