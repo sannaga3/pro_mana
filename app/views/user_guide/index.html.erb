@@ -1,194 +1,26 @@
-<div class="guide_container">
-  <div class="text-center">
-    <hr>
-    <h1 class="main_title"><%= t('view.user_guide') %></h1>
-    <hr>
+<div class="main_wrapper d-flex flex-row justify-content-center">
+  <div class="user_guide_wrapper">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <h1 class="main_title text-center p-3"><%= t('view.user_guide') %></h1>
+      <div class="user_guide_container scroll">
+        <div class="d-flex flex-column justify-content-center align-items-center p-3">
+          <section>
+            <h2 class="text-center pb-2">機能一覧</h2>
+            <ol class="guide_font">
+              <li><%= link_to t('view.top_page'), user_guide_index_path(anchor: 'top_page'), class: "guide_font px-2" %>・・・サインアップまたはログインページに飛びます。</li>
+              <li><%= link_to t('view.profile'), user_guide_index_path(anchor: 'profile'), class: "guide_font px-2" %>・・・自身のプロフィールを管理するページです。</li>
+              <li><%= link_to t('view.food_new'), user_guide_index_path(anchor: 'food_new'), class: "guide_font px-2" %>・・・食品とタンパク質量を登録します。</li>
+              <li><%= link_to t('view.record_new'), user_guide_index_path(anchor: 'record_new'), class: "guide_font px-2" %>・・・登録した食品とタンパク質を日付毎に記録します。</li>
+              <li><%= link_to t('view.food_copy'), user_guide_index_path(anchor: 'food_copy'), class: "guide_font px-2" %>・・・みんなの記録ページには「自分の食品に登録する」ボタンがあり、他の人の食品を自分の食品に登録できます。</li>
+              <li><%= link_to t('view.follow_function'), user_guide_index_path(anchor: 'follow_function'), class: "guide_font px-2" %>・・・ユーザーをフォローできます。</li>
+              <li><%= link_to t('view.bmi_function'), user_guide_index_path(anchor: 'bmi_function'), class: "guide_font px-2" %>・・・身長と体重を入力し、その日のBMIを記録できます。</li>
+            </ol>
+          </section>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-3">
+        <%= link_to t('view.back'), :back, class: "btn btn-secondary" %>
+      </div>
+    </div>
   </div>
-  <section>
-    <ol>
-      <li><%= link_to t('view.top_page'), user_guide_index_path(anchor: 'top_page'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.profile'), user_guide_index_path(anchor: 'profile'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.food_new'), user_guide_index_path(anchor: 'food_new'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.record_new'), user_guide_index_path(anchor: 'record_new'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.food_copy'), user_guide_index_path(anchor: 'food_copy'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.follow_function'), user_guide_index_path(anchor: 'follow_function'), class: "px-2 nav-link" %></li>
-      <li><%= link_to t('view.bmi_function'), user_guide_index_path(anchor: 'bmi_function'), class: "px-2 nav-link" %></li>
-    </ol>
-  </section>
-  <hr>
-  <section>
-    <h3 id="top_page" class="font-weight-bold">①トップページ</h3>
-    <p>下記3つの中から自分に該当するボタンを選択し、必要項目を入力しましょう。</p>
-    <ul>
-      <li>① ゲストログイン・・・登録せずにちょこっと使ってみるお試し機能です</li>
-      <li>② サインアップ・・・最初にアカウントを作成するためのページです</li>
-      <li>③ ログイン・・・２回目以降にログインするためのページです</li>
-    </ul>
-    <img alt="top_page" src="/assets/guide3.jpg" width="650px">
-  </section>
-  <hr>
-  <section>
-    <h3 id="profile" class="font-weight-bold">②プロフィール</h3>
-    <p>
-      サインアップ、ログイン後はこのページに飛びます。
-      プロフィールの編集もできますが、まずは食品登録のリンクをクリックしてみましょう。
-    </p>
-    <ul>
-      <li>① 食品登録・・・食品をタンパク質と共に登録します</li>
-      <li>② 編集・・・サインアップ時以外のプロフィール項目を入力します</li>
-    </ul>
-    <img alt="profile" src="/assets/guide2.jpg" width="650px">
-  </section>
-  <hr>
-  <section>
-    <h3 id="food_new" class="font-weight-bold">③ 食品登録</h3>
-    <p>
-      食品登録のページです。<br><br>
-      食品名: 納豆 <br>
-      タンパク質量: 4 <br>
-      基準量: 1 <br>
-      単位: パック <br><br>
-      上記のように入力して登録ボタンをクリックしましょう。<br><br>
-    </p>
-    <img alt="food_new" src="/assets/guide3.jpg" width="650px">
-    <p>
-      <br><br>
-      すると、食品一覧ページの一番上に登録した食品が表示されます。<br>
-      この食品を元に食事記録を作成しましょう。記録作成のリンクをクリックします。
-    </p>
-    <br>
-    <img alt="food_new2" src="/assets/guide3_2.jpg" width="650px">
-  </section>
-  <hr>
-    <hr>
-  <section>
-    <h3 id="record_new" class="font-weight-bold">④ 記録作成</h3>
-    <p>食品を元にタンパク質を管理していきます。<br>
-      まずは日付、食品名、食事量の項目を全て埋めて登録ボタンをクリックしましょう。
-      <br><br>
-      食品名が多くて探せない場合は食品検索欄で検索ができます。<br><br>
-      食品名で検索 (部分検索) <br>
-      タンパク質量 (ちょうど何g) <br>
-      タンパク質量 (何g以上) <br>
-      タンパク質量 (何g以下) <br><br>
-      上記4つのいずれかで検索できます。(2つの機能を組み合わせて検索はできません)
-    </p>
-    <img alt="record_new" src="/assets/guide4.png" width="650px">
-    <br><br>
-    <p>
-      記録詳細ページに登録した内容が表示されます。<br>
-      まだ食品が１つしか登録されていないので、食品の数を増やしていきましょう。<br>
-      編集ボタンをクリックます。
-    </p>
-    <br>
-    <img alt="record_new2" src="/assets/guide4_2.jpg" width="650px">
-    <br><br>
-    <p>
-      登録欄が5つ増えるので、必要な数だけ入力して更新ボタンをクリックましょう。
-    </p>
-    <img alt="record_new3" src="/assets/guide4_3.png"height="400px" width="auto">
-    <br><br>
-    <p>
-      更新内容が反映されているのが確認できました。<br>
-      毎日の記録をクリックしましょう。
-    </p>
-    <br>
-    <img alt="record_new4" src="/assets/guide4_4.jpg" width="650px">
-    <br><br>
-    <p>
-      毎日の記録が降順で表示されます。<br>
-    </p>
-    <img alt="record_new5" src="/assets/guide4_5.png" width="650px">
-    <br><br>
-    <p>
-      カレンダーには毎日摂取したのタンパク質の合計が表示されます。<br>
-      プロフィールに設定した目標タンパク質量も表示されている為、
-      目標値を超えているかどうか確認ができます。<br><br>
-
-      記録に関する説明はこれで終わりです。<br>
-      みんなの記録のリンクをクリックましょう。
-    </p>
-    <img alt="top_page" src="/assets/guide4_6.png" width="650px">
-    <hr>
-  </section>
-  <hr>
-  <section>
-    <h3 id="food_copy" class="font-weight-bold">⑤ みんなの記録と食品コピー機能</h3>
-    <p>
-      みんなの記録では全ユーザーの記録を閲覧できます。<br>
-      他のユーザーの食品で気に入ったものがあれば、「自分の食品に登録する」ボタンで自分の食品として登録することができます。<br>
-      試しに①のヨーグルトのボタンをクリックしてみましょう。<br>
-    </p>
-    <img alt="food_copy" src="/assets/guide5.png" width="650px">
-    <br><br>
-    <p>
-      下の画像のように、食品一覧ページでヨーグルトが登録されているのを確認できます。<br><br>
-
-      次はフォロー機能です。再度みんなの記録のリンクをクリックしましょう。
-    </p>
-    <img alt="food_copy2" src="/assets/guide5_2.png" width="650px">
-  </section>
-  <hr>
-  <section>
-    <h3 id="follow_function" class="font-weight-bold">⑥ フォロー機能</h3>
-    <p>
-      みんなの記録で各記録のユーザー名がリンクになっています。クリックしてみましょう。<br>
-    </p>
-    <img alt="follow_function" src="/assets/guide6.png" width="650px">
-    <br><br>
-    <p>
-      フォロー一覧へ飛びました。<br><br>
-
-      フォローボタンをクリックするとフォローができます。<br><br>
-
-      フォローしたら、上部ヘッダーのフォローリンクをクリックしましょう。
-    </p>
-    <img alt="follow_function2" src="/assets/guide6_2.png" width="650px">
-    <br><br>
-    <p>
-      フォロー一覧では今までにフォローしたユーザーを解除できます。<br><br>
-
-      解除してから別のページへ移ってしまうとフォロー一覧から消えてしまうので、<br>
-      間違えて解除してしまった場合は、すぐにフォローし直しましょう。<br><br>
-
-      次はBMI機能です。プロフィールのリンクをクリックしましょう。
-    </p>
-    <img alt="follow_function3" src="/assets/guide6_3.png" width="650px">
-  </section>
-  <hr>
-  <section>
-    <h3 id="bmi_function" class="font-weight-bold">⑦ BMI機能</h3>
-    <p>
-      BMIボタンをクリックしましょう。<br>
-    </p>
-    <img alt="bmi_function" src="/assets/guide7.jpg" width="650px">
-    <br><br>
-    <p>
-      BMI一覧ページでは登録したBMI一覧と共に、直近30日毎のグラフが表示されます。
-    </p>
-    <img alt="bmi_function2" src="/assets/guide7_2.png" width="650px">
-    <br><br>
-    <p>
-      一番下までスクロールするとBMI作成ボタンがあるのでクリックしましょう。
-    </p>
-    <br>
-    <img alt="bmi_function3" src="/assets/guide7_3.png" width="650px">
-    <br><br>
-    <p>
-      下の写真の内容で登録してみましょう。
-    </p><br>
-    <img alt="bmi_function4" src="/assets/guide7_4.png" width="500px">
-    <br><br>
-    <p>
-      BMI一覧ページで作成したBMIが登録されているのが確認できます。<br><br>
-    </p>
-    <br>
-    <img alt="bmi_function5" src="/assets/guide7_5.png" width="650px">
-  </section>
-  <hr>
-  <section>
-  <p>ご利用ガイドは以上になります。お疲れ様でした。</p>
-  <%= link_to t('view.back_to_top'), user_guide_index_path, class: "px-2 nav-link" %>
-  </section>
-  <hr>
 </div>
