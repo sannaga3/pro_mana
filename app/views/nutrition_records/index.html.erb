@@ -51,7 +51,7 @@
                             <%= f.hidden_field :quantity, value: food.quantity %>
                             <%= f.hidden_field :unit, value: food.unit %>
                             <%= f.hidden_field :user_id, value: current_user.id %>
-                            <%= f.submit "自分の食品に登録する", class: "btn btn-outline-success mb-1", id: "my_food_button#{my_food_button_index}" %>
+                            <%= f.submit t('view.copy_my_food'), class: "btn btn-outline-success mb-1", id: "my_food_button#{my_food_button_index}" %>
                             <% my_food_button_index += 1 %>
                           <% end %>
                         <% end %>
