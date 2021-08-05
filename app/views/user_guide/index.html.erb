@@ -7,13 +7,21 @@
           <section>
             <h2 class="text-center pb-2">機能一覧</h2>
             <ol class="guide_font">
-              <li><%= link_to t('view.top_page'), user_guide_index_path(anchor: 'top_page'), class: "guide_font px-2" %>・・・サインアップまたはログインページに飛びます。</li>
-              <li><%= link_to t('view.profile'), user_guide_index_path(anchor: 'profile'), class: "guide_font px-2" %>・・・自身のプロフィールを管理するページです。</li>
-              <li><%= link_to t('view.food_new'), user_guide_index_path(anchor: 'food_new'), class: "guide_font px-2" %>・・・食品とタンパク質量を登録します。</li>
-              <li><%= link_to t('view.record_new'), user_guide_index_path(anchor: 'record_new'), class: "guide_font px-2" %>・・・登録した食品とタンパク質を日付毎に記録します。</li>
-              <li><%= link_to t('view.food_copy'), user_guide_index_path(anchor: 'food_copy'), class: "guide_font px-2" %>・・・みんなの記録ページには「自分の食品に登録する」ボタンがあり、他の人の食品を自分の食品に登録できます。</li>
-              <li><%= link_to t('view.follow_function'), user_guide_index_path(anchor: 'follow_function'), class: "guide_font px-2" %>・・・ユーザーをフォローできます。</li>
-              <li><%= link_to t('view.bmi_function'), user_guide_index_path(anchor: 'bmi_function'), class: "guide_font px-2" %>・・・身長と体重を入力し、その日のBMIを記録できます。</li>
+              <% if current_user %>
+                <li><%= link_to t('view.profile'), user_path(current_user.id), class: "guide_font px-2" %>・・・自身のプロフィールを管理します。</li>
+                <li><%= link_to t('view.food_management_function'), new_food_path, class: "guide_font px-2" %>・・・食品と共にタンパク質の量を登録します。</li>
+                <li><%= link_to t('view.record_management_function'), new_nutrition_record_path, class: "guide_font px-2" %>・・・登録した食品とタンパク質を日付毎に記録します。</li>
+                <li><%= link_to t('view.food_copy'), nutrition_records_path, class: "guide_font px-2" %>・・・みんなの記録ページには「自分の食品に登録する」ボタンがあり、他の人の食品を自分の食品として登録できます。</li>
+                <li><%= link_to t('view.follow_function'), users_path, class: "guide_font px-2" %>・・・ユーザーのフォロー及び解除を行います。</li>
+                <li><%= link_to t('view.bmi_function'), bmis_path, class: "guide_font px-2" %>・・・身長と体重を入力し、その日のBMIを記録できます。</li>
+              <% else %>
+                <li><%= t('view.profile') %>・・・自身のプロフィールを管理します。</li>
+                <li><%= t('view.food_management_function') %>・・・食品と共にタンパク質の量を登録します。</li>
+                <li><%= t('view.record_management_function') %>・・・登録した食品とタンパク質を日付毎に記録します。</li>
+                <li><%= t('view.food_copy') %>・・・みんなの記録ページには「自分の食品に登録する」ボタンがあり、他のユーザーの食品を自分の食品として登録できます。</li>
+                <li><%= t('view.follow_function') %>・・・ユーザーのフォロー及び解除を行います。</li>
+                <li><%= t('view.bmi_function') %>・・・身長と体重を入力し、その日のBMIを記録できます。</li>
+              <% end %>
             </ol>
           </section>
         </div>
