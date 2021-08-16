@@ -22,7 +22,7 @@
             <% @bmis.each do |bmi| %>
               <div class="row row_index justify-content-center">
                 <%= content_tag :div, bmi.record_on, id: "record_on#{index}", class: "col-3 text-center align-bottom mt-2" %>
-                <%= content_tag :div, bmi.status, id: "status#{index}", class: "col-2 text-center align-bottom mt-2" %>
+                <%= content_tag :div, bmi.bmi, id: "bmi#{index}", class: "col-2 text-center align-bottom mt-2" %>
                 <%= content_tag :div, bmi.height, id: "height#{index}", class: "col-2 text-center align-bottom mt-2" %>
                 <%= content_tag :div, bmi.weight, id: "weight#{index}", class: "col-2 text-center align-bottom mt-2" %>
                 <div class="col-3 text-center">
