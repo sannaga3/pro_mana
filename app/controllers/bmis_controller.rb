@@ -6,7 +6,7 @@ class BmisController < ApplicationController
     if @bmis.count > 2
       @chart_elements = []
       @bmis.each do |bmi|
-        @chart_elements << [bmi.record_on, bmi.status]
+        @chart_elements << [bmi.record_on, bmi.bmi]
       end
     end
   end
@@ -47,6 +47,6 @@ class BmisController < ApplicationController
   end
 
   def bmi_params
-    params.require(:bmi).permit(:height, :weight, :record_on, :status)
+    params.require(:bmi).permit(:height, :weight, :record_on, :bmi)
   end
 end

@@ -309,28 +309,28 @@ ActiveRecord::Base.transaction do
     Bmi.create!(
       height: first_user_height,
       weight: first_user_weight,
-      status: (first_user_weight/((first_user_height/100.0) ** 2).to_f).round(1),
+      bmi: (first_user_weight/((first_user_height/100.0) ** 2).to_f).round(1),
       record_on: day,
       user_id: first_user_id
     )
     Bmi.create!(
       height: second_user_height,
       weight: second_user_weight,
-      status: (second_user_weight/((second_user_weight/100.0) ** 2).to_f).round(1),
+      bmi: (second_user_weight/((second_user_weight/100.0) ** 2).to_f).round(1),
       record_on: day,
       user_id: second_user_id
     )
     Bmi.create!(
       height: third_user_height,
       weight: third_user_weight,
-      status: (third_user_weight/((third_user_height/100.0) ** 2).to_f).round(1),
+      bmi: (third_user_weight/((third_user_height/100.0) ** 2).to_f).round(1),
       record_on: day,
       user_id: third_user_id
     )
     Bmi.create!(
       height: guest_user_height,
       weight: guest_user_weight,
-      status: (guest_user_weight/((guest_user_height/100.0) ** 2).to_f).round(1),
+      bmi: (guest_user_weight/((guest_user_height/100.0) ** 2).to_f).round(1),
       record_on: day,
       user_id: guest_user_id
     )

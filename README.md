@@ -18,9 +18,9 @@
 ### 開発言語
 ---
 
-* Ruby2.6.5
-* Rails5.2.5
-* PostgreSQL13.2
+* Ruby 2.6.5
+* Rails 5.2.5
+* PostgreSQL 13.2
 
 ### 機能一覧
 * ユーザー管理機能
@@ -35,6 +35,7 @@
 * カレンダー機能
 * BMI計算機能
 * Heroku
+* ご利用ガイド
 
 ### 使用gem一覧
 ---
@@ -47,8 +48,6 @@
 * ransack
 * simple_calendar
 * chartkick
-* rubocop
-* pry-rails
 
 ### 実行手順
 ---

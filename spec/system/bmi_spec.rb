@@ -28,8 +28,8 @@ describe 'BMI管理機能', type: :system do
         expect(current_path).to eq bmis_path
         first_record_on = find('#record_on0')
         expect(first_record_on).to have_content '2021-07-06'
-        first_status = find('#status0')
-        expect(first_status).to have_content 22.3
+        first_bmi = find('#bmi0')
+        expect(first_bmi).to have_content 22.3
         first_height = find('#height0')
         expect(first_height).to have_content 160
         first_weight = find('#weight0')
@@ -49,8 +49,8 @@ describe 'BMI管理機能', type: :system do
         expect(current_path).to eq bmis_path
         first_record_on = find('#record_on0')
         expect(first_record_on).to have_content '2021-07-08'
-        first_status = find('#status0')
-        expect(first_status).to have_content 21.9
+        first_bmi = find('#bmi0')
+        expect(first_bmi).to have_content 21.9
         first_height = find('#height0')
         expect(first_height).to have_content 160
         first_weight = find('#weight0')

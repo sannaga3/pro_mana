@@ -48,7 +48,7 @@
           <% if @user != current_user %>
             <div class="mx-5"><%= render 'follow_form', user: @user %></div>
           <% else %>
-            <div class="mx-5"><%= link_to t('view.edit'), edit_user_registration_path(@user.id), class: "btn btn-primary" %></div>
+            <div class="mx-5"><%= link_to t('view.edit'), edit_user_registration_path(current_user.id), class: "btn btn-primary" %></div>
             <div class="mx-5"><%= link_to "BMI", bmis_path, class: "btn btn-info" %></div>
             <div class="mx-5"><%= link_to t('view.user_guide'), user_guide_index_path, class: "btn btn-secondary" %></div>
           <% end %>

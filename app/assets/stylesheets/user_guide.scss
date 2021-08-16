@@ -2,7 +2,7 @@
 
 .user_guide_wrapper {
   width: 80%;
-  height: 57%;
+  height: 515px;
   background: #fff;
   border: border 1px #fff;
   border-radius: 30px;
@@ -12,10 +12,14 @@
 .user_guide_container {
   border-radius: 20px;
   width: 90%;
-  height: 50%;
+  height: 70%;
   border: 2px solid rgb(138, 138, 138);
   z-index: 1;
 }
 .guide_font {
   font-size: 1.5rem;
+}
+.app_introduction {
+  font-size: 1.2rem;
+  text-align: left;
 }
