@@ -1,5 +1,5 @@
-class RenamebmiColumnToBmis < ActiveRecord::Migration[5.2]
+class RenameStatusColumnToBmis < ActiveRecord::Migration[5.2]
   def change
-    rename_column :bmis, :bmi, :bmi
+    rename_column :bmis, :status, :bmi
   end
 end
