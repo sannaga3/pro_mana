@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_16_122046) do
   create_table "bmis", force: :cascade do |t|
     t.integer "height", null: false
     t.float "weight", null: false
-    t.float "bmi", null: false
+    t.float "bmi"
     t.date "record_on", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
